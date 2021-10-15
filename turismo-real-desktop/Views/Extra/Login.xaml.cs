@@ -21,5 +21,12 @@ namespace turismo_real_desktop.Views.Extra
         {
             InitializeComponent();
         }
+
+        private void OpenRecoverPasswdWin(object sender, MouseButtonEventArgs e)
+        {
+            RecoverPassword recoverPasswdWin = new RecoverPassword();
+            recoverPasswdWin.Show();
+            this.Close();
+        }
     }
 }
