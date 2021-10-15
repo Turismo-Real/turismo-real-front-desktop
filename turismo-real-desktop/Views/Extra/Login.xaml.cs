@@ -1,20 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace turismo_real_desktop.Views.Extra
 {
-    /// <summary>
-    /// Interaction logic for Login.xaml
-    /// </summary>
     public partial class Login : Window
     {
         public Login()
@@ -27,6 +16,16 @@ namespace turismo_real_desktop.Views.Extra
             RecoverPassword recoverPasswdWin = new RecoverPassword();
             recoverPasswdWin.Show();
             this.Close();
+        }
+
+        private void ActiveLabel(object sender, MouseEventArgs e)
+        {
+            lblForgotPasswd.Foreground = new SolidColorBrush(Color.FromRgb(36,174,95));
+        }
+
+        private void DeactiveLabel(object sender, MouseEventArgs e)
+        {
+            lblForgotPasswd.Foreground = Brushes.Black;
         }
     }
 }

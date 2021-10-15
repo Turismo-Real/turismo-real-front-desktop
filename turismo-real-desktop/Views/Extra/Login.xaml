@@ -11,7 +11,12 @@
         <PasswordBox x:Name="txtPasswd" Password="Password"  HorizontalAlignment="Left" Margin="54,267,0,0" VerticalAlignment="Top" Width="234" Padding="10"/>
         <Button x:Name="btnLogin" Cursor="Hand" Content="INGRESAR" HorizontalAlignment="Left" Margin="54,333,0,0" VerticalAlignment="Top" Padding="10" Width="234" Foreground="White" Background="#FF24AE5F" BorderBrush="#FF24AE5F" FontWeight="Bold"/>
         <Button x:Name="btnSignup" Cursor="Hand" Content="REGISTRARME" HorizontalAlignment="Left" Margin="54,382,0,0" VerticalAlignment="Top" Padding="10" Width="234" BorderBrush="#FF24AE5F" Background="White" Foreground="#FF24AE5F" FontWeight="Bold"/>
-        <Label x:Name="lblForgotPasswd" Content="He olvidado mi contraseña" Cursor="Hand" HorizontalAlignment="Left" Margin="95,426,0,0" VerticalAlignment="Top" PreviewMouseUp="OpenRecoverPasswdWin"/>
+
+        <Grid Margin="93,425,84,32" MouseEnter="ActiveLabel" MouseLeave="DeactiveLabel">
+            <Label x:Name="lblForgotPasswd" Content="He olvidado mi contraseña" Cursor="Hand" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewMouseUp="OpenRecoverPasswdWin" Height="24" RenderTransformOrigin="0.5,0.5" HorizontalContentAlignment="Center" Width="151"/>
+        </Grid>
+
+
         <Label x:Name="lblAlert" Content="" HorizontalAlignment="Left" Margin="54,304,0,0" VerticalAlignment="Top" Width="234" HorizontalContentAlignment="Center" Height="26"/>
         <Image HorizontalAlignment="Left" Height="174" Margin="73,20,0,0" VerticalAlignment="Top" Width="174" Source="/Assets/TurismoRealLogo512.png"/>
         <Image HorizontalAlignment="Left" Height="24" Margin="23,226,0,0" VerticalAlignment="Top" Width="24" Source="/Assets/email.png"/>
