@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Input;
 using turismo_real_business.DTOs;
 using turismo_real_business.Messages;

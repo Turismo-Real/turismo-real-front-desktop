@@ -24,5 +24,6 @@ namespace turismo_real_desktop.Views.Administrador
 
             InitializeComponent();
         }
+
     }
 }
