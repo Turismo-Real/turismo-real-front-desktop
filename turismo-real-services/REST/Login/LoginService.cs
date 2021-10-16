@@ -4,20 +4,19 @@ using System.IO;
 using System.Net;
 using turismo_real_business.DTOs;
 using turismo_real_business.Messages;
+using turismo_real_services.Utils;
 
 namespace turismo_real_services.REST.Login
 {
     public class LoginService
     {
-        protected const string URL_LOGIN = "http://localhost:5000/api/v1/login";
-
         public LoginResponse CallService(LoginDTO login)
         {
             try
             {
                 string json = JsonConvert.SerializeObject(login);
 
-                WebRequest request = WebRequest.Create(URL_LOGIN);
+                WebRequest request = WebRequest.Create(URLService.URL_LOGIN);
                 request.Method = "POST";
                 request.PreAuthenticate = true;
                 request.ContentType = "Application/json; Charset=UTF-8";
@@ -51,7 +50,7 @@ namespace turismo_real_services.REST.Login
             string mensaje = obj["mensaje"];
             bool login = obj["login"];
             string tipo = obj["tipo"];
-            return new LoginResponse(mensaje,login,tipo);
+            return new LoginResponse(mensaje, login, tipo);
         }
     }
 }
