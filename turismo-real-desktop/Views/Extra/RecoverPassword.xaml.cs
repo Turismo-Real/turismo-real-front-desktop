@@ -21,5 +21,18 @@ namespace turismo_real_desktop.Views.Extra
         {
             InitializeComponent();
         }
+
+        private void OpenLoginWin(object sender, RoutedEventArgs e)
+        {
+            Login loginWindow = new Login();
+            loginWindow.Show();
+            Close();
+        }
+
+        private void RequestPasswdChange(object sender, RoutedEventArgs e)
+        {
+            changePasswdFormGrid.Visibility = Visibility.Hidden;
+            changePasswdSent.Visibility = Visibility.Visible;
+        }
     }
 }
