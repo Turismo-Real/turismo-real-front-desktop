@@ -20,6 +20,10 @@ namespace turismo_real_desktop.Views.Extra
         public SignUp()
         {
             InitializeComponent();
+
+            listbox.Items.Add("asdasdasda");
+            listbox.Items.Add("x");
+            listbox.Items.Add("y");
         }
     }
 }

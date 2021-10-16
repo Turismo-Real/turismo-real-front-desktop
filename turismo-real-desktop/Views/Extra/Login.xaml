@@ -9,8 +9,8 @@
     <Grid Height="484" VerticalAlignment="Top">
         <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Margin="54,219,0,0" Text="Correo electrónico" TextWrapping="Wrap" VerticalAlignment="Top" Width="234" Padding="10"/>
         <PasswordBox x:Name="txtPasswd" Password="Password"  HorizontalAlignment="Left" Margin="54,267,0,0" VerticalAlignment="Top" Width="234" Padding="10"/>
-        <Button x:Name="btnLogin" Cursor="Hand" Content="INGRESAR" HorizontalAlignment="Left" Margin="54,333,0,0" VerticalAlignment="Top" Padding="10" Width="234" Foreground="White" Background="#FF24AE5F" BorderBrush="#FF24AE5F" FontWeight="Bold"/>
-        <Button x:Name="btnSignup" Cursor="Hand" Content="REGISTRARME" HorizontalAlignment="Left" Margin="54,382,0,0" VerticalAlignment="Top" Padding="10" Width="234" BorderBrush="#FF24AE5F" Background="White" Foreground="#FF24AE5F" FontWeight="Bold"/>
+        <Button x:Name="btnLogin" Cursor="Hand" Content="INGRESAR" HorizontalAlignment="Left" Margin="54,333,0,0" VerticalAlignment="Top" Padding="10" Width="234" Foreground="White" Background="#FF24AE5F" BorderBrush="#FF24AE5F" FontWeight="Bold" MouseEnter="OnHoverLogin"/>
+        <Button x:Name="btnSignup" Cursor="Hand" Content="REGISTRARME" HorizontalAlignment="Left" Margin="54,382,0,0" VerticalAlignment="Top" Padding="10" Width="234" BorderBrush="#FF24AE5F" Background="White" Foreground="#FF24AE5F" FontWeight="Bold" Click="OpenSignUpWin"/>
 
         <Grid Margin="93,425,84,32" MouseEnter="ActiveLabel" MouseLeave="DeactiveLabel">
             <Label x:Name="lblForgotPasswd" Content="He olvidado mi contraseña" Cursor="Hand" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewMouseUp="OpenRecoverPasswdWin" Height="24" RenderTransformOrigin="0.5,0.5" HorizontalContentAlignment="Center" Width="151"/>
