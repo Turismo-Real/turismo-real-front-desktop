@@ -13,9 +13,8 @@ namespace turismo_real_desktop.Views.Extra
 
         private void OpenRecoverPasswdWin(object sender, MouseButtonEventArgs e)
         {
-            RecoverPassword recoverPasswdWin = new RecoverPassword();
-            recoverPasswdWin.Show();
-            Close();
+            string message = "Para poder registrarte en el sistema ponte en contacto con un administrador que ingrese tus datos.";
+            MessageBox.Show(message, "Contacta con un administrador" ,MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void ActiveLabel(object sender, MouseEventArgs e)
@@ -35,8 +34,8 @@ namespace turismo_real_desktop.Views.Extra
 
         private void OpenSignUpWin(object sender, RoutedEventArgs e)
         {
-            SignUp signUpWin = new SignUp();
-            signUpWin.Show();
+            RecoverPassword recoverPasswdWin = new RecoverPassword();
+            recoverPasswdWin.Show();
             Close();
         }
     }
