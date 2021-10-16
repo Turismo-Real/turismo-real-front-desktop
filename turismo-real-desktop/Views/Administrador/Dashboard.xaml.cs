@@ -9,16 +9,19 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using turismo_real_business.DTOs;
 
 namespace turismo_real_desktop.Views.Administrador
 {
-    /// <summary>
-    /// Interaction logic for Dashboard.xaml
-    /// </summary>
     public partial class Dashboard : Window
     {
-        public Dashboard()
+        public Dashboard(LoginDTO login)
         {
+            // Obtener datos del usuario
+
+            // Crear singleton de usuario logueado
+
+
             InitializeComponent();
         }
     }

@@ -1,9 +1,10 @@
 ﻿using System.Windows.Media;
 
-namespace turismo_real_desktop.UIElementes
+namespace turismo_real_desktop.UIElements
 {
     public static class UIColors
     {
+        // COLORES PERSONALIZADOS DEL SISTEMA
         public static Brush NormalGreen = (Brush) new BrushConverter().ConvertFrom("#22ae5f");
         public static Brush HoverGreen = (Brush)new BrushConverter().ConvertFrom("#1e9050");
         public static Brush NormalBlack = (Brush) new BrushConverter().ConvertFrom("#000000");

@@ -4,7 +4,7 @@ using System.Windows.Input;
 using turismo_real_business.DTOs;
 using turismo_real_business.Messages;
 using turismo_real_controller.Controllers.Login;
-using turismo_real_desktop.UIElementes;
+using turismo_real_desktop.UIElements;
 using turismo_real_desktop.Views.Administrador;
 
 namespace turismo_real_desktop.Views.Extra
@@ -87,7 +87,7 @@ namespace turismo_real_desktop.Views.Extra
                 return;
             }
 
-            Dashboard dashboard = new Dashboard();
+            Dashboard dashboard = new Dashboard(loginObject);
             dashboard.Show();
             Close();
         }

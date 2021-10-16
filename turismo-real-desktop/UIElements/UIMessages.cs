@@ -4,7 +4,7 @@ using System.Text;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace turismo_real_desktop.UIElementes
+namespace turismo_real_desktop.UIElements
 {
     public static class UIMessages
     {
