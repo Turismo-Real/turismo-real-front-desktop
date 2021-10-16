@@ -8,10 +8,10 @@
         Title="Dashboard" Height="516" Width="866">
     <Grid>
         <Label Content="Bienvenido { pnombre + papellido + sapellido }" FontSize="14" HorizontalAlignment="Left" Margin="19,24,0,0" VerticalAlignment="Top"/>
-        
+
 
         <Grid Margin="0,0,0,0">
-            <Rectangle x:Name="boxUser" HorizontalAlignment="Left" Height="170" Margin="37,80,0,0" Stroke="#FF22AE5F" VerticalAlignment="Top" Width="252" Cursor="Hand" MouseEnter="ChangeColor" MouseLeave="DechangeColor"/>
+            <Rectangle x:Name="boxUser" HorizontalAlignment="Left" Height="170" Margin="37,80,0,0" Stroke="#FF22AE5F" VerticalAlignment="Top" Width="252" Cursor="Hand"/>
             <Image x:Name="imgUser" HorizontalAlignment="Left" Source="/Assets/Normal/users.png" Height="100" Margin="113,91,0,0" VerticalAlignment="Top" Width="100"/>
             <Label x:Name="lblUser" Content="USUARIOS" FontWeight="Bold" FontSize="18" HorizontalAlignment="Left" Margin="113,207,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF22AE5F"/>
         </Grid>

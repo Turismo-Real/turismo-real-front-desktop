@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using MahApps.Metro.Controls;
+using System.Windows;
 using System.Windows.Input;
 using turismo_real_business.DTOs;
 using turismo_real_business.Messages;
@@ -8,7 +9,7 @@ using turismo_real_desktop.Views.Administrador;
 
 namespace turismo_real_desktop.Views.Extra
 {
-    public partial class Login : Window
+    public partial class Login : MetroWindow
     {
         protected LoginController loginController;
         protected string perfilAutorizado = "Administrador";

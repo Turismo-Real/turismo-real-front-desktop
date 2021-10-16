@@ -15,6 +15,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MahApps.Metro" Version="2.4.9" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\turismo-real-business\turismo-real-business.csproj" />
     <ProjectReference Include="..\turismo-real-core\turismo-real-controller.csproj" />
   </ItemGroup>
