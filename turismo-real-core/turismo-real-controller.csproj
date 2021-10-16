@@ -10,8 +10,4 @@
     <ProjectReference Include="..\turismo-real-services\turismo-real-services.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Validates\" />
-  </ItemGroup>
-
 </Project>
