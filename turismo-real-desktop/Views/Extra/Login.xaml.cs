@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Input;
+using turismo_real_business.DTOs;
 using turismo_real_business.Messages;
-using turismo_real_core.Controllers.Login;
-using turismo_real_desktop.Colors;
+using turismo_real_controller.Controllers.Login;
+using turismo_real_desktop.UIElementes;
 using turismo_real_desktop.Views.Administrador;
 
 namespace turismo_real_desktop.Views.Extra
@@ -11,12 +12,12 @@ namespace turismo_real_desktop.Views.Extra
     public partial class Login : Window
     {
         protected LoginController loginController;
+        protected string perfilAutorizado = "Administrador";
 
         public Login()
         {
             InitializeComponent();
             loginController = new LoginController();
-
         }
 
         private void OpenRecoverPasswdWin(object sender, MouseButtonEventArgs e)
@@ -49,27 +50,41 @@ namespace turismo_real_desktop.Views.Extra
 
         private void LoginUser(object sender, RoutedEventArgs e)
         {
-            // validar formato de correo
-            string correo = txtEmail.Text;
-            if (!loginController.ValidarCorreo(correo))
+            // Validar campos vacios
+            if(!loginController.validarCampoVacio(txtEmail.Text) || !loginController.validarCampoVacio(txtPasswd.Password.ToString()))
             {
-                throw new NotImplementedException();
+                string message = "Se deben llenar todos los campos.";
+                lblAlert = UIMessages.InfoMessage(lblAlert, message, UIColors.DangerRed);
+                return;
+            }
+
+            LoginDTO loginObject = new LoginDTO();
+            // validar formato de correo
+            loginObject.email = txtEmail.Text;
+            if (!loginController.ValidarCorreo(loginObject))
+            {
+                string message = "Formato de correo incorrecto.";
+                lblAlert = UIMessages.InfoMessage(lblAlert, message, UIColors.DangerRed);
+                return;
             }
             
+            loginObject.password = loginController.HashPassword(txtPasswd.Password.ToString());
+            LoginResponse loginResponse = loginController.Login(loginObject);
+
             // validar credenciales
-            string HashedPassword = loginController.HashPassword(txtPasswd.Password.ToString());
-            LoginResponse loginResponse = loginController.Login(correo, HashedPassword);
-            Console.WriteLine(loginResponse.login);
             if (!loginResponse.login)
             {
-                throw new NotImplementedException();
+                string message = "Credenciales Incorrectas.";
+                lblAlert = UIMessages.InfoMessage(lblAlert, message, UIColors.DangerRed);
+                return;
             }
 
             // validar perfil
-            string perfil = "administrador";
-            if (loginResponse.perfil.ToUpper().CompareTo(perfil.ToUpper()) != 0)
+            if (loginResponse.tipo.ToUpper().CompareTo(perfilAutorizado.ToUpper()) != 0)
             {
-                throw new NotImplementedException();
+                string message = "Usuario No Autorizado.";
+                lblAlert = UIMessages.InfoMessage(lblAlert, message, UIColors.DangerRed);
+                return;
             }
 
             Dashboard dashboard = new Dashboard();

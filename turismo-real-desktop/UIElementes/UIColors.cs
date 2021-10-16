@@ -1,6 +1,6 @@
 ﻿using System.Windows.Media;
 
-namespace turismo_real_desktop.Colors
+namespace turismo_real_desktop.UIElementes
 {
     public static class UIColors
     {
