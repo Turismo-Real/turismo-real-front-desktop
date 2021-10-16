@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MahApps.Metro.Controls;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -15,7 +16,7 @@ namespace turismo_real_desktop.Views.Extra
     /// <summary>
     /// Interaction logic for RecoverPassword.xaml
     /// </summary>
-    public partial class RecoverPassword : Window
+    public partial class RecoverPassword : MetroWindow
     {
         public RecoverPassword()
         {

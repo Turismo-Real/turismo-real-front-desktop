@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MahApps.Metro.Controls;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -12,10 +13,7 @@ using System.Windows.Shapes;
 
 namespace turismo_real_desktop.Views.Extra
 {
-    /// <summary>
-    /// Interaction logic for SignUp.xaml
-    /// </summary>
-    public partial class SignUp : Window
+    public partial class SignUp : MetroWindow
     {
         public SignUp()
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MahApps.Metro.Controls;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -13,7 +14,7 @@ using turismo_real_business.DTOs;
 
 namespace turismo_real_desktop.Views.Administrador
 {
-    public partial class Dashboard : Window
+    public partial class Dashboard : MetroWindow
     {
         public Dashboard(LoginDTO login)
         {
