@@ -6,16 +6,43 @@
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:turismo_real_desktop.Views.Administrador"
         mc:Ignorable="d"
-        Title="Dashboard" Height="516" Width="866">
+        Title="Dashboard" Height="539" Width="922">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="637*"/>
+            <ColumnDefinition Width="285*"/>
+        </Grid.ColumnDefinitions>
         <Label Content="Bienvenido { pnombre + papellido + sapellido }" FontSize="14" HorizontalAlignment="Left" Margin="19,24,0,0" VerticalAlignment="Top"/>
 
 
-        <Grid Margin="0,0,0,0">
-            <Rectangle x:Name="boxUser" HorizontalAlignment="Left" Height="170" Margin="37,80,0,0" Stroke="#FF22AE5F" VerticalAlignment="Top" Width="252" Cursor="Hand"/>
-            <Image x:Name="imgUser" HorizontalAlignment="Left" Source="/Assets/Normal/users.png" Height="100" Margin="113,91,0,0" VerticalAlignment="Top" Width="100"/>
-            <Label x:Name="lblUser" Content="USUARIOS" FontWeight="Bold" FontSize="18" HorizontalAlignment="Left" Margin="113,207,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF22AE5F"/>
+        <Grid Grid.ColumnSpan="2">
+            <Rectangle x:Name="boxDeptos" HorizontalAlignment="Left" Height="170" Margin="23,80,0,0" Stroke="#FF22AE5F" VerticalAlignment="Top" Width="252" Cursor="Hand"/>
+            <Image HorizontalAlignment="Left" Height="100" Margin="104,91,0,0" VerticalAlignment="Top" Width="113" Source="/Assets/Normal/apartment.png"/>
+
+
+            <Rectangle x:Name="boxUsers" HorizontalAlignment="Left" Height="170" Margin="318,80,0,0" Stroke="#FF22AE5F" VerticalAlignment="Top" Width="252" Cursor="Hand"/>
+            <Image x:Name="imgUser" HorizontalAlignment="Left" Source="/Assets/Normal/users.png" Height="100" Margin="389,85,0,0" VerticalAlignment="Top" Width="100"/>
+
+
+            <Rectangle x:Name="boxPerfil" HorizontalAlignment="Left" Height="170" Margin="621,80,0,0" Stroke="#FF22AE5F" VerticalAlignment="Top" Width="252" Cursor="Hand"/>
+            <Image HorizontalAlignment="Left" Height="86" Margin="704,92,0,0" VerticalAlignment="Top" Width="86" Source="/Assets/Normal/user.png"/>
+
+            <Rectangle x:Name="boxPagos" HorizontalAlignment="Left" Height="170" Margin="23,308,0,0" Stroke="#FF22AE5F" VerticalAlignment="Top" Width="252" Cursor="Hand"/>
+            <Image HorizontalAlignment="Left" Height="100" Margin="98,320,0,0" VerticalAlignment="Top" Width="100" Source="/Assets/Normal/credit-card.png"/>
+
+            <Rectangle x:Name="boxServicios" HorizontalAlignment="Left" Height="170" Margin="318,308,0,0" Stroke="#FF22AE5F" VerticalAlignment="Top" Width="252" Cursor="Hand"/>
+
+            <Rectangle x:Name="boxServicios_Copy" HorizontalAlignment="Left" Height="170" Margin="621,308,0,0" Stroke="#FF22AE5F" VerticalAlignment="Top" Width="252" Cursor="Hand"/>
+            <Image HorizontalAlignment="Left" Height="100" Margin="697,320,0,0" VerticalAlignment="Top" Width="100" Source="/Assets/Normal/logout.png"/>
+            <mah:Tile x:Name="departamentosbtn" Content="Departamentos" HorizontalAlignment="Left" Margin="48,200,0,0" VerticalAlignment="Top" Height="42" Width="198" FontWeight="Bold" FontSize="24"/>
+            <mah:Tile x:Name="usuariosbtn" Content="Usuarios" HorizontalAlignment="Left" Margin="345,200,0,0" VerticalAlignment="Top" Height="42" Width="198" FontWeight="Bold" FontSize="24"/>
+            <mah:Tile x:Name="perfilbtn" Content="Perfil" HorizontalAlignment="Left" Margin="648,200,0,0" VerticalAlignment="Top" Height="42" Width="198" FontWeight="Bold" FontSize="24"/>
+            <mah:Tile x:Name="pagosbtn" Content="Pagos" HorizontalAlignment="Left" Margin="49,425,0,0" VerticalAlignment="Top" Height="42" Width="198" FontWeight="Bold" FontSize="24"/>
+            <mah:Tile x:Name="serviciosbtn" Content="Servicios" HorizontalAlignment="Left" Margin="345,425,0,0" VerticalAlignment="Top" Height="42" Width="198" FontWeight="Bold" FontSize="24"/>
+            <mah:Tile x:Name="salirbtn" Content="Salir" HorizontalAlignment="Left" Margin="648,425,0,0" VerticalAlignment="Top" Height="42" Width="198" FontWeight="Bold" FontSize="24" Background="#CCC12C15"/>
+
         </Grid>
+
 
     </Grid>
 </mah:MetroWindow>

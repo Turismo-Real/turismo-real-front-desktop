@@ -92,5 +92,15 @@ namespace turismo_real_desktop.Views.Extra
             Close();
         }
 
+        // login offline
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            LoginDTO loginObject = new LoginDTO();
+            Dashboard opendash = new Dashboard(loginObject);
+            opendash.Show();
+            Close();
+
+
+        }
     }
 }

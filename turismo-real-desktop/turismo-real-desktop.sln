@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "turismo-real-controller", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "turismo-real-services", "..\turismo-real-services\turismo-real-services.csproj", "{C28EFCDE-3716-4CF1-A7D8-24336B0566B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "turismo-real-business", "..\turismo-real-business\turismo-real-business.csproj", "{AFB085EE-EFD7-4980-A1A2-26B4F9F9C988}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "turismo-real-business", "..\turismo-real-business\turismo-real-business.csproj", "{AFB085EE-EFD7-4980-A1A2-26B4F9F9C988}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

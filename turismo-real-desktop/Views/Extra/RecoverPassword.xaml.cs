@@ -35,5 +35,7 @@ namespace turismo_real_desktop.Views.Extra
             changePasswdFormGrid.Visibility = Visibility.Hidden;
             changePasswdSent.Visibility = Visibility.Visible;
         }
+
+       
     }
 }

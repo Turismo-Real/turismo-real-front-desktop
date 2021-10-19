@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "turismo-real-desktop": {
+      "commandName": "Project",
+      "remoteDebugEnabled": false
+    }
+  }
+}

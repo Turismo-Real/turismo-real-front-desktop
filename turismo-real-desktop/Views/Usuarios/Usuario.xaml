@@ -1,0 +1,56 @@
+﻿<Window x:Class="turismo_real_desktop.Views.Usuarios.Usuario"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:turismo_real_desktop.Views.Usuarios" xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        mc:Ignorable="d"
+        Title="Turismo Real - Usuario" Height="520" Width="800">
+    <Grid>
+        <Label Content="Tipo:" HorizontalAlignment="Left" Margin="89,44,0,0" VerticalAlignment="Top"/>
+        <Label Content="RUT:" HorizontalAlignment="Left" Margin="91,75,0,0" VerticalAlignment="Top"/>
+        <Label Content="Pasaporte:" HorizontalAlignment="Left" Margin="60,106,0,0" VerticalAlignment="Top"/>
+        <Label Content="Primer nombre:" HorizontalAlignment="Left" Margin="33,137,0,0" VerticalAlignment="Top"/>
+        <Label Content="Segundo nombre:" HorizontalAlignment="Left" Margin="20,168,0,0" VerticalAlignment="Top"/>
+        <Label Content="Primer Apellido:" HorizontalAlignment="Left" Margin="30,199,0,0" VerticalAlignment="Top"/>
+        <Label Content="Segundo Apellido:" HorizontalAlignment="Left" Margin="18,230,0,0" VerticalAlignment="Top"/>
+        <Label Content="Fecha de nacimiento:" HorizontalAlignment="Left" Margin="4,261,0,0" VerticalAlignment="Top"/>
+        <Label Content="Correo electrónico:" HorizontalAlignment="Left" Margin="14,292,0,0" VerticalAlignment="Top"/>
+        <Label Content="Teléfono móvil:" HorizontalAlignment="Left" Margin="35,323,0,0" VerticalAlignment="Top"/>
+        <Label Content="Teléfono fijo:" HorizontalAlignment="Left" Margin="47,354,0,0" VerticalAlignment="Top"/>
+        <Label Content="Género:" HorizontalAlignment="Left" Margin="74,385,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cboxtipo" HorizontalAlignment="Left" Margin="159,48,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cboxgenero" HorizontalAlignment="Left" Margin="159,389,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtrut" HorizontalAlignment="Left" Margin="159,79,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtpasaporte" HorizontalAlignment="Left" Margin="159,110,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtprimernombre" HorizontalAlignment="Left" Margin="159,141,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtsegundonombre" HorizontalAlignment="Left" Margin="159,172,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtprimerapellido" HorizontalAlignment="Left" Margin="159,203,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtsegundoapellido" HorizontalAlignment="Left" Margin="159,234,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <DatePicker x:Name="dpfecnacimiento" HorizontalAlignment="Left" Margin="159,265,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtcorreo" HorizontalAlignment="Left" Margin="159,296,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txttmovil" HorizontalAlignment="Left" Margin="159,327,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txttfijo" HorizontalAlignment="Left" Margin="159,358,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Border BorderThickness="2" BorderBrush="Black" HorizontalAlignment="Center" Height="371" Margin="0,44,0,0" VerticalAlignment="Top" Width="1"/>
+        <Label Content="País:" HorizontalAlignment="Left" Margin="500,44,0,0" VerticalAlignment="Top"/>
+        <Label Content="Región:" HorizontalAlignment="Left" Margin="484,75,0,0" VerticalAlignment="Top"/>
+        <Label Content="Comuna:" HorizontalAlignment="Left" Margin="477,108,0,0" VerticalAlignment="Top"/>
+        <Label Content="Calle:" HorizontalAlignment="Left" Margin="495,140,0,0" VerticalAlignment="Top"/>
+        <Label Content="Número:" HorizontalAlignment="Left" Margin="478,172,0,0" VerticalAlignment="Top"/>
+        <Label Content="Nro Departamento:" HorizontalAlignment="Left" Margin="421,207,0,0" VerticalAlignment="Top"/>
+        <Label Content="Nro Casa:" HorizontalAlignment="Left" Margin="472,239,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cboxpais" HorizontalAlignment="Left" Margin="560,47,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cboxregion" HorizontalAlignment="Left" Margin="560,79,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cboxcomuna" HorizontalAlignment="Left" Margin="560,112,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtcomuna" HorizontalAlignment="Left" Margin="560,143,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtnumero" HorizontalAlignment="Left" Margin="560,176,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtnrodepto" HorizontalAlignment="Left" Margin="560,207,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtnrocasa" HorizontalAlignment="Left" Margin="560,240,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+
+        <mah:Tile x:Name="btnvolver" Content="Volver" HorizontalAlignment="Left" Margin="332,459,0,0" VerticalAlignment="Top" Height="35" Background="#CC1C1F19" FontSize="16" FontWeight="Bold"/>
+        <mah:Tile x:Name="btnguardarcambiosusr" Content="Editar" HorizontalAlignment="Left" Margin="509,459,0,0" VerticalAlignment="Top" Height="35" FontSize="16" FontWeight="Bold"/>
+        <mah:Tile x:Name="btneliminarusr" Content="Eliminar" HorizontalAlignment="Left" Margin="159,459,0,0" VerticalAlignment="Top" Height="35" FontSize="16" FontWeight="Bold" Background="#CCC12C15"/>
+
+        <TextBlock HorizontalAlignment="Center" Margin="0,419,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF0017FF" Background="White" FontSize="14"><Run Language="es-cl" Text="Mensaje para el usuario"/></TextBlock>
+    </Grid>
+</Window>

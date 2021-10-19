@@ -10,6 +10,9 @@
     <Compile Update="Views\Administrador\Dashboard.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Departamentos\Depto.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Extra\Login.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -19,9 +22,27 @@
     <Compile Update="Views\Extra\SignUp.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Usuarios\Checkcreacionusr.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Usuarios\EditarUsuario.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Usuarios\NuevoUsuario.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Usuarios\Usuario.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Usuarios\Usuarios.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Views\Administrador\Dashboard.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Departamentos\Depto.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Extra\Login.xaml">
@@ -31,6 +52,21 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Extra\SignUp.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Usuarios\Checkcreacionusr.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Usuarios\EditarUsuario.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Usuarios\NuevoUsuario.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Usuarios\Usuario.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Usuarios\Usuarios.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

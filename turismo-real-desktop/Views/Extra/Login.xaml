@@ -22,6 +22,7 @@
         <Image HorizontalAlignment="Left" Height="174" Margin="73,20,0,0" VerticalAlignment="Top" Width="174" Source="/Assets/TurismoRealLogo512.png"/>
         <Image HorizontalAlignment="Left" Height="24" Margin="23,226,0,0" VerticalAlignment="Top" Width="24" Source="/Assets/email.png"/>
         <Image HorizontalAlignment="Left" Height="26" Margin="22,274,0,0" VerticalAlignment="Top" Width="24" Source="/Assets/key.png"/>
+        <Button x:Name="btnoffline" Content="Offline" HorizontalAlignment="Left" Margin="265,29,0,0" VerticalAlignment="Top" Click="Button_Click"/>
 
     </Grid>
 </mah:MetroWindow>
