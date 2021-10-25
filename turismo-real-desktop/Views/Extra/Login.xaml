@@ -6,7 +6,8 @@
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:turismo_real_desktop.Views.Extra"
         mc:Ignorable="d"
-        Title="Login" Height="516" Width="339">
+        Title="Turismo Real - Login" Height="516" Width="339"
+        WindowStartupLocation="CenterScreen">
     <Grid Height="484" VerticalAlignment="Top">
         <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Margin="54,219,0,0" Text="Correo electrónico" TextWrapping="Wrap" VerticalAlignment="Top" Width="234" Padding="10"/>
         <PasswordBox x:Name="txtPasswd" Password="Password"  HorizontalAlignment="Left" Margin="54,267,0,0" VerticalAlignment="Top" Width="234" Padding="10"/>

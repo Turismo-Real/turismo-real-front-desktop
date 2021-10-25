@@ -7,7 +7,8 @@
         xmlns:local="clr-namespace:turismo_real_desktop.Views.Administrador"
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
-        Title="Dashboard" Height="552" Width="922">
+        Title="Turismo Real - Dashboard" Height="552" Width="922"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Label x:Name="lblWelcome" Content="Bienvenido { pnombre + papellido + sapellido }" FontSize="14" HorizontalAlignment="Left" Margin="19,24,0,0" VerticalAlignment="Top" Width="576"/>
 
