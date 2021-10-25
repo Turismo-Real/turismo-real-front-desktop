@@ -5,40 +5,66 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:turismo_real_desktop.Views.Administrador"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
-        Title="Dashboard" Height="539" Width="922">
+        Title="Dashboard" Height="552" Width="922">
     <Grid>
         <Label x:Name="lblWelcome" Content="Bienvenido { pnombre + papellido + sapellido }" FontSize="14" HorizontalAlignment="Left" Margin="19,24,0,0" VerticalAlignment="Top" Width="576"/>
 
 
-        <Grid Grid.ColumnSpan="2">
-            <Rectangle x:Name="boxDeptos" HorizontalAlignment="Left" Height="170" Margin="23,80,0,0" Stroke="#FF22AE5F" VerticalAlignment="Top" Width="252" Cursor="Hand"/>
-            <Image HorizontalAlignment="Left" Height="100" Margin="104,91,0,0" VerticalAlignment="Top" Width="113" Source="/Assets/Normal/apartment.png"/>
+        <!-- Boton departamentos -->
+        <mah:Tile x:Name="buildingTile" HorizontalAlignment="Left" Margin="23,80,0,0" VerticalAlignment="Top" Width="280" Height="200" Background="#FFFFFFFF" BorderBrush="#CC60A917" BorderThickness="1" Cursor="Hand" MouseEnter="OnHoverBuilding" MouseLeave="OnLeaveBuilding">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
+                <iconPacks:PackIconFontAwesome x:Name="buildingIcon" Kind="BuildingRegular" Foreground="#CC60A917" FontSize="18" Height="100" Width="100" FontWeight="Bold" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="buildingText" Text="DEPARTAMENTOS" TextAlignment="Center" FontWeight="Medium" FontSize="20" Foreground="#CC60A917"/>
+            </StackPanel>
+        </mah:Tile>
+        <!-- Boton departamentos -->
 
+        <!-- Boton usuarios -->
+        <mah:Tile x:Name="usersTile" HorizontalAlignment="Center" Margin="0,80,0,0" VerticalAlignment="Top" Width="280" Height="200" Background="#FFFFFFFF" BorderBrush="#CC60A917" BorderThickness="1" Cursor="Hand" MouseEnter="OnHoverUsers" MouseLeave="OnLeaveUsers">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
+                <iconPacks:PackIconFontAwesome x:Name="usersIcon" Kind="UsersSolid" Foreground="#CC60A917" FontSize="18" Height="100" Width="100" FontWeight="Bold" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="usersText" Text="USUARIOS" TextAlignment="Center" FontWeight="Medium" FontSize="20" Foreground="#CC60A917"/>
+            </StackPanel>
+        </mah:Tile>
+        <!-- Boton usuarios -->
 
-            <Rectangle x:Name="boxUsers" HorizontalAlignment="Left" Height="170" Margin="318,80,0,0" Stroke="#FF22AE5F" VerticalAlignment="Top" Width="252" Cursor="Hand"/>
-            <Image x:Name="imgUser" HorizontalAlignment="Left" Source="/Assets/Normal/users.png" Height="100" Margin="389,85,0,0" VerticalAlignment="Top" Width="100"/>
+        <!-- Boton perfil -->
+        <mah:Tile x:Name="profileTile" HorizontalAlignment="Left" Margin="659,80,0,0" Background="#FFFFFFFF" BorderBrush="#CC60A917" BorderThickness="1" Cursor="Hand" VerticalAlignment="Top" Height="200" Width="234" MouseEnter="OnHoverProfile" MouseLeave="OnLeaveProfile">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
+                <iconPacks:PackIconFontAwesome x:Name="profileIcon" Kind="UserAltSolid" Foreground="#CC60A917" FontSize="18" Height="100" Width="100" FontWeight="Bold" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="profileText" Text="PERFIL" TextAlignment="Center" FontWeight="Medium" FontSize="20" Foreground="#CC60A917"/>
+            </StackPanel>
+        </mah:Tile>
+        <!-- Boton perfil -->
 
+        <!-- Boton salir -->
+        <mah:Tile x:Name="exitTile" HorizontalAlignment="Left" Margin="659,297,0,0" Background="White" BorderBrush="#FFDC1F1F" BorderThickness="1" Cursor="Hand" VerticalAlignment="Top" Height="200" Width="234" MouseEnter="OnHoverExit" MouseLeave="OnLeaveExit" Click="Logout">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
+                <iconPacks:PackIconFontAwesome x:Name="exitIcon" Kind="SignOutAltSolid" Foreground="#FFDC1F1F" FontSize="18" Height="100" Width="100" FontWeight="Bold" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="exitText" Text="SALIR" TextAlignment="Center" FontWeight="Medium" FontSize="20" Foreground="#FFDC1F1F"/>
+            </StackPanel>
+        </mah:Tile>
+        <!-- Boton salir -->
 
-            <Rectangle x:Name="boxPerfil" HorizontalAlignment="Left" Height="170" Margin="621,80,0,0" Stroke="#FF22AE5F" VerticalAlignment="Top" Width="252" Cursor="Hand"/>
-            <Image HorizontalAlignment="Left" Height="86" Margin="704,92,0,0" VerticalAlignment="Top" Width="86" Source="/Assets/Normal/user.png"/>
+        <!-- Boton servicios -->
+        <mah:Tile x:Name="servicesTile" HorizontalAlignment="Center" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" Margin="0,297,0,0" VerticalAlignment="Top" Height="199" Width="280" Cursor="Hand" MouseEnter="OnHoverServices" MouseLeave="OnLeaveServices">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
+                <iconPacks:PackIconFontAwesome x:Name="servicesIcon" Kind="StarSolid" Foreground="#CC60A917" FontSize="18" Height="100" Width="100" FontWeight="Bold" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="servicesText" Text="SERVICIOS" TextAlignment="Center" FontWeight="Medium" FontSize="20" Foreground="#CC60A917"/>
+            </StackPanel>
+        </mah:Tile>
+        <!-- Boton servicios -->
 
-            <Rectangle x:Name="boxPagos" HorizontalAlignment="Left" Height="170" Margin="23,308,0,0" Stroke="#FF22AE5F" VerticalAlignment="Top" Width="252" Cursor="Hand"/>
-            <Image HorizontalAlignment="Left" Height="100" Margin="98,320,0,0" VerticalAlignment="Top" Width="100" Source="/Assets/Normal/credit-card.png"/>
-
-            <Rectangle x:Name="boxServicios" HorizontalAlignment="Left" Height="170" Margin="318,308,0,0" Stroke="#FF22AE5F" VerticalAlignment="Top" Width="252" Cursor="Hand"/>
-
-            <Rectangle x:Name="boxServicios_Copy" HorizontalAlignment="Left" Height="170" Margin="621,308,0,0" Stroke="#FF22AE5F" VerticalAlignment="Top" Width="252" Cursor="Hand"/>
-            <Image HorizontalAlignment="Left" Height="100" Margin="697,320,0,0" VerticalAlignment="Top" Width="100" Source="/Assets/Normal/logout.png"/>
-            <mah:Tile x:Name="departamentosbtn" Content="Departamentos" HorizontalAlignment="Left" Margin="48,200,0,0" VerticalAlignment="Top" Height="42" Width="198" FontWeight="Bold" FontSize="24"/>
-            <mah:Tile x:Name="usuariosbtn" Content="Usuarios" HorizontalAlignment="Left" Margin="345,200,0,0" VerticalAlignment="Top" Height="42" Width="198" FontWeight="Bold" FontSize="24"/>
-            <mah:Tile x:Name="perfilbtn" Content="Perfil" HorizontalAlignment="Left" Margin="648,200,0,0" VerticalAlignment="Top" Height="42" Width="198" FontWeight="Bold" FontSize="24"/>
-            <mah:Tile x:Name="pagosbtn" Content="Pagos" HorizontalAlignment="Left" Margin="49,425,0,0" VerticalAlignment="Top" Height="42" Width="198" FontWeight="Bold" FontSize="24"/>
-            <mah:Tile x:Name="serviciosbtn" Content="Servicios" HorizontalAlignment="Left" Margin="345,425,0,0" VerticalAlignment="Top" Height="42" Width="198" FontWeight="Bold" FontSize="24"/>
-            <mah:Tile x:Name="salirbtn" Content="Salir" HorizontalAlignment="Left" Margin="648,425,0,0" VerticalAlignment="Top" Height="42" Width="198" FontWeight="Bold" FontSize="24" Background="#CCC12C15"/>
-
-        </Grid>
-
+        <!-- Boton reservas -->
+        <mah:Tile x:Name="reservationTile" HorizontalAlignment="Left" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" Cursor="Hand" Margin="23,297,0,0" VerticalAlignment="Top" Width="280" Height="199" MouseEnter="OnHoverReservation" MouseLeave="OnLeaveReservation">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
+                <iconPacks:PackIconFontAwesome x:Name="reservationIcon" Kind="CalendarAltRegular" Foreground="#CC60A917" FontSize="18" Height="100" Width="100" FontWeight="Bold" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="reservationText" Text="RESERVAS" TextAlignment="Center" FontWeight="Medium" FontSize="20" Foreground="#CC60A917"/>
+            </StackPanel>
+        </mah:Tile>
+        <!-- Boton reservas -->
 
     </Grid>
 </mah:MetroWindow>

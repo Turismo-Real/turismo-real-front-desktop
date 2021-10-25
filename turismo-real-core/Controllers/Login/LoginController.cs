@@ -1,4 +1,5 @@
-﻿using turismo_real_business.DTOs;
+﻿using System.Threading.Tasks;
+using turismo_real_business.DTOs;
 using turismo_real_business.Messages;
 using turismo_real_controller.Hasher;
 using turismo_real_controller.Validates;

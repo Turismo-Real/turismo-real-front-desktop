@@ -20,7 +20,7 @@ namespace turismo_real_services.REST.Login
                 request.Method = "POST";
                 request.PreAuthenticate = true;
                 request.ContentType = "Application/json; Charset=UTF-8";
-                request.Timeout = 8000;
+                request.Timeout = 5000;
 
                 using (StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
                 {

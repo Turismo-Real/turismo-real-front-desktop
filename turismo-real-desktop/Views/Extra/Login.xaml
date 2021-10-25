@@ -17,7 +17,6 @@
             <Label x:Name="lblForgotPasswd" FontSize="14" Content="¡Quiero Registrarme!" Cursor="Hand" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewMouseUp="OpenRecoverPasswdWin" Height="34" RenderTransformOrigin="0.5,0.5" HorizontalContentAlignment="Center" Width="150"/>
         </Grid>
 
-
         <Label x:Name="lblAlert" Content="" HorizontalAlignment="Left" Margin="54,304,0,0" VerticalAlignment="Top" Width="234" HorizontalContentAlignment="Center" Height="26"/>
         <Image HorizontalAlignment="Left" Height="174" Margin="73,20,0,0" VerticalAlignment="Top" Width="174" Source="/Assets/TurismoRealLogo512.png"/>
         <Image HorizontalAlignment="Left" Height="24" Margin="23,226,0,0" VerticalAlignment="Top" Width="24" Source="/Assets/email.png"/>
