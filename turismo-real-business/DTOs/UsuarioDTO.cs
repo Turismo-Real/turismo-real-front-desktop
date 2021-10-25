@@ -20,6 +20,6 @@ namespace turismo_real_business.DTOs
         public string genero { get; set; }
         public string pais { get; set; }
         public string tipoUsuario { get; set; }
-        //public DireccionDTO direccion { get; set; }
+        public DireccionDTO direccion { get; set; }
     }
 }

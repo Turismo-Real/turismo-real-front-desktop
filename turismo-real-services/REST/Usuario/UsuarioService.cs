@@ -49,6 +49,22 @@ namespace turismo_real_services.REST.Usuario
             usuario.segundoNombre = obj["segundoNombre"];
             usuario.primerApellido = obj["apellidoPaterno"];
             usuario.segundoApellido = obj["apellidoMaterno"];
+            usuario.fechaNacimiento = obj["fechaNacimiento"];
+            usuario.correo = obj["correo"];
+            usuario.telefonoMovil = obj["telefonoMovil"];
+            usuario.telefonoFijo = obj["telefonoFijo"];
+            usuario.genero = obj["genero"];
+            usuario.pais = obj["pais"];
+            usuario.tipoUsuario = obj["tipoUsuario"];
+
+            DireccionDTO direccion = new DireccionDTO();
+            direccion.region = obj["direccion"]["region"];
+            direccion.comuna = obj["direccion"]["comuna"];
+            direccion.numero = obj["direccion"]["numero"];
+            direccion.depto = obj["direccion"]["depto"];
+            direccion.casa = obj["direccion"]["casa"];
+            usuario.direccion = direccion;
+
             return usuario;
         }
     }

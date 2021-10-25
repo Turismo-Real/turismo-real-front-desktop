@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using turismo_real_business.DTOs;
 using turismo_real_business.Messages;
+using turismo_real_business.Singleton;
 using turismo_real_controller.Controllers.Usuario;
 
 namespace turismo_real_desktop.Views.Administrador
@@ -26,10 +27,14 @@ namespace turismo_real_desktop.Views.Administrador
             UsuarioController usuarioController = new UsuarioController();
             UsuarioDTO usuario = usuarioController.GetUsuario(login.id);
 
-            // Crear singleton de usuario logueado
-            lblWelcome.Content = $"Bienvenido {usuario.primerNombre} {usuario.primerApellido} {usuario.segundoApellido}";
+            // Setear usuario logueado
+            LoguedUser.SetLoguedUser(usuario);
+            string nombreUsuario = $"{LoguedUser.GetLoguedUser().primerNombre} " +
+                $"{LoguedUser.GetLoguedUser().primerApellido} " +
+                $"{LoguedUser.GetLoguedUser().segundoApellido}";
 
-
+            // Bienvenida a usuario
+            lblWelcome.Content = $"Bienvenido {nombreUsuario}";
         }
 
     }
