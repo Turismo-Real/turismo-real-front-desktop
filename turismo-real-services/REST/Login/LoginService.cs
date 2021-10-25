@@ -41,7 +41,7 @@ namespace turismo_real_services.REST.Login
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                return new LoginResponse("ERROR", false, String.Empty);
+                return new LoginResponse("ERROR", false, String.Empty, 0);
             }
         }
 
@@ -50,7 +50,8 @@ namespace turismo_real_services.REST.Login
             string mensaje = obj["mensaje"];
             bool login = obj["login"];
             string tipo = obj["tipo"];
-            return new LoginResponse(mensaje, login, tipo);
+            int id = obj["idUsuario"];
+            return new LoginResponse(mensaje, login, tipo, id);
         }
     }
 }

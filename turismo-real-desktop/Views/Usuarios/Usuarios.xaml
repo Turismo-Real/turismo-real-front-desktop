@@ -27,7 +27,7 @@
        
         <mah:Tile x:Name="usrbtn" Content="Usuarios" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" Height="27" Width="95" mah:ControlsHelper.MouseOverBorderBrush="{x:Null}" FontWeight="Bold" FontStyle="Normal" Foreground="White" Background="#FF3A3939"/>
         
-        <DataGrid x:Name="datagridusr" Margin="0,38,275,0" SelectionChanged="DataGrid_SelectionChanged"/>
+        <DataGrid x:Name="datagridusr" Margin="0,38,275,0"/>
 
     </Grid>
 </Window>

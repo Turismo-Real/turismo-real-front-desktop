@@ -8,11 +8,7 @@
         mc:Ignorable="d"
         Title="Dashboard" Height="539" Width="922">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="637*"/>
-            <ColumnDefinition Width="285*"/>
-        </Grid.ColumnDefinitions>
-        <Label Content="Bienvenido { pnombre + papellido + sapellido }" FontSize="14" HorizontalAlignment="Left" Margin="19,24,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblWelcome" Content="Bienvenido { pnombre + papellido + sapellido }" FontSize="14" HorizontalAlignment="Left" Margin="19,24,0,0" VerticalAlignment="Top" Width="576"/>
 
 
         <Grid Grid.ColumnSpan="2">

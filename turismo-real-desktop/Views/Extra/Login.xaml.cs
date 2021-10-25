@@ -87,7 +87,7 @@ namespace turismo_real_desktop.Views.Extra
                 return;
             }
 
-            Dashboard dashboard = new Dashboard(loginObject);
+            Dashboard dashboard = new Dashboard(loginResponse);
             dashboard.Show();
             Close();
         }
@@ -95,7 +95,7 @@ namespace turismo_real_desktop.Views.Extra
         // login offline
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            LoginDTO loginObject = new LoginDTO();
+            LoginResponse loginObject = new LoginResponse();
             Dashboard opendash = new Dashboard(loginObject);
             opendash.Show();
             Close();

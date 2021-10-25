@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace turismo_real_business.DTOs
+﻿namespace turismo_real_business.DTOs
 {
     public class LoginDTO
     {

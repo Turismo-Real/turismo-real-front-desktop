@@ -7,5 +7,6 @@ namespace turismo_real_services.Utils
     public static class URLService
     {
         public const string URL_LOGIN = "http://localhost:5000/api/v1/login";
+        public const string URL_USUARIO_GET_BY_ID = "http://localhost:5001/api/v1/usuario/";
     }
 }
