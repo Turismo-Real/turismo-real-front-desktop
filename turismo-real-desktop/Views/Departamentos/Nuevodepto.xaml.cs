@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MahApps.Metro.Controls;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -15,7 +16,7 @@ namespace turismo_real_desktop.Views.Departamentos
     /// <summary>
     /// Lógica de interacción para Nuevodepto.xaml
     /// </summary>
-    public partial class Nuevodepto : Window
+    public partial class Nuevodepto : MetroWindow
     {
         public Nuevodepto()
         {

@@ -9,6 +9,7 @@ using turismo_real_controller.Controllers.Departamento;
 using turismo_real_desktop.GridEntities;
 using turismo_real_desktop.UIElements;
 using System.Windows.Input;
+using turismo_real_desktop.Views.Departamentos;
 
 namespace turismo_real_desktop.Views.Administrador.Departamentos
 {
@@ -130,6 +131,12 @@ namespace turismo_real_desktop.Views.Administrador.Departamentos
         private void OnLeaveVolver(object sender, MouseEventArgs e)
         {
             ChangeLeaveColor(btnVolver, volverIcon, volverText, "GREEN");
+        }
+
+        private void OpenNuevoDeptoWin(object sender, System.Windows.RoutedEventArgs e)
+        {
+            Nuevodepto nuevoDeptoWindow = new Nuevodepto();
+            nuevoDeptoWindow.Show();
         }
     }
 }
