@@ -6,19 +6,45 @@
         xmlns:local="clr-namespace:turismo_real_desktop.Views.Administrador.Departamentos"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         x:Class="turismo_real_desktop.Views.Administrador.Departamentos.Deptos"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
         Title="Turismo Real - Departamentos" Height="535" Width="937">
     <Grid>
         <mah:MetroAnimatedTabControl>
-            <TabItem Header="Departamentos" Cursor="Hand">
+            <TabItem Header="Departamentos">
                 <Grid Background="#FFE5E5E5">
                     <Label x:Name="contadorDeptos" Content="Total departamentos: X" FontSize="16" Margin="24,9,640,406"/>
                     <DataGrid x:Name="dataGridDeptos" Margin="24,47,231,28" />
-                    <Button x:Name="btnNuevoDepto" Content="NUEVO DEPARTAMENTO" HorizontalAlignment="Left" Margin="729,47,0,0" VerticalAlignment="Top" Width="180" Height="110"/>
-                    <Button x:Name="btnSeleccionar" Content="SELECCIONAR" HorizontalAlignment="Left" Margin="729,177,0,0" VerticalAlignment="Top" Width="180" Height="47"/>
-                    <Button x:Name="btnEliminar" Content="ELIMINAR" HorizontalAlignment="Left" Margin="729,275,0,0" VerticalAlignment="Top" Width="180" Height="37"/>
-                    <Button x:Name="btnVolver" Content="VOLVER" HorizontalAlignment="Left" Margin="729,373,0,0" VerticalAlignment="Top" Width="180" Height="47"/>
 
+                    <!-- BOTON NUEVO DEPARTAMENTO -->
+                    <mah:Tile x:Name="btnNuevoDepto" Margin="728,47,29,323" Cursor="Hand" Width="180" Height="110" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" MouseEnter="OnHoverNuevoDepto" MouseLeave="OnLeaveNuevoDepto">
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
+                            <iconPacks:PackIconFontAwesome x:Name="nuevoDeptoIcon" Kind="PlusCircleSolid" Foreground="#CC60A917" Height="50" Width="100" FontWeight="Bold" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>
+                            <TextBlock x:Name="nuevoDeptoText" Text="NUEVO DEPARTAMENTO" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#CC60A917" Margin="5"/>
+                        </StackPanel>
+                    </mah:Tile>
+
+                    <!-- BOTON SELECCIONAR -->
+                    <mah:Tile x:Name="btnSeleccionar" Cursor="Hand" HorizontalAlignment="Left" BorderBrush="#2778D3" BorderThickness="1" Background="#FFFFFF" Margin="729,181,0,0" VerticalAlignment="Top" Width="180" Height="65" MouseEnter="OnHoverSeleccionar" MouseLeave="OnLeaveSeleccionar">
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                            <TextBlock x:Name="seleccionarText" Text="SELECCIONAR" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#2778D3" Margin="5"/>
+                        </StackPanel>
+                    </mah:Tile>
+
+                    <!-- BOTON ELIMINAR -->
+                    <mah:Tile x:Name="btnEliminar" Cursor="Hand" HorizontalAlignment="Left" Margin="729,283,0,0" BorderBrush="#FFDC1F1F" BorderThickness="1" Background="#FFFFFF" VerticalAlignment="Top" Width="180" Height="37" MouseEnter="OnHoverEliminar" MouseLeave="OnLeaverEliminar">
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                            <TextBlock x:Name="eliminarText" Text="ELIMINAR" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#FFDC1F1F" Margin="5"/>
+                        </StackPanel>
+                    </mah:Tile>
+
+                    <!-- BOTON VOLVER -->
+                    <mah:Tile x:Name="btnVolver" Cursor="Hand" HorizontalAlignment="Left" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" Margin="729,364,0,0" VerticalAlignment="Top" Width="180" Height="70" MouseEnter="OnHoverVolver" MouseLeave="OnLeaveVolver">
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
+                            <iconPacks:PackIconFontAwesome x:Name="volverIcon" Kind="BackwardSolid" Foreground="#CC60A917" Height="20" Width="100" FontWeight="Bold" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>
+                            <TextBlock x:Name="volverText" Text="VOLVER" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#CC60A917" Margin="5"/>
+                        </StackPanel>
+                    </mah:Tile>
 
                 </Grid>
             </TabItem>

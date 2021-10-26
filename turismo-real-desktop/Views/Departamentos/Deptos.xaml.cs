@@ -1,10 +1,14 @@
 ﻿using MahApps.Metro.Controls;
+using MahApps.Metro.IconPacks;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
+using System.Windows.Controls;
 using turismo_real_business.DTOs;
 using turismo_real_controller.Controllers.Departamento;
 using turismo_real_desktop.GridEntities;
+using turismo_real_desktop.UIElements;
+using System.Windows.Input;
 
 namespace turismo_real_desktop.Views.Administrador.Departamentos
 {
@@ -56,6 +60,76 @@ namespace turismo_real_desktop.Views.Administrador.Departamentos
             return deptosGridList;
         }
 
+        private void OnHoverNuevoDepto(object sender, MouseEventArgs e)
+        {
+            ChangeHoverColor(btnNuevoDepto, nuevoDeptoIcon, nuevoDeptoText, "GREEN");
+        }
 
+
+        // CHANGE COLORS METHODS
+        public void ChangeHoverColor(Tile tile, PackIconFontAwesome icon, TextBlock text, string color)
+        {
+            if (color.Equals("GREEN")) tile.Background = UIColors.NormalGreen;
+            if (color.Equals("BLUE")) tile.Background = UIColors.Blue;
+            if (color.Equals("RED")) tile.Background = UIColors.Red;
+
+            if (icon != null) icon.Foreground = UIColors.PureWhite;
+            if (text != null) text.Foreground = UIColors.PureWhite;
+        }
+
+        public void ChangeLeaveColor(Tile tile, PackIconFontAwesome icon, TextBlock text, string color)
+        {
+            switch (color)
+            {
+                case "GREEN":
+                    if (icon != null) icon.Foreground = UIColors.NormalGreen;
+                    if (text != null) text.Foreground = UIColors.NormalGreen;
+                    break;
+                case "BLUE":
+                    if (icon != null) icon.Foreground = UIColors.Blue;
+                    if (text != null) text.Foreground = UIColors.Blue;
+                    break;
+                case "RED":
+                    if (icon != null) icon.Foreground = UIColors.Red;
+                    if (text != null) text.Foreground = UIColors.Red;
+                    break;
+            }
+            tile.Background = UIColors.PureWhite;
+        }
+
+        private void OnLeaveNuevoDepto(object sender, MouseEventArgs e)
+        {
+            ChangeLeaveColor(btnNuevoDepto, nuevoDeptoIcon, nuevoDeptoText, "GREEN");
+        }
+
+        private void OnHoverSeleccionar(object sender, MouseEventArgs e)
+        {
+            ChangeHoverColor(btnSeleccionar, null, seleccionarText, "BLUE");
+        }
+
+        private void OnLeaveSeleccionar(object sender, MouseEventArgs e)
+        {
+            ChangeLeaveColor(btnSeleccionar, null, seleccionarText, "BLUE");
+        }
+
+        private void OnHoverEliminar(object sender, MouseEventArgs e)
+        {
+            ChangeHoverColor(btnEliminar, null, eliminarText, "RED");
+        }
+
+        private void OnLeaverEliminar(object sender, MouseEventArgs e)
+        {
+            ChangeLeaveColor(btnEliminar, null, eliminarText, "RED");
+        }
+
+        private void OnHoverVolver(object sender, MouseEventArgs e)
+        {
+            ChangeHoverColor(btnVolver, volverIcon, volverText, "GREEN");
+        }
+
+        private void OnLeaveVolver(object sender, MouseEventArgs e)
+        {
+            ChangeLeaveColor(btnVolver, volverIcon, volverText, "GREEN");
+        }
     }
 }

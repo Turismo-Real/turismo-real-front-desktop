@@ -22,9 +22,6 @@
     <Compile Update="Views\Extra\SignUp.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Extra\Test.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Views\Usuarios\Checkcreacionusr.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -55,9 +52,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Extra\SignUp.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\Extra\Test.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Usuarios\Checkcreacionusr.xaml">

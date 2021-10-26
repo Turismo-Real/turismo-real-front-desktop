@@ -11,5 +11,7 @@ namespace turismo_real_desktop.UIElements
         public static Brush NeutralBlue = (Brush)new BrushConverter().ConvertFrom("#2b78e4");
         public static Brush DangerRed = (Brush)new BrushConverter().ConvertFrom("#cf2a27");
         public static Brush PureWhite = (Brush)new BrushConverter().ConvertFrom("#FFFFFF");
+        public static Brush Blue = (Brush)new BrushConverter().ConvertFrom("#2778D3");
+        public static Brush Red = (Brush)new BrushConverter().ConvertFrom("#FFDC1F1F");
     }
 }
