@@ -1,14 +1,36 @@
-﻿<Window
+﻿<mah:MetroWindow
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:turismo_real_desktop.Views.Administrador.Departamentos"
-        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="turismo_real_desktop.Views.Administrador.Departamentos.Deptos"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        x:Class="turismo_real_desktop.Views.Administrador.Departamentos.Deptos"
         mc:Ignorable="d"
-        Title="Turismo Real - Departamentos" Height="450" Width="800">
+        Title="Turismo Real - Departamentos" Height="535" Width="937">
     <Grid>
-        <Grid.ColumnDefinitions>
+        <mah:MetroAnimatedTabControl>
+            <TabItem Header="Departamentos" Cursor="Hand">
+                <Grid Background="#FFE5E5E5">
+                    <Label x:Name="contadorDeptos" Content="Total departamentos: X" FontSize="16" Margin="24,9,640,406"/>
+                    <DataGrid x:Name="dataGridDeptos" Margin="24,47,231,28" />
+                    <Button x:Name="btnNuevoDepto" Content="NUEVO DEPARTAMENTO" HorizontalAlignment="Left" Margin="729,47,0,0" VerticalAlignment="Top" Width="180" Height="110"/>
+                    <Button x:Name="btnSeleccionar" Content="SELECCIONAR" HorizontalAlignment="Left" Margin="729,177,0,0" VerticalAlignment="Top" Width="180" Height="47"/>
+                    <Button x:Name="btnEliminar" Content="ELIMINAR" HorizontalAlignment="Left" Margin="729,275,0,0" VerticalAlignment="Top" Width="180" Height="37"/>
+                    <Button x:Name="btnVolver" Content="VOLVER" HorizontalAlignment="Left" Margin="729,373,0,0" VerticalAlignment="Top" Width="180" Height="47"/>
+
+
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Mantenciones" Cursor="Hand">
+                <Grid Background="#FFE5E5E5">
+
+                </Grid>
+            </TabItem>
+        </mah:MetroAnimatedTabControl>
+
+        <!--<Grid.ColumnDefinitions>
             <ColumnDefinition Width="7*"/>
             <ColumnDefinition Width="153*"/>
         </Grid.ColumnDefinitions>
@@ -32,12 +54,11 @@
         <Image HorizontalAlignment="Left" Height="28" Margin="685,389,0,0" VerticalAlignment="Top" Width="40" Source="/Assets/Normal/previous.png" Grid.Column="1" />
         <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left" Height="1
                 " Margin="0,31,0,0" VerticalAlignment="Top" Width="530" Background="Black" Grid.ColumnSpan="2"/>
-        <mah:Tile x:Name="deptosbtn" Content="Departamentos" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" Height="27" Width="95" mah:ControlsHelper.MouseOverBorderBrush="{x:Null}" FontWeight="Bold" FontStyle="Normal" Foreground="White" Background="#FF3A3939" Grid.ColumnSpan="2"/>
-        <mah:Tile x:Name="mantenbtn" Content="Mantenciones" HorizontalAlignment="Left" Margin="75,4,0,0" VerticalAlignment="Top" Height="27" Width="95" FontWeight="Bold" Foreground="White" Background="#FF3A3939" Grid.Column="1"/>
-        <DataGrid x:Name="datagriddeptos" Margin="0,38,275,0" SelectionChanged="DataGrid_SelectionChanged" Grid.ColumnSpan="2"/>
+        <DataGrid x:Name="datagriddeptos" Margin="37,97,342,31" BorderBrush="#000000" BorderThickness="1" SelectionChanged="DataGrid_SelectionChanged" Grid.Column="1"/>-->
+
 
 
 
 
     </Grid>
-</Window>
+</mah:MetroWindow>

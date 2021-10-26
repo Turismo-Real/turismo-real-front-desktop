@@ -10,11 +10,11 @@
         Title="Turismo Real - Dashboard" Height="552" Width="922"
         WindowStartupLocation="CenterScreen">
     <Grid>
-        <Label x:Name="lblWelcome" Content="Bienvenido { pnombre + papellido + sapellido }" FontSize="14" HorizontalAlignment="Left" Margin="19,24,0,0" VerticalAlignment="Top" Width="576"/>
-
+        <Image Source="/Assets/TurismoRealLogo256.png" HorizontalAlignment="Left" Height="64" Margin="23,11,0,0" VerticalAlignment="Top" Width="64"/>
+        <Label x:Name="lblWelcome" Content="Bienvenido { pnombre + papellido + sapellido }" FontSize="16" HorizontalAlignment="Left" Margin="97,28,0,0" VerticalAlignment="Top" Width="576"/>
 
         <!-- Boton departamentos -->
-        <mah:Tile x:Name="buildingTile" HorizontalAlignment="Left" Margin="23,80,0,0" VerticalAlignment="Top" Width="280" Height="200" Background="#FFFFFFFF" BorderBrush="#CC60A917" BorderThickness="1" Cursor="Hand" MouseEnter="OnHoverBuilding" MouseLeave="OnLeaveBuilding">
+        <mah:Tile x:Name="buildingTile" HorizontalAlignment="Left" Margin="23,80,0,0" VerticalAlignment="Top" Width="280" Height="200" Background="#FFFFFFFF" BorderBrush="#CC60A917" BorderThickness="1" Cursor="Hand" MouseEnter="OnHoverBuilding" MouseLeave="OnLeaveBuilding" Click="OpenWinDeptos">
             <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
                 <iconPacks:PackIconFontAwesome x:Name="buildingIcon" Kind="BuildingRegular" Foreground="#CC60A917" FontSize="18" Height="100" Width="100" FontWeight="Bold" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>
                 <TextBlock x:Name="buildingText" Text="DEPARTAMENTOS" TextAlignment="Center" FontWeight="Medium" FontSize="20" Foreground="#CC60A917"/>

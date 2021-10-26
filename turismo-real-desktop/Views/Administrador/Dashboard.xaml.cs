@@ -10,6 +10,7 @@ using turismo_real_controller.Controllers.Usuario;
 using turismo_real_desktop.UIElements;
 using System.Windows;
 using turismo_real_desktop.Views.Extra;
+using turismo_real_desktop.Views.Administrador.Departamentos;
 
 namespace turismo_real_desktop.Views.Administrador
 {
@@ -128,6 +129,13 @@ namespace turismo_real_desktop.Views.Administrador
             LoguedUser.SetLoguedUser(null);
             Login login = new Login();
             login.Show();
+            Close();
+        }
+
+        private void OpenWinDeptos(object sender, RoutedEventArgs e)
+        {
+            Deptos deptosWindow = new Deptos();
+            deptosWindow.Show();
             Close();
         }
     }
