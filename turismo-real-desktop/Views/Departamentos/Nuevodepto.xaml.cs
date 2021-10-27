@@ -1,17 +1,12 @@
 ﻿using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using turismo_real_controller.Controllers.Util;
 using turismo_real_desktop.UIElements;
 
@@ -21,6 +16,8 @@ namespace turismo_real_desktop.Views.Departamentos
     public partial class Nuevodepto : MetroWindow
     {
         private UtilController utilController;
+        private List<string> sourceList = new List<string>();
+        private List<string> destinationList = new List<string>();
 
         public Nuevodepto()
         {
@@ -113,10 +110,42 @@ namespace turismo_real_desktop.Views.Departamentos
         {
             // obtener instalaciones y cargarlas en listbox
             utilController = new UtilController();
-            List<string> instalaciones = utilController.ObtenerInstalaciones();
-            instalacionesListbox.ItemsSource = instalaciones; ;
+            sourceList = utilController.ObtenerInstalaciones();
+            
+            foreach(string instalacion in sourceList)
+            {
+                instalacionesDisponibles.Items.Add(instalacion);
+            }
         }
 
+        private void AgregarInstalacion(object sender, RoutedEventArgs e)
+        {
+            if (instalacionesDisponibles.Items.Count > 0 && instalacionesDisponibles.SelectedItem != null)
+            {
+                string selectedItem = instalacionesDisponibles.SelectedItem.ToString();
+                InstalacionesAgregadas.Items.Add(selectedItem);
+                instalacionesDisponibles.Items.Remove(selectedItem);
+            }
+        }
 
+        private void QuitarInstalacion(object sender, RoutedEventArgs e)
+        {
+            if (InstalacionesAgregadas.Items.Count > 0 && InstalacionesAgregadas.SelectedItem != null)
+            {
+                string selectedItem = InstalacionesAgregadas.SelectedItem.ToString();
+                instalacionesDisponibles.Items.Add(selectedItem);
+                InstalacionesAgregadas.Items.Remove(selectedItem);
+            }
+        }
+
+        private void InvertirInstalaciones(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void NuevaInstalacion(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }
