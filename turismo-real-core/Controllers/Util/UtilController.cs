@@ -31,5 +31,12 @@ namespace turismo_real_controller.Controllers.Util
 
             return comunas;
         }
+
+        public List<string> ObtenerInstalaciones()
+        {
+            utilService = new UtilService();
+            List<string> instalaciones = utilService.GetInstalacionesREST();
+            return instalaciones;
+        }
     }
 }

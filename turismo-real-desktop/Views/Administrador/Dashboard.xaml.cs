@@ -142,12 +142,16 @@ namespace turismo_real_desktop.Views.Administrador
 
         public void WelcomeMessage()
         {
-            string nombreUsuario = $"{LoguedUser.GetLoguedUser().primerNombre} " +
+            if (LoguedUser.GetLoguedUser() != null) // para modo offline
+            {
+                string nombreUsuario = $"{LoguedUser.GetLoguedUser().primerNombre} " +
                     $"{LoguedUser.GetLoguedUser().primerApellido} " +
                     $"{LoguedUser.GetLoguedUser().segundoApellido}";
 
-            // Bienvenida a usuario
-            lblWelcome.Content = $"Bienvenido {nombreUsuario}";
+                // Bienvenida a usuario
+                lblWelcome.Content = $"Bienvenido {nombreUsuario}";
+            }
+            
         }
     }
 }

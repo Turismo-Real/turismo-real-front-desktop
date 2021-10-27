@@ -36,15 +36,6 @@ namespace turismo_real_services.REST.Util
                 Console.WriteLine(ex.Message);
                 return null;
             }
-
-
-
-            List<string> regiones = new List<string>();
-            regiones.Add("Region Metropolitana");
-            regiones.Add("Coquimbo");
-            regiones.Add("Atacama");
-            return regiones;
-
         }
 
         public List<string> ParseStrObjectsToList(dynamic objResponse)
@@ -61,15 +52,10 @@ namespace turismo_real_services.REST.Util
         {
             try
             {
-                Trace.WriteLine("Region en service: " + region);
                 object payload = new { region = region };
                 string json = JsonConvert.SerializeObject(payload);
 
-                Trace.WriteLine("Payload: " + payload);
-
                 string url = $"{URLService.URL_UTILS}/comuna";
-                Trace.WriteLine(url);
-
                 WebRequest request = WebRequest.Create(url);
                 request.Method = "POST";
                 request.PreAuthenticate = true;
@@ -88,10 +74,9 @@ namespace turismo_real_services.REST.Util
                 {
                     result = streamReader.ReadToEnd();
                 }
-                Trace.WriteLine("Result: "+result);
+
                 dynamic response = JsonConvert.DeserializeObject(result);
                 List<string> regionesResponse = ParseStrObjectsToList(response);
-                Trace.WriteLine("Cant regiones: "+regionesResponse.Count);
                 return regionesResponse;
             }
             catch (Exception ex)
@@ -99,13 +84,36 @@ namespace turismo_real_services.REST.Util
                 Console.WriteLine(ex.Message);
                 return null;
             }
-
-
-
         }
 
+        public List<string> GetInstalacionesREST()
+        {
+            try
+            {
+                string url = $"{URLService.URL_UTILS}/instalaciones";
+                WebRequest request = WebRequest.Create(url);
+                request.Method = "GET";
+                request.PreAuthenticate = true;
+                request.ContentType = "Application/json; Charset=UTF-8";
+                request.Timeout = 8000;
 
+                string result = "";
+                HttpWebResponse httpResponse = (HttpWebResponse)request.GetResponse();
+                using (StreamReader streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    result = streamReader.ReadToEnd();
+                }
 
+                dynamic response = JsonConvert.DeserializeObject(result);
+                List<string> instalaciones = ParseStrObjectsToList(response);
+                return instalaciones;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+        }
 
 
     }

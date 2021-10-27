@@ -28,6 +28,7 @@ namespace turismo_real_desktop.Views.Departamentos
             SetComboRegiones();
             SetComboDormitorios();
             SetComboBanios();
+            SetInstalaciones();
         }
 
         private void OnHoverCancelar(object sender, MouseEventArgs e)
@@ -107,5 +108,15 @@ namespace turismo_real_desktop.Views.Departamentos
             }
             return numberList;
         }
+
+        public void SetInstalaciones()
+        {
+            // obtener instalaciones y cargarlas en listbox
+            utilController = new UtilController();
+            List<string> instalaciones = utilController.ObtenerInstalaciones();
+            instalacionesListbox.ItemsSource = instalaciones; ;
+        }
+
+
     }
 }
