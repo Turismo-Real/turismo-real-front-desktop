@@ -39,7 +39,7 @@
                     </mah:Tile>
 
                     <!-- BOTON VOLVER -->
-                    <mah:Tile x:Name="btnVolver" Cursor="Hand" HorizontalAlignment="Left" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" Margin="729,364,0,0" VerticalAlignment="Top" Width="180" Height="70" MouseEnter="OnHoverVolver" MouseLeave="OnLeaveVolver">
+                    <mah:Tile x:Name="btnVolver" Cursor="Hand" HorizontalAlignment="Left" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" Margin="729,364,0,0" VerticalAlignment="Top" Width="180" Height="70" MouseEnter="OnHoverVolver" MouseLeave="OnLeaveVolver" Click="CloseWindow">
                         <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
                             <iconPacks:PackIconFontAwesome x:Name="volverIcon" Kind="BackwardSolid" Foreground="#CC60A917" Height="20" Width="100" FontWeight="Bold" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>
                             <TextBlock x:Name="volverText" Text="VOLVER" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#CC60A917" Margin="5"/>

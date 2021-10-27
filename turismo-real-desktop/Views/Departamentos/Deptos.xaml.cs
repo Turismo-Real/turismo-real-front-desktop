@@ -74,8 +74,8 @@ namespace turismo_real_desktop.Views.Administrador.Departamentos
             if (color.Equals("BLUE")) tile.Background = UIColors.Blue;
             if (color.Equals("RED")) tile.Background = UIColors.Red;
 
-            if (icon != null) icon.Foreground = UIColors.PureWhite;
-            if (text != null) text.Foreground = UIColors.PureWhite;
+            if (icon != null) icon.Foreground = UIColors.White;
+            if (text != null) text.Foreground = UIColors.White;
         }
 
         public void ChangeLeaveColor(Tile tile, PackIconFontAwesome icon, TextBlock text, string color)
@@ -95,7 +95,7 @@ namespace turismo_real_desktop.Views.Administrador.Departamentos
                     if (text != null) text.Foreground = UIColors.Red;
                     break;
             }
-            tile.Background = UIColors.PureWhite;
+            tile.Background = UIColors.White;
         }
 
         private void OnLeaveNuevoDepto(object sender, MouseEventArgs e)
@@ -137,6 +137,13 @@ namespace turismo_real_desktop.Views.Administrador.Departamentos
         {
             Nuevodepto nuevoDeptoWindow = new Nuevodepto();
             nuevoDeptoWindow.Show();
+        }
+
+        private void CloseWindow(object sender, System.Windows.RoutedEventArgs e)
+        {
+            Dashboard dashWindow = new Dashboard();
+            dashWindow.Show();
+            Close();
         }
     }
 }

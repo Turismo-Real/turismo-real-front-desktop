@@ -12,7 +12,8 @@ namespace turismo_real_controller.Controllers.Departamento
 
         public List<DepartamentoDTO> GetDepartamentos()
         {
-            return new DepartamentoService().GetAllDeptos();
+            deptos = new DepartamentoService().GetAllDeptos();
+            return deptos;
         }
     }
 }

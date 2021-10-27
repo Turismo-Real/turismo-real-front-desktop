@@ -16,6 +16,12 @@ namespace turismo_real_desktop.Views.Administrador
 {
     public partial class Dashboard : MetroWindow
     {
+        public Dashboard()
+        {
+            InitializeComponent();
+            WelcomeMessage();
+        }
+
         public Dashboard(LoginResponse login)
         {
             InitializeComponent();
@@ -28,12 +34,7 @@ namespace turismo_real_desktop.Views.Administrador
 
                 // Setear usuario logueado
                 LoguedUser.SetLoguedUser(usuario);
-                string nombreUsuario = $"{LoguedUser.GetLoguedUser().primerNombre} " +
-                    $"{LoguedUser.GetLoguedUser().primerApellido} " +
-                    $"{LoguedUser.GetLoguedUser().segundoApellido}";
-
-                // Bienvenida a usuario
-                lblWelcome.Content = $"Bienvenido {nombreUsuario}";
+                WelcomeMessage();
             }
         }
 
@@ -74,13 +75,13 @@ namespace turismo_real_desktop.Views.Administrador
         private void OnHoverExit(object sender, MouseEventArgs e)
         {
             exitTile.Background = (Brush)new BrushConverter().ConvertFrom("#FFDC1F1F");
-            exitIcon.Foreground = UIColors.PureWhite;
-            exitText.Foreground = UIColors.PureWhite;
+            exitIcon.Foreground = UIColors.White;
+            exitText.Foreground = UIColors.White;
         }
 
         private void OnLeaveExit(object sender, MouseEventArgs e)
         {
-            exitTile.Background = UIColors.PureWhite;
+            exitTile.Background = UIColors.White;
             exitIcon.Foreground = (Brush)new BrushConverter().ConvertFrom("#FFDC1F1F");
             exitText.Foreground = (Brush)new BrushConverter().ConvertFrom("#FFDC1F1F");
         }
@@ -112,13 +113,13 @@ namespace turismo_real_desktop.Views.Administrador
         public void ChangeHoverColor(Tile tile, PackIconFontAwesome icon, TextBlock text)
         {
             tile.Background = UIColors.NormalGreen;
-            icon.Foreground = UIColors.PureWhite;
-            text.Foreground = UIColors.PureWhite;
+            icon.Foreground = UIColors.White;
+            text.Foreground = UIColors.White;
         }
 
         public void ChangeLeaveColor(Tile tile, PackIconFontAwesome icon, TextBlock text)
         {
-            tile.Background = UIColors.PureWhite;
+            tile.Background = UIColors.White;
             icon.Foreground = UIColors.NormalGreen;
             text.Foreground = UIColors.NormalGreen;
         }
@@ -137,6 +138,16 @@ namespace turismo_real_desktop.Views.Administrador
             Deptos deptosWindow = new Deptos();
             deptosWindow.Show();
             Close();
+        }
+
+        public void WelcomeMessage()
+        {
+            string nombreUsuario = $"{LoguedUser.GetLoguedUser().primerNombre} " +
+                    $"{LoguedUser.GetLoguedUser().primerApellido} " +
+                    $"{LoguedUser.GetLoguedUser().segundoApellido}";
+
+            // Bienvenida a usuario
+            lblWelcome.Content = $"Bienvenido {nombreUsuario}";
         }
     }
 }
