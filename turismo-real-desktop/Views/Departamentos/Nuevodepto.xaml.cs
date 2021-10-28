@@ -1,15 +1,14 @@
 ﻿using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
-using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
+using turismo_real_business.DTOs;
 using turismo_real_controller.Controllers.Util;
 using turismo_real_desktop.UIElements;
-using Microsoft.VisualBasic;
 
 namespace turismo_real_desktop.Views.Departamentos
 {
@@ -17,10 +16,13 @@ namespace turismo_real_desktop.Views.Departamentos
     public partial class Nuevodepto : MetroWindow
     {
         private UtilController utilController;
+        private const string nuevaInstalacionPlace = "Nueva Instalación";
 
         public Nuevodepto()
         {
             InitializeComponent();
+            // Set the DataContext for your View
+            this.DataContext = new VModal(DialogCoordinator.Instance);
             SetComboRegiones();
             SetComboDormitorios();
             SetComboBanios();
@@ -58,14 +60,21 @@ namespace turismo_real_desktop.Views.Departamentos
 
         private void InsertarNuevoDepto(object sender, RoutedEventArgs e)
         {
+            DepartamentoDTO nuevoDepto = ConvertFormToDepto();
+        }
 
+        public DepartamentoDTO ConvertFormToDepto()
+        {
+
+
+
+            return new DepartamentoDTO();
         }
 
         public void SetComboRegiones()
         {
             utilController = new UtilController();
             List<string> regiones = utilController.ObtenerRegiones();
-            Trace.WriteLine(regiones.Count);
             comboRegion.ItemsSource = regiones;
             comboRegion.SelectedIndex = 0;
         }
@@ -75,7 +84,8 @@ namespace turismo_real_desktop.Views.Departamentos
             if (comboRegion.SelectedIndex != 0)
             {
                 utilController = new UtilController();
-                List<string> comunas = utilController.ObtenerComunasPorRegion(comboRegion.SelectedItem.ToString());
+                string region = comboRegion.SelectedItem.ToString();
+                List<string> comunas = utilController.ObtenerComunasPorRegion(region);
                 comboComuna.ItemsSource = comunas;
                 comboComuna.SelectedIndex = 0;
                 return;
@@ -168,12 +178,33 @@ namespace turismo_real_desktop.Views.Departamentos
 
         private void NuevaInstalacion(object sender, RoutedEventArgs e)
         {
-            MetroWindow window = (MetroWindow)Window.GetWindow(this);
+            if (txtInstalacion.Text.Equals(nuevaInstalacionPlace) && txtInstalacion.Foreground.Equals(Brushes.Gray)) return;
 
-            string title = "Turismo Real - Nueva instalación";
-            string message = "Ingresa el nombre de la instalación.";
-            var result = DialogCoordinator.Instance.ShowInputAsync(window, title, message, null);
-           
+            string instalacion = txtInstalacion.Text.Trim();
+            if (!instalacion.Equals(string.Empty))
+            {
+                InstalacionesAgregadas.Items.Add(instalacion);
+                txtInstalacion.Text = string.Empty;
+                NuevaInstalacionLostFocus(sender, e);
+            }
+        }
+
+        private void NuevaInstalacionFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtInstalacion.Text.Equals(nuevaInstalacionPlace) && txtInstalacion.Foreground.Equals(Brushes.Gray))
+            {
+                txtInstalacion.Text = string.Empty;
+                txtInstalacion.Foreground = Brushes.Black;
+            }
+        }
+
+        private void NuevaInstalacionLostFocus(object sender, RoutedEventArgs e)
+        {
+            if(txtInstalacion.Text.Equals(string.Empty) && txtInstalacion.Foreground.Equals(Brushes.Black))
+            {
+                txtInstalacion.Text = nuevaInstalacionPlace;
+                txtInstalacion.Foreground = Brushes.Gray;
+            }
         }
     }
 }

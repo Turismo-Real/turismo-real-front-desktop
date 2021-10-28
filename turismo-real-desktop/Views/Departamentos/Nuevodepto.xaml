@@ -4,15 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:turismo_real_desktop.Views.Departamentos"
-        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         x:Class="turismo_real_desktop.Views.Departamentos.Nuevodepto"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+        Dialog:DialogParticipation.Register="{Binding}"
         mc:Ignorable="d"
         Title="Turismo Real - Nuevo Departamento" Height="642" Width="685">
     <Grid>
-        <!--<Grid.ColumnDefinitions>
-            <ColumnDefinition Width="40*"/>
-            <ColumnDefinition Width="769*"/>
-        </Grid.ColumnDefinitions>-->
         <Label Content="ROL:" HorizontalAlignment="Left" Margin="76,50,0,0" VerticalAlignment="Top" Grid.Column="1"/>
         <Label Content="Tipo:" HorizontalAlignment="Left" Margin="74,83,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.836,1.311"/>
         <Label Content="N° dormitorios:" HorizontalAlignment="Left" Margin="19,114,0,0" VerticalAlignment="Top"/>
@@ -26,7 +24,7 @@
         <ComboBox x:Name="comboDormitorios" HorizontalAlignment="Left" Margin="115,114,0,0" VerticalAlignment="Top" Width="178"/>
         <ComboBox x:Name="comboBanios" HorizontalAlignment="Left" Margin="115,145,0,0" VerticalAlignment="Top" Width="178"/>
         <TextBox x:Name="txtsuperficie" HorizontalAlignment="Left" Margin="115,176,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="178"/>
-        <TextBox x:Name="txtdescripcion" HorizontalAlignment="Left" Margin="115,238,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="548" Height="99"/>
+        <TextBox x:Name="txtdescripcion" MaxLength="255" HorizontalAlignment="Left" Margin="115,238,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="548" Height="99"/>
         <TextBox x:Name="txtvalordiario" HorizontalAlignment="Left" Margin="115,207,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="178"/>
         <Rectangle HorizontalAlignment="Left" Height="170" Margin="309,50,0,0" Stroke="Black" VerticalAlignment="Top" Width="1"/>
         <Label Content="DEPARTAMENTO" FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="100,5,0,0" VerticalAlignment="Top"/>
@@ -40,14 +38,14 @@
         <TextBox x:Name="txtnumero" HorizontalAlignment="Left" Margin="393,173,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="270"/>
         <ComboBox x:Name="comboRegion" HorizontalAlignment="Left" Margin="393,80,0,0" VerticalAlignment="Top" Width="270" SelectionChanged="RegionChanged"/>
         <ComboBox x:Name="comboComuna" HorizontalAlignment="Left" Margin="393,111,0,0" VerticalAlignment="Top" Width="270"/>
-        <Label Content="DIRECCIÓN" FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="408,4,0,0" VerticalAlignment="Top"/>
+        <Label Content="DIRECCIÓN" FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="449,4,0,0" VerticalAlignment="Top"/>
+        <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left" Height="1" Margin="457,29,0,0" VerticalAlignment="Top" Width="81"/>
         <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left" Height="1" Margin="107,30,0,0" VerticalAlignment="Top" Width="126"/>
-        <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left" Height="1" Margin="416,29,0,0" VerticalAlignment="Top" Width="81"/>
 
-        <mah:Tile x:Name="btnAgregarInstalacion" Content="Agregar" HorizontalAlignment="Left" Margin="310,358,0,0" VerticalAlignment="Top" Height="23" Background="#CC21631E" Width="158" Click="AgregarInstalacion"/>
-        <mah:Tile x:Name="btnQuitarInstalacion" Content="Quitar" HorizontalAlignment="Left" Margin="310,386,0,0" VerticalAlignment="Top" Height="23" Background="#CC21631E" Width="158" Click="QuitarInstalacion"/>
-        <mah:Tile x:Name="btnNuevaInstalacion" Content="Nueva Instalación" HorizontalAlignment="Left" Margin="310,414,0,0" VerticalAlignment="Top" Height="23" Background="#CC21631E" Width="158" Click="NuevaInstalacion"/>
-        <mah:Tile x:Name="btnInvertirSeleccion" Content="Invertir Selección" HorizontalAlignment="Left" Margin="310,441,0,0" VerticalAlignment="Top" Height="23" Background="#CC21631E" Width="158" Click="InvertirInstalaciones"/>
+        <mah:Tile x:Name="btnAgregarInstalacion" Content="Agregar" HorizontalAlignment="Left" Margin="310,345,0,0" VerticalAlignment="Top" Height="23" Background="#CC21631E" Width="158" Click="AgregarInstalacion"/>
+        <mah:Tile x:Name="btnQuitarInstalacion" Content="Quitar" HorizontalAlignment="Left" Margin="310,373,0,0" VerticalAlignment="Top" Height="23" Background="#CC21631E" Width="158" Click="QuitarInstalacion"/>
+        <mah:Tile x:Name="btnNuevaInstalacion" Content="Agregar Instalación" HorizontalAlignment="Left" Margin="309,429,0,0" VerticalAlignment="Top" Height="23" Background="#CC21631E" Width="158" Click="NuevaInstalacion"/>
+        <mah:Tile x:Name="btnInvertirSeleccion" Content="Invertir Selección" HorizontalAlignment="Left" Margin="309,401,0,0" VerticalAlignment="Top" Height="23" Background="#CC21631E" Width="158" Click="InvertirInstalaciones"/>
 
         <mah:Tile x:Name="btnCancelar" HorizontalAlignment="Left" VerticalContentAlignment="Center" Background="#FFFFFF" BorderBrush="#FFDC1F1F" BorderThickness="1" Margin="102,571,0,0" Cursor="Hand" VerticalAlignment="Top" Height="30" Width="210" MouseEnter="OnHoverCancelar" MouseLeave="OnLeaveCancelar" Click="CancelarInsercion">
             <StackPanel Orientation="Vertical" VerticalAlignment="Center">
@@ -64,13 +62,8 @@
 
 
         <ListBox x:Name="instalacionesDisponibles" BorderBrush="#C1C1C1" Margin="115,343,385,120" BorderThickness="1"/>
-        <ListBox x:Name="InstalacionesAgregadas" BorderBrush="#067A08" Margin="478,343,22,120" BorderThickness="1"/>
-
-
-
-
-
-
+        <ListBox x:Name="InstalacionesAgregadas" BorderBrush="#067A08" Margin="478,343,22,120" BorderThickness="2"/>
+        <TextBox x:Name="txtInstalacion" Foreground="Gray" HorizontalAlignment="Left" Margin="310,457,0,0" Text="Nueva Instalación" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" GotFocus="NuevaInstalacionFocus" LostFocus="NuevaInstalacionLostFocus"/>
 
     </Grid>
 </mah:MetroWindow>
