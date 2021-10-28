@@ -9,6 +9,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using turismo_real_controller.Controllers.Util;
 using turismo_real_desktop.UIElements;
+using Microsoft.VisualBasic;
 
 namespace turismo_real_desktop.Views.Departamentos
 {
@@ -141,7 +142,6 @@ namespace turismo_real_desktop.Views.Departamentos
             List<string> disponibles = new List<string>();
             foreach(var disponible in instalacionesDisponibles.Items)
             {
-                Trace.WriteLine(disponible.ToString());
                 disponibles.Add(disponible.ToString());
             }
 
@@ -168,7 +168,12 @@ namespace turismo_real_desktop.Views.Departamentos
 
         private void NuevaInstalacion(object sender, RoutedEventArgs e)
         {
-            
+            MetroWindow window = (MetroWindow)Window.GetWindow(this);
+
+            string title = "Turismo Real - Nueva instalación";
+            string message = "Ingresa el nombre de la instalación.";
+            var result = DialogCoordinator.Instance.ShowInputAsync(window, title, message, null);
+           
         }
     }
 }
