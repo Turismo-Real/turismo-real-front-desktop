@@ -1,12 +1,14 @@
 ﻿using MahApps.Metro.Controls;
-using MahApps.Metro.Controls.Dialogs;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using turismo_real_business.DTOs;
+using turismo_real_controller.Controllers.Departamento;
 using turismo_real_controller.Controllers.Util;
 using turismo_real_desktop.UIElements;
 
@@ -16,17 +18,18 @@ namespace turismo_real_desktop.Views.Departamentos
     public partial class Nuevodepto : MetroWindow
     {
         private UtilController utilController;
+        private DepartamentoController deptoController;
         private const string nuevaInstalacionPlace = "Nueva Instalación";
 
         public Nuevodepto()
         {
             InitializeComponent();
-            // Set the DataContext for your View
-            this.DataContext = new VModal(DialogCoordinator.Instance);
+            SetComboTiposDepto();
             SetComboRegiones();
             SetComboDormitorios();
             SetComboBanios();
             SetInstalaciones();
+            mensajeUsuario.Text = string.Empty;
         }
 
         private void OnHoverCancelar(object sender, MouseEventArgs e)
@@ -61,14 +64,68 @@ namespace turismo_real_desktop.Views.Departamentos
         private void InsertarNuevoDepto(object sender, RoutedEventArgs e)
         {
             DepartamentoDTO nuevoDepto = ConvertFormToDepto();
+            Trace.WriteLine(nuevoDepto.rol);
+            Trace.WriteLine(nuevoDepto.tipo);
+            Trace.WriteLine(nuevoDepto.dormitorios);
+            Trace.WriteLine(nuevoDepto.banios);
+            Trace.WriteLine(nuevoDepto.superficie);
+            Trace.WriteLine(nuevoDepto.valorDiario);
+            Trace.WriteLine(nuevoDepto.descripcion);
+            Trace.WriteLine(nuevoDepto.direccion.depto);
+            Trace.WriteLine(nuevoDepto.direccion.region);
+            Trace.WriteLine(nuevoDepto.direccion.comuna);
+            Trace.WriteLine(nuevoDepto.direccion.calle);
+            Trace.WriteLine(nuevoDepto.direccion.numero);
+
+            Trace.WriteLine("\n- INSTALACIONES -");
+            foreach(string instalacion in nuevoDepto.instalaciones)
+            {
+                Trace.WriteLine(instalacion);
+            }
+
+            deptoController = new DepartamentoController();
+            bool nuevoDeptoInsertado = deptoController.AgregarNuevoDepto(nuevoDepto);
+
+            if (nuevoDeptoInsertado)
+            {
+                mensajeUsuario.Text = "Departamento Creado.";
+                mensajeUsuario.Foreground = Brushes.Green;
+                return;
+            }
+            mensajeUsuario.Text = "Error al crear departamento.";
+            mensajeUsuario.Foreground = Brushes.Red;
         }
 
         public DepartamentoDTO ConvertFormToDepto()
         {
+            DepartamentoDTO depto = new DepartamentoDTO();
+            depto.rol = txtRol.Text;
+            depto.dormitorios = Convert.ToInt32(comboDormitorios.SelectedItem.ToString());
+            depto.banios = Convert.ToInt32(comboBanios.SelectedItem.ToString());
+            depto.descripcion = txtdDscripcion.Text;
+            depto.superficie = Convert.ToInt32(txtSuperficie.Text);
+            depto.valorDiario = Convert.ToDouble(txtValorDiario.Text);
+            depto.tipo = comboTipo.SelectedItem.ToString();
 
+            DireccionDTO direccion = new DireccionDTO();
+            direccion.region = comboRegion.SelectedItem.ToString();
+            direccion.comuna = comboComuna.SelectedItem.ToString();
+            direccion.calle = txtCalle.Text;
+            direccion.numero = txtNumero.Text;
+            direccion.depto = txtNroDepto.Text;
+            depto.direccion = direccion;
+            depto.instalaciones = GetStringListFromListBox(InstalacionesAgregadas);
+            return depto;
+        }
 
-
-            return new DepartamentoDTO();
+        public List<string> GetStringListFromListBox(ListBox listbox)
+        {
+            List<string> strCollection = new List<string>();
+            foreach (var strItem in listbox.Items)
+            {
+                strCollection.Add(strItem.ToString());
+            }
+            return strCollection;
         }
 
         public void SetComboRegiones()
@@ -205,6 +262,17 @@ namespace turismo_real_desktop.Views.Departamentos
                 txtInstalacion.Text = nuevaInstalacionPlace;
                 txtInstalacion.Foreground = Brushes.Gray;
             }
+        }
+
+        private void SetComboTiposDepto()
+        {
+            utilController = new UtilController();
+            List<string> tiposDepto = utilController.ObtenerTiposDepto();
+            foreach(string tipo in tiposDepto)
+            {
+                comboTipo.Items.Add(tipo);
+            }
+            comboTipo.SelectedIndex = 0;
         }
     }
 }

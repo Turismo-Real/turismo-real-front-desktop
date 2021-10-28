@@ -145,5 +145,10 @@ namespace turismo_real_desktop.Views.Administrador.Departamentos
             dashWindow.Show();
             Close();
         }
+
+        private void EliminarDepto(object sender, System.Windows.RoutedEventArgs e)
+        {
+            
+        }
     }
 }
