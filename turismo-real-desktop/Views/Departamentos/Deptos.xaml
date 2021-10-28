@@ -32,7 +32,7 @@
                     </mah:Tile>
 
                     <!-- BOTON ELIMINAR -->
-                    <mah:Tile x:Name="btnEliminar" Cursor="Hand" HorizontalAlignment="Left" Margin="729,283,0,0" BorderBrush="#FFDC1F1F" BorderThickness="1" Background="#FFFFFF" VerticalAlignment="Top" Width="180" Height="37" MouseEnter="OnHoverEliminar" MouseLeave="OnLeaverEliminar">
+                    <mah:Tile x:Name="btnEliminar" Cursor="Hand" HorizontalAlignment="Left" Margin="729,283,0,0" BorderBrush="#FFDC1F1F" BorderThickness="1" Background="#FFFFFF" VerticalAlignment="Top" Width="180" Height="37" MouseEnter="OnHoverEliminar" MouseLeave="OnLeaverEliminar" Click="EliminarDepto">
                         <StackPanel Orientation="Vertical" VerticalAlignment="Center">
                             <TextBlock x:Name="eliminarText" Text="ELIMINAR" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#FFDC1F1F" Margin="5"/>
                         </StackPanel>

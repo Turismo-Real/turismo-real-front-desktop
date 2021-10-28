@@ -21,5 +21,12 @@ namespace turismo_real_controller.Controllers.Departamento
             bool saved = deptoService.CreateNewDepto(nuevoDepto);
             return saved;
         }
+
+        public bool EliminarDepto(int id)
+        {
+            deptoService = new DepartamentoService();
+            bool removed = deptoService.DeleteDepto(id);
+            return removed;
+        }
     }
 }

@@ -10,6 +10,8 @@ using turismo_real_desktop.GridEntities;
 using turismo_real_desktop.UIElements;
 using System.Windows.Input;
 using turismo_real_desktop.Views.Departamentos;
+using System.Diagnostics;
+using System;
 
 namespace turismo_real_desktop.Views.Administrador.Departamentos
 {
@@ -22,7 +24,7 @@ namespace turismo_real_desktop.Views.Administrador.Departamentos
         {
             InitializeComponent();
             FillDataGridDeptos();
-            contadorDeptos.Content = $"Total departamentos: {deptos.Count}";
+            dataGridDeptos.IsReadOnly = true;
         }
 
 
@@ -39,7 +41,7 @@ namespace turismo_real_desktop.Views.Administrador.Departamentos
                 deptosGrid.Add(depto);
             }
             dataGridDeptos.ItemsSource = deptosGrid;
-            dataGridDeptos.IsReadOnly = true;
+            contadorDeptos.Content = $"Total departamentos: {deptos.Count}";
         }
 
         public List<DeptoGrid> ConvertToDeptoGrid(List<DepartamentoDTO> deptos)
@@ -148,7 +150,11 @@ namespace turismo_real_desktop.Views.Administrador.Departamentos
 
         private void EliminarDepto(object sender, System.Windows.RoutedEventArgs e)
         {
-            
+            deptoController = new DepartamentoController();
+            DeptoGrid selectedDepto = dataGridDeptos.SelectedItem as DeptoGrid;
+            int id = Convert.ToInt32(selectedDepto.id);
+            bool removed = deptoController.EliminarDepto(id);
+            if (removed) FillDataGridDeptos();
         }
     }
 }
