@@ -16,8 +16,6 @@ namespace turismo_real_desktop.Views.Departamentos
     public partial class Nuevodepto : MetroWindow
     {
         private UtilController utilController;
-        private List<string> sourceList = new List<string>();
-        private List<string> destinationList = new List<string>();
 
         public Nuevodepto()
         {
@@ -110,9 +108,9 @@ namespace turismo_real_desktop.Views.Departamentos
         {
             // obtener instalaciones y cargarlas en listbox
             utilController = new UtilController();
-            sourceList = utilController.ObtenerInstalaciones();
+            List<string> instalaciones= utilController.ObtenerInstalaciones();
             
-            foreach(string instalacion in sourceList)
+            foreach(string instalacion in instalaciones)
             {
                 instalacionesDisponibles.Items.Add(instalacion);
             }
@@ -140,7 +138,32 @@ namespace turismo_real_desktop.Views.Departamentos
 
         private void InvertirInstalaciones(object sender, RoutedEventArgs e)
         {
-            
+            List<string> disponibles = new List<string>();
+            foreach(var disponible in instalacionesDisponibles.Items)
+            {
+                Trace.WriteLine(disponible.ToString());
+                disponibles.Add(disponible.ToString());
+            }
+
+            List<string> agregadas = new List<string>();
+            foreach(var agregada in InstalacionesAgregadas.Items)
+            {
+                agregadas.Add(agregada.ToString());
+            }
+
+            // llenar disponibles
+            instalacionesDisponibles.Items.Clear();
+            foreach(string disponible in agregadas)
+            {
+                instalacionesDisponibles.Items.Add(disponible);
+            }
+
+            // llenar agregadas
+            InstalacionesAgregadas.Items.Clear();
+            foreach (string agregada in disponibles)
+            {
+                InstalacionesAgregadas.Items.Add(agregada);
+            }
         }
 
         private void NuevaInstalacion(object sender, RoutedEventArgs e)
