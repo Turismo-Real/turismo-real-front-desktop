@@ -1,7 +1,6 @@
 ﻿using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,6 +10,7 @@ using turismo_real_business.DTOs;
 using turismo_real_controller.Controllers.Departamento;
 using turismo_real_controller.Controllers.Util;
 using turismo_real_desktop.UIElements;
+using turismo_real_desktop.Views.Administrador.Departamentos;
 
 namespace turismo_real_desktop.Views.Departamentos
 {
@@ -20,8 +20,20 @@ namespace turismo_real_desktop.Views.Departamentos
         private UtilController utilController;
         private DepartamentoController deptoController;
         private const string nuevaInstalacionPlace = "Nueva Instalación";
+        private readonly Deptos activeDeptosWindow;
 
         public Nuevodepto()
+        {
+            InitializeWindow();
+        }
+
+        public Nuevodepto(Deptos deptosWindow)
+        {
+            InitializeWindow();
+            activeDeptosWindow = deptosWindow;
+        }
+
+        public void InitializeWindow()
         {
             InitializeComponent();
             SetComboTiposDepto();
@@ -64,32 +76,14 @@ namespace turismo_real_desktop.Views.Departamentos
         private void InsertarNuevoDepto(object sender, RoutedEventArgs e)
         {
             DepartamentoDTO nuevoDepto = ConvertFormToDepto();
-            Trace.WriteLine(nuevoDepto.rol);
-            Trace.WriteLine(nuevoDepto.tipo);
-            Trace.WriteLine(nuevoDepto.dormitorios);
-            Trace.WriteLine(nuevoDepto.banios);
-            Trace.WriteLine(nuevoDepto.superficie);
-            Trace.WriteLine(nuevoDepto.valorDiario);
-            Trace.WriteLine(nuevoDepto.descripcion);
-            Trace.WriteLine(nuevoDepto.direccion.depto);
-            Trace.WriteLine(nuevoDepto.direccion.region);
-            Trace.WriteLine(nuevoDepto.direccion.comuna);
-            Trace.WriteLine(nuevoDepto.direccion.calle);
-            Trace.WriteLine(nuevoDepto.direccion.numero);
-
-            Trace.WriteLine("\n- INSTALACIONES -");
-            foreach(string instalacion in nuevoDepto.instalaciones)
-            {
-                Trace.WriteLine(instalacion);
-            }
-
             deptoController = new DepartamentoController();
             bool nuevoDeptoInsertado = deptoController.AgregarNuevoDepto(nuevoDepto);
 
             if (nuevoDeptoInsertado)
             {
-                mensajeUsuario.Text = "Departamento Creado.";
-                mensajeUsuario.Foreground = Brushes.Green;
+                ClearForm();
+                activeDeptosWindow.FillDataGridDeptos();
+                ShowSuccessMessage();
                 return;
             }
             mensajeUsuario.Text = "Error al crear departamento.";
@@ -102,7 +96,7 @@ namespace turismo_real_desktop.Views.Departamentos
             depto.rol = txtRol.Text;
             depto.dormitorios = Convert.ToInt32(comboDormitorios.SelectedItem.ToString());
             depto.banios = Convert.ToInt32(comboBanios.SelectedItem.ToString());
-            depto.descripcion = txtdDscripcion.Text;
+            depto.descripcion = txtDescripcion.Text;
             depto.superficie = Convert.ToInt32(txtSuperficie.Text);
             depto.valorDiario = Convert.ToDouble(txtValorDiario.Text);
             depto.tipo = comboTipo.SelectedItem.ToString();
@@ -206,17 +200,8 @@ namespace turismo_real_desktop.Views.Departamentos
 
         private void InvertirInstalaciones(object sender, RoutedEventArgs e)
         {
-            List<string> disponibles = new List<string>();
-            foreach(var disponible in instalacionesDisponibles.Items)
-            {
-                disponibles.Add(disponible.ToString());
-            }
-
-            List<string> agregadas = new List<string>();
-            foreach(var agregada in InstalacionesAgregadas.Items)
-            {
-                agregadas.Add(agregada.ToString());
-            }
+            List<string> disponibles = GetStringListFromListBox(instalacionesDisponibles);
+            List<string> agregadas = GetStringListFromListBox(InstalacionesAgregadas);
 
             // llenar disponibles
             instalacionesDisponibles.Items.Clear();
@@ -273,6 +258,31 @@ namespace turismo_real_desktop.Views.Departamentos
                 comboTipo.Items.Add(tipo);
             }
             comboTipo.SelectedIndex = 0;
+        }
+
+        public void ClearForm()
+        {
+            txtRol.Text = string.Empty;
+            comboTipo.SelectedIndex = 0;
+            comboDormitorios.SelectedIndex = 0;
+            comboBanios.SelectedIndex = 0;
+            txtSuperficie.Text = string.Empty;
+            txtValorDiario.Text = string.Empty;
+            txtDescripcion.Text = string.Empty;
+            txtNroDepto.Text = string.Empty;
+            comboRegion.SelectedIndex = 0;
+            RegionChanged(null, null);
+            txtCalle.Text = string.Empty;
+            txtNumero.Text = string.Empty;
+            InstalacionesAgregadas.Items.Clear();
+            SetInstalaciones();
+        }
+
+        public void ShowSuccessMessage()
+        {
+            string title = "Departamento Creado";
+            string message = "El departamento se ha creado exitosamente.";
+            MessageBox.Show(message, title, MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }

@@ -137,7 +137,7 @@ namespace turismo_real_desktop.Views.Administrador.Departamentos
 
         private void OpenNuevoDeptoWin(object sender, System.Windows.RoutedEventArgs e)
         {
-            Nuevodepto nuevoDeptoWindow = new Nuevodepto();
+            Nuevodepto nuevoDeptoWindow = new Nuevodepto(this);
             nuevoDeptoWindow.Show();
         }
 
