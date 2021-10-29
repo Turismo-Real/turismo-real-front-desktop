@@ -8,15 +8,18 @@ namespace turismo_real_controller.Controllers.Usuario
 {
     public class UsuarioController
     {
+        private UsuarioService usuarioService;
+
         public UsuarioDTO GetUsuario(int id)
         {
             return new UsuarioService().GetUsuarioById(id);
         }
 
-        public List<string> ObtenerUsuarios()
+        public List<UsuarioDTO> ObtenerUsuarios()
         {
-
-            return new List<string>();
+            usuarioService = new UsuarioService();
+            List<UsuarioDTO> usuarios = usuarioService.GetUsuarios();
+            return usuarios;
         }
     }
 }

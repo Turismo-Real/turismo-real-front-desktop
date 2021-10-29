@@ -15,7 +15,7 @@ namespace turismo_real_services.REST.Usuario
         {
             try
             {
-                WebRequest request = WebRequest.Create(URLService.URL_USUARIO_GET_BY_ID + id);
+                WebRequest request = WebRequest.Create(URLService.URL_USUARIOS + id);
                 request.Method = "GET";
                 request.PreAuthenticate = true;
                 request.ContentType = "Application/json; Charset=UTF-8";
@@ -67,5 +67,77 @@ namespace turismo_real_services.REST.Usuario
 
             return usuario;
         }
+
+        public List<UsuarioDTO> ParseUsuariosResponse(dynamic obj)
+        {
+            List<UsuarioDTO> usuarios = new List<UsuarioDTO>();
+            foreach (dynamic usuarioJSON in obj)
+            {
+                UsuarioDTO usuario = DynamicToDepto(usuarioJSON);
+                usuarios.Add(usuario);
+            }
+            return usuarios;
+        }
+
+        public UsuarioDTO DynamicToDepto(dynamic usuarioJSON)
+        {
+            UsuarioDTO usuario = new UsuarioDTO();
+            usuario.idUsuario = usuarioJSON["id"];
+            usuario.pasaporte = usuarioJSON["pasaporte"];
+            usuario.rut = usuarioJSON["rut"];
+            usuario.dv= usuarioJSON["dv"];
+            usuario.primerNombre= usuarioJSON["primerNombre"];
+            usuario.segundoNombre = usuarioJSON["segundoNombre"];
+            usuario.primerApellido = usuarioJSON["apellidoPaterno"];
+            usuario.segundoApellido = usuarioJSON["apellidoMaterno"];
+            usuario.fechaNacimiento = usuarioJSON["fechaNacimiento"];
+            usuario.correo = usuarioJSON["correo"];
+            usuario.telefonoMovil = usuarioJSON["telefonoMovil"];
+            usuario.telefonoFijo = usuarioJSON["telefonoFijo"];
+            usuario.genero = usuarioJSON["genero"];
+            usuario.pais = usuarioJSON["pais"];
+            usuario.tipoUsuario = usuarioJSON["tipoUsuario"];
+
+            DireccionDTO direccion = new DireccionDTO();
+            direccion.region = usuarioJSON["direccion"]["region"];
+            direccion.comuna = usuarioJSON["direccion"]["comuna"];
+            direccion.calle = usuarioJSON["direccion"]["calle"];
+            direccion.numero = usuarioJSON["direccion"]["numero"];
+            direccion.depto = usuarioJSON["direccion"]["depto"];
+            direccion.casa = usuarioJSON["direccion"]["casa"];
+            usuario.direccion = direccion;
+            return usuario;
+        }
+
+        public List<UsuarioDTO> GetUsuarios()
+        {
+            try
+            {
+                WebRequest request = WebRequest.Create(URLService.URL_USUARIOS);
+                request.Method = "GET";
+                request.PreAuthenticate = true;
+                request.ContentType = "Application/json; Charset=UTF-8";
+                request.Timeout = 8000;
+
+                string result = "";
+                HttpWebResponse httpResponse = (HttpWebResponse)request.GetResponse();
+                using (StreamReader streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    result = streamReader.ReadToEnd();
+                }
+                dynamic response = JsonConvert.DeserializeObject(result);
+                List<UsuarioDTO> userResponse = ParseUsuariosResponse(response);
+                return userResponse;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+        }
+
+
+
+
     }
 }

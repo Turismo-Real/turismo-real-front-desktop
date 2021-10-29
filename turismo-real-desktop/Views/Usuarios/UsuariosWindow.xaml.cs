@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using turismo_real_business.DTOs;
 using turismo_real_controller.Controllers.Usuario;
 using turismo_real_desktop.GridEntities;
 using turismo_real_desktop.Views.Administrador;
@@ -20,7 +21,7 @@ namespace turismo_real_desktop.Views.Usuarios
     public partial class UsuariosWindow : MetroWindow
     {
         private UsuarioController usuarioController;
-        private List<string> usuarios;
+        private List<UsuarioDTO> usuarios;
 
         public UsuariosWindow()
         {
@@ -48,12 +49,26 @@ namespace turismo_real_desktop.Views.Usuarios
                 usuariosGrid.Add(usuario);
             }
             dataGridUsuarios.ItemsSource = usuariosGrid;
-            contadorUsuarios.Text = $"Total departamentos: {usuarios.Count}";
+            contadorUsuarios.Text = $"Total usuarios: {usuarios.Count}";
+            dataGridUsuarios.IsReadOnly = true;
         }
 
-        public List<UsuarioGrid> ConvertToUsuarioGrid(List<string> usuarios)
+        public List<UsuarioGrid> ConvertToUsuarioGrid(List<UsuarioDTO> usuarios)
         {
-            return new List<UsuarioGrid>();
+            List<UsuarioGrid> usuariosGrid = new List<UsuarioGrid>();
+            foreach(UsuarioDTO usuario in usuarios)
+            {
+                UsuarioGrid usuarioGrid = new UsuarioGrid();
+                usuarioGrid.id = usuario.idUsuario;
+                usuarioGrid.rut = usuario.rut.Equals(string.Empty) ? "---------" : $"{usuario.rut}-{usuario.dv}";
+                usuarioGrid.pasaporte = usuario.pasaporte.Equals(string.Empty) ? "---------" : usuario.pasaporte;
+                usuarioGrid.nombre = $"{usuario.primerNombre} {usuario.primerApellido} {usuario.segundoApellido}";
+                usuarioGrid.email = usuario.correo;
+                usuarioGrid.pais = usuario.pais;
+                usuarioGrid.tipo = usuario.tipoUsuario;
+                usuariosGrid.Add(usuarioGrid);
+            }
+            return usuariosGrid;
         }
 
         private void OnHoverVolver(object sender, MouseEventArgs e)

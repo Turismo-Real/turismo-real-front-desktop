@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using turismo_real_business.DTOs;
-using System.Linq;
 using turismo_real_services.REST.Departamento;
-using System.Diagnostics;
 
 namespace turismo_real_controller.Controllers.Departamento
 {

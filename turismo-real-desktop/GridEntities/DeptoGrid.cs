@@ -8,8 +8,6 @@ namespace turismo_real_desktop.GridEntities
         public string rol { get; set; }
         public string tipo { get; set; }
         public string superficie { get; set; }
-
-        [Column("Valor Diario")]
         public string valorDiario { get; set; }
         public string comuna { get; set; }
         public string region { get; set; }
