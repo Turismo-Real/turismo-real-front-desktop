@@ -1,10 +1,8 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Net;
-using System.Text;
 using turismo_real_services.Utils;
 
 namespace turismo_real_services.REST.Util
@@ -136,6 +134,35 @@ namespace turismo_real_services.REST.Util
                 dynamic response = JsonConvert.DeserializeObject(result);
                 List<string> tiposDeptos = ParseStrObjectsToList(response);
                 return tiposDeptos;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+        }
+
+        public List<string> GetEstadosDeptoREST()
+        {
+            try
+            {
+                string url = $"{URLService.URL_UTILS}/estadosdepto";
+                WebRequest request = WebRequest.Create(url);
+                request.Method = "GET";
+                request.PreAuthenticate = true;
+                request.ContentType = "Application/json; Charset=UTF-8";
+                request.Timeout = 8000;
+
+                string result = "";
+                HttpWebResponse httpResponse = (HttpWebResponse)request.GetResponse();
+                using (StreamReader streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    result = streamReader.ReadToEnd();
+                }
+
+                dynamic response = JsonConvert.DeserializeObject(result);
+                List<string> estadosDepto = ParseStrObjectsToList(response);
+                return estadosDepto;
             }
             catch (Exception ex)
             {

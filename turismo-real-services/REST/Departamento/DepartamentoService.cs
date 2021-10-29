@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
-using System.Text;
 using turismo_real_business.DTOs;
 using turismo_real_services.Utils;
 
@@ -142,46 +141,37 @@ namespace turismo_real_services.REST.Departamento
 
         public DepartamentoDTO UpdateDepto(DepartamentoDTO depto)
         {
-            try
+
+            string json = JsonConvert.SerializeObject(depto);
+            WebRequest request = WebRequest.Create($"{URLService.URL_DEPTOS}/{depto.id_departamento}");
+            request.Method = "PUT";
+            request.PreAuthenticate = true;
+            request.ContentType = "Application/json; Charset=UTF-8";
+            request.Timeout = 8000;
+
+            using (StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
             {
-                string json = JsonConvert.SerializeObject(depto);
-                Trace.WriteLine(depto.id_departamento);
-                Trace.WriteLine(json);
-                WebRequest request = WebRequest.Create($"{URLService.URL_DEPTOS}/{depto.id_departamento}");
-                request.Method = "PUT";
-                request.PreAuthenticate = true;
-                request.ContentType = "Application/json; Charset=UTF-8";
-                request.Timeout = 8000;
-
-                using (StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
-                {
-                    streamWriter.Write(json);
-                    streamWriter.Flush();
-                }
-
-                string result = "";
-                HttpWebResponse httpResponse = (HttpWebResponse)request.GetResponse();
-                using (StreamReader streamReader = new StreamReader(httpResponse.GetResponseStream()))
-                {
-                    result = streamReader.ReadToEnd();
-                }
-                dynamic response = JsonConvert.DeserializeObject(result);
-                bool updated = response["updated"];
-
-                Trace.WriteLine("updated: "+updated);
-
-                if (updated)
-                {
-                    DepartamentoDTO deptoResponse = DynamicToDepto(response["departamento"]);
-                    return deptoResponse;
-                }
-                return null;
+                streamWriter.Write(json);
+                streamWriter.Flush();
             }
-            catch (Exception ex)
+
+            string result = "";
+            HttpWebResponse httpResponse = (HttpWebResponse)request.GetResponse();
+            using (StreamReader streamReader = new StreamReader(httpResponse.GetResponseStream()))
             {
-                Console.WriteLine(ex.Message);
-                return null;
+                result = streamReader.ReadToEnd();
             }
+            dynamic response = JsonConvert.DeserializeObject(result);
+            bool updated = response["updated"];
+
+            if (updated && response["departamento"]["id_departamento"] != 0)
+            {
+                DepartamentoDTO deptoResponse = DynamicToDepto(response["departamento"]);
+                return deptoResponse;
+            }
+            return null;
+         
+            
         }
 
         public DepartamentoDTO DynamicToDepto(dynamic deptoJSON)
@@ -189,6 +179,7 @@ namespace turismo_real_services.REST.Departamento
             DepartamentoDTO depto = new DepartamentoDTO();
             depto.id_departamento = deptoJSON["id_departamento"];
             depto.rol = deptoJSON["rol"];
+            depto.estado = deptoJSON["estado"];
             depto.dormitorios = deptoJSON["dormitorios"];
             depto.banios = deptoJSON["banios"];
             depto.descripcion = deptoJSON["descripcion"];

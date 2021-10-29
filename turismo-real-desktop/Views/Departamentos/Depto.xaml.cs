@@ -71,6 +71,7 @@ namespace turismo_real_desktop.Views.Departamentos
             SetDeptoDataInputs(depto);
             SetComboTiposDepto();
             SetComboDormitorios();
+            SetComboEstado(depto);
             SetComboBanios();
             SetComboRegiones();
             comboRegion.SelectedItem = depto.direccion.region;
@@ -80,6 +81,14 @@ namespace turismo_real_desktop.Views.Departamentos
 
             gridEditar.Visibility = Visibility.Hidden;
             gridVer.Visibility = Visibility.Visible;
+        }
+
+        public void SetComboEstado(DepartamentoDTO depto)
+        {
+            utilController = new UtilController();
+            List<string> estados = utilController.ObtenerEstadosDepto();
+            comboEstado.ItemsSource = estados;
+            comboEstado.SelectedItem = selectedDepto.estado;
         }
 
         public List<int> GenerateIntRange(int from, int to)
@@ -126,6 +135,7 @@ namespace turismo_real_desktop.Views.Departamentos
         public void SetDeptoDataLabels(DepartamentoDTO depto)
         {
             rolText.Content = depto.rol;
+            estadoText.Content = depto.estado;
             tipoText.Content = depto.tipo;
             dormitoriosText.Content = depto.dormitorios;
             baniosText.Content = depto.banios;
@@ -164,7 +174,16 @@ namespace turismo_real_desktop.Views.Departamentos
 
         private void RegionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            if (comboRegion.SelectedIndex != 0)
+            {
+                utilController = new UtilController();
+                string region = comboRegion.SelectedItem.ToString();
+                List<string> comunas = utilController.ObtenerComunasPorRegion(region);
+                comboComuna.ItemsSource = comunas;
+                comboComuna.SelectedIndex = 0;
+                return;
+            }
+            comboComuna.ItemsSource = new List<string>();
         }
 
         private void QuitarInstalacion(object sender, RoutedEventArgs e)
@@ -301,6 +320,7 @@ namespace turismo_real_desktop.Views.Departamentos
             depto.rol = txtRol.Text;
             depto.dormitorios = Convert.ToInt32(comboDormitorios.SelectedItem.ToString());
             depto.banios = Convert.ToInt32(comboBanios.SelectedItem.ToString());
+            depto.estado = comboEstado.SelectedItem.ToString();
             depto.descripcion = txtDescripcion.Text;
             depto.superficie = Convert.ToInt32(txtSuperficie.Text);
             depto.valorDiario = Convert.ToDouble(txtValorDiario.Text);
@@ -323,7 +343,7 @@ namespace turismo_real_desktop.Views.Departamentos
             DepartamentoDTO depto = ConvertFormToDepto();
             depto.id_departamento = deptoId;
             DepartamentoDTO updatedDepto = deptoController.ActualizarDepto(depto);
-            Trace.WriteLine("updated: "+updatedDepto);
+
             string title;
             string message;
             if (updatedDepto != null)
@@ -333,6 +353,7 @@ namespace turismo_real_desktop.Views.Departamentos
                 title = "Departamento Actualizado";
                 message = "El departamento ha sido actualizado correctamente.";
                 MessageBox.Show(message, title,MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
             }
             title = "Error al actualizar";
             message = "Ha ocurrido un error al intentar actualizar departamento.";

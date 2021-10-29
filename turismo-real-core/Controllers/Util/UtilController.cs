@@ -40,5 +40,13 @@ namespace turismo_real_controller.Controllers.Util
             tiposDepto.Insert(0, " -- Tipo Departamento --");
             return tiposDepto;
         }
+
+        public List<string> ObtenerEstadosDepto()
+        {
+            utilService = new UtilService();
+            List<string> estadosDepto = utilService.GetEstadosDeptoREST();
+            estadosDepto.Insert(0, "-- Estado --");
+            return estadosDepto;
+        }
     }
 }
