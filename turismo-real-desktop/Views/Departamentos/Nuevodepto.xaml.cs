@@ -203,18 +203,16 @@ namespace turismo_real_desktop.Views.Departamentos
             List<string> disponibles = GetStringListFromListBox(instalacionesDisponibles);
             List<string> agregadas = GetStringListFromListBox(InstalacionesAgregadas);
 
-            // llenar disponibles
-            instalacionesDisponibles.Items.Clear();
-            foreach(string disponible in agregadas)
-            {
-                instalacionesDisponibles.Items.Add(disponible);
-            }
+            SetListBoxFromStrList(instalacionesDisponibles, agregadas);
+            SetListBoxFromStrList(InstalacionesAgregadas, disponibles);
+        }
 
-            // llenar agregadas
-            InstalacionesAgregadas.Items.Clear();
-            foreach (string agregada in disponibles)
+        private void SetListBoxFromStrList(ListBox listbox, List<string> strList)
+        {
+            listbox.Items.Clear();
+            foreach (string str in strList)
             {
-                InstalacionesAgregadas.Items.Add(agregada);
+                listbox.Items.Add(str);
             }
         }
 

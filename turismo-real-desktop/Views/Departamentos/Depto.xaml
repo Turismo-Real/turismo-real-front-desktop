@@ -8,10 +8,24 @@
         mc:Ignorable="d"
         Title="Depto" Height="664" Width="691">
     <Grid>
-        <Grid x:Name="gridVer" Visibility="Visible">
-            <ListBox BorderBrush="#C1C1C1" Margin="115,343,398,120" BorderThickness="1"/>
+        <!-- GRID VISTA DATOS -->
+        <Grid x:Name="gridVer" Visibility="Hidden">
+            <Label x:Name="rolText" Content="111-1111" HorizontalAlignment="Left" Margin="117,50,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="tipoText" Content="Normal" HorizontalAlignment="Left" Margin="115,83,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.836,1.311"/>
+            <Label x:Name="dormitoriosText" Content="5" HorizontalAlignment="Left" Margin="115,117,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="baniosText" Content="2" HorizontalAlignment="Left" Margin="115,144,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="superficieText" Content="200" HorizontalAlignment="Left" Margin="117,176,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="valorDiarioText" Content="650000" HorizontalAlignment="Left" Margin="117,207,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="nroDeptoText" Content="54" HorizontalAlignment="Left" Margin="395,49,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.836,1.311"/>
+            <Label x:Name="regionText" Content="Maule" HorizontalAlignment="Left" Margin="393,81,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.836,1.311"/>
+            <Label x:Name="comunaText" Content="Romeral" HorizontalAlignment="Left" Margin="393,110,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.836,1.311" Width="76"/>
+            <Label x:Name="calleText" Content="San Martin" HorizontalAlignment="Left" Margin="395,142,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.836,1.311" Width="76"/>
+            <Label x:Name="numeroText" Content="3333" HorizontalAlignment="Left" Margin="395,173,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.836,1.311" Width="76"/>
+            <Label x:Name="descripcionText" Content="Bonita vista." HorizontalAlignment="Left" Margin="117,238,0,0" VerticalAlignment="Top"/>
+
+            <ListBox x:Name="instalacionesListAll" BorderBrush="#C1C1C1" Margin="485,345,28,118" BorderThickness="1"/>
             <TextBox Foreground="Gray" HorizontalAlignment="Left" Margin="310,457,0,0" Text="Nueva Instalación" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" GotFocus="NuevaInstalacionFocus" LostFocus="NuevaInstalacionLostFocus"/>
-            <ListBox BorderBrush="#067A08" Margin="484,343,28,120" BorderThickness="3"/>
+            <ListBox x:Name="instalacionesList" BorderBrush="#067A08" Margin="122,345,390,118" BorderThickness="3"/>
             <mah:Tile Content="Agregar" IsEnabled="False" HorizontalAlignment="Left" Margin="310,345,0,0" VerticalAlignment="Top" Height="23" Background="#CC21631E" Width="158" Click="AgregarInstalacion"/>
             <mah:Tile Content="Quitar" IsEnabled="False" HorizontalAlignment="Left" Margin="310,373,0,0" VerticalAlignment="Top" Height="23" Background="#CC21631E" Width="158" Click="QuitarInstalacion"/>
             <mah:Tile Content="Invertir Selección" IsEnabled="False" HorizontalAlignment="Left" Margin="309,401,0,0" VerticalAlignment="Top" Height="23" Background="#CC21631E" Width="158" Click="InvertirInstalaciones"/>
@@ -24,53 +38,36 @@
             <Label Content="Valor diario:" HorizontalAlignment="Left" Margin="37,207,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
             <Label Content="Descripción:" HorizontalAlignment="Left" Margin="36,231,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
             <Label Content="Instalaciones:" HorizontalAlignment="Left" Margin="31,342,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-            <Label Content="DEPARTAMENTO {id}" FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="102,4,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="tituloDeptoEditar" Content="DEPARTAMENTO {id}" FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="102,4,0,0" VerticalAlignment="Top"/>
             <Label Content="Región:" HorizontalAlignment="Left" Margin="338,80,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-            <Label Content="Comuna:" HorizontalAlignment="Left" Margin="331,106,0,0" VerticalAlignment="Top" Height="28" FontWeight="Bold"/>
+            <Label Content="Comuna:" HorizontalAlignment="Left" Margin="331,110,0,0" VerticalAlignment="Top" Height="28" FontWeight="Bold"/>
             <Label Content="N° Depto:" HorizontalAlignment="Left" Margin="319,49,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
             <Label Content="Calle:" HorizontalAlignment="Left" Margin="350,142,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
             <Label Content="Numero:" HorizontalAlignment="Left" Margin="334,173,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
             <Label Content="DIRECCIÓN" FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="449,4,0,0" VerticalAlignment="Top"/>
+            <Label Content="DIRECCIÓN" FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="449,4,0,0" VerticalAlignment="Top"/>
+            <Label Content="Superficie (m2):" HorizontalAlignment="Left" Margin="18,176,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
             <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left" Height="1" Margin="455,29,0,0" VerticalAlignment="Top" Width="84"/>
             <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left" Height="1" Margin="107,30,0,0" VerticalAlignment="Top" Width="161"/>
             <Rectangle HorizontalAlignment="Left" Height="170" Margin="309,50,0,0" Stroke="Black" VerticalAlignment="Top" Width="1"/>
 
-            <mah:Tile HorizontalAlignment="Left" VerticalContentAlignment="Center" Background="#FFFFFF" BorderBrush="#FFDC1F1F" BorderThickness="1" Margin="31,576,0,0" Cursor="Hand" VerticalAlignment="Top" Height="30" Width="178" MouseEnter="OnHoverCancelar" MouseLeave="OnLeaveCancelar" Click="CancelarInsercion">
-                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-                    <TextBlock TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#FFDC1F1F" Margin="5"><Run Language="es-cl" Text="ELIMINAR"/></TextBlock>
-                </StackPanel>
-            </mah:Tile>
-
-            <mah:Tile HorizontalAlignment="Left" VerticalContentAlignment="Center" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" Cursor="Hand" Margin="487,576,0,0" VerticalAlignment="Top" Height="30" Width="176" MouseEnter="OnHoverGuardar" MouseLeave="OnLeaveGuardar">
+            <mah:Tile HorizontalAlignment="Left" VerticalContentAlignment="Center" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" Cursor="Hand" Margin="389,578,0,0" VerticalAlignment="Top" Height="30" Width="210" MouseEnter="OnHoverGuardar" MouseLeave="OnLeaveGuardar" Click="EditarDepto">
                 <StackPanel Orientation="Vertical" VerticalAlignment="Center">
                     <TextBlock TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#CC60A917" Margin="5"><Run Language="es-cl" Text="EDITAR"/></TextBlock>
                 </StackPanel>
             </mah:Tile>
-            <TextBlock HorizontalAlignment="Left" Margin="265,536,0,0" Text="Mensaje para el usuario." TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18"/>
-            <Label Content="111-1111" HorizontalAlignment="Left" Margin="115,50,0,0" VerticalAlignment="Top"/>
-            <Label Content="Normal" HorizontalAlignment="Left" Margin="115,83,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.836,1.311"/>
-            <Label Content="5" HorizontalAlignment="Left" Margin="115,117,0,0" VerticalAlignment="Top"/>
-            <Label Content="2" HorizontalAlignment="Left" Margin="115,144,0,0" VerticalAlignment="Top"/>
-            <Label Content="Superficie (m2):" HorizontalAlignment="Left" Margin="18,176,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-            <Label Content="200" HorizontalAlignment="Left" Margin="115,176,0,0" VerticalAlignment="Top"/>
-            <Label Content="650000" HorizontalAlignment="Left" Margin="116,207,0,0" VerticalAlignment="Top"/>
-            <Label Content="54" HorizontalAlignment="Left" Margin="393,49,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.836,1.311"/>
-            <Label Content="Maule" HorizontalAlignment="Left" Margin="393,81,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.836,1.311"/>
-            <Label Content="Romeral" HorizontalAlignment="Left" Margin="393,106,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.836,1.311" Width="76"/>
-            <Label Content="San Martin" HorizontalAlignment="Left" Margin="393,142,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.836,1.311" Width="76"/>
-            <Label Content="3333" HorizontalAlignment="Left" Margin="393,173,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.836,1.311" Width="76"/>
-            <Label Content="DIRECCIÓN" FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="449,4,0,0" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="267,528,0,0" Text="Mensaje para el usuario." TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18"/>
 
             <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left" Height="1" Margin="115,336,0,0" VerticalAlignment="Top" Width="548"/>
-            <Label Content="Bonita vista." HorizontalAlignment="Left" Margin="116,231,0,0" VerticalAlignment="Top"/>
-            <mah:Tile HorizontalAlignment="Left" VerticalContentAlignment="Center" Background="#FFFFFF" BorderBrush="#FFDC1F1F" BorderThickness="1" Margin="264,576,0,0" Cursor="Hand" VerticalAlignment="Top" Height="30" Width="178" MouseEnter="OnHoverCancelar" MouseLeave="OnLeaveCancelar" Click="CancelarInsercion">
+            <mah:Tile x:Name="btnVolver" HorizontalAlignment="Left" VerticalContentAlignment="Center" Background="#FFFFFF" BorderBrush="#FFDC1F1F" BorderThickness="1" Margin="102,578,0,0" Cursor="Hand" VerticalAlignment="Top" Height="30" Width="210" MouseEnter="OnHoverCancelar" MouseLeave="OnLeaveCancelar" Click="ClickVolver">
                 <StackPanel Orientation="Vertical" VerticalAlignment="Center">
                     <TextBlock TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#FFDC1F1F" Margin="5"><Run Language="es-cl" Text="VOLVER"/></TextBlock>
                 </StackPanel>
             </mah:Tile>
         </Grid>
 
-        <Grid x:Name="gridEditar" Visibility="Hidden">
+        <!-- GRID EDITAR -->
+        <Grid x:Name="gridEditar" Visibility="Visible">
             <TextBox x:Name="txtRol" Text="111-111" HorizontalAlignment="Left" Margin="115,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178"/>
             <ComboBox x:Name="comboTipo" HorizontalAlignment="Left" Margin="115,83,0,0" VerticalAlignment="Top" Width="178"/>
             <ComboBox x:Name="comboDormitorios" HorizontalAlignment="Left" Margin="115,114,0,0" VerticalAlignment="Top" Width="178"/>
@@ -83,46 +80,50 @@
             <TextBox x:Name="txtCalle" HorizontalAlignment="Left" Margin="393,142,0,0" Text="Santa Helena" TextWrapping="Wrap" VerticalAlignment="Top" Width="270"/>
             <TextBox x:Name="txtNumero" HorizontalAlignment="Left" Margin="393,173,0,0" Text="5555" TextWrapping="Wrap" VerticalAlignment="Top" Width="270"/>
             <TextBox x:Name="txtDescripcion" MaxLength="255" HorizontalAlignment="Left" Margin="115,238,0,0" Text="Bonita vista." TextWrapping="Wrap" VerticalAlignment="Top" Width="548" Height="99"/>
-            <ListBox x:Name="instalacionesDisponibles" BorderBrush="#C1C1C1" Margin="115,343,398,120" BorderThickness="1"/>
+            <ListBox x:Name="InstalacionesAgregadas" BorderBrush="#067A08" Margin="121,344,391,117" BorderThickness="3"/>
             <TextBox x:Name="txtInstalacion" Foreground="Gray" HorizontalAlignment="Left" Margin="310,457,0,0" Text="Nueva Instalación" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" GotFocus="NuevaInstalacionFocus" LostFocus="NuevaInstalacionLostFocus"/>
-            <ListBox x:Name="InstalacionesAgregadas" BorderBrush="#067A08" Margin="484,343,28,120" BorderThickness="3"/>
+            <ListBox x:Name="instalacionesDisponibles" BorderBrush="#C1C1C1" Margin="485,345,28,118" BorderThickness="1"/>
             <mah:Tile x:Name="btnAgregarInstalacion" Content="Agregar" HorizontalAlignment="Left" Margin="310,345,0,0" VerticalAlignment="Top" Height="23" Background="#CC21631E" Width="158" Click="AgregarInstalacion"/>
             <mah:Tile x:Name="btnQuitarInstalacion" Content="Quitar" HorizontalAlignment="Left" Margin="310,373,0,0" VerticalAlignment="Top" Height="23" Background="#CC21631E" Width="158" Click="QuitarInstalacion"/>
             <mah:Tile x:Name="btnInvertirSeleccion" Content="Invertir Selección" HorizontalAlignment="Left" Margin="309,401,0,0" VerticalAlignment="Top" Height="23" Background="#CC21631E" Width="158" Click="InvertirInstalaciones"/>
             <mah:Tile x:Name="btnNuevaInstalacion" Content="Nueva Instalación" HorizontalAlignment="Left" Margin="309,429,0,0" VerticalAlignment="Top" Height="23" Background="#CC21631E" Width="158" Click="NuevaInstalacion"/>
 
-            <Label Content="ROL:" HorizontalAlignment="Left" Margin="76,50,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-            <Label Content="Tipo:" HorizontalAlignment="Left" Margin="74,83,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.836,1.311"/>
-            <Label Content="N° dormitorios:" HorizontalAlignment="Left" Margin="19,114,0,0" VerticalAlignment="Top"/>
-            <Label Content="N° Baños:" HorizontalAlignment="Left" Margin="49,145,0,0" VerticalAlignment="Top"/>
-            <Label Content="Superficie (m2):" HorizontalAlignment="Left" Margin="18,176,0,0" VerticalAlignment="Top"/>
-            <Label Content="Valor diario:" HorizontalAlignment="Left" Margin="37,207,0,0" VerticalAlignment="Top"/>
-            <Label Content="Descripción:" HorizontalAlignment="Left" Margin="36,231,0,0" VerticalAlignment="Top"/>
-            <Label Content="Instalaciones:" HorizontalAlignment="Left" Margin="31,342,0,0" VerticalAlignment="Top"/>
+            <Label Content="ROL:" HorizontalAlignment="Left" Margin="76,50,0,0" VerticalAlignment="Top" Grid.Column="1" FontWeight="Bold"/>
+            <Label Content="Tipo:" HorizontalAlignment="Left" Margin="74,83,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.836,1.311" FontWeight="Bold"/>
+            <Label Content="N° dormitorios:" HorizontalAlignment="Left" Margin="19,114,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="N° Baños:" HorizontalAlignment="Left" Margin="49,145,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="Superficie (m2):" HorizontalAlignment="Left" Margin="18,176,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="Valor diario:" HorizontalAlignment="Left" Margin="37,207,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="Descripción:" HorizontalAlignment="Left" Margin="36,231,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="Instalaciones:" HorizontalAlignment="Left" Margin="31,342,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
             <Label x:Name="tituloDepto" Content="DEPARTAMENTO {id}" FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="102,4,0,0" VerticalAlignment="Top"/>
-            <Label Content="Región:" HorizontalAlignment="Left" Margin="338,80,0,0" VerticalAlignment="Top"/>
-            <Label Content="Comuna:" HorizontalAlignment="Left" Margin="331,106,0,0" VerticalAlignment="Top" Height="28"/>
-            <Label Content="N° Depto:" HorizontalAlignment="Left" Margin="319,49,0,0" VerticalAlignment="Top"/>
-            <Label Content="Calle:" HorizontalAlignment="Left" Margin="350,142,0,0" VerticalAlignment="Top"/>
-            <Label Content="Numero:" HorizontalAlignment="Left" Margin="334,173,0,0" VerticalAlignment="Top"/>
+            <Label Content="Región:" HorizontalAlignment="Left" Margin="338,80,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="Comuna:" HorizontalAlignment="Left" Margin="331,110,0,0" VerticalAlignment="Top" Height="28" FontWeight="Bold"/>
+            <Label Content="N° Depto:" HorizontalAlignment="Left" Margin="319,49,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="Calle:" HorizontalAlignment="Left" Margin="350,142,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="Numero:" HorizontalAlignment="Left" Margin="334,173,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
             <Label Content="DIRECCIÓN" FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="449,4,0,0" VerticalAlignment="Top"/>
             <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left" Height="1" Margin="455,29,0,0" VerticalAlignment="Top" Width="84"/>
             <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left" Height="1" Margin="107,30,0,0" VerticalAlignment="Top" Width="161"/>
             <Rectangle HorizontalAlignment="Left" Height="170" Margin="309,50,0,0" Stroke="Black" VerticalAlignment="Top" Width="1"/>
 
-            <mah:Tile x:Name="btnCancelar" HorizontalAlignment="Left" VerticalContentAlignment="Center" Background="#FFFFFF" BorderBrush="#FFDC1F1F" BorderThickness="1" Margin="102,571,0,0" Cursor="Hand" VerticalAlignment="Top" Height="30" Width="210" MouseEnter="OnHoverCancelar" MouseLeave="OnLeaveCancelar" Click="CancelarInsercion">
+            <mah:Tile x:Name="btnCancelar" HorizontalAlignment="Left" VerticalContentAlignment="Center" Background="#FFFFFF" BorderBrush="#FFDC1F1F" BorderThickness="1" Margin="102,578,0,0" Cursor="Hand" VerticalAlignment="Top" Height="30" Width="210" MouseEnter="OnHoverCancelar" MouseLeave="OnLeaveCancelar" Click="CancelarEdicion">
                 <StackPanel Orientation="Vertical" VerticalAlignment="Center">
                     <TextBlock x:Name="cancelarText" Text="CANCELAR" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#FFDC1F1F" Margin="5"/>
                 </StackPanel>
             </mah:Tile>
 
-            <mah:Tile x:Name="btnGurardar" HorizontalAlignment="Left" VerticalContentAlignment="Center" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" Cursor="Hand" Margin="389,571,0,0" VerticalAlignment="Top" Height="30" Width="210" MouseEnter="OnHoverGuardar" MouseLeave="OnLeaveGuardar">
+            <mah:Tile x:Name="btnGurardar" HorizontalAlignment="Left" VerticalContentAlignment="Center" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" Cursor="Hand" Margin="389,578,0,0" VerticalAlignment="Top" Height="30" Width="210" MouseEnter="OnHoverGuardar" MouseLeave="OnLeaveGuardar">
                 <StackPanel Orientation="Vertical" VerticalAlignment="Center">
                     <TextBlock x:Name="guardarText" Text="GUARDAR" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#CC60A917" Margin="5"/>
                 </StackPanel>
             </mah:Tile>
             <TextBlock x:Name="mensajeUsuario" HorizontalAlignment="Left" Margin="267,528,0,0" Text="Mensaje para el usuario." TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18"/>
         </Grid>
+
+
+
+
 
         <!--<Grid>
             <Grid.ColumnDefinitions>

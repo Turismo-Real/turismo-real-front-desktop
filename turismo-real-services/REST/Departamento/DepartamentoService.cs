@@ -160,14 +160,18 @@ namespace turismo_real_services.REST.Departamento
             direccion.numero = deptoJSON["direccion"]["numero"];
             direccion.depto = deptoJSON["direccion"]["depto"];
             depto.direccion = direccion;
-
-            List<string> instalaciones = new List<string>();
-            foreach (string instalacion in deptoJSON["instalaciones"])
-            {
-                instalaciones.Add(instalacion);
-            }
-            depto.instalaciones = instalaciones;
+            depto.instalaciones = ParseStrObjectsToList(deptoJSON["instalaciones"]);
             return depto;
+        }
+
+        public List<string> ParseStrObjectsToList(dynamic objResponse)
+        {
+            List<string> strObjects = new List<string>();
+            foreach (string strObject in objResponse)
+            {
+                strObjects.Add(strObject);
+            }
+            return strObjects;
         }
     }
 }
