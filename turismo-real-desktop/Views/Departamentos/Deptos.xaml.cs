@@ -1,18 +1,17 @@
 ﻿using MahApps.Metro.Controls;
 using MahApps.Metro.IconPacks;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using turismo_real_business.DTOs;
 using turismo_real_controller.Controllers.Departamento;
 using turismo_real_desktop.GridEntities;
 using turismo_real_desktop.UIElements;
-using System.Windows.Input;
 using turismo_real_desktop.Views.Departamentos;
-using System.Diagnostics;
-using System.Windows;
-using System;
 
 namespace turismo_real_desktop.Views.Administrador.Departamentos
 {
@@ -163,7 +162,7 @@ namespace turismo_real_desktop.Views.Administrador.Departamentos
             if(dataGridDeptos.SelectedItem != null)
             {
                 DeptoGrid selectedDepto = dataGridDeptos.SelectedItem as DeptoGrid;
-                Depto selectedDeptoWin = new Depto(selectedDepto.id);
+                Depto selectedDeptoWin = new Depto(this, selectedDepto.id);
                 selectedDeptoWin.Show();
             }
         }

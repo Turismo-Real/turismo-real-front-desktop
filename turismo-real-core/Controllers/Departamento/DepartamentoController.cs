@@ -37,5 +37,12 @@ namespace turismo_real_controller.Controllers.Departamento
             DepartamentoDTO depto = deptoService.GetDeptoById(id);
             return depto;  
         }
+
+        public DepartamentoDTO ActualizarDepto(DepartamentoDTO depto)
+        {
+            deptoService = new DepartamentoService();
+            DepartamentoDTO updatedDepto = deptoService.UpdateDepto(depto);
+            return updatedDepto;
+        }
     }
 }

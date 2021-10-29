@@ -1,15 +1,16 @@
 ﻿using MahApps.Metro.Controls;
 using System;
-using System.Collections;
-using System.Linq;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using turismo_real_business.DTOs;
 using turismo_real_controller.Controllers.Departamento;
 using turismo_real_controller.Controllers.Util;
-using System.Windows.Media;
+using turismo_real_desktop.Views.Administrador.Departamentos;
 
 namespace turismo_real_desktop.Views.Departamentos
 {
@@ -17,34 +18,28 @@ namespace turismo_real_desktop.Views.Departamentos
     public partial class Depto : MetroWindow
     {
         private UtilController utilController;
+        private DepartamentoController deptoController;
         private DepartamentoDTO selectedDepto;
         private const string nuevaInstalacionPlace = "Nueva Instalación";
+        private Deptos deptosWindow;
+        protected int deptoId;
 
         public Depto()
         {
             InitializeComponent();
         }
 
-        public Depto(int deptoId)
+        public Depto(Deptos deptosWindow, int deptoId)
         {
             InitializeComponent();
+            this.deptoId = deptoId;
+            this.deptosWindow = deptosWindow;
             string titulo = $"DEPARTAMENTO {deptoId}";
             tituloDepto.Content = titulo;
             tituloDeptoEditar.Content = titulo;
-            selectedDepto = new DepartamentoController().ObtenerDepartamento(deptoId);
-            SetDeptoDataLabels(selectedDepto);
-            SetDeptoDataInputs(selectedDepto);
-            SetComboTiposDepto();
-            SetComboDormitorios();
-            SetComboBanios();
-            SetComboRegiones();
-            comboRegion.SelectedItem = selectedDepto.direccion.region;
-            RegionChanged();
-            comboComuna.SelectedItem = selectedDepto.direccion.comuna;
-            SetInstalaciones();
 
-            gridEditar.Visibility = Visibility.Hidden;
-            gridVer.Visibility = Visibility.Visible;
+            selectedDepto = new DepartamentoController().ObtenerDepartamento(deptoId);
+            SetDataForm(selectedDepto);
         }
 
         private void SetComboTiposDepto()
@@ -68,6 +63,23 @@ namespace turismo_real_desktop.Views.Departamentos
         {
             comboBanios.ItemsSource = GenerateIntRange(0, 11);
             comboBanios.SelectedItem = selectedDepto.banios;
+        }
+
+        public void SetDataForm(DepartamentoDTO depto)
+        {
+            SetDeptoDataLabels(depto);
+            SetDeptoDataInputs(depto);
+            SetComboTiposDepto();
+            SetComboDormitorios();
+            SetComboBanios();
+            SetComboRegiones();
+            comboRegion.SelectedItem = depto.direccion.region;
+            RegionChanged();
+            comboComuna.SelectedItem = depto.direccion.comuna;
+            SetInstalaciones();
+
+            gridEditar.Visibility = Visibility.Hidden;
+            gridVer.Visibility = Visibility.Visible;
         }
 
         public List<int> GenerateIntRange(int from, int to)
@@ -283,5 +295,48 @@ namespace turismo_real_desktop.Views.Departamentos
             }
         }
 
+        public DepartamentoDTO ConvertFormToDepto()
+        {
+            DepartamentoDTO depto = new DepartamentoDTO();
+            depto.rol = txtRol.Text;
+            depto.dormitorios = Convert.ToInt32(comboDormitorios.SelectedItem.ToString());
+            depto.banios = Convert.ToInt32(comboBanios.SelectedItem.ToString());
+            depto.descripcion = txtDescripcion.Text;
+            depto.superficie = Convert.ToInt32(txtSuperficie.Text);
+            depto.valorDiario = Convert.ToDouble(txtValorDiario.Text);
+            depto.tipo = comboTipo.SelectedItem.ToString();
+
+            DireccionDTO direccion = new DireccionDTO();
+            direccion.region = comboRegion.SelectedItem.ToString();
+            direccion.comuna = comboComuna.SelectedItem.ToString();
+            direccion.calle = txtCalle.Text;
+            direccion.numero = txtNumero.Text;
+            direccion.depto = txtNroDepto.Text;
+            depto.direccion = direccion;
+            depto.instalaciones = GetStringListFromListBox(InstalacionesAgregadas);
+            return depto;
+        }
+
+        private void GuardarCambios(object sender, RoutedEventArgs e)
+        {
+            deptoController = new DepartamentoController();
+            DepartamentoDTO depto = ConvertFormToDepto();
+            depto.id_departamento = deptoId;
+            DepartamentoDTO updatedDepto = deptoController.ActualizarDepto(depto);
+            Trace.WriteLine("updated: "+updatedDepto);
+            string title;
+            string message;
+            if (updatedDepto != null)
+            {
+                SetDataForm(updatedDepto);
+                deptosWindow.FillDataGridDeptos();
+                title = "Departamento Actualizado";
+                message = "El departamento ha sido actualizado correctamente.";
+                MessageBox.Show(message, title,MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            title = "Error al actualizar";
+            message = "Ha ocurrido un error al intentar actualizar departamento.";
+            MessageBox.Show(message, title, MessageBoxButton.OK, MessageBoxImage.Error);
+        }
     }
 }

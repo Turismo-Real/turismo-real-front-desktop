@@ -140,6 +140,50 @@ namespace turismo_real_services.REST.Departamento
             }
         }
 
+        public DepartamentoDTO UpdateDepto(DepartamentoDTO depto)
+        {
+            try
+            {
+                string json = JsonConvert.SerializeObject(depto);
+                Trace.WriteLine(depto.id_departamento);
+                Trace.WriteLine(json);
+                WebRequest request = WebRequest.Create($"{URLService.URL_DEPTOS}/{depto.id_departamento}");
+                request.Method = "PUT";
+                request.PreAuthenticate = true;
+                request.ContentType = "Application/json; Charset=UTF-8";
+                request.Timeout = 8000;
+
+                using (StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
+                {
+                    streamWriter.Write(json);
+                    streamWriter.Flush();
+                }
+
+                string result = "";
+                HttpWebResponse httpResponse = (HttpWebResponse)request.GetResponse();
+                using (StreamReader streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    result = streamReader.ReadToEnd();
+                }
+                dynamic response = JsonConvert.DeserializeObject(result);
+                bool updated = response["updated"];
+
+                Trace.WriteLine("updated: "+updated);
+
+                if (updated)
+                {
+                    DepartamentoDTO deptoResponse = DynamicToDepto(response["departamento"]);
+                    return deptoResponse;
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+        }
+
         public DepartamentoDTO DynamicToDepto(dynamic deptoJSON)
         {
             DepartamentoDTO depto = new DepartamentoDTO();
