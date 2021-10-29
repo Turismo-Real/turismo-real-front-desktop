@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using turismo_real_business.DTOs;
+using System.Linq;
 using turismo_real_services.REST.Departamento;
+using System.Diagnostics;
 
 namespace turismo_real_controller.Controllers.Departamento
 {
@@ -9,7 +11,7 @@ namespace turismo_real_controller.Controllers.Departamento
         private DepartamentoService deptoService;
         private List<DepartamentoDTO> deptos;
 
-        public List<DepartamentoDTO> GetDepartamentos()
+        public List<DepartamentoDTO> ObtenerDepartamentos()
         {
             deptos = new DepartamentoService().GetAllDeptos();
             return deptos;
@@ -27,6 +29,13 @@ namespace turismo_real_controller.Controllers.Departamento
             deptoService = new DepartamentoService();
             bool removed = deptoService.DeleteDepto(id);
             return removed;
+        }
+
+        public DepartamentoDTO ObtenerDepartamento(int id)
+        {
+            deptoService = new DepartamentoService();
+            DepartamentoDTO depto = deptoService.GetDeptoById(id);
+            return depto;  
         }
     }
 }

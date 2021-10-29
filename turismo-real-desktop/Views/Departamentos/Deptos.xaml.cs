@@ -11,6 +11,7 @@ using turismo_real_desktop.UIElements;
 using System.Windows.Input;
 using turismo_real_desktop.Views.Departamentos;
 using System.Diagnostics;
+using System.Windows;
 using System;
 
 namespace turismo_real_desktop.Views.Administrador.Departamentos
@@ -31,7 +32,7 @@ namespace turismo_real_desktop.Views.Administrador.Departamentos
         public void FillDataGridDeptos()
         {
             deptoController = new DepartamentoController();
-            deptos = deptoController.GetDepartamentos(); // obtener departamentos
+            deptos = deptoController.ObtenerDepartamentos(); // obtener departamentos
             
             ObservableCollection<DeptoGrid> deptosGrid = new ObservableCollection<DeptoGrid>();
             List<DeptoGrid> deptosGridList = ConvertToDeptoGrid(deptos);
@@ -135,20 +136,20 @@ namespace turismo_real_desktop.Views.Administrador.Departamentos
             ChangeLeaveColor(btnVolver, volverIcon, volverText, "GREEN");
         }
 
-        private void OpenNuevoDeptoWin(object sender, System.Windows.RoutedEventArgs e)
+        private void OpenNuevoDeptoWin(object sender, RoutedEventArgs e)
         {
             Nuevodepto nuevoDeptoWindow = new Nuevodepto(this);
             nuevoDeptoWindow.Show();
         }
 
-        private void CloseWindow(object sender, System.Windows.RoutedEventArgs e)
+        private void CloseWindow(object sender, RoutedEventArgs e)
         {
             Dashboard dashWindow = new Dashboard();
             dashWindow.Show();
             Close();
         }
 
-        private void EliminarDepto(object sender, System.Windows.RoutedEventArgs e)
+        private void EliminarDepto(object sender, RoutedEventArgs e)
         {
             deptoController = new DepartamentoController();
             DeptoGrid selectedDepto = dataGridDeptos.SelectedItem as DeptoGrid;
@@ -156,5 +157,16 @@ namespace turismo_real_desktop.Views.Administrador.Departamentos
             bool removed = deptoController.EliminarDepto(id);
             if (removed) FillDataGridDeptos();
         }
+
+        private void SeleccionarDepto(object sender, RoutedEventArgs e)
+        {
+            if(dataGridDeptos.SelectedItem != null)
+            {
+                DeptoGrid selectedDepto = dataGridDeptos.SelectedItem as DeptoGrid;
+                Depto selectedDeptoWin = new Depto(selectedDepto.id);
+                selectedDeptoWin.Show();
+            }
+        }
+
     }
 }

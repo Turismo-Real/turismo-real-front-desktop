@@ -25,7 +25,7 @@
                     </mah:Tile>
 
                     <!-- BOTON SELECCIONAR -->
-                    <mah:Tile x:Name="btnSeleccionar" Cursor="Hand" HorizontalAlignment="Left" BorderBrush="#2778D3" BorderThickness="1" Background="#FFFFFF" Margin="729,181,0,0" VerticalAlignment="Top" Width="180" Height="65" MouseEnter="OnHoverSeleccionar" MouseLeave="OnLeaveSeleccionar">
+                    <mah:Tile x:Name="btnSeleccionar" Cursor="Hand" HorizontalAlignment="Left" BorderBrush="#2778D3" BorderThickness="1" Background="#FFFFFF" Margin="729,181,0,0" VerticalAlignment="Top" Width="180" Height="65" MouseEnter="OnHoverSeleccionar" MouseLeave="OnLeaveSeleccionar" Click="SeleccionarDepto">
                         <StackPanel Orientation="Vertical" VerticalAlignment="Center">
                             <TextBlock x:Name="seleccionarText" Text="SELECCIONAR" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#2778D3" Margin="5"/>
                         </StackPanel>
