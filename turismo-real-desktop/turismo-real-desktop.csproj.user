@@ -19,9 +19,6 @@
     <Compile Update="Views\Extra\RecoverPassword.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Extra\SignUp.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Views\Usuarios\Checkcreacionusr.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -34,7 +31,7 @@
     <Compile Update="Views\Usuarios\Usuario.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Usuarios\Usuarios.xaml.cs">
+    <Compile Update="Views\Usuarios\UsuariosWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -51,9 +48,6 @@
     <Page Update="Views\Extra\RecoverPassword.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Extra\SignUp.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="Views\Usuarios\Checkcreacionusr.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -66,7 +60,7 @@
     <Page Update="Views\Usuarios\Usuario.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Usuarios\Usuarios.xaml">
+    <Page Update="Views\Usuarios\UsuariosWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

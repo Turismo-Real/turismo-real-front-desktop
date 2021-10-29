@@ -23,7 +23,7 @@
         <!-- Boton departamentos -->
 
         <!-- Boton usuarios -->
-        <mah:Tile x:Name="usersTile" HorizontalAlignment="Center" Margin="0,80,0,0" VerticalAlignment="Top" Width="280" Height="200" Background="#FFFFFFFF" BorderBrush="#CC60A917" BorderThickness="1" Cursor="Hand" MouseEnter="OnHoverUsers" MouseLeave="OnLeaveUsers">
+        <mah:Tile x:Name="usersTile" HorizontalAlignment="Center" Margin="0,80,0,0" VerticalAlignment="Top" Width="280" Height="200" Background="#FFFFFFFF" BorderBrush="#CC60A917" BorderThickness="1" Cursor="Hand" MouseEnter="OnHoverUsers" MouseLeave="OnLeaveUsers" Click="OpenUsersWin">
             <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
                 <iconPacks:PackIconFontAwesome x:Name="usersIcon" Kind="UsersSolid" Foreground="#CC60A917" FontSize="18" Height="100" Width="100" FontWeight="Bold" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>
                 <TextBlock x:Name="usersText" Text="USUARIOS" TextAlignment="Center" FontWeight="Medium" FontSize="20" Foreground="#CC60A917"/>

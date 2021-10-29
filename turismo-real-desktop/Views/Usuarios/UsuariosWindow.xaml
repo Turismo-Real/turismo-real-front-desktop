@@ -1,0 +1,59 @@
+﻿<mah:MetroWindow x:Class="turismo_real_desktop.Views.Usuarios.UsuariosWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:turismo_real_desktop.Views.Usuarios"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        mc:Ignorable="d"
+        Title="Turismo Real - Usuarios" Height="550" Width="940">
+    <Grid>
+        <mah:MetroAnimatedTabControl>
+            <TabItem Header="Usuarios">
+                <Grid Background="#FFE5E5E5">
+                    <TextBlock x:Name="contadorUsuarios" HorizontalAlignment="Left" FontSize="16" Margin="19,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122"><Run Text="Total Usuarios:"/><Run Language="es-cl" Text=" X"/></TextBlock>
+
+                    <DataGrid x:Name="dataGridUsuarios" Margin="19,47,237,19" />
+
+                    <!-- BOTON NUEVO DEPARTAMENTO -->
+                    <mah:Tile x:Name="btnNuevoUsuario" Margin="729,47,31,338" Cursor="Hand" Width="180" Height="110" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" MouseEnter="OnHoverNuevoDepto" MouseLeave="OnLeaveNuevoDepto" Click="OpenNuevoUsuario">
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
+                            <iconPacks:PackIconFontAwesome x:Name="nuevoUsuarioIcon" Kind="PlusCircleSolid" Foreground="#CC60A917" Height="50" Width="100" FontWeight="Bold" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>
+                            <TextBlock x:Name="nuevoUsuarioText" Text="NUEVO USUARIO" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#CC60A917" Margin="5"/>
+                        </StackPanel>
+                    </mah:Tile>
+
+                    <!-- BOTON SELECCIONAR -->
+                    <mah:Tile x:Name="btnSeleccionar" Cursor="Hand" HorizontalAlignment="Left" BorderBrush="#2778D3" BorderThickness="1" Background="#FFFFFF" Margin="729,200,0,0" VerticalAlignment="Top" Width="180" Height="66" MouseEnter="OnHoverSeleccionar" MouseLeave="OnLeaveSeleccionar" Click="SeleccionarUsuario">
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                            <TextBlock x:Name="seleccionarText" Text="SELECCIONAR" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#2778D3" Margin="5"/>
+                        </StackPanel>
+                    </mah:Tile>
+
+                    <!-- BOTON ELIMINAR -->
+                    <mah:Tile x:Name="btnEliminar" Cursor="Hand" HorizontalAlignment="Left" Margin="729,313,0,0" BorderBrush="#FFDC1F1F" BorderThickness="1" Background="#FFFFFF" VerticalAlignment="Top" Width="180" Height="37" MouseEnter="OnHoverEliminar" MouseLeave="OnLeaverEliminar" Click="EliminarUsuario">
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                            <TextBlock x:Name="eliminarText" Text="ELIMINAR" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#FFDC1F1F" Margin="5"/>
+                        </StackPanel>
+                    </mah:Tile>
+
+                    <!-- BOTON VOLVER -->
+                    <mah:Tile x:Name="btnVolver" Cursor="Hand" HorizontalAlignment="Left" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" Margin="729,391,0,0" VerticalAlignment="Top" Width="180" Height="70" MouseEnter="OnHoverVolver" MouseLeave="OnLeaveVolver" Click="CloseWindow">
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
+                            <iconPacks:PackIconFontAwesome x:Name="volverIcon" Kind="BackwardSolid" Foreground="#CC60A917" Height="20" Width="100" FontWeight="Bold" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>
+                            <TextBlock x:Name="volverText" Text="VOLVER" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#CC60A917" Margin="5"/>
+                        </StackPanel>
+                    </mah:Tile>
+
+
+
+
+
+
+                </Grid>
+            </TabItem>
+        </mah:MetroAnimatedTabControl>
+
+    </Grid>
+</mah:MetroWindow>

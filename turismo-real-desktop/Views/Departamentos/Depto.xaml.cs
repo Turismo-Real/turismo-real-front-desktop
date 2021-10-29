@@ -1,7 +1,6 @@
 ﻿using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -271,6 +270,7 @@ namespace turismo_real_desktop.Views.Departamentos
         {
             gridVer.Visibility = Visibility.Hidden;
             gridEditar.Visibility = Visibility.Visible;
+            this.Title = "Turismo Real - Editar Departamento";
 
             SetInstalacionesRestantes();
         }
@@ -288,6 +288,7 @@ namespace turismo_real_desktop.Views.Departamentos
         {
             gridEditar.Visibility = Visibility.Hidden;
             gridVer.Visibility = Visibility.Visible;
+            this.Title = "Turismo Real - Departamento";
         }
 
         private void ClickVolver(object sender, RoutedEventArgs e)
@@ -353,6 +354,7 @@ namespace turismo_real_desktop.Views.Departamentos
                 title = "Departamento Actualizado";
                 message = "El departamento ha sido actualizado correctamente.";
                 MessageBox.Show(message, title,MessageBoxButton.OK, MessageBoxImage.Information);
+                this.Title = "Turismo Real - Departamento";
                 return;
             }
             title = "Error al actualizar";

@@ -11,6 +11,7 @@ using turismo_real_desktop.UIElements;
 using System.Windows;
 using turismo_real_desktop.Views.Extra;
 using turismo_real_desktop.Views.Administrador.Departamentos;
+using turismo_real_desktop.Views.Usuarios;
 
 namespace turismo_real_desktop.Views.Administrador
 {
@@ -152,6 +153,13 @@ namespace turismo_real_desktop.Views.Administrador
                 lblWelcome.Content = $"Bienvenido {nombreUsuario}";
             }
             
+        }
+
+        private void OpenUsersWin(object sender, RoutedEventArgs e)
+        {
+            UsuariosWindow usuariosWindow = new UsuariosWindow();
+            usuariosWindow.Show();
+            Close();
         }
     }
 }

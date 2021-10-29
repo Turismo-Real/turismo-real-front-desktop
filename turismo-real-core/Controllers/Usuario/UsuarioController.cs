@@ -12,5 +12,11 @@ namespace turismo_real_controller.Controllers.Usuario
         {
             return new UsuarioService().GetUsuarioById(id);
         }
+
+        public List<string> ObtenerUsuarios()
+        {
+
+            return new List<string>();
+        }
     }
 }
