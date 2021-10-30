@@ -8,10 +8,10 @@
         mc:Ignorable="d"
         Title="Turismo Real - Nuevo Usuario" Height="561" Width="800">
     <Grid>
-        <ComboBox x:Name="cboxTipo" HorizontalAlignment="Left" Margin="152,54,0,0" VerticalAlignment="Top" Width="189"/>
-        <TextBox x:Name="txtPasaporte" HorizontalAlignment="Left" Margin="152,85,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="189"/>
-        <TextBox x:Name="txtRut" MaxLength="8" HorizontalAlignment="Left" Margin="152,116,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="75"/>
-        <TextBox x:Name="txtDv" MaxLength="1" HorizontalAlignment="Left" Margin="232,116,0,0" Text="K" TextWrapping="Wrap" VerticalAlignment="Top" Width="26"/>
+        <ComboBox x:Name="cboxTipo" HorizontalAlignment="Left" Margin="152,54,0,0" VerticalAlignment="Top" Width="189" SelectionChanged="TipoChanged"/>
+        <TextBox x:Name="txtPasaporte" IsEnabled="False" Background="LightGray" HorizontalAlignment="Left" Margin="152,85,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="189"/>
+        <TextBox x:Name="txtRut" IsEnabled="False" Background="LightGray" MaxLength="8" HorizontalAlignment="Left" Margin="152,116,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="txtDv" IsEnabled="False" Background="LightGray" MaxLength="1" HorizontalAlignment="Left" Margin="232,116,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="26"/>
         <TextBox x:Name="txtPrimerNombre" HorizontalAlignment="Left" Margin="152,147,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="189"/>
         <TextBox x:Name="txtSegundoNombre" HorizontalAlignment="Left" Margin="152,178,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="189"/>
         <TextBox x:Name="txtPrimerApellido" HorizontalAlignment="Left" Margin="152,209,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="189"/>
@@ -21,9 +21,9 @@
         <TextBox x:Name="txttMovil" HorizontalAlignment="Left" Margin="152,333,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="189"/>
         <TextBox x:Name="txtFijo" HorizontalAlignment="Left" Margin="152,364,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="189"/>
         <ComboBox x:Name="cboxGenero" HorizontalAlignment="Left" Margin="152,395,0,0" VerticalAlignment="Top" Width="189"/>
-        <ComboBox x:Name="cboxPais" HorizontalAlignment="Left" Margin="503,54,0,0" VerticalAlignment="Top" Width="250"/>
-        <ComboBox x:Name="cboxRegion" HorizontalAlignment="Left" Margin="503,85,0,0" VerticalAlignment="Top" Width="250" SelectionChanged="RegionChanged"/>
-        <ComboBox x:Name="cboxComuna" HorizontalAlignment="Left" Margin="503,116,0,0" VerticalAlignment="Top" Width="250"/>
+        <ComboBox x:Name="cboxPais" HorizontalAlignment="Left" Margin="503,54,0,0" VerticalAlignment="Top" Width="250" SelectionChanged="PaisChanged"/>
+        <ComboBox x:Name="cboxRegion" IsEnabled="False" Background="LightGray" HorizontalAlignment="Left" Margin="503,85,0,0" VerticalAlignment="Top" Width="250" SelectionChanged="RegionChanged"/>
+        <ComboBox x:Name="cboxComuna" IsEnabled="False" Background="LightGray" HorizontalAlignment="Left" Margin="503,116,0,0" VerticalAlignment="Top" Width="250"/>
         <TextBox x:Name="txtCalle" HorizontalAlignment="Left" Margin="503,147,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
         <TextBox x:Name="txtNumero" HorizontalAlignment="Left" Margin="503,178,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
         <TextBox x:Name="txtNroDepto" HorizontalAlignment="Left" Margin="503,209,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>

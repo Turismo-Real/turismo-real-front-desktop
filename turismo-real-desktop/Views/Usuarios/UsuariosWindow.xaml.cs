@@ -125,7 +125,7 @@ namespace turismo_real_desktop.Views.Usuarios
 
         private void OpenNuevoUsuario(object sender, RoutedEventArgs e)
         {
-            NuevoUsuario nuevoUsuarioWin = new NuevoUsuario();
+            NuevoUsuario nuevoUsuarioWin = new NuevoUsuario(this);
             nuevoUsuarioWin.Show();
         }
     }

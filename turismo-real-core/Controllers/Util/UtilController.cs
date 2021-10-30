@@ -62,5 +62,11 @@ namespace turismo_real_controller.Controllers.Util
             paises.Insert(0, "-- Seleccionar País --");
             return paises;
         }
+
+        public List<string> ObtenerTiposUsuarios()
+        {
+            List<string> tiposUsuarios = new List<string> { "-- Tipo Usuario --", "Administrador", "Funcionario", "Cliente" };
+            return tiposUsuarios;
+        }
     }
 }
