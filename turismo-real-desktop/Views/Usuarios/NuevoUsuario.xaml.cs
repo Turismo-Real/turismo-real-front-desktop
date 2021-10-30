@@ -25,7 +25,39 @@ namespace turismo_real_desktop.Views.Usuarios
             InitializeComponent();
         }
 
+        private void CancelarInsercion(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
 
+        private void OnHoverCancelar(object sender, MouseEventArgs e)
+        {
 
+        }
+
+        private void OnLeaveCancelar(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void OnHoverGuardar(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void OnLeaveGuardar(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void RegionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void GuardarUsuario(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
