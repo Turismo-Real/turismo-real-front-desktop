@@ -1,16 +1,8 @@
 ﻿using MahApps.Metro.Controls;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using turismo_real_business.DTOs;
 using turismo_real_controller.Controllers.Usuario;
 using turismo_real_desktop.GridEntities;
@@ -60,8 +52,8 @@ namespace turismo_real_desktop.Views.Usuarios
             {
                 UsuarioGrid usuarioGrid = new UsuarioGrid();
                 usuarioGrid.id = usuario.idUsuario;
-                usuarioGrid.rut = usuario.rut.Equals(string.Empty) ? "---------" : $"{usuario.rut}-{usuario.dv}";
-                usuarioGrid.pasaporte = usuario.pasaporte.Equals(string.Empty) ? "---------" : usuario.pasaporte;
+                usuarioGrid.rut = usuario.rut.Equals(string.Empty) ? "0" : $"{usuario.rut}-{usuario.dv}";
+                usuarioGrid.pasaporte = usuario.pasaporte.Equals(string.Empty) ? "0" : usuario.pasaporte;
                 usuarioGrid.nombre = $"{usuario.primerNombre} {usuario.primerApellido} {usuario.segundoApellido}";
                 usuarioGrid.email = usuario.correo;
                 usuarioGrid.pais = usuario.pais;
