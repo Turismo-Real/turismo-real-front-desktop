@@ -69,7 +69,10 @@ namespace turismo_real_desktop.Views.Usuarios
         {
             utilController = new UtilController();
             cboxGenero.ItemsSource = utilController.ObtenerGeneros();
-            cboxPais.ItemsSource = utilController.ObtenerPaises();cboxRegion.ItemsSource = utilController.ObtenerRegiones();
+            cboxPais.ItemsSource = utilController.ObtenerPaises();
+            List<string> regiones = utilController.ObtenerRegiones();
+            
+            cboxRegion.ItemsSource = regiones;
         }
 
         public void SetInitialStateGrids()
@@ -135,6 +138,8 @@ namespace turismo_real_desktop.Views.Usuarios
 
         private void GuardarCambios(object sender, RoutedEventArgs e)
         {
+
+
             gridEditarUsuario.Visibility = Visibility.Visible;
             gridVerUsuario.Visibility = Visibility.Hidden;
         }

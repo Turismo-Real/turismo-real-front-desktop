@@ -14,7 +14,7 @@ namespace turismo_real_services.REST.Usuario
         {
             try
             {
-                WebRequest request = WebRequest.Create(URLService.URL_USUARIOS + id);
+                WebRequest request = WebRequest.Create($"{URLService.URL_USUARIOS}/{id}");
                 request.Method = "GET";
                 request.PreAuthenticate = true;
                 request.ContentType = "Application/json; Charset=UTF-8";
