@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
-using System.Text;
 using turismo_real_business.DTOs;
 using turismo_real_services.Utils;
 
@@ -60,6 +59,7 @@ namespace turismo_real_services.REST.Usuario
             DireccionDTO direccion = new DireccionDTO();
             direccion.region = obj["direccion"]["region"];
             direccion.comuna = obj["direccion"]["comuna"];
+            direccion.calle = obj["direccion"]["calle"];
             direccion.numero = obj["direccion"]["numero"];
             direccion.depto = obj["direccion"]["depto"];
             direccion.casa = obj["direccion"]["casa"];

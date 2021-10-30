@@ -100,8 +100,12 @@ namespace turismo_real_desktop.Views.Usuarios
 
         private void SeleccionarUsuario(object sender, RoutedEventArgs e)
         {
-            Usuario selectedUsuarioWin = new Usuario();
-            selectedUsuarioWin.Show();
+            if (dataGridUsuarios.SelectedItem != null)
+            {
+                UsuarioGrid selectedUsuario = dataGridUsuarios.SelectedItem as UsuarioGrid;
+                Usuario selectedUsuarioWin = new Usuario(this, selectedUsuario.id);
+                selectedUsuarioWin.Show();
+            }
         }
 
         private void OnHoverNuevoDepto(object sender, MouseEventArgs e)

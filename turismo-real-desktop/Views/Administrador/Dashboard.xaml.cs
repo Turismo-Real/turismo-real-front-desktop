@@ -31,7 +31,7 @@ namespace turismo_real_desktop.Views.Administrador
             {
                 // Obtener datos del usuario
                 UsuarioController usuarioController = new UsuarioController();
-                UsuarioDTO usuario = usuarioController.GetUsuario(login.id);
+                UsuarioDTO usuario = usuarioController.ObtenerUsuario(login.id);
 
                 // Setear usuario logueado
                 LoguedUser.SetLoguedUser(usuario);

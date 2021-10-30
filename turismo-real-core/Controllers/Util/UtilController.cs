@@ -48,5 +48,19 @@ namespace turismo_real_controller.Controllers.Util
             estadosDepto.Insert(0, "-- Estado --");
             return estadosDepto;
         }
+
+        public List<string> ObtenerGeneros()
+        {
+            List<string> generos = new List<string> { "-- Genero --", "Femenino", "Masculino" };
+            return generos;
+        }
+
+        public List<string> ObtenerPaises()
+        {
+            utilService = new UtilService();
+            List<string> paises = utilService.GetPaisesREST();
+            paises.Insert(0, "-- Seleccionar País --");
+            return paises;
+        }
     }
 }
