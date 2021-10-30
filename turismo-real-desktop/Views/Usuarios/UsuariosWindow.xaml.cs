@@ -1,4 +1,5 @@
 ﻿using MahApps.Metro.Controls;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
@@ -85,7 +86,11 @@ namespace turismo_real_desktop.Views.Usuarios
 
         private void EliminarUsuario(object sender, RoutedEventArgs e)
         {
-
+            usuarioController = new UsuarioController();
+            UsuarioGrid selectedUser = dataGridUsuarios.SelectedItem as UsuarioGrid;
+            int id = Convert.ToInt32(selectedUser.id);
+            bool removed = usuarioController.EliminarUsuario(id);
+            if (removed) FillDataGridUsuarios();
         }
 
         private void OnLeaveSeleccionar(object sender, MouseEventArgs e)

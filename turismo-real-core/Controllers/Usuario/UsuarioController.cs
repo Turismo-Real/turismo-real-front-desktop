@@ -22,5 +22,12 @@ namespace turismo_real_controller.Controllers.Usuario
             List<UsuarioDTO> usuarios = usuarioService.GetUsuarios();
             return usuarios;
         }
+
+        public bool EliminarUsuario(int id)
+        {
+            usuarioService = new UsuarioService();
+            bool removed = usuarioService.DeleteUsuario(id);
+            return removed;
+        }
     }
 }
