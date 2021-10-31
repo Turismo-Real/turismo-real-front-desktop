@@ -49,8 +49,8 @@ namespace turismo_real_desktop.Views.Usuarios
             txtbRut.Text = $"{usuario.rut}-{usuario.dv}";
             txtbPrimerNombre.Text = usuario.primerNombre;
             txtbSegundoNombre.Text = usuario.segundoNombre;
-            txtbPrimerApellido.Text = usuario.primerApellido;
-            txtbSegundoApellido.Text = usuario.segundoApellido;
+            txtbPrimerApellido.Text = usuario.apellidoPaterno;
+            txtbSegundoApellido.Text = usuario.apellidoMaterno;
             txtbFecNac.Text = usuario.fechaNacimiento.ToString("dd/MM/yyyy");
             txtbCorreo.Text = usuario.correo;
             txtbTelMovil.Text = usuario.telefonoMovil.Equals(string.Empty) ? vacio : usuario.telefonoMovil;
@@ -110,8 +110,8 @@ namespace turismo_real_desktop.Views.Usuarios
             txtDv.Text = selectedUsuario.dv;
             txtPrimerNombre.Text = selectedUsuario.primerNombre;
             txtSegundoNombre.Text = selectedUsuario.segundoNombre;
-            txtPrimerApellido.Text = selectedUsuario.primerApellido;
-            txtSegundoApellido.Text = selectedUsuario.segundoApellido;
+            txtPrimerApellido.Text = selectedUsuario.apellidoPaterno;
+            txtSegundoApellido.Text = selectedUsuario.apellidoMaterno;
             dpFecNacimiento.SelectedDate = DateTime.Parse(selectedUsuario.fechaNacimiento.ToString("dd/MM/yyyy"));
             txtCorreo.Text = selectedUsuario.correo;
             txttMovil.Text = selectedUsuario.telefonoMovil;

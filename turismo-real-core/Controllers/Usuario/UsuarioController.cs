@@ -29,5 +29,12 @@ namespace turismo_real_controller.Controllers.Usuario
             bool removed = usuarioService.DeleteUsuario(id);
             return removed;
         }
+
+        public bool AgregarNuevoUsuario(UsuarioDTO nuevoUsuario)
+        {
+            usuarioService = new UsuarioService();
+            bool saved = usuarioService.CreateUser(nuevoUsuario);
+            return saved;
+        }
     }
 }

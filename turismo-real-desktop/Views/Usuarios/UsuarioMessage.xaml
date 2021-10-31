@@ -1,0 +1,24 @@
+﻿<mah:MetroWindow x:Class="turismo_real_desktop.Views.Usuarios.UsuarioMessage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:turismo_real_desktop.Views.Usuarios"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        mc:Ignorable="d"
+        Title="Turismo Real" Height="258" Width="350">
+    <Grid>
+        <Image HorizontalAlignment="Left" Height="62" Margin="69,20,0,0" VerticalAlignment="Top" Width="62" Source="/Assets/Normal/checked.png"/>
+        <TextBlock HorizontalAlignment="Left" FontSize="36" FontWeight="Bold" Foreground="ForestGreen" Margin="141,27,0,0" Text="¡Genial!" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="69,104,0,0" Text="El usuario ha sido creado exitosamente." TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="61,132,0,0" Text="Tu contraseña por defecto es:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="75,160,0,0" Text="Inicia sesión y cambia tu contraseña" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <mah:Tile HorizontalAlignment="Left" Margin="100,189,0,0" VerticalAlignment="Top" Height="23" Background="White" BorderBrush="#CC60A917" BorderThickness="1" Cursor="Hand" MouseEnter="OnHoverAceptar" MouseLeave="OnLeaveAceptar" Click="ClickAceptar">
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Text="ACEPTAR" TextAlignment="Center" Foreground="#CC60A917" FontWeight="Medium"/>
+            </StackPanel>
+        </mah:Tile>
+        <TextBlock x:Name="lblPass" HorizontalAlignment="Left" FontWeight="Bold" Margin="222,132,0,0" Text="password" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
+    </Grid>
+</mah:MetroWindow>

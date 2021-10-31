@@ -10,8 +10,8 @@ namespace turismo_real_business.DTOs
         public string dv { get; set; }
         public string primerNombre { get; set; }
         public string segundoNombre { get; set; }
-        public string primerApellido { get; set; }
-        public string segundoApellido { get; set; }
+        public string apellidoPaterno { get; set; }
+        public string apellidoMaterno { get; set; }
         public DateTime fechaNacimiento { get; set; }
         public string correo { get; set; }
         public string telefonoMovil { get; set; }

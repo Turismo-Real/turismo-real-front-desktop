@@ -46,8 +46,8 @@ namespace turismo_real_services.REST.Usuario
             usuario.dv = obj["dv"];
             usuario.primerNombre = obj["primerNombre"];
             usuario.segundoNombre = obj["segundoNombre"];
-            usuario.primerApellido = obj["apellidoPaterno"];
-            usuario.segundoApellido = obj["apellidoMaterno"];
+            usuario.apellidoPaterno = obj["apellidoPaterno"];
+            usuario.apellidoMaterno = obj["apellidoMaterno"];
             usuario.fechaNacimiento = obj["fechaNacimiento"];
             usuario.correo = obj["correo"];
             usuario.telefonoMovil = obj["telefonoMovil"];
@@ -88,8 +88,8 @@ namespace turismo_real_services.REST.Usuario
             usuario.dv= usuarioJSON["dv"];
             usuario.primerNombre= usuarioJSON["primerNombre"];
             usuario.segundoNombre = usuarioJSON["segundoNombre"];
-            usuario.primerApellido = usuarioJSON["apellidoPaterno"];
-            usuario.segundoApellido = usuarioJSON["apellidoMaterno"];
+            usuario.apellidoPaterno = usuarioJSON["apellidoPaterno"];
+            usuario.apellidoMaterno = usuarioJSON["apellidoMaterno"];
             usuario.fechaNacimiento = usuarioJSON["fechaNacimiento"];
             usuario.correo = usuarioJSON["correo"];
             usuario.telefonoMovil = usuarioJSON["telefonoMovil"];
@@ -155,6 +155,41 @@ namespace turismo_real_services.REST.Usuario
                 dynamic response = JsonConvert.DeserializeObject(result);
                 bool deleteResponse = response["removed"];
                 return deleteResponse;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+        }
+
+        public bool CreateUser(UsuarioDTO usuario)
+        {
+            try
+            {
+                string json = JsonConvert.SerializeObject(usuario);
+
+                WebRequest request = WebRequest.Create(URLService.URL_USUARIOS);
+                request.Method = "POST";
+                request.PreAuthenticate = true;
+                request.ContentType = "Application/json; Charset=UTF-8";
+                request.Timeout = 8000;
+
+                using (StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
+                {
+                    streamWriter.Write(json);
+                    streamWriter.Flush();
+                }
+
+                string result = "";
+                HttpWebResponse httpResponse = (HttpWebResponse)request.GetResponse();
+                using (StreamReader streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    result = streamReader.ReadToEnd();
+                }
+                dynamic response = JsonConvert.DeserializeObject(result);
+                bool createResponse = response["saved"];
+                return createResponse;
             }
             catch (Exception ex)
             {

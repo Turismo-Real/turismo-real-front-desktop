@@ -146,8 +146,8 @@ namespace turismo_real_desktop.Views.Administrador
             if (LoguedUser.GetLoguedUser() != null) // para modo offline
             {
                 string nombreUsuario = $"{LoguedUser.GetLoguedUser().primerNombre} " +
-                    $"{LoguedUser.GetLoguedUser().primerApellido} " +
-                    $"{LoguedUser.GetLoguedUser().segundoApellido}";
+                    $"{LoguedUser.GetLoguedUser().apellidoPaterno} " +
+                    $"{LoguedUser.GetLoguedUser().apellidoMaterno}";
 
                 // Bienvenida a usuario
                 lblWelcome.Content = $"Bienvenido {nombreUsuario}";

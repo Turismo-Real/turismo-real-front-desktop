@@ -55,7 +55,7 @@ namespace turismo_real_desktop.Views.Usuarios
                 usuarioGrid.id = usuario.idUsuario;
                 usuarioGrid.rut = usuario.rut.Equals(string.Empty) ? "0" : $"{usuario.rut}-{usuario.dv}";
                 usuarioGrid.pasaporte = usuario.pasaporte.Equals(string.Empty) ? "0" : usuario.pasaporte;
-                usuarioGrid.nombre = $"{usuario.primerNombre} {usuario.primerApellido} {usuario.segundoApellido}";
+                usuarioGrid.nombre = $"{usuario.primerNombre} {usuario.apellidoPaterno} {usuario.apellidoMaterno}";
                 usuarioGrid.email = usuario.correo;
                 usuarioGrid.pais = usuario.pais;
                 usuarioGrid.tipo = usuario.tipoUsuario;
