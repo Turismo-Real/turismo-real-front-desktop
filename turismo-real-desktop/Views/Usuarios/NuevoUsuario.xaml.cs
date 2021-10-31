@@ -120,15 +120,17 @@ namespace turismo_real_desktop.Views.Usuarios
 
         public void ShowSuccessMessage(string tipoUsuario)
         {
-            string defaultPassword = GetDefaultPasswordByUserType(tipoUsuario);
+            usuarioController = new UsuarioController();
+            string defaultPassword = usuarioController.ObtenerDefaultPasswordPorTipo(tipoUsuario);
             UsuarioMessage successWin = new UsuarioMessage(defaultPassword);
             successWin.ShowDialog();
         }
 
         public UsuarioDTO ConvertFormToUsuario()
         {
+            usuarioController = new UsuarioController();
             string userType = cboxTipo.SelectedItem.ToString();
-            string defaultPassword = GetDefaultPasswordByUserType(userType);
+            string defaultPassword = usuarioController.ObtenerDefaultPasswordPorTipo(userType);
             UsuarioDTO usuario = new UsuarioDTO();
             usuario.pasaporte = txtPasaporte.Text.Equals(string.Empty) ? null : txtPasaporte.Text;
             usuario.rut = txtRut.Text.Equals(string.Empty) ? null : txtRut.Text;
@@ -155,16 +157,6 @@ namespace turismo_real_desktop.Views.Usuarios
             direccion.casa = txtNroCasa.Text;
             usuario.direccion = direccion;
             return usuario;
-        }
-
-        public string GetDefaultPasswordByUserType(string userType)
-        {
-            string defaultPassword = string.Empty;
-            userType = userType.ToUpper();
-            if (userType.Equals("ADMINISTRADOR")) defaultPassword = "administrar";
-            if (userType.Equals("FUNCIONARIO")) defaultPassword = "checkin";
-            if (userType.Equals("CLIENTE")) defaultPassword = "turismo";
-            return defaultPassword;
         }
 
         private void TipoChanged(object sender, SelectionChangedEventArgs e)

@@ -36,5 +36,15 @@ namespace turismo_real_controller.Controllers.Usuario
             bool saved = usuarioService.CreateUser(nuevoUsuario);
             return saved;
         }
+
+        public string ObtenerDefaultPasswordPorTipo(string userType)
+        {
+            string defaultPassword = string.Empty;
+            userType = userType.ToUpper();
+            if (userType.Equals("ADMINISTRADOR")) defaultPassword = "administrar";
+            if (userType.Equals("FUNCIONARIO")) defaultPassword = "checkin";
+            if (userType.Equals("CLIENTE")) defaultPassword = "turismo";
+            return defaultPassword;
+        }
     }
 }
