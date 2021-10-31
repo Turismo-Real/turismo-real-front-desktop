@@ -50,42 +50,12 @@
                 </Grid>
             </TabItem>
 
-            <TabItem Header="Mantenciones" Cursor="Hand">
+            <TabItem Header="Mantenciones">
                 <Grid Background="#FFE5E5E5">
 
                 </Grid>
             </TabItem>
         </mah:MetroAnimatedTabControl>
-
-        <!--<Grid.ColumnDefinitions>
-            <ColumnDefinition Width="7*"/>
-            <ColumnDefinition Width="153*"/>
-        </Grid.ColumnDefinitions>
-        <Rectangle HorizontalAlignment="Left" Height="434" Margin="495,0,0,0" Stroke="Black" VerticalAlignment="Center" Width="270" Grid.Column="1"/>
-
-        <Image HorizontalAlignment="Left" Height="76" Margin="592,29,0,0" VerticalAlignment="Top" Width="85" Source="/Assets/Normal/plus.png" Grid.Column="1"/>
-        <mah:Tile x:Name="agregarbtn" Content="Agregar Depto" HorizontalAlignment="Left" Margin="531,129,0,0" VerticalAlignment="Top" Height="42" Width="198" FontWeight="Bold" FontSize="24" Grid.Column="1"/>
-        <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left" Height="1
-                " Margin="495,194,0,0" VerticalAlignment="Top" Width="270" Background="Black" Grid.Column="1"/>
-
-
-        <mah:Tile x:Name="seleccionarbtn" Content="Seleccionar" HorizontalAlignment="Left" Margin="531,218,0,0" VerticalAlignment="Top" Height="42" Width="198" FontWeight="Bold" FontSize="24" Background="#CC178EA9" Grid.Column="1"/>
-        <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left" Height="1
-                " Margin="495,283,0,0" VerticalAlignment="Top" Width="270" Background="Black" Grid.Column="1"/>
-
-        <mah:Tile x:Name="eliminarbtn" Content="Eliminar" HorizontalAlignment="Left" Margin="531,305,0,0" VerticalAlignment="Top" Height="42" Width="198" FontWeight="Bold" FontSize="24" Background="#CCC12C15" Grid.Column="1"/>
-
-        <mah:Tile x:Name="volverbtn" Content="Volver" HorizontalAlignment="Left" Margin="531,382,0,0" VerticalAlignment="Top" Height="42" Width="198" FontWeight="Bold" FontSize="24" Grid.Column="1"/>
-        <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left" Height="1
-                " Margin="495,364,0,0" VerticalAlignment="Top" Width="270" Background="Black" Grid.Column="1"/>
-        <Image HorizontalAlignment="Left" Height="28" Margin="685,389,0,0" VerticalAlignment="Top" Width="40" Source="/Assets/Normal/previous.png" Grid.Column="1" />
-        <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left" Height="1
-                " Margin="0,31,0,0" VerticalAlignment="Top" Width="530" Background="Black" Grid.ColumnSpan="2"/>
-        <DataGrid x:Name="datagriddeptos" Margin="37,97,342,31" BorderBrush="#000000" BorderThickness="1" SelectionChanged="DataGrid_SelectionChanged" Grid.Column="1"/>-->
-
-
-
-
 
     </Grid>
 </mah:MetroWindow>
