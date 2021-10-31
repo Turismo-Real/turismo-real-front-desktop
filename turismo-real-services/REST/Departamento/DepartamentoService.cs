@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Net;
 using turismo_real_business.DTOs;
@@ -141,7 +140,6 @@ namespace turismo_real_services.REST.Departamento
 
         public DepartamentoDTO UpdateDepto(DepartamentoDTO depto)
         {
-
             string json = JsonConvert.SerializeObject(depto);
             WebRequest request = WebRequest.Create($"{URLService.URL_DEPTOS}/{depto.id_departamento}");
             request.Method = "PUT";
@@ -170,7 +168,6 @@ namespace turismo_real_services.REST.Departamento
                 return deptoResponse;
             }
             return null;
-            
         }
 
         public DepartamentoDTO DynamicToDepto(dynamic deptoJSON)

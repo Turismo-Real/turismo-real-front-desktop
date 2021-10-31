@@ -1,7 +1,6 @@
 ﻿using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -36,9 +35,7 @@ namespace turismo_real_desktop.Views.Usuarios
             SetFormTitle(idUsuario);
             SetLabelForm(selectedUsuario);
             FillComboBoxes();
-            cboxRegion.SelectedItem = selectedUsuario.direccion.region;
             RegionChanged();
-            cboxComuna.SelectedItem = selectedUsuario.direccion.comuna;
             SetInputForm(selectedUsuario);
         }
 
@@ -49,10 +46,10 @@ namespace turismo_real_desktop.Views.Usuarios
 
         private void SetLabelForm(UsuarioDTO usuario)
         {
-            string vacio = "-";
+            string empty = "-";
             txtTipoEditar.Text = selectedUsuario.tipoUsuario;
             txtbTipo.Text = usuario.tipoUsuario;
-            txtbPasaporte.Text = usuario.pasaporte.Equals(string.Empty) ? vacio : usuario.pasaporte;
+            txtbPasaporte.Text = usuario.pasaporte.Equals(string.Empty) ? empty : usuario.pasaporte;
             txtbRut.Text = $"{usuario.rut}-{usuario.dv}";
             txtbPrimerNombre.Text = usuario.primerNombre;
             txtbSegundoNombre.Text = usuario.segundoNombre;
@@ -60,16 +57,16 @@ namespace turismo_real_desktop.Views.Usuarios
             txtbSegundoApellido.Text = usuario.apellidoMaterno;
             txtbFecNac.Text = usuario.fechaNacimiento.ToString("dd/MM/yyyy");
             txtbCorreo.Text = usuario.correo;
-            txtbTelMovil.Text = usuario.telefonoMovil.Equals(string.Empty) ? vacio : usuario.telefonoMovil;
-            txtbTelFijo.Text = usuario.telefonoFijo.Equals(string.Empty) ? vacio : usuario.telefonoFijo;
+            txtbTelMovil.Text = usuario.telefonoMovil.Equals(string.Empty) ? empty : usuario.telefonoMovil;
+            txtbTelFijo.Text = usuario.telefonoFijo.Equals(string.Empty) ? empty : usuario.telefonoFijo;
             txtbGenero.Text = usuario.genero;
             txtbPais.Text = usuario.pais;
             txtbRegion.Text = usuario.direccion.region;
             txtbComuna.Text = usuario.direccion.comuna;
             txtbCalle.Text = usuario.direccion.calle;
             txtbNumero.Text = usuario.direccion.numero;
-            txtbNroDepto.Text = usuario.direccion.depto.Equals(string.Empty) ? vacio : usuario.direccion.depto;
-            txtbNroCasa.Text = usuario.direccion.calle.Equals(string.Empty) ? vacio : usuario.direccion.casa;
+            txtbNroDepto.Text = usuario.direccion.depto.Equals(string.Empty) ? empty : usuario.direccion.depto;
+            txtbNroCasa.Text = usuario.direccion.calle.Equals(string.Empty) ? empty : usuario.direccion.casa;
         }
 
         private void FillComboBoxes()
@@ -126,6 +123,7 @@ namespace turismo_real_desktop.Views.Usuarios
             cboxGenero.SelectedItem = selectedUsuario.genero;
             cboxPais.SelectedItem = selectedUsuario.pais;
             cboxRegion.SelectedItem = selectedUsuario.direccion.region;
+            cboxComuna.SelectedItem = selectedUsuario.direccion.comuna;
             txtCalle.Text = selectedUsuario.direccion.calle;
             txtNumero.Text = selectedUsuario.direccion.numero;
             txtNroDepto.Text = selectedUsuario.direccion.depto;
@@ -144,9 +142,31 @@ namespace turismo_real_desktop.Views.Usuarios
 
         private void GuardarCambios(object sender, RoutedEventArgs e)
         {
+            usuarioController = new UsuarioController();
             UsuarioDTO usuario = ConvertFormToUsuario();
+            usuario.idUsuario = selectedUsuario.idUsuario;
+            UsuarioDTO updatedUsuario = usuarioController.ActualizarUsuario(usuario);
 
-            
+            string title;
+            string message;
+            if (updatedUsuario != null)
+            {
+                SetDataForm(updatedUsuario);
+                usuariosWin.FillDataGridUsuarios();
+                title = "Usuario Actualizado";
+                message = "El usuario ha sido actualizado correctamente.";
+                MessageBox.Show(message, title, MessageBoxButton.OK, MessageBoxImage.Information);
+                this.Title = "Turismo Real - Usuario";
+                return;
+            }
+            title = "Error al actualizar";
+            message = "Ha ocurrido un error al intentar actualizar usuario.";
+            MessageBox.Show(message, title, MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        public void SetDataForm(UsuarioDTO usuario)
+        {
+
         }
 
         public UsuarioDTO ConvertFormToUsuario()
@@ -166,6 +186,7 @@ namespace turismo_real_desktop.Views.Usuarios
             usuario.telefonoFijo = txtFijo.Text.Equals(string.Empty) ? null : txtFijo.Text;
             usuario.genero = cboxGenero.SelectedItem.ToString();
             usuario.pais = cboxPais.SelectedItem.ToString();
+            usuario.tipoUsuario = selectedUsuario.tipoUsuario;
 
             DireccionDTO direccion = new DireccionDTO();
             direccion.region = cboxRegion.SelectedItem == null ? "Sin Región" : cboxRegion.SelectedItem.ToString();

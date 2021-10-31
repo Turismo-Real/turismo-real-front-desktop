@@ -73,13 +73,13 @@ namespace turismo_real_services.REST.Usuario
             List<UsuarioDTO> usuarios = new List<UsuarioDTO>();
             foreach (dynamic usuarioJSON in obj)
             {
-                UsuarioDTO usuario = DynamicToDepto(usuarioJSON);
+                UsuarioDTO usuario = DynamicToUsuario(usuarioJSON);
                 usuarios.Add(usuario);
             }
             return usuarios;
         }
 
-        public UsuarioDTO DynamicToDepto(dynamic usuarioJSON)
+        public UsuarioDTO DynamicToUsuario(dynamic usuarioJSON)
         {
             UsuarioDTO usuario = new UsuarioDTO();
             usuario.idUsuario = usuarioJSON["id"];
@@ -198,6 +198,37 @@ namespace turismo_real_services.REST.Usuario
             }
         }
 
+        public UsuarioDTO UpdateUsuario(UsuarioDTO usuario)
+        {
+            string json = JsonConvert.SerializeObject(usuario);
+            WebRequest request = WebRequest.Create($"{URLService.URL_USUARIOS}/{usuario.idUsuario}");
+            request.Method = "PUT";
+            request.PreAuthenticate = true;
+            request.ContentType = "Application/json; Charset=UTF-8";
+            request.Timeout = 8000;
+
+            using (StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
+            {
+                streamWriter.Write(json);
+                streamWriter.Flush();
+            }
+
+            string result = "";
+            HttpWebResponse httpResponse = (HttpWebResponse)request.GetResponse();
+            using (StreamReader streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                result = streamReader.ReadToEnd();
+            }
+            dynamic response = JsonConvert.DeserializeObject(result);
+            bool updated = response["updated"];
+
+            if (updated)
+            {
+                UsuarioDTO usuarioResponse = DynamicToUsuario(response["usuario"]);
+                return usuarioResponse;
+            }
+            return null;
+        }
 
     }
 }

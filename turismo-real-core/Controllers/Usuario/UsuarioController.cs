@@ -44,5 +44,12 @@ namespace turismo_real_controller.Controllers.Usuario
             if (userType.Equals("CLIENTE")) defaultPassword = "turismo";
             return defaultPassword;
         }
+
+        public UsuarioDTO ActualizarUsuario(UsuarioDTO usuario)
+        {
+            usuarioService = new UsuarioService();
+            UsuarioDTO updatedUser = usuarioService.UpdateUsuario(usuario);
+            return updatedUser;
+        }
     }
 }
