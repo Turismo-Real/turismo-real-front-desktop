@@ -24,7 +24,7 @@
             <TextBox x:Name="txttMovil" HorizontalAlignment="Left" Margin="152,333,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="189"/>
             <TextBox x:Name="txtFijo" HorizontalAlignment="Left" Margin="152,364,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="189"/>
             <ComboBox x:Name="cboxGenero" HorizontalAlignment="Left" Margin="152,395,0,0" VerticalAlignment="Top" Width="189"/>
-            <ComboBox x:Name="cboxPais" HorizontalAlignment="Left" Margin="503,54,0,0" VerticalAlignment="Top" Width="250"/>
+            <ComboBox x:Name="cboxPais" HorizontalAlignment="Left" Margin="503,54,0,0" VerticalAlignment="Top" Width="250" SelectionChanged="PaisChanged"/>
             <ComboBox x:Name="cboxRegion" HorizontalAlignment="Left" Margin="503,85,0,0" VerticalAlignment="Top" Width="250" SelectionChanged="RegionChanged"/>
             <ComboBox x:Name="cboxComuna" HorizontalAlignment="Left" Margin="503,116,0,0" VerticalAlignment="Top" Width="250"/>
             <TextBox x:Name="txtCalle" HorizontalAlignment="Left" Margin="503,147,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
@@ -74,7 +74,7 @@
         </Grid>
 
         <!-- GRID VER -->
-        <Grid x:Name="gridVerUsuario" Visibility="Visible">
+        <Grid x:Name="gridVerUsuario" Visibility="Hidden">
             <TextBlock x:Name="txtbTipo" HorizontalAlignment="Left" Margin="160,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="114"><Run Language="es-mx" Text="Administrador"/></TextBlock>
             <TextBlock x:Name="txtbPasaporte" HorizontalAlignment="Left" Margin="160,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"><Run Language="es-mx" Text="333-333-333"/></TextBlock>
             <TextBlock x:Name="txtbRut" HorizontalAlignment="Left" Margin="160,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="es-mx" Text="444444444-k"/></TextBlock>
@@ -127,7 +127,7 @@
                 </StackPanel>
             </mah:Tile>
 
-            <mah:Tile x:Name="btnEditar" HorizontalAlignment="Left" VerticalContentAlignment="Center" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" Cursor="Hand" Margin="445,488,0,0" VerticalAlignment="Top" Height="30" Width="210" MouseEnter="OnHoverGuardar" MouseLeave="OnLeaveGuardar" Click="GuardarCambios">
+            <mah:Tile x:Name="btnEditar" HorizontalAlignment="Left" VerticalContentAlignment="Center" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" Cursor="Hand" Margin="445,488,0,0" VerticalAlignment="Top" Height="30" Width="210" MouseEnter="OnHoverGuardar" MouseLeave="OnLeaveGuardar" Click="EditarUsuario">
                 <StackPanel Orientation="Vertical" VerticalAlignment="Center">
                     <TextBlock x:Name="editarText" Text="EDITAR" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#CC60A917" Margin="5"/>
                 </StackPanel>

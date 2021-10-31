@@ -3,7 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using turismo_real_business.DTOs;
 using turismo_real_controller.Controllers.Usuario;
 using turismo_real_controller.Controllers.Util;
@@ -40,6 +42,11 @@ namespace turismo_real_desktop.Views.Usuarios
             SetInputForm(selectedUsuario);
         }
 
+        private void FillComboRegion() => cboxRegion.ItemsSource = utilController.ObtenerRegiones();
+        private void Volver(object sender, RoutedEventArgs e) => Close();
+        private void PaisChanged(object sender, SelectionChangedEventArgs e) => PaisChanged();
+        private void RegionChanged(object sender, SelectionChangedEventArgs e) => RegionChanged();
+
         private void SetLabelForm(UsuarioDTO usuario)
         {
             string vacio = "-";
@@ -65,37 +72,38 @@ namespace turismo_real_desktop.Views.Usuarios
             txtbNroCasa.Text = usuario.direccion.calle.Equals(string.Empty) ? vacio : usuario.direccion.casa;
         }
 
-        public void FillComboBoxes()
+        private void FillComboBoxes()
         {
             utilController = new UtilController();
             cboxGenero.ItemsSource = utilController.ObtenerGeneros();
             cboxPais.ItemsSource = utilController.ObtenerPaises();
-            List<string> regiones = utilController.ObtenerRegiones();
-            
-            cboxRegion.ItemsSource = regiones;
+            FillComboRegion();
         }
 
-        public void SetInitialStateGrids()
+
+        private void SetInitialStateGrids()
         {
             gridVerUsuario.Visibility = Visibility.Visible;
             gridEditarUsuario.Visibility = Visibility.Hidden;
         }
 
-        public void RegionChanged()
+        private void RegionChanged()
         {
-            if (cboxRegion.SelectedIndex != 0)
+            if(cboxRegion.SelectedIndex != 0 && cboxRegion.SelectedItem != null)
             {
                 utilController = new UtilController();
                 string region = cboxRegion.SelectedItem.ToString();
                 List<string> comunas = utilController.ObtenerComunasPorRegion(region);
+                EnabledComboBox(cboxComuna);
                 cboxComuna.ItemsSource = comunas;
                 cboxComuna.SelectedIndex = 0;
                 return;
             }
+            DisabledComboBox(cboxComuna);
             cboxComuna.ItemsSource = new List<string>();
         }
 
-        public void SetFormTitle(int idUsuario)
+        private void SetFormTitle(int idUsuario)
         {
             string titulo = $"USUARIO {idUsuario}";
             editarUsuarioTitle.Text = titulo;
@@ -104,7 +112,6 @@ namespace turismo_real_desktop.Views.Usuarios
 
         public void SetInputForm(UsuarioDTO selectedUsuario)
         {
-            //cboxTipo
             txtPasaporte.Text = selectedUsuario.pasaporte;
             txtRut.Text = selectedUsuario.rut;
             txtDv.Text = selectedUsuario.dv;
@@ -119,7 +126,6 @@ namespace turismo_real_desktop.Views.Usuarios
             cboxGenero.SelectedItem = selectedUsuario.genero;
             cboxPais.SelectedItem = selectedUsuario.pais;
             cboxRegion.SelectedItem = selectedUsuario.direccion.region;
-            //cboxComuna
             txtCalle.Text = selectedUsuario.direccion.calle;
             txtNumero.Text = selectedUsuario.direccion.numero;
             txtNroDepto.Text = selectedUsuario.direccion.depto;
@@ -138,10 +144,38 @@ namespace turismo_real_desktop.Views.Usuarios
 
         private void GuardarCambios(object sender, RoutedEventArgs e)
         {
+            UsuarioDTO usuario = ConvertFormToUsuario();
 
+            
+        }
 
-            gridEditarUsuario.Visibility = Visibility.Visible;
-            gridVerUsuario.Visibility = Visibility.Hidden;
+        public UsuarioDTO ConvertFormToUsuario()
+        {
+            usuarioController = new UsuarioController();
+            UsuarioDTO usuario = new UsuarioDTO();
+            usuario.pasaporte = txtPasaporte.Text.Equals(string.Empty) ? null : txtPasaporte.Text;
+            usuario.rut = txtRut.Text.Equals(string.Empty) ? null : txtRut.Text;
+            usuario.dv = txtDv.Text.Equals(string.Empty) ? null : txtDv.Text;
+            usuario.primerNombre = txtPrimerNombre.Text;
+            usuario.segundoNombre = txtSegundoNombre.Text;
+            usuario.apellidoPaterno = txtPrimerApellido.Text;
+            usuario.apellidoMaterno = txtSegundoApellido.Text;
+            usuario.fechaNacimiento = Convert.ToDateTime(dpFecNacimiento.SelectedDate.Value.Date.ToShortDateString());
+            usuario.correo = txtCorreo.Text;
+            usuario.telefonoMovil = txttMovil.Text.Equals(string.Empty) ? null : txttMovil.Text;
+            usuario.telefonoFijo = txtFijo.Text.Equals(string.Empty) ? null : txtFijo.Text;
+            usuario.genero = cboxGenero.SelectedItem.ToString();
+            usuario.pais = cboxPais.SelectedItem.ToString();
+
+            DireccionDTO direccion = new DireccionDTO();
+            direccion.region = cboxRegion.SelectedItem == null ? "Sin Región" : cboxRegion.SelectedItem.ToString();
+            direccion.comuna = cboxComuna.SelectedItem == null ? "Sin comuna" : cboxComuna.SelectedItem.ToString();
+            direccion.calle = txtCalle.Text;
+            direccion.numero = txtNumero.Text;
+            direccion.depto = txtNroDepto.Text;
+            direccion.casa = txtNroCasa.Text;
+            usuario.direccion = direccion;
+            return usuario;
         }
 
         private void OnLeaveCancelar(object sender, MouseEventArgs e)
@@ -154,10 +188,6 @@ namespace turismo_real_desktop.Views.Usuarios
 
         }
 
-        private void Volver(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
 
         private void CancelarEdicion(object sender, RoutedEventArgs e)
         {
@@ -165,9 +195,54 @@ namespace turismo_real_desktop.Views.Usuarios
             gridVerUsuario.Visibility = Visibility.Visible;
         }
 
-        private void RegionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void EditarUsuario(object sender, RoutedEventArgs e)
         {
-            RegionChanged();
+            string tipo = selectedUsuario.tipoUsuario.ToUpper();
+            if (!tipo.Equals("CLIENTE"))
+            {
+                DisableTextBox(txtRut);
+                DisableTextBox(txtDv);
+                DisableTextBox(txtPasaporte);
+            }
+            gridEditarUsuario.Visibility = Visibility.Visible;
+            gridVerUsuario.Visibility = Visibility.Hidden;
+        }
+
+        public void DisableTextBox(TextBox textbox)
+        {
+            textbox.IsEnabled = false;
+            textbox.Background = Brushes.LightGray;
+        }
+
+
+        public void PaisChanged()
+        {
+            string selectedCountry = cboxPais.SelectedItem.ToString().ToUpper();
+            if (selectedCountry.Equals("CHILE"))
+            {
+                EnabledComboBox(cboxRegion);
+                FillComboRegion();
+                cboxRegion.SelectedIndex = 0;
+                return;
+            }
+            cboxComuna.SelectedIndex = 0;
+            DisabledComboBox(cboxComuna);
+            cboxComuna.ItemsSource = new List<string>();
+            cboxRegion.SelectedIndex = 0;
+            DisabledComboBox(cboxRegion);
+            cboxRegion.ItemsSource = new List<string>();
+        }
+
+        public void EnabledComboBox(ComboBox combobox)
+        {
+            combobox.IsEnabled = true;
+            combobox.Background = Brushes.White;
+        }
+
+        public void DisabledComboBox(ComboBox combobox)
+        {
+            combobox.IsEnabled = false;
+            combobox.Background = Brushes.LightGray;
         }
     }
 }
