@@ -32,7 +32,7 @@
         <!-- Boton usuarios -->
 
         <!-- Boton perfil -->
-        <mah:Tile x:Name="profileTile" HorizontalAlignment="Left" Margin="659,80,0,0" Background="#FFFFFFFF" BorderBrush="#CC60A917" BorderThickness="1" Cursor="Hand" VerticalAlignment="Top" Height="200" Width="234" MouseEnter="OnHoverProfile" MouseLeave="OnLeaveProfile">
+        <mah:Tile x:Name="profileTile" HorizontalAlignment="Left" Margin="659,80,0,0" Background="#FFFFFFFF" BorderBrush="#CC60A917" BorderThickness="1" Cursor="Hand" VerticalAlignment="Top" Height="200" Width="234" MouseEnter="OnHoverProfile" MouseLeave="OnLeaveProfile" Click="OpenPerfilWindow">
             <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
                 <iconPacks:PackIconFontAwesome x:Name="profileIcon" Kind="UserAltSolid" Foreground="#CC60A917" FontSize="18" Height="100" Width="100" FontWeight="Bold" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>
                 <TextBlock x:Name="profileText" Text="PERFIL" TextAlignment="Center" FontWeight="Medium" FontSize="20" Foreground="#CC60A917"/>
@@ -50,7 +50,7 @@
         <!-- Boton salir -->
 
         <!-- Boton servicios -->
-        <mah:Tile x:Name="servicesTile" HorizontalAlignment="Center" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" Margin="0,297,0,0" VerticalAlignment="Top" Height="199" Width="280" Cursor="Hand" MouseEnter="OnHoverServices" MouseLeave="OnLeaveServices">
+        <mah:Tile x:Name="servicesTile" HorizontalAlignment="Center" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" Margin="0,297,0,0" VerticalAlignment="Top" Height="199" Width="280" Cursor="Hand" MouseEnter="OnHoverServices" MouseLeave="OnLeaveServices" Click="OpenServiciosWindow">
             <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
                 <iconPacks:PackIconFontAwesome x:Name="servicesIcon" Kind="StarSolid" Foreground="#CC60A917" FontSize="18" Height="100" Width="100" FontWeight="Bold" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>
                 <TextBlock x:Name="servicesText" Text="SERVICIOS" TextAlignment="Center" FontWeight="Medium" FontSize="20" Foreground="#CC60A917"/>
@@ -59,7 +59,7 @@
         <!-- Boton servicios -->
 
         <!-- Boton reservas -->
-        <mah:Tile x:Name="reservationTile" HorizontalAlignment="Left" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" Cursor="Hand" Margin="23,297,0,0" VerticalAlignment="Top" Width="280" Height="199" MouseEnter="OnHoverReservation" MouseLeave="OnLeaveReservation">
+        <mah:Tile x:Name="reservationTile" HorizontalAlignment="Left" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" Cursor="Hand" Margin="23,297,0,0" VerticalAlignment="Top" Width="280" Height="199" MouseEnter="OnHoverReservation" MouseLeave="OnLeaveReservation" Click="OpenReservasWindow">
             <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
                 <iconPacks:PackIconFontAwesome x:Name="reservationIcon" Kind="CalendarAltRegular" Foreground="#CC60A917" FontSize="18" Height="100" Width="100" FontWeight="Bold" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>
                 <TextBlock x:Name="reservationText" Text="RESERVAS" TextAlignment="Center" FontWeight="Medium" FontSize="20" Foreground="#CC60A917"/>

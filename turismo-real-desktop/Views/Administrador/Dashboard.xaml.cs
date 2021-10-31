@@ -12,6 +12,8 @@ using System.Windows;
 using turismo_real_desktop.Views.Extra;
 using turismo_real_desktop.Views.Administrador.Departamentos;
 using turismo_real_desktop.Views.Usuarios;
+using turismo_real_desktop.Views.Reservas;
+using turismo_real_desktop.Views.Servicios;
 
 namespace turismo_real_desktop.Views.Administrador
 {
@@ -148,8 +150,6 @@ namespace turismo_real_desktop.Views.Administrador
                 string nombreUsuario = $"{LoguedUser.GetLoguedUser().primerNombre} " +
                     $"{LoguedUser.GetLoguedUser().apellidoPaterno} " +
                     $"{LoguedUser.GetLoguedUser().apellidoMaterno}";
-
-                // Bienvenida a usuario
                 lblWelcome.Content = $"Bienvenido {nombreUsuario}";
             }
             
@@ -159,6 +159,27 @@ namespace turismo_real_desktop.Views.Administrador
         {
             UsuariosWindow usuariosWindow = new UsuariosWindow();
             usuariosWindow.Show();
+            Close();
+        }
+
+        private void OpenPerfilWindow(object sender, RoutedEventArgs e)
+        {
+            PerfilWindow perfilWindow = new PerfilWindow();
+            perfilWindow.Show();
+            Close();
+        }
+
+        private void OpenReservasWindow(object sender, RoutedEventArgs e)
+        {
+            ReservasWindow reservasWindow = new ReservasWindow();
+            reservasWindow.Show();
+            Close();
+        }
+
+        private void OpenServiciosWindow(object sender, RoutedEventArgs e)
+        {
+            ServiciosWindow serviciosWindow = new ServiciosWindow();
+            serviciosWindow.Show();
             Close();
         }
     }

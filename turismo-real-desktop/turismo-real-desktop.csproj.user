@@ -10,6 +10,9 @@
     <Compile Update="Views\Administrador\Dashboard.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Administrador\PerfilWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Departamentos\Depto.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -17,6 +20,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Extra\RecoverPassword.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Reservas\ReservasWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Servicios\ServiciosWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Usuarios\NuevoUsuario.xaml.cs">
@@ -36,6 +45,9 @@
     <Page Update="Views\Administrador\Dashboard.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\Administrador\PerfilWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\Departamentos\Depto.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -43,6 +55,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Extra\RecoverPassword.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Reservas\ReservasWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Servicios\ServiciosWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Usuarios\NuevoUsuario.xaml">
