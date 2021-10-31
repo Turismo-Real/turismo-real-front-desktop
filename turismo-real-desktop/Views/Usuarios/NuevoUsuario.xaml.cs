@@ -106,7 +106,7 @@ namespace turismo_real_desktop.Views.Usuarios
             txtSegundoNombre.Text = string.Empty;
             txtPrimerApellido.Text = string.Empty;
             txtSegundoApellido.Text = string.Empty;
-            dpFecNacimiento.SelectedDate = new DateTime();
+            dpFecNacimiento.SelectedDate = null;
             txtCorreo.Text = string.Empty;
             txttMovil.Text = string.Empty;
             txtFijo.Text = string.Empty;
