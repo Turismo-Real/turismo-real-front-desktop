@@ -9,7 +9,8 @@
         xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
         Dialog:DialogParticipation.Register="{Binding}"
         mc:Ignorable="d"
-        Title="Turismo Real - Nuevo Departamento" Height="642" Width="685">
+        Title="Turismo Real - Nuevo Departamento" Height="642" Width="685"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <TextBox x:Name="txtRol" HorizontalAlignment="Left" Margin="115,50,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="178"/>
         <ComboBox x:Name="comboTipo" HorizontalAlignment="Left" Margin="115,83,0,0" VerticalAlignment="Top" Width="178"/>

@@ -8,7 +8,8 @@
         x:Class="turismo_real_desktop.Views.Administrador.Departamentos.Deptos"
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
-        Title="Turismo Real - Departamentos" Height="535" Width="937">
+        Title="Turismo Real - Departamentos" Height="535" Width="937"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <mah:MetroAnimatedTabControl>
             <TabItem Header="Departamentos">

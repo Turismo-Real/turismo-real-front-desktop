@@ -6,7 +6,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:turismo_real_desktop.Views.Departamentos"
         mc:Ignorable="d"
-        Title="Turismo Real - Departamento" Height="664" Width="691">
+        Title="Turismo Real - Departamento" Height="664" Width="691"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <!-- GRID EDITAR -->
         <Grid x:Name="gridEditar" Visibility="Visible">

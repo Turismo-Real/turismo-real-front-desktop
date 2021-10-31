@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:turismo_real_desktop.Views.Usuarios"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         mc:Ignorable="d"
-        Title="Turismo Real" Height="258" Width="350">
+        Title="Turismo Real" Height="258" Width="350"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Image HorizontalAlignment="Left" Height="62" Margin="69,20,0,0" VerticalAlignment="Top" Width="62" Source="/Assets/Normal/checked.png"/>
         <TextBlock HorizontalAlignment="Left" FontSize="36" FontWeight="Bold" Foreground="ForestGreen" Margin="141,27,0,0" Text="¡Genial!" TextWrapping="Wrap" VerticalAlignment="Top"/>

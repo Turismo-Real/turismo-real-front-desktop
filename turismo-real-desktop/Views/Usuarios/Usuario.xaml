@@ -6,7 +6,8 @@
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:turismo_real_desktop.Views.Usuarios"
         mc:Ignorable="d"
-        Title="Turismo Real - Usuario" Height="579" Width="793">
+        Title="Turismo Real - Usuario" Height="579" Width="793"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <!-- GRID EDITAR USUARIO-->
         <Grid x:Name="gridEditarUsuario" Visibility="Visible">
