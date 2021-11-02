@@ -86,11 +86,18 @@ namespace turismo_real_desktop.Views.Usuarios
 
         private void EliminarUsuario(object sender, RoutedEventArgs e)
         {
-            usuarioController = new UsuarioController();
-            UsuarioGrid selectedUser = dataGridUsuarios.SelectedItem as UsuarioGrid;
-            int id = Convert.ToInt32(selectedUser.id);
-            bool removed = usuarioController.EliminarUsuario(id);
-            if (removed) FillDataGridUsuarios();
+            if (MessageBox.Show("¿Esta seguro que desea eliminar a este usuario?", "¡Atención!", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            {
+                usuarioController = new UsuarioController();
+                UsuarioGrid selectedUser = dataGridUsuarios.SelectedItem as UsuarioGrid;
+                int id = Convert.ToInt32(selectedUser.id);
+                bool removed = usuarioController.EliminarUsuario(id);
+                if (removed) FillDataGridUsuarios();
+            }
+            else
+            {
+                return;
+            }
         }
 
         private void OnLeaveSeleccionar(object sender, MouseEventArgs e)

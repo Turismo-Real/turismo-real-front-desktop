@@ -150,11 +150,18 @@ namespace turismo_real_desktop.Views.Administrador.Departamentos
 
         private void EliminarDepto(object sender, RoutedEventArgs e)
         {
-            deptoController = new DepartamentoController();
-            DeptoGrid selectedDepto = dataGridDeptos.SelectedItem as DeptoGrid;
-            int id = Convert.ToInt32(selectedDepto.id);
-            bool removed = deptoController.EliminarDepto(id);
-            if (removed) FillDataGridDeptos();
+            if(MessageBox.Show("¿Esta seguro que desea eliminar este departamento?", "¡Atención!", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            {
+                deptoController = new DepartamentoController();
+                DeptoGrid selectedDepto = dataGridDeptos.SelectedItem as DeptoGrid;
+                int id = Convert.ToInt32(selectedDepto.id);
+                bool removed = deptoController.EliminarDepto(id);
+                if (removed) FillDataGridDeptos();
+            }
+            else
+            {
+                return;
+            }
         }
 
         private void SeleccionarDepto(object sender, RoutedEventArgs e)

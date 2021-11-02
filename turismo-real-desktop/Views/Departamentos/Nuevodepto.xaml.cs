@@ -282,5 +282,62 @@ namespace turismo_real_desktop.Views.Departamentos
             string message = "El departamento se ha creado exitosamente.";
             MessageBox.Show(message, title, MessageBoxButton.OK, MessageBoxImage.Information);
         }
+
+        private void txtRol_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(e.Text, "^[0-9.-]"))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtSuperficie_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(e.Text, "^[0-9]"))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtValorDiario_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(e.Text, "^[0-9.]"))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCalle_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(e.Text, "^[a-zA-Z]"))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNumero_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(e.Text, "^[0-9]"))
+            {
+                e.Handled = true;
+            }
+
+        }
+
+        private void txtNroDepto_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(e.Text, "^[0-9]"))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtDescripcion_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(e.Text, "^[a-zA-Z.,]"))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
