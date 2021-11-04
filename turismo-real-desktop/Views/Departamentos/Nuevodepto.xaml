@@ -12,18 +12,18 @@
         Title="Turismo Real - Nuevo Departamento" Height="642" Width="685"
         WindowStartupLocation="CenterScreen">
     <Grid>
-        <TextBox x:Name="txtRol" HorizontalAlignment="Left" Margin="115,50,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" PreviewTextInput="txtRol_PreviewTextInput"/>
+        <TextBox x:Name="txtRol" HorizontalAlignment="Left" Margin="115,50,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" PreviewTextInput="txtRol_PreviewTextInput" LostFocus="txtRol_LostFocus"/>
         <ComboBox x:Name="comboTipo" HorizontalAlignment="Left" Margin="115,83,0,0" VerticalAlignment="Top" Width="178"/>
         <ComboBox x:Name="comboDormitorios" HorizontalAlignment="Left" Margin="115,114,0,0" VerticalAlignment="Top" Width="178"/>
         <ComboBox x:Name="comboBanios" HorizontalAlignment="Left" Margin="115,145,0,0" VerticalAlignment="Top" Width="178"/>
-        <TextBox x:Name="txtSuperficie" HorizontalAlignment="Left" Margin="115,176,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" PreviewTextInput="txtSuperficie_PreviewTextInput"/>
-        <TextBox x:Name="txtValorDiario" HorizontalAlignment="Left" Margin="115,207,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" PreviewTextInput="txtValorDiario_PreviewTextInput"/>
-        <TextBox x:Name="txtNroDepto" HorizontalAlignment="Left" Margin="393,49,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" PreviewTextInput="txtNroDepto_PreviewTextInput"/>
+        <TextBox x:Name="txtSuperficie" HorizontalAlignment="Left" Margin="115,176,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" PreviewTextInput="txtSuperficie_PreviewTextInput" MaxLength="3" LostFocus="txtSuperficie_LostFocus"/>
+        <TextBox x:Name="txtValorDiario" HorizontalAlignment="Left" Margin="115,207,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" PreviewTextInput="txtValorDiario_PreviewTextInput" MaxLength="6" LostFocus="txtValorDiario_LostFocus"/>
+        <TextBox x:Name="txtNroDepto" HorizontalAlignment="Left" Margin="393,49,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" PreviewTextInput="txtNroDepto_PreviewTextInput" MaxLength="4" LostFocus="txtNroDepto_LostFocus"/>
         <ComboBox x:Name="comboRegion" HorizontalAlignment="Left" Margin="393,80,0,0" VerticalAlignment="Top" Width="270" SelectionChanged="RegionChanged"/>
         <ComboBox x:Name="comboComuna" HorizontalAlignment="Left" Margin="393,111,0,0" VerticalAlignment="Top" Width="270"/>
-        <TextBox x:Name="txtCalle" HorizontalAlignment="Left" Margin="393,142,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" PreviewTextInput="txtCalle_PreviewTextInput"/>
-        <TextBox x:Name="txtNumero" HorizontalAlignment="Left" Margin="393,173,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" PreviewTextInput="txtNumero_PreviewTextInput"/>
-        <TextBox x:Name="txtDescripcion" MaxLength="255" HorizontalAlignment="Left" Margin="115,238,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="548" Height="99" PreviewTextInput="txtDescripcion_PreviewTextInput"/>
+        <TextBox x:Name="txtCalle" HorizontalAlignment="Left" Margin="393,142,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" PreviewTextInput="txtCalle_PreviewTextInput" LostFocus="txtCalle_LostFocus"/>
+        <TextBox x:Name="txtNumero" HorizontalAlignment="Left" Margin="393,173,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" PreviewTextInput="txtNumero_PreviewTextInput" MaxLength="5" LostFocus="txtNumero_LostFocus"/>
+        <TextBox x:Name="txtDescripcion" MaxLength="255" HorizontalAlignment="Left" Margin="115,238,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="548" Height="99" PreviewTextInput="txtDescripcion_PreviewTextInput" LostFocus="txtDescripcion_LostFocus"/>
         <ListBox x:Name="instalacionesDisponibles" BorderBrush="#C1C1C1" Margin="115,343,385,120" BorderThickness="1"/>
         <TextBox x:Name="txtInstalacion" Foreground="Gray" HorizontalAlignment="Left" Margin="310,457,0,0" Text="Nueva Instalación" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" GotFocus="NuevaInstalacionFocus" LostFocus="NuevaInstalacionLostFocus"/>
         <ListBox x:Name="InstalacionesAgregadas" BorderBrush="#067A08" Margin="478,343,22,120" BorderThickness="3"/>

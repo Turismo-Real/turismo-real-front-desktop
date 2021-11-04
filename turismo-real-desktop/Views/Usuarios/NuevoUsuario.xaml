@@ -13,22 +13,22 @@
         <TextBox x:Name="txtPasaporte" IsEnabled="False" Background="LightGray" HorizontalAlignment="Left" Margin="152,85,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="189"/>
         <TextBox x:Name="txtRut" IsEnabled="False" Background="LightGray" MaxLength="8" HorizontalAlignment="Left" Margin="152,116,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="75"/>
         <TextBox x:Name="txtDv" IsEnabled="False" Background="LightGray" MaxLength="1" HorizontalAlignment="Left" Margin="232,116,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="26"/>
-        <TextBox x:Name="txtPrimerNombre" HorizontalAlignment="Left" Margin="152,147,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" PreviewTextInput="txtPrimerNombre_PreviewTextInput"/>
-        <TextBox x:Name="txtSegundoNombre" HorizontalAlignment="Left" Margin="152,178,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" PreviewTextInput="txtSegundoNombre_PreviewTextInput"/>
-        <TextBox x:Name="txtPrimerApellido" HorizontalAlignment="Left" Margin="152,209,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" PreviewTextInput="txtPrimerApellido_PreviewTextInput"/>
-        <TextBox x:Name="txtSegundoApellido" HorizontalAlignment="Left" Margin="152,240,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" PreviewTextInput="txtSegundoApellido_PreviewTextInput"/>
+        <TextBox x:Name="txtPrimerNombre" HorizontalAlignment="Left" Margin="152,147,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" PreviewTextInput="txtPrimerNombre_PreviewTextInput" LostFocus="txtPrimerNombre_LostFocus"/>
+        <TextBox x:Name="txtSegundoNombre" HorizontalAlignment="Left" Margin="152,178,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" PreviewTextInput="txtSegundoNombre_PreviewTextInput" LostFocus="txtSegundoNombre_LostFocus"/>
+        <TextBox x:Name="txtPrimerApellido" HorizontalAlignment="Left" Margin="152,209,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" PreviewTextInput="txtPrimerApellido_PreviewTextInput" LostFocus="txtPrimerApellido_LostFocus"/>
+        <TextBox x:Name="txtSegundoApellido" HorizontalAlignment="Left" Margin="152,240,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" PreviewTextInput="txtSegundoApellido_PreviewTextInput" LostFocus="txtSegundoApellido_LostFocus"/>
         <DatePicker x:Name="dpFecNacimiento" HorizontalAlignment="Left" Margin="152,271,0,0" VerticalAlignment="Top" Width="149"/>
-        <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Margin="152,302,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="189"/>
-        <TextBox x:Name="txttMovil" HorizontalAlignment="Left" Margin="152,333,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" PreviewTextInput="txttMovil_PreviewTextInput"/>
-        <TextBox x:Name="txtFijo" HorizontalAlignment="Left" Margin="152,364,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" PreviewTextInput="txtFijo_PreviewTextInput"/>
+        <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Margin="152,302,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" LostFocus="txtCorreo_LostFocus"/>
+        <TextBox x:Name="txttMovil" HorizontalAlignment="Left" Margin="152,333,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" PreviewTextInput="txttMovil_PreviewTextInput" LostFocus="txttMovil_LostFocus"/>
+        <TextBox x:Name="txtFijo" HorizontalAlignment="Left" Margin="152,364,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" PreviewTextInput="txtFijo_PreviewTextInput" LostFocus="txtFijo_LostFocus"/>
         <ComboBox x:Name="cboxGenero" HorizontalAlignment="Left" Margin="152,395,0,0" VerticalAlignment="Top" Width="189"/>
         <ComboBox x:Name="cboxPais" HorizontalAlignment="Left" Margin="503,54,0,0" VerticalAlignment="Top" Width="250" SelectionChanged="PaisChanged"/>
         <ComboBox x:Name="cboxRegion" IsEnabled="False" Background="LightGray" HorizontalAlignment="Left" Margin="503,85,0,0" VerticalAlignment="Top" Width="250" SelectionChanged="RegionChanged"/>
         <ComboBox x:Name="cboxComuna" IsEnabled="False" Background="LightGray" HorizontalAlignment="Left" Margin="503,116,0,0" VerticalAlignment="Top" Width="250"/>
-        <TextBox x:Name="txtCalle" HorizontalAlignment="Left" Margin="503,147,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" PreviewTextInput="txtCalle_PreviewTextInput"/>
-        <TextBox x:Name="txtNumero" HorizontalAlignment="Left" Margin="503,178,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" PreviewTextInput="txtNumero_PreviewTextInput"/>
-        <TextBox x:Name="txtNroDepto" HorizontalAlignment="Left" Margin="503,209,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" PreviewTextInput="txtNroDepto_PreviewTextInput"/>
-        <TextBox x:Name="txtNroCasa" HorizontalAlignment="Left" Margin="503,240,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" PreviewTextInput="txtNroCasa_PreviewTextInput" />
+        <TextBox x:Name="txtCalle" HorizontalAlignment="Left" Margin="503,147,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" PreviewTextInput="txtCalle_PreviewTextInput" LostFocus="txtCalle_LostFocus"/>
+        <TextBox x:Name="txtNumero" HorizontalAlignment="Left" Margin="503,178,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" PreviewTextInput="txtNumero_PreviewTextInput" LostFocus="txtNumero_LostFocus"/>
+        <TextBox x:Name="txtNroDepto" HorizontalAlignment="Left" Margin="503,209,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" PreviewTextInput="txtNroDepto_PreviewTextInput" LostFocus="txtNroDepto_LostFocus"/>
+        <TextBox x:Name="txtNroCasa" HorizontalAlignment="Left" Margin="503,240,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" PreviewTextInput="txtNroCasa_PreviewTextInput" LostFocus="txtNroCasa_LostFocus" />
 
         <Label Content="Tipo:" HorizontalAlignment="Left" Margin="111,54,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label Content="Pasaporte:" HorizontalAlignment="Left" Margin="81,84,0,0" VerticalAlignment="Top" FontWeight="Bold"/>

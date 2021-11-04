@@ -281,8 +281,12 @@ namespace turismo_real_desktop.Views.Departamentos
             string title = "Departamento Creado";
             string message = "El departamento se ha creado exitosamente.";
             MessageBox.Show(message, title, MessageBoxButton.OK, MessageBoxImage.Information);
+
         }
 
+        //--//
+
+        //Sentencia para que textbox lea solamente numeros 
         private void txtRol_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             if (!System.Text.RegularExpressions.Regex.IsMatch(e.Text, "^[0-9.-]"))
@@ -290,7 +294,22 @@ namespace turismo_real_desktop.Views.Departamentos
                 e.Handled = true;
             }
         }
+        //Validador de texbox Vacio
+        private void txtRol_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtRol.Text))
+            {
+                MessageBox.Show("El campo Rol no puede estar vacío", "¡Atención!", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else
+            {
+                return;
+            }
+        }
 
+        //--//
+
+        //Sentencia para que textbox lea solamente numeros 
         private void txtSuperficie_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             if (!System.Text.RegularExpressions.Regex.IsMatch(e.Text, "^[0-9]"))
@@ -298,7 +317,22 @@ namespace turismo_real_desktop.Views.Departamentos
                 e.Handled = true;
             }
         }
+        //Validador de texbox Vacio
+        private void txtSuperficie_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtSuperficie.Text))
+            {
+                MessageBox.Show("El campo Superficie no puede estar vacío", "¡Atención!", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else
+            {
+                return;
+            }
+        }
 
+        //--//
+
+        //Sentencia para que textbox lea solamente numeros 
         private void txtValorDiario_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             if (!System.Text.RegularExpressions.Regex.IsMatch(e.Text, "^[0-9.]"))
@@ -306,7 +340,22 @@ namespace turismo_real_desktop.Views.Departamentos
                 e.Handled = true;
             }
         }
+        //Validador de textbox Vacio
+        private void txtValorDiario_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtValorDiario.Text))
+            {
+                MessageBox.Show("El campo Valor Diario no puede estar vacío", "¡Atención!", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else
+            {
+                return;
+            }
+        }
 
+        //--//
+
+        //Sentencia para que textbox lea solamente letras 
         private void txtCalle_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             if (!System.Text.RegularExpressions.Regex.IsMatch(e.Text, "^[a-zA-Z]"))
@@ -314,7 +363,22 @@ namespace turismo_real_desktop.Views.Departamentos
                 e.Handled = true;
             }
         }
+        //Validador de textbox Vacio
+        private void txtCalle_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtCalle.Text))
+            {
+                MessageBox.Show("El campo Calle no puede estar vacío", "¡Atención!", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else
+            {
+                return;
+            }
+        }
 
+        //--//
+
+        //Sentencia para que textbox lea solamente numeros 
         private void txtNumero_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             if (!System.Text.RegularExpressions.Regex.IsMatch(e.Text, "^[0-9]"))
@@ -323,7 +387,22 @@ namespace turismo_real_desktop.Views.Departamentos
             }
 
         }
+        //Validador de textbox Vacio
+        private void txtNumero_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtNumero.Text))
+            {
+                MessageBox.Show("El campo Numero no puede estar vacío", "¡Atención!", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else
+            {
+                return;
+            }
+        }
 
+        //--//
+
+        //Sentencia para que textbox lea solamente numeros 
         private void txtNroDepto_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             if (!System.Text.RegularExpressions.Regex.IsMatch(e.Text, "^[0-9]"))
@@ -331,12 +410,39 @@ namespace turismo_real_desktop.Views.Departamentos
                 e.Handled = true;
             }
         }
+        //Validador de textbox Vacio
+        private void txtNroDepto_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtNroDepto.Text))
+            {
+                MessageBox.Show("El campo Nro Departamento no puede estar vacío", "¡Atención!", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else
+            {
+                return;
+            }
+        }
 
+        //--//
+
+        //Sentencia para que textbox lea solamente letras 
         private void txtDescripcion_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             if (!System.Text.RegularExpressions.Regex.IsMatch(e.Text, "^[a-zA-Z.,]"))
             {
                 e.Handled = true;
+            }
+        }
+        //Validador de texbox Vacio
+        private void txtDescripcion_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtDescripcion.Text))
+            {
+                MessageBox.Show("El campo Descripción no puede estar vacío", "¡Atención!", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else
+            {
+                return;
             }
         }
     }
