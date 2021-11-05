@@ -17,7 +17,7 @@
 
                     <DataGrid x:Name="dataGridUsuarios" Margin="19,47,237,19" />
 
-                    <!-- BOTON NUEVO DEPARTAMENTO -->
+                    <!-- BOTON NUEVO USUARIO -->
                     <mah:Tile x:Name="btnNuevoUsuario" Margin="729,47,31,338" Cursor="Hand" Width="180" Height="110" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" MouseEnter="OnHoverNuevoDepto" MouseLeave="OnLeaveNuevoDepto" Click="OpenNuevoUsuario">
                         <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
                             <iconPacks:PackIconFontAwesome x:Name="nuevoUsuarioIcon" Kind="PlusCircleSolid" Foreground="#CC60A917" Height="50" Width="100" FontWeight="Bold" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>

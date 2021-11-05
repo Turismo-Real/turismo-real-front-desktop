@@ -21,5 +21,69 @@ namespace turismo_real_desktop.Views.Servicios
         {
             InitializeComponent();
         }
+
+        //Btn nuevo servicio
+        private void OpenNuevoServicio(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OnHoverNuevoServicio(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void OnLeaveNuevoServicio(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        // Btn seleccionar servicio
+        private void SeleccionarServicio(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OnHoverSeleccionar(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void OnLeaveSeleccionar(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        //Btn eliminar servicio
+        private void EliminarServicio(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OnHoverEliminar(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void OnLeaverEliminar(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        //btn Volver 
+        private void CloseWindow(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OnHoverVolver(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void OnLeaveVolver(object sender, MouseEventArgs e)
+        {
+
+        }
     }
 }
