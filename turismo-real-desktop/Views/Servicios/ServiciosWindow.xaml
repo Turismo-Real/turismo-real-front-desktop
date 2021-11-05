@@ -6,18 +6,18 @@
         xmlns:local="clr-namespace:turismo_real_desktop.Views.Servicios"
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro" xmlns:iconPacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.FontAwesome"
                  mc:Ignorable="d"
-        Title="Turismo Real - Servicios" Height="550" Width="940"
+        Title="Turismo Real - Servicios" Height="550" Width="769"
        WindowStartupLocation="CenterScreen">
     <Grid>
         <mah:MetroAnimatedTabControl>
             <TabItem Header="Servicios">
                 <Grid Background="#FFE5E5E5">
-                    <TextBlock x:Name="contadorservicios" HorizontalAlignment="Left" FontSize="16" Margin="19,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122"><Run Text="Total Servicios:"/><Run Language="es-cl" Text=" X"/></TextBlock>
+                    <TextBlock x:Name="contadorservicios" HorizontalAlignment="Left" FontSize="16" Margin="19,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122"><Run Text="Total Servicios: X"/><Run Language="es-cl"/></TextBlock>
 
-                    <DataGrid x:Name="dataGridUsuarios" Margin="19,47,237,19" />
+                    <DataGrid x:Name="dataGridServicios" Margin="19,47,0,19" HorizontalAlignment="Left" Width="493" />
 
                     <!-- BOTON NUEVO SERVICIO -->
-                    <mah:Tile x:Name="btnNuevoServicio" Margin="729,47,31,338" Cursor="Hand" Width="180" Height="110" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" MouseEnter="OnHoverNuevoServicio" MouseLeave="OnLeaveNuevoServicio" Click="OpenNuevoServicio">
+                    <mah:Tile x:Name="btnNuevoServicio" Margin="540,47,0,0" Cursor="Hand" Width="180" Height="110" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" MouseEnter="OnHoverNuevoServicio" MouseLeave="OnLeaveNuevoServicio" Click="OpenNuevoServicio" HorizontalAlignment="Left" VerticalAlignment="Top">
                         <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
                             <iconPacks:PackIconFontAwesome x:Name="nuevoUsuarioIcon" Kind="PlusCircleSolid" Foreground="#CC60A917" Height="50" Width="100" FontWeight="Bold" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>
                             <TextBlock x:Name="nuevoServicioText" Text="NUEVO SERVICIO" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#CC60A917" Margin="5"/>
@@ -25,21 +25,21 @@
                     </mah:Tile>
 
                     <!-- BOTON SELECCIONAR -->
-                    <mah:Tile x:Name="btnSeleccionar" Cursor="Hand" HorizontalAlignment="Left" BorderBrush="#2778D3" BorderThickness="1" Background="#FFFFFF" Margin="729,200,0,0" VerticalAlignment="Top" Width="180" Height="66" MouseEnter="OnHoverSeleccionar" MouseLeave="OnLeaveSeleccionar" Click="SeleccionarServicio">
+                    <mah:Tile x:Name="btnSeleccionar" Cursor="Hand" HorizontalAlignment="Left" BorderBrush="#2778D3" BorderThickness="1" Background="#FFFFFF" Margin="540,200,0,0" VerticalAlignment="Top" Width="180" Height="66" MouseEnter="OnHoverSeleccionar" MouseLeave="OnLeaveSeleccionar" Click="SeleccionarServicio">
                         <StackPanel Orientation="Vertical" VerticalAlignment="Center">
                             <TextBlock x:Name="seleccionarText" Text="SELECCIONAR" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#2778D3" Margin="5"/>
                         </StackPanel>
                     </mah:Tile>
 
                     <!-- BOTON ELIMINAR -->
-                    <mah:Tile x:Name="btnEliminar" Cursor="Hand" HorizontalAlignment="Left" Margin="729,313,0,0" BorderBrush="#FFDC1F1F" BorderThickness="1" Background="#FFFFFF" VerticalAlignment="Top" Width="180" Height="37" MouseEnter="OnHoverEliminar" MouseLeave="OnLeaverEliminar" Click="EliminarServicio">
+                    <mah:Tile x:Name="btnEliminar" Cursor="Hand" HorizontalAlignment="Left" Margin="540,313,0,0" BorderBrush="#FFDC1F1F" BorderThickness="1" Background="#FFFFFF" VerticalAlignment="Top" Width="180" Height="37" MouseEnter="OnHoverEliminar" MouseLeave="OnLeaverEliminar" Click="EliminarServicio">
                         <StackPanel Orientation="Vertical" VerticalAlignment="Center">
                             <TextBlock x:Name="eliminarText" Text="ELIMINAR" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#FFDC1F1F" Margin="5"/>
                         </StackPanel>
                     </mah:Tile>
 
                     <!-- BOTON VOLVER -->
-                    <mah:Tile x:Name="btnVolver" Cursor="Hand" HorizontalAlignment="Left" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" Margin="729,391,0,0" VerticalAlignment="Top" Width="180" Height="70" MouseEnter="OnHoverVolver" MouseLeave="OnLeaveVolver" Click="CloseWindow">
+                    <mah:Tile x:Name="btnVolver" Cursor="Hand" HorizontalAlignment="Left" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" Margin="540,391,0,0" VerticalAlignment="Top" Width="180" Height="70" MouseEnter="OnHoverVolver" MouseLeave="OnLeaveVolver" Click="CloseWindow">
                         <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
                             <iconPacks:PackIconFontAwesome x:Name="volverIcon" Kind="BackwardSolid" Foreground="#CC60A917" Height="20" Width="100" FontWeight="Bold" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>
                             <TextBlock x:Name="volverText" Text="VOLVER" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#CC60A917" Margin="5"/>

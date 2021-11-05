@@ -18,7 +18,7 @@
                     <DataGrid x:Name="dataGridDeptos" Margin="24,47,231,28" />
 
                     <!-- BOTON NUEVO DEPARTAMENTO -->
-                    <mah:Tile x:Name="btnNuevoDepto" Margin="728,47,29,323" Cursor="Hand" Width="180" Height="110" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" MouseEnter="OnHoverNuevoDepto" MouseLeave="OnLeaveNuevoDepto" Click="OpenNuevoDeptoWin">
+                    <mah:Tile x:Name="btnNuevoDepto" Margin="728,47,0,0" Cursor="Hand" Width="180" Height="110" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" MouseEnter="OnHoverNuevoDepto" MouseLeave="OnLeaveNuevoDepto" Click="OpenNuevoDeptoWin" HorizontalAlignment="Left" VerticalAlignment="Top">
                         <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
                             <iconPacks:PackIconFontAwesome x:Name="nuevoDeptoIcon" Kind="PlusCircleSolid" Foreground="#CC60A917" Height="50" Width="100" FontWeight="Bold" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>
                             <TextBlock x:Name="nuevoDeptoText" Text="NUEVO DEPARTAMENTO" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#CC60A917" Margin="5"/>

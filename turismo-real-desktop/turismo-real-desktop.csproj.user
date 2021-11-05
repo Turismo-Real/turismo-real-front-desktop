@@ -28,6 +28,9 @@
     <Compile Update="Views\Servicios\ServiciosWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Servicios\ServicioWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Usuarios\NuevoUsuario.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -61,6 +64,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Servicios\ServiciosWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Servicios\ServicioWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Usuarios\NuevoUsuario.xaml">
