@@ -1,4 +1,5 @@
 ﻿using MahApps.Metro.Controls;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
@@ -11,8 +12,6 @@ using turismo_real_desktop.Views.Administrador;
 
 namespace turismo_real_desktop.Views.Servicios
 {
-
-
     public partial class ServiciosWindow : MetroWindow
     {
         public ServicioController servicioController;
@@ -98,7 +97,20 @@ namespace turismo_real_desktop.Views.Servicios
         //Btn eliminar servicio
         private void EliminarServicio(object sender, RoutedEventArgs e)
         {
+            if (dataGridServicios.SelectedItem == null) return;
 
+            string title = "¡Atención!";
+            string message = "¿Esta seguro que desea eliminar este departamento?";
+            MessageBoxResult result = MessageBox.Show(message, title, MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            if (result.Equals(MessageBoxResult.Yes))
+            {
+                servicioController = new ServicioController();
+                ServicioGrid selectedServicio = dataGridServicios.SelectedItem as ServicioGrid;
+                int id = Convert.ToInt32(selectedServicio.idServicio);
+                bool removed = servicioController.EliminarServicio(id);
+                if (removed) FillDataGridServicios();
+            }
         }
 
         private void OnHoverEliminar(object sender, MouseEventArgs e)

@@ -12,7 +12,7 @@
         <mah:MetroAnimatedTabControl>
             <TabItem Header="Servicios">
                 <Grid Background="#FFE5E5E5">
-                    <TextBlock x:Name="contadorservicios" HorizontalAlignment="Left" FontSize="16" Margin="19,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122"><Run Text="Total Servicios: X"/><Run Language="es-cl"/></TextBlock>
+                    <TextBlock x:Name="contadorservicios" HorizontalAlignment="Left" FontSize="16" Margin="19,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183"><Run Text="Total Servicios: X"/><Run Language="es-cl"/></TextBlock>
 
                     <DataGrid x:Name="dataGridServicios" Margin="19,47,0,19" HorizontalAlignment="Left" Width="493" />
 

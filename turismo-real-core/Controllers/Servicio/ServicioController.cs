@@ -38,5 +38,12 @@ namespace turismo_real_controller.Controllers.Servicio
             return updatedServicio;
         }
 
+        public bool EliminarServicio(int idServicio)
+        {
+            servicioService = new ServicioService();
+            bool removed = servicioService.DeleteServicio(idServicio);
+            return removed;
+        }
+
     }
 }
