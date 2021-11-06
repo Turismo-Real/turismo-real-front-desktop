@@ -60,7 +60,7 @@ namespace turismo_real_desktop.Views.Servicios
         //Btn nuevo servicio
         private void OpenNuevoServicio(object sender, RoutedEventArgs e)
         {
-            NuevoServicio nuevoServicioWin = new NuevoServicio();
+            NuevoServicio nuevoServicioWin = new NuevoServicio(this);
             nuevoServicioWin.Show();
         }
 

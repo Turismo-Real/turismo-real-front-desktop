@@ -56,10 +56,7 @@ namespace turismo_real_desktop.Views.Departamentos
             cancelarText.Foreground = UIColors.Red;
         }
 
-        private void CancelarInsercion(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
+        private void CancelarInsercion(object sender, RoutedEventArgs e) => Close();
 
         private void OnHoverGuardar(object sender, MouseEventArgs e)
         {
@@ -281,7 +278,6 @@ namespace turismo_real_desktop.Views.Departamentos
             string title = "Departamento Creado";
             string message = "El departamento se ha creado exitosamente.";
             MessageBox.Show(message, title, MessageBoxButton.OK, MessageBoxImage.Information);
-
         }
 
         //--//

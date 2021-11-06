@@ -39,6 +39,7 @@ namespace turismo_real_desktop.Views.Departamentos
 
             selectedDepto = new DepartamentoController().ObtenerDepartamento(deptoId);
             SetDataForm(selectedDepto);
+            mensajeUsuario.Text = string.Empty;
         }
 
         private void SetComboTiposDepto()

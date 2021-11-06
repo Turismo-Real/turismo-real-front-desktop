@@ -20,11 +20,20 @@ namespace turismo_real_desktop.Views.Servicios
     {
         private ServicioController servicioController;
         private UtilController utilController;
+        private ServiciosWindow activeWindow;
 
         public NuevoServicio()
         {
             InitializeComponent();
             FillComboTipo();
+        }
+
+        public NuevoServicio(ServiciosWindow activeWindow)
+        {
+            InitializeComponent();
+            FillComboTipo();
+            this.activeWindow = activeWindow;
+            mensajeUsuario.Content = string.Empty;
         }
 
         public void FillComboTipo()
@@ -45,22 +54,36 @@ namespace turismo_real_desktop.Views.Servicios
             if (nuevoServicioInsertado)
             {
                 ClearForm();
-                //activeDeptosWindow.FillDataGridDeptos();
-                //ShowSuccessMessage();
+                activeWindow.FillDataGridServicios();
+                ShowSuccessMessage();
                 return;
             }
-            //mensajeUsuario.Text = "Error al crear departamento.";
-            //mensajeUsuario.Foreground = Brushes.Red;
+            mensajeUsuario.Content = "Error al crear departamento.";
+            mensajeUsuario.Foreground = Brushes.Red;
         }
 
         public void ClearForm()
         {
+            cboxTipoServicio.SelectedIndex = 0;
+            txtNombreServicio.Text = string.Empty;
+            txtValorServicio.Text = string.Empty;
+            txtDescripcion.Text = string.Empty;
+        }
 
+        public void ShowSuccessMessage()
+        {
+            string title = "Servicio Creado";
+            string message = "El servicio se ha creado exitosamente.";
+            MessageBox.Show(message, title, MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         public ServicioDTO ConvertFormToServicio()
         {
             ServicioDTO servicio = new ServicioDTO();
+            servicio.tipo = cboxTipoServicio.SelectedItem.ToString();
+            servicio.nombre = txtNombreServicio.Text;
+            servicio.valor = Convert.ToDouble(txtValorServicio.Text);
+            servicio.descripcion = txtDescripcion.Text;
             return servicio;
         }
 

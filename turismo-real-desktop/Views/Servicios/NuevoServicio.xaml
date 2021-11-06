@@ -31,5 +31,6 @@
         <Label Content="Nombre de servicio:" HorizontalAlignment="Left" Margin="36,84,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label Content="Valor servicio:" HorizontalAlignment="Left" Margin="71,115,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label Content="Descripción servicio:" HorizontalAlignment="Left" Margin="34,143,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="mensajeUsuario" Content="Mensaje para el usuario" Margin="189,250,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
     </Grid>
 </mah:MetroWindow>
