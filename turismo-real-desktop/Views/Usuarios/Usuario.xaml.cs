@@ -77,7 +77,6 @@ namespace turismo_real_desktop.Views.Usuarios
             FillComboRegion();
         }
 
-
         private void SetInitialStateGrids()
         {
             gridVerUsuario.Visibility = Visibility.Visible;

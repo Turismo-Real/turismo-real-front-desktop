@@ -6,9 +6,118 @@
         xmlns:local="clr-namespace:turismo_real_desktop.Views.Administrador"
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
-        Title="Turismo Real - Perfil" Height="450" Width="800"
+        Title="Turismo Real - Perfil" Height="464" Width="800"
         WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <!-- GRID VER -->
+        <Grid x:Name="gridVerUsuario" Visibility="Hidden">
+            <TextBlock x:Name="txtbPrimerNombre" HorizontalAlignment="Left" Margin="158,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183"><Run Language="es-mx" Text="Antonio"/></TextBlock>
+            <TextBlock x:Name="txtbSegundoNombre" HorizontalAlignment="Left" Margin="158,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183"><Run Language="es-mx" Text="Ignacio"/></TextBlock>
+            <TextBlock x:Name="txtbPrimerApellido" HorizontalAlignment="Left" Margin="158,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183"><Run Language="es-mx" Text="Ramirez"/></TextBlock>
+            <TextBlock x:Name="txtbSegundoApellido" HorizontalAlignment="Left" Margin="158,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183"><Run Language="es-mx" Text="Gutierrez"/></TextBlock>
+            <TextBlock x:Name="txtbFecNac" HorizontalAlignment="Left" Margin="157,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="109"><Run Language="es-mx" Text="22/11/2021"/></TextBlock>
+            <TextBlock x:Name="txtbCorreo" HorizontalAlignment="Left" Margin="157,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184"><Run Language="es-mx" Text="enzo.norese@gmail.com"/></TextBlock>
+            <TextBlock x:Name="txtbTelMovil" HorizontalAlignment="Left" Margin="157,248,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184"><Run Text="+56976561"/><Run Text="111"/></TextBlock>
+            <TextBlock x:Name="txtbTelFijo" HorizontalAlignment="Left" Margin="158,280,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183"><Run Language="es-mx" Text="+56211111111"/></TextBlock>
+            <TextBlock x:Name="txtbGenero" HorizontalAlignment="Left" Margin="158,310,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183"><Run Language="es-mx" Text="Masculino"/></TextBlock>
+            <TextBlock x:Name="txtbPais" HorizontalAlignment="Left" Margin="509,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"><Run Language="es-mx" Text="Holanda"/></TextBlock>
+            <TextBlock x:Name="txtbRegion" HorizontalAlignment="Left" Margin="509,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"><Run Language="es-mx" Text="Sin Región"/></TextBlock>
+            <TextBlock x:Name="txtbComuna" HorizontalAlignment="Left" Margin="509,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"><Run Language="es-mx" Text="Sin Comuna"/></TextBlock>
+            <TextBlock x:Name="txtbCalle" HorizontalAlignment="Left" Margin="509,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"><Run Language="es-mx" Text="Van Einstein"/></TextBlock>
+            <TextBlock x:Name="txtbNumero" HorizontalAlignment="Left" Margin="509,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187" Height="22" Text="120A"/>
+            <TextBlock x:Name="txtbNroDepto" HorizontalAlignment="Left" Margin="509,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"><Run Language="es-mx" Text="22"/></TextBlock>
+            <TextBlock x:Name="txtbNroCasa" HorizontalAlignment="Left" Margin="509,244,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"><Run Language="es-mx" Text="33"/></TextBlock>
+            <Label Content="Primer Nombre:" HorizontalAlignment="Left" Margin="47,53,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="Segundo Nombre:" HorizontalAlignment="Left" Margin="36,85,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="Primer Apellido:" HorizontalAlignment="Left" Margin="47,115,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="Segundo Apellido:" HorizontalAlignment="Left" Margin="36,146,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="Fecha de nacimiento:" HorizontalAlignment="Left" Margin="20,176,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="Correo electrónico:" HorizontalAlignment="Left" Margin="32,208,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="Teléfono móvil:" HorizontalAlignment="Left" Margin="52,239,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="Teléfono fijo:" HorizontalAlignment="Left" Margin="64,270,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="Género:" HorizontalAlignment="Left" Margin="95,300,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="País:" HorizontalAlignment="Left" Margin="466,53,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="Región:" HorizontalAlignment="Left" Margin="449,84,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="Comuna:" HorizontalAlignment="Left" Margin="441,115,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="Calle:" HorizontalAlignment="Left" Margin="461,146,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="Número:" HorizontalAlignment="Left" Margin="442,177,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="Nro Departamento:" HorizontalAlignment="Left" Margin="382,207,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="Nro Casa:" HorizontalAlignment="Left" Margin="437,239,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+
+            <Border BorderThickness="2" BorderBrush="Black" HorizontalAlignment="Left" Height="274" Margin="362,54,0,0" VerticalAlignment="Top" Width="1"/>
+            <TextBlock HorizontalAlignment="Left" FontSize="16" FontWeight="Bold" Margin="129,12,0,0" Text="USUARIO {id}" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" FontSize="16" FontWeight="Bold" Margin="506,15,0,0" Text="DIRECCIÓN" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left" Height="1" Margin="124,34,0,0" VerticalAlignment="Top" Width="111" RenderTransformOrigin="0.5,0.5"/>
+            <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left" Height="1" Margin="504,34,0,0" VerticalAlignment="Top" Width="89" RenderTransformOrigin="0.5,0.5"/>
+
+            <mah:Tile x:Name="btnVolver" HorizontalAlignment="Left" VerticalContentAlignment="Center" Background="#FFFFFF" BorderBrush="#FFDC1F1F" BorderThickness="1" Margin="122,377,0,0" Cursor="Hand" VerticalAlignment="Top" Height="30" Width="210" MouseEnter="OnHoverVolver" MouseLeave="OnLeaveVolver" Click="Volver">
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                    <TextBlock x:Name="volverText" Text="VOLVER" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#FFDC1F1F" Margin="5"/>
+                </StackPanel>
+            </mah:Tile>
+
+            <mah:Tile x:Name="btnEditar" HorizontalAlignment="Left" VerticalContentAlignment="Center" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" Cursor="Hand" Margin="409,377,0,0" VerticalAlignment="Top" Height="30" Width="210" MouseEnter="OnHoverEditar" MouseLeave="OnLeaveEditar" Click="EditarUsuario">
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                    <TextBlock x:Name="editarText" Text="EDITAR" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#CC60A917" Margin="5"/>
+                </StackPanel>
+            </mah:Tile>
+        </Grid>
+
+        <!-- GRID EDITAR USUARIO-->
+        <Grid x:Name="gridEditarUsuario" Visibility="Visible">
+            <TextBox x:Name="txtPrimerNombre" HorizontalAlignment="Left" Margin="150,54,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="189"/>
+            <TextBox x:Name="txtSegundoNombre" HorizontalAlignment="Left" Margin="150,85,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="189"/>
+            <TextBox x:Name="txtPrimerApellido" HorizontalAlignment="Left" Margin="150,116,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="189"/>
+            <TextBox x:Name="txtSegundoApellido" HorizontalAlignment="Left" Margin="150,147,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="189"/>
+            <DatePicker x:Name="dpFecNacimiento" HorizontalAlignment="Left" Margin="150,177,0,0" VerticalAlignment="Top" Width="149"/>
+            <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Margin="150,209,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="189"/>
+            <TextBox x:Name="txttMovil" HorizontalAlignment="Left" Margin="150,240,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="189"/>
+            <TextBox x:Name="txtFijo" HorizontalAlignment="Left" Margin="150,271,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="189"/>
+            <ComboBox x:Name="cboxGenero" HorizontalAlignment="Left" Margin="150,302,0,0" VerticalAlignment="Top" Width="189"/>
+            <ComboBox x:Name="cboxPais" HorizontalAlignment="Left" Margin="503,54,0,0" VerticalAlignment="Top" Width="250" SelectionChanged="PaisChanged"/>
+            <ComboBox x:Name="cboxRegion" HorizontalAlignment="Left" Margin="503,85,0,0" VerticalAlignment="Top" Width="250" SelectionChanged="RegionChanged"/>
+            <ComboBox x:Name="cboxComuna" HorizontalAlignment="Left" Margin="503,116,0,0" VerticalAlignment="Top" Width="250"/>
+            <TextBox x:Name="txtCalle" HorizontalAlignment="Left" Margin="503,147,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+            <TextBox x:Name="txtNumero" HorizontalAlignment="Left" Margin="503,178,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+            <TextBox x:Name="txtNroDepto" HorizontalAlignment="Left" Margin="503,209,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+            <TextBox x:Name="txtNroCasa" HorizontalAlignment="Left" Margin="503,240,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+            <Label Content="Primer Nombre:" HorizontalAlignment="Left" Margin="47,53,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="Segundo Nombre:" HorizontalAlignment="Left" Margin="36,85,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="Primer Apellido:" HorizontalAlignment="Left" Margin="47,115,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="Segundo Apellido:" HorizontalAlignment="Left" Margin="36,146,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="Fecha de nacimiento:" HorizontalAlignment="Left" Margin="20,176,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="Correo electrónico:" HorizontalAlignment="Left" Margin="32,208,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="Teléfono móvil:" HorizontalAlignment="Left" Margin="52,239,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="Teléfono fijo:" HorizontalAlignment="Left" Margin="64,270,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="Género:" HorizontalAlignment="Left" Margin="95,300,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="País:" HorizontalAlignment="Left" Margin="466,53,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="Región:" HorizontalAlignment="Left" Margin="449,84,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="Comuna:" HorizontalAlignment="Left" Margin="441,115,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="Calle:" HorizontalAlignment="Left" Margin="461,146,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="Número:" HorizontalAlignment="Left" Margin="442,177,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="Nro Departamento:" HorizontalAlignment="Left" Margin="382,207,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="Nro Casa:" HorizontalAlignment="Left" Margin="437,239,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+
+            <Border BorderThickness="2" BorderBrush="Black" HorizontalAlignment="Left" Height="274" Margin="362,54,0,0" VerticalAlignment="Top" Width="1"/>
+            <TextBlock x:Name="editarUsuarioTitle" HorizontalAlignment="Left" FontSize="16" FontWeight="Bold" Margin="129,12,0,0" Text="USUARIO {id}" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" FontSize="16" FontWeight="Bold" Margin="506,15,0,0" Text="DIRECCIÓN" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left" Height="1" Margin="124,34,0,0" VerticalAlignment="Top" Width="111" RenderTransformOrigin="0.5,0.5"/>
+            <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left" Height="1" Margin="504,34,0,0" VerticalAlignment="Top" Width="89" RenderTransformOrigin="0.5,0.5"/>
+
+            <mah:Tile x:Name="btnCancelar" HorizontalAlignment="Left" VerticalContentAlignment="Center" Background="#FFFFFF" BorderBrush="#FFDC1F1F" BorderThickness="1" Margin="122,377,0,0" Cursor="Hand" VerticalAlignment="Top" Height="30" Width="210" MouseEnter="OnHoverCancelar" MouseLeave="OnLeaveCancelar" Click="CancelarEdicion">
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                    <TextBlock x:Name="cancelarText" Text="CANCELAR" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#FFDC1F1F" Margin="5"/>
+                </StackPanel>
+            </mah:Tile>
+
+            <mah:Tile x:Name="btnGuardar" HorizontalAlignment="Left" VerticalContentAlignment="Center" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" Cursor="Hand" Margin="408,377,0,0" VerticalAlignment="Top" Height="30" Width="210" MouseEnter="OnHoverGuardar" MouseLeave="OnLeaveGuardar" Click="GuardarCambios">
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                    <TextBlock x:Name="guardarText" Text="GUARDAR" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#CC60A917" Margin="5"/>
+                </StackPanel>
+            </mah:Tile>
+
+            <TextBlock x:Name="mensajeUsuario" Visibility="Hidden" HorizontalAlignment="Left" Margin="270,443,0,0" Text="Mensaje para el usuario." TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18"/>
+        </Grid>
+
     </Grid>
 </mah:MetroWindow>
