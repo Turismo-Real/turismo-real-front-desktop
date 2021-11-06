@@ -68,5 +68,13 @@ namespace turismo_real_controller.Controllers.Util
             List<string> tiposUsuarios = new List<string> { "-- Tipo Usuario --", "Administrador", "Funcionario", "Cliente" };
             return tiposUsuarios;
         }
+
+        public List<string> ObtenerTiposServicios()
+        {
+            utilService = new UtilService();
+            List<string> tiposServicios = utilService.GetTiposServicioREST();
+            tiposServicios.Insert(0, "-- Tipo Servicio --");
+            return tiposServicios;
+        }
     }
 }

@@ -17,6 +17,13 @@ namespace turismo_real_controller.Controllers.Servicio
             return servicios;
         }
 
+        public bool AgregarServicio(ServicioDTO servicio)
+        {
+            servicioService = new ServicioService();
+            bool saved = servicioService.CreateServicio(servicio);
+            return saved;
+        }
+
 
 
     }

@@ -77,12 +77,12 @@ namespace turismo_real_desktop.Views.Servicios
         // Btn seleccionar servicio
         private void SeleccionarServicio(object sender, RoutedEventArgs e)
         {
-            //if (dataGridServicios.SelectedItem != null)
-            //{
-            //    ServicioGrid selectedServicio = dataGridServicios.SelectedItem as ServicioGrid;
-            //    ServicioWindow servicioWindow = new ServicioWindow(this, selectedServicio.idServicio);
-            //    servicioWindow.Show();
-            //}
+            if (dataGridServicios.SelectedItem != null)
+            {
+                ServicioGrid selectedServicio = dataGridServicios.SelectedItem as ServicioGrid;
+                ServicioWindow servicioWindow = new ServicioWindow(this, selectedServicio.idServicio);
+                servicioWindow.Show();
+            }
         }
 
         private void OnHoverSeleccionar(object sender, MouseEventArgs e)

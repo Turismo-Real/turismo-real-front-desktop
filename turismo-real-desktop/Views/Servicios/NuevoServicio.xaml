@@ -1,23 +1,17 @@
-﻿<Window x:Class="turismo_real_desktop.Views.Servicios.NuevoServicio"
+﻿<mah:MetroWindow x:Class="turismo_real_desktop.Views.Servicios.NuevoServicio"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:turismo_real_desktop.Views.Servicios" xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:local="clr-namespace:turismo_real_desktop.Views.Servicios"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         mc:Ignorable="d"
         Title="Turismo Real - Nuevo Servicio" Height="370" Width="531">
     <Grid>
-        <TextBlock HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Margin="0,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="es-cl" Text="SERVICIO"/></TextBlock>
-        <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Center" Height="1" Margin="0,35,0,0" VerticalAlignment="Top" Width="72" RenderTransformOrigin="0.5,0.5"/>
-        <Label Content="Nombre de servicio:" HorizontalAlignment="Left" Margin="36,84,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <ComboBox x:Name="cboxTipoServicio" HorizontalAlignment="Left" Margin="165,53,0,0" VerticalAlignment="Top" Width="319"/>
         <TextBox x:Name="txtNombreServicio" HorizontalAlignment="Left" Margin="165,84,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="319" PreviewTextInput="txtNombreServicio_PreviewTextInput" LostFocus="txtNombreServicio_LostFocus"/>
         <TextBox x:Name="txtValorServicio" HorizontalAlignment="Left" Margin="165,115,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="319" PreviewTextInput="txtValorServicio_PreviewTextInput" LostFocus="txtValorServicio_LostFocus"/>
-        <Label Content="Descripción servicio:" HorizontalAlignment="Left" Margin="34,143,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBox x:Name="txtDescripcion" MaxLength="255" HorizontalAlignment="Left" Margin="165,146,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="319" Height="99" PreviewTextInput="txtDescripcion_PreviewTextInput" LostFocus="txtDescripcion_LostFocus"/>
-        <Label Content="Valor servicio:" HorizontalAlignment="Left" Margin="71,115,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-
-
-
 
         <mah:Tile x:Name="btnGuardar" HorizontalAlignment="Left" VerticalContentAlignment="Center" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" Cursor="Hand" Margin="274,284,0,0" VerticalAlignment="Top" Height="30" Width="210" MouseEnter="OnHoverGuardar" MouseLeave="OnLeaveGuardar" Click="GuardarServicio">
             <StackPanel Orientation="Vertical" VerticalAlignment="Center">
@@ -30,9 +24,12 @@
                 <TextBlock x:Name="cancelarText" Text="VOLVER" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#FFDC1F1F" Margin="5"/>
             </StackPanel>
         </mah:Tile>
+
+        <TextBlock HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Margin="0,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="es-cl" Text="SERVICIO"/></TextBlock>
+        <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Center" Height="1" Margin="0,35,0,0" VerticalAlignment="Top" Width="72" RenderTransformOrigin="0.5,0.5"/>
         <Label Content="Tipo Servicio:" HorizontalAlignment="Left" Margin="71,53,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <ComboBox HorizontalAlignment="Left" Margin="165,53,0,0" VerticalAlignment="Top" Width="319"/>
-
-
+        <Label Content="Nombre de servicio:" HorizontalAlignment="Left" Margin="36,84,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="Valor servicio:" HorizontalAlignment="Left" Margin="71,115,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="Descripción servicio:" HorizontalAlignment="Left" Margin="34,143,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
     </Grid>
-</Window>
+</mah:MetroWindow>

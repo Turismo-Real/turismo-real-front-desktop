@@ -142,6 +142,35 @@ namespace turismo_real_services.REST.Util
             }
         }
 
+        public List<string> GetTiposServicioREST()
+        {
+            try
+            {
+                string url = $"{URLService.URL_UTILS}/tiposservicio";
+                WebRequest request = WebRequest.Create(url);
+                request.Method = "GET";
+                request.PreAuthenticate = true;
+                request.ContentType = "Application/json; Charset=UTF-8";
+                request.Timeout = 8000;
+
+                string result = "";
+                HttpWebResponse httpResponse = (HttpWebResponse)request.GetResponse();
+                using (StreamReader streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    result = streamReader.ReadToEnd();
+                }
+
+                dynamic response = JsonConvert.DeserializeObject(result);
+                List<string> tiposServicio = ParseStrObjectsToList(response);
+                return tiposServicio;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+        }
+
         public List<string> GetEstadosDeptoREST()
         {
             try

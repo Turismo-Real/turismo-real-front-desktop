@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MahApps.Metro.Controls;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -9,23 +10,58 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using turismo_real_business.DTOs;
+using turismo_real_controller.Controllers.Servicio;
+using turismo_real_controller.Controllers.Util;
 
 namespace turismo_real_desktop.Views.Servicios
 {
-    /// <summary>
-    /// Lógica de interacción para NuevoServicio.xaml
-    /// </summary>
-    public partial class NuevoServicio : Window
+    public partial class NuevoServicio : MetroWindow
     {
+        private ServicioController servicioController;
+        private UtilController utilController;
+
         public NuevoServicio()
         {
             InitializeComponent();
+            FillComboTipo();
+        }
+
+        public void FillComboTipo()
+        {
+            utilController = new UtilController();
+            List<string> tiposServicio = utilController.ObtenerTiposServicios();
+            cboxTipoServicio.ItemsSource = tiposServicio;
+            cboxTipoServicio.SelectedIndex = 0;
         }
 
         //btn guardar servicio
         private void GuardarServicio(object sender, RoutedEventArgs e)
         {
+            ServicioDTO nuevoServicio = ConvertFormToServicio();
+            servicioController = new ServicioController();
+            bool nuevoServicioInsertado = servicioController.AgregarServicio(nuevoServicio);
 
+            if (nuevoServicioInsertado)
+            {
+                ClearForm();
+                //activeDeptosWindow.FillDataGridDeptos();
+                //ShowSuccessMessage();
+                return;
+            }
+            //mensajeUsuario.Text = "Error al crear departamento.";
+            //mensajeUsuario.Foreground = Brushes.Red;
+        }
+
+        public void ClearForm()
+        {
+
+        }
+
+        public ServicioDTO ConvertFormToServicio()
+        {
+            ServicioDTO servicio = new ServicioDTO();
+            return servicio;
         }
 
         private void OnHoverGuardar(object sender, MouseEventArgs e)
@@ -39,10 +75,8 @@ namespace turismo_real_desktop.Views.Servicios
         }
 
         //btn cancelar
-        private void CancelarInsercion(object sender, RoutedEventArgs e)
-        {
+        private void CancelarInsercion(object sender, RoutedEventArgs e) => Close();
 
-        }
         private void OnHoverCancelar(object sender, MouseEventArgs e)
         {
 
@@ -82,5 +116,7 @@ namespace turismo_real_desktop.Views.Servicios
         {
 
         }
+
+        private void Close(object sender, ContextMenuEventArgs e) => Close();
     }
 }
