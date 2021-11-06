@@ -31,5 +31,12 @@ namespace turismo_real_controller.Controllers.Servicio
             return servicio;
         }
 
+        public ServicioDTO ActualizarServicio(ServicioDTO servicio)
+        {
+            servicioService = new ServicioService();
+            ServicioDTO updatedServicio = servicioService.UpdateServicio(servicio);
+            return updatedServicio;
+        }
+
     }
 }

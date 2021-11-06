@@ -1,15 +1,8 @@
 ﻿using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using turismo_real_business.DTOs;
 using turismo_real_controller.Controllers.Servicio;
 using turismo_real_controller.Controllers.Util;
@@ -82,11 +75,7 @@ namespace turismo_real_desktop.Views.Servicios
 
         }
 
-        private void EditarServicio(object sender, RoutedEventArgs e)
-        {
-            gridVerServicio.Visibility = Visibility.Hidden;
-            gridEditarServicio.Visibility = Visibility.Visible;
-        }
+        private void EditarServicio(object sender, RoutedEventArgs e) => ChangeGridVisibility();
 
         private void OnHoverEditar(object sender, MouseEventArgs e)
         {
@@ -98,11 +87,7 @@ namespace turismo_real_desktop.Views.Servicios
 
         }
 
-        private void CancelarCambios(object sender, RoutedEventArgs e)
-        {
-            gridEditarServicio.Visibility = Visibility.Hidden;
-            gridVerServicio.Visibility = Visibility.Visible;
-        }
+        private void CancelarCambios(object sender, RoutedEventArgs e) => ChangeGridVisibility();
 
         private void OnHoverCancelar(object sender, MouseEventArgs e)
         {
@@ -116,7 +101,49 @@ namespace turismo_real_desktop.Views.Servicios
 
         private void GuardarCambios(object sender, RoutedEventArgs e)
         {
+            servicioController = new ServicioController();
+            ServicioDTO servicio = ConvertFormToServicio();
+            servicio.idServicio = idServicio;
+            ServicioDTO updatedServicio = servicioController.ActualizarServicio(servicio);
 
+            string title;
+            string message;
+            if (updatedServicio != null)
+            {
+                SetDataForm(updatedServicio);
+                activeServiciosWindow.FillDataGridServicios();
+                title = "Servicio Actualizado";
+                message = "El servicio ha sido actualizado correctamente.";
+                MessageBox.Show(message, title, MessageBoxButton.OK, MessageBoxImage.Information);
+                this.Title = "Turismo Real - Servicio";
+                ChangeGridVisibility();
+                return;
+            }
+            title = "Error al actualizar";
+            message = "Ha ocurrido un error al intentar actualizar el servicio.";
+            MessageBox.Show(message, title, MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        public void ChangeGridVisibility()
+        {
+            if (gridVerServicio.Visibility.Equals(Visibility.Hidden))
+            {
+                gridEditarServicio.Visibility = Visibility.Hidden;
+                gridVerServicio.Visibility = Visibility.Visible;
+                return;
+            }
+            gridEditarServicio.Visibility = Visibility.Visible;
+            gridVerServicio.Visibility = Visibility.Hidden;
+        }
+
+        public ServicioDTO ConvertFormToServicio()
+        {
+            ServicioDTO servicio = new ServicioDTO();
+            servicio.tipo = cboxTipoServicio.SelectedItem.ToString();
+            servicio.nombre = txtNombreServicio.Text;
+            servicio.valor = Convert.ToDouble(txtValorServicio.Text);
+            servicio.descripcion = txtDescripcion.Text;
+            return servicio;
         }
 
         private void OnHoverGuardar(object sender, MouseEventArgs e)
