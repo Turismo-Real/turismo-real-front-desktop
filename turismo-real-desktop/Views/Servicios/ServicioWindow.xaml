@@ -11,7 +11,7 @@
 
         <!-- GRID EDITAR SERVICIO -->
         <Grid x:Name="gridEditarServicio" Visibility="Visible">
-            <ComboBox x:Name="cboxTipoServicio" IsEnabled="False" HorizontalAlignment="Left" Margin="165,53,0,0" VerticalAlignment="Top" Width="319"/>
+            <ComboBox x:Name="cboxTipoServicio" HorizontalAlignment="Left" Margin="165,53,0,0" VerticalAlignment="Top" Width="319"/>
             <TextBox x:Name="txtNombreServicio" HorizontalAlignment="Left" Margin="165,84,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="319" />
             <TextBox x:Name="txtValorServicio" HorizontalAlignment="Left" Margin="165,115,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="319" />
             <TextBox x:Name="txtDescripcion" MaxLength="255" HorizontalAlignment="Left" Margin="165,146,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="319" Height="99"/>
@@ -28,7 +28,7 @@
                 </StackPanel>
             </mah:Tile>
 
-            <TextBlock HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Margin="0,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="es-cl" Text="SERVICIO {id}"/></TextBlock>
+            <TextBlock x:Name="tituloServicio" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Margin="0,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="es-cl" Text="SERVICIO {id}"/></TextBlock>
             <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Center" Height="1" Margin="0,35,0,0" VerticalAlignment="Top" Width="102" RenderTransformOrigin="0.5,0.5"/>
             <Label Content="Tipo Servicio:" HorizontalAlignment="Left" Margin="71,53,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
             <Label Content="Nombre de servicio:" HorizontalAlignment="Left" Margin="36,84,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
@@ -38,10 +38,10 @@
 
         <!-- GRID VER SERVICIO -->
         <Grid x:Name="gridVerServicio" Visibility="Hidden">
-            <Label Content="Desde/Hasta" HorizontalAlignment="Left" Margin="165,53,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-            <Label Content="Servicio de transporte" HorizontalAlignment="Left" Margin="165,84,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-            <Label Content="$20.000" HorizontalAlignment="Left" Margin="167,115,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-            <Label Content="Servicio para transporte de clientes hacia el departamento." HorizontalAlignment="Left" Margin="167,146,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+            <Label x:Name="tipoText" Content="Desde/Hasta" HorizontalAlignment="Left" Margin="165,53,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+            <Label x:Name="nombreText" Content="Servicio de transporte" HorizontalAlignment="Left" Margin="165,84,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+            <Label x:Name="valorText" Content="$20.000" HorizontalAlignment="Left" Margin="167,115,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+            <Label x:Name="descripcionText" Content="Servicio para transporte de clientes hacia el departamento." HorizontalAlignment="Left" Margin="167,146,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
 
             <mah:Tile x:Name="btnEditar" HorizontalAlignment="Left" VerticalContentAlignment="Center" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" Cursor="Hand" Margin="274,284,0,0" VerticalAlignment="Top" Height="30" Width="210" MouseEnter="OnHoverEditar" MouseLeave="OnLeaveEditar" Click="EditarServicio">
                 <StackPanel Orientation="Vertical" VerticalAlignment="Center">
@@ -55,7 +55,7 @@
                 </StackPanel>
             </mah:Tile>
 
-            <TextBlock HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Margin="0,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="es-cl" Text="SERVICIO {id}"/></TextBlock>
+            <TextBlock x:Name="tituloServicioEditar" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Margin="0,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="es-cl" Text="SERVICIO {id}"/></TextBlock>
             <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Center" Height="1" Margin="0,35,0,0" VerticalAlignment="Top" Width="102" RenderTransformOrigin="0.5,0.5"/>
             <Label Content="Tipo Servicio:" HorizontalAlignment="Left" Margin="71,53,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
             <Label Content="Nombre de servicio:" HorizontalAlignment="Left" Margin="36,84,0,0" VerticalAlignment="Top" FontWeight="Bold"/>

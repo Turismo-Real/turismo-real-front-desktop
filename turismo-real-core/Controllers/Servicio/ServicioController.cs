@@ -24,7 +24,12 @@ namespace turismo_real_controller.Controllers.Servicio
             return saved;
         }
 
-
+        public ServicioDTO ObtenerServicio(int idServicio)
+        {
+            servicioService = new ServicioService();
+            ServicioDTO servicio = servicioService.GetServicioById(idServicio);
+            return servicio;
+        }
 
     }
 }

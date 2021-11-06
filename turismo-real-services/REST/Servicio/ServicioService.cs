@@ -37,6 +37,33 @@ namespace turismo_real_services.REST.Servicio
             }
         }
 
+        public ServicioDTO GetServicioById(int id)
+        {
+            try
+            {
+                WebRequest request = WebRequest.Create($"{URLService.URL_SERVICIOS}/{id}");
+                request.Method = "GET";
+                request.PreAuthenticate = true;
+                request.ContentType = "Application/json; Charset=UTF-8";
+                request.Timeout = 8000;
+
+                string result = "";
+                HttpWebResponse httpResponse = (HttpWebResponse)request.GetResponse();
+                using (StreamReader streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    result = streamReader.ReadToEnd();
+                }
+                dynamic response = JsonConvert.DeserializeObject(result);
+                ServicioDTO servicioResponse = DynamicToServicio(response);
+                return servicioResponse;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+        }
+
         public bool CreateServicio(ServicioDTO nuevoServicio)
         {
             try

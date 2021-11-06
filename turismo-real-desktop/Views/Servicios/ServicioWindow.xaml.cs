@@ -10,12 +10,19 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using turismo_real_business.DTOs;
+using turismo_real_controller.Controllers.Servicio;
+using turismo_real_controller.Controllers.Util;
 
 namespace turismo_real_desktop.Views.Servicios
 {
     public partial class ServicioWindow : MetroWindow
     {
+        private ServicioController servicioController;
+        private UtilController utilController;
         private ServiciosWindow activeServiciosWindow;
+        private ServicioDTO selectedServicio;
+        private int idServicio;
 
         public ServicioWindow()
         {
@@ -27,19 +34,40 @@ namespace turismo_real_desktop.Views.Servicios
             InitializeComponent();
 
             this.activeServiciosWindow = activeServiciosWindow;
+            this.idServicio = idServicio;
+            string titulo = $"SERVICIO {this.idServicio}";
+            tituloServicio.Text = titulo;
+            tituloServicioEditar.Text = titulo;
+            FillComboTipo();
+
+            servicioController = new ServicioController();
+            selectedServicio = servicioController.ObtenerServicio(idServicio);
+            SetDataForm(selectedServicio);
 
             gridVerServicio.Visibility = Visibility.Visible;
             gridEditarServicio.Visibility = Visibility.Hidden;
+        }
 
-            //this.deptoId = deptoId;
-            //this.deptosWindow = deptosWindow;
-            //string titulo = $"DEPARTAMENTO {deptoId}";
-            //tituloDepto.Content = titulo;
-            //tituloDeptoEditar.Content = titulo;
+        public void FillComboTipo()
+        {
+            utilController = new UtilController();
+            List<string> tiposServicio = utilController.ObtenerTiposServicios();
+            cboxTipoServicio.ItemsSource = tiposServicio;
+            cboxTipoServicio.SelectedIndex = 0;
+        }
 
-            //selectedDepto = new DepartamentoController().ObtenerDepartamento(deptoId);
-            //SetDataForm(selectedDepto);
-
+        public void SetDataForm(ServicioDTO servicio)
+        {
+            // Fill inputs
+            cboxTipoServicio.SelectedItem = servicio.tipo;
+            txtNombreServicio.Text = servicio.nombre;
+            txtValorServicio.Text = servicio.valor.ToString();
+            txtDescripcion.Text = servicio.descripcion;
+            // Fill labels
+            tipoText.Content = servicio.tipo;
+            nombreText.Content = servicio.nombre;
+            valorText.Content = servicio.valor;
+            descripcionText.Content = servicio.descripcion;
         }
 
         private void Volver(object sender, RoutedEventArgs e) => Close();
