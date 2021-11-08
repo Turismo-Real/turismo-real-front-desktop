@@ -230,5 +230,32 @@ namespace turismo_real_services.REST.Usuario
             return null;
         }
 
+        public bool UpdatePassword(int id, string currentPassword, string newPassword)
+        {
+            var payload = new { currentPassword, newPassword };
+            string json = JsonConvert.SerializeObject(payload);
+            WebRequest request = WebRequest.Create($"{URLService.URL_USUARIOS}/{id}");
+            request.Method = "PATCH";
+            request.PreAuthenticate = true;
+            request.ContentType = "Application/json; Charset=UTF-8";
+            request.Timeout = 8000;
+
+            using (StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
+            {
+                streamWriter.Write(json);
+                streamWriter.Flush();
+            }
+
+            string result = "";
+            HttpWebResponse httpResponse = (HttpWebResponse)request.GetResponse();
+            using (StreamReader streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                result = streamReader.ReadToEnd();
+            }
+            dynamic response = JsonConvert.DeserializeObject(result);
+            bool updated = response["updated"];
+            return updated;
+        }
+
     }
 }

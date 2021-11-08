@@ -1,17 +1,10 @@
 ﻿using MahApps.Metro.Controls;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Diagnostics;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using turismo_real_controller.Controllers.Login;
 using turismo_real_controller.Controllers.Usuario;
+using turismo_real_desktop.UIElements;
 
 namespace turismo_real_desktop.Views.Administrador
 {
@@ -47,8 +40,28 @@ namespace turismo_real_desktop.Views.Administrador
                 usuarioController = new UsuarioController();
                 string currentPass = loginController.HashPassword(currentPassword.Password.ToString());
                 string newPass = loginController.HashPassword(newPassword.Password.ToString());
+
+                Trace.WriteLine(currentPass);
+                Trace.WriteLine(newPass);
+                bool updated = usuarioController.ActualizarPassword(usuarioId, currentPass, newPass);
+
+                if (updated)
+                {
+                    mensajeUsuario.Text = "Contraseña actualizada.";
+                    mensajeUsuario.Foreground = UIColors.NormalGreen;
+                    ClearForm();
+                }
+                return;
             }
             mensajeUsuario.Text = "Las nuevas contraseñas no coinciden";
+            mensajeUsuario.Foreground = UIColors.DangerRed;
+        }
+
+        public void ClearForm()
+        {
+            currentPassword.Password = string.Empty;
+            newPassword.Password = string.Empty;
+            repeatPassword.Password = string.Empty;
         }
 
         private void OnHoverGuardar(object sender, MouseEventArgs e)

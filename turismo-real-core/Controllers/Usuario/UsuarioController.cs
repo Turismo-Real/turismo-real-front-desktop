@@ -51,5 +51,12 @@ namespace turismo_real_controller.Controllers.Usuario
             UsuarioDTO updatedUser = usuarioService.UpdateUsuario(usuario);
             return updatedUser;
         }
+
+        public bool ActualizarPassword(int id, string currentPass, string newPass)
+        {
+            usuarioService = new UsuarioService();
+            bool updated = usuarioService.UpdatePassword(id, currentPass, newPass);
+            return updated;
+        }
     }
 }
