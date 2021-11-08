@@ -10,7 +10,7 @@
         WindowStartupLocation="CenterScreen">
     <Grid>
         <!-- GRID EDITAR USUARIO-->
-        <Grid x:Name="gridEditarUsuario" Visibility="Visible">
+        <Grid x:Name="gridEditarUsuario" Visibility="Hidden">
             <TextBlock x:Name="txtTipoEditar" HorizontalAlignment="Left" Margin="160,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="114"><Run Language="es-mx" Text="Administrador"/></TextBlock>
             <TextBox x:Name="txtPasaporte" HorizontalAlignment="Left" Margin="152,85,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="189"/>
             <TextBox x:Name="txtRut" MaxLength="8" HorizontalAlignment="Left" Margin="152,116,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="75"/>
@@ -74,7 +74,7 @@
         </Grid>
 
         <!-- GRID VER -->
-        <Grid x:Name="gridVerUsuario" Visibility="Hidden">
+        <Grid x:Name="gridVerUsuario" Visibility="Visible">
             <TextBlock x:Name="txtbTipo" HorizontalAlignment="Left" Margin="160,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="114"><Run Language="es-mx" Text="Administrador"/></TextBlock>
             <TextBlock x:Name="txtbPasaporte" HorizontalAlignment="Left" Margin="160,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"><Run Language="es-mx" Text="333-333-333"/></TextBlock>
             <TextBlock x:Name="txtbRut" HorizontalAlignment="Left" Margin="160,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="es-mx" Text="444444444-k"/></TextBlock>
