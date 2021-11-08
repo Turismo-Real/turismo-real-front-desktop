@@ -247,5 +247,20 @@ namespace turismo_real_desktop.Views.Administrador
             combobox.Background = Brushes.LightGray;
         }
 
+        private void CambiarPassword(object sender, RoutedEventArgs e)
+        {
+            PasswordWindow passWin = new PasswordWindow(LoguedUser.GetLoguedUser().idUsuario);
+            passWin.ShowDialog();
+        }
+
+        private void OnHoverCambioPass(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void OnLeaveCambioPass(object sender, MouseEventArgs e)
+        {
+
+        }
     }
 }

@@ -7,7 +7,7 @@
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
         Title="Turismo Real - Perfil" Height="464" Width="800"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <!-- GRID VER -->
         <Grid x:Name="gridVerUsuario" Visibility="Hidden">
@@ -113,6 +113,12 @@
             <mah:Tile x:Name="btnGuardar" HorizontalAlignment="Left" VerticalContentAlignment="Center" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" Cursor="Hand" Margin="408,377,0,0" VerticalAlignment="Top" Height="30" Width="210" MouseEnter="OnHoverGuardar" MouseLeave="OnLeaveGuardar" Click="GuardarCambios">
                 <StackPanel Orientation="Vertical" VerticalAlignment="Center">
                     <TextBlock x:Name="guardarText" Text="GUARDAR" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#CC60A917" Margin="5"/>
+                </StackPanel>
+            </mah:Tile>
+
+            <mah:Tile x:Name="btnCambiarPass" HorizontalAlignment="Left" VerticalContentAlignment="Center" Background="#FFFFFF" BorderBrush="#2778D3" BorderThickness="1" Cursor="Hand" Margin="503,285,0,0" VerticalAlignment="Top" Height="30" Width="250" MouseEnter="OnHoverCambioPass" MouseLeave="OnLeaveCambioPass" Click="CambiarPassword">
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                    <TextBlock x:Name="cambiarPassText" Text="CAMBIAR CONTRASEÑA" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#2778D3" Margin="5"/>
                 </StackPanel>
             </mah:Tile>
 

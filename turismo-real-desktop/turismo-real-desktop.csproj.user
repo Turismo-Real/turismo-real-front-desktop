@@ -10,6 +10,9 @@
     <Compile Update="Views\Administrador\Dashboard.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Administrador\PasswordWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Administrador\PerfilWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -46,6 +49,9 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="Views\Administrador\Dashboard.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Administrador\PasswordWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Administrador\PerfilWindow.xaml">
