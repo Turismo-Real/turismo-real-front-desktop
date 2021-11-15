@@ -5,10 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:turismo_real_desktop.Views.Reservas"
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:iconPacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.FontAwesome"
         mc:Ignorable="d"
-        Title="Turismo Real - Reservas" Height="450" Width="800"
+        Title="Turismo Real - Reservas" Height="615" Width="1088"
         WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <DataGrid Margin="27,54,248,45" BorderThickness="1"/>
+
+        <!-- BOTON NUEVA RESERVA -->
+        <mah:Tile x:Name="btnNuevaReserva" Margin="869,54,0,0" Cursor="Hand" Width="180" Height="110" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" MouseEnter="OnHoverNuevaReserva" MouseLeave="OnLeaveNuevaReserva" Click="OpenNuevaReserva" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
+                <iconPacks:PackIconFontAwesome x:Name="nuevoUsuarioIcon" Kind="PlusCircleSolid" Foreground="#CC60A917" Height="50" Width="100" FontWeight="Bold" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="nuevoServicioText" Text="NUEVA RESERVA" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#CC60A917" Margin="5"/>
+            </StackPanel>
+        </mah:Tile>
+
+        <!-- BOTON SELECCIONAR-->
+        <mah:Tile x:Name="btnSeleccionar" Margin="869,206,0,0" Cursor="Hand" Width="180" Height="79" Background="#FFFFFF" BorderBrush="#2778D3" BorderThickness="1" MouseEnter="OnHoverSeleccionar" MouseLeave="OnLeaveSeleccionar" Click="OpenReserva" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                <TextBlock x:Name="nuevoServicioText1" Text="SELECCIONAR" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#2778D3" Margin="5"/>
+            </StackPanel>
+        </mah:Tile>
+
+        <!-- BOTON ELIMINAR -->
+        <mah:Tile x:Name="btnEliminar" Margin="869,358,0,0" Cursor="Hand" Width="180" Height="35" Background="#FFFFFF" BorderBrush="#FFDC1F1F" BorderThickness="1" MouseEnter="OnHoverCancelar" MouseLeave="OnLeaveCancelar" Click="CancelarReserva" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                <TextBlock x:Name="nuevoServicioText2" Text="CANCELAR" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#FFDC1F1F" Margin="5"/>
+            </StackPanel>
+        </mah:Tile>
+
+        <!-- BOTON VOLVER -->
+        <mah:Tile x:Name="btnVolver" Margin="869,470,0,0" Cursor="Hand" Width="180" Height="84" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" MouseEnter="OnHoverVolver" MouseLeave="OnLeaveVolver" Click="Volver" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
+                <iconPacks:PackIconFontAwesome x:Name="nuevoUsuarioIcon3" Kind="BackwardSolid" Foreground="#CC60A917" Height="20" Width="100" FontWeight="Bold" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="nuevoServicioText3" Text="VOLVER" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#CC60A917" Margin="5"/>
+            </StackPanel>
+        </mah:Tile>
     </Grid>
 </mah:MetroWindow>

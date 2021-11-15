@@ -42,42 +42,48 @@ namespace turismo_real_desktop.Views.Administrador
 
         public void FillLabels(UsuarioDTO loguedUser)
         {
-            txtbPrimerNombre.Text = loguedUser.primerNombre;
-            txtbSegundoNombre.Text = loguedUser.segundoNombre;
-            txtbPrimerApellido.Text = loguedUser.apellidoPaterno;
-            txtbSegundoApellido.Text = loguedUser.apellidoMaterno;
-            txtbFecNac.Text = loguedUser.fechaNacimiento.ToString("dd/MM/yyyy");
-            txtbCorreo.Text = loguedUser.correo;
-            txtbTelMovil.Text = loguedUser.telefonoMovil;
-            txtbTelFijo.Text = loguedUser.telefonoFijo;
-            txtbGenero.Text = loguedUser.genero;
-            txtbPais.Text = loguedUser.pais;
-            txtbRegion.Text = loguedUser.direccion.region;
-            txtbComuna.Text = loguedUser.direccion.comuna;
-            txtbCalle.Text = loguedUser.direccion.calle;
-            txtbNumero.Text = loguedUser.direccion.numero;
-            txtbNroDepto.Text = loguedUser.direccion.depto;
-            txtbNroCasa.Text = loguedUser.direccion.casa;
+            if (loguedUser != null)
+            {
+                txtbPrimerNombre.Text = loguedUser.primerNombre;
+                txtbSegundoNombre.Text = loguedUser.segundoNombre;
+                txtbPrimerApellido.Text = loguedUser.apellidoPaterno;
+                txtbSegundoApellido.Text = loguedUser.apellidoMaterno;
+                txtbFecNac.Text = loguedUser.fechaNacimiento.ToString("dd/MM/yyyy");
+                txtbCorreo.Text = loguedUser.correo;
+                txtbTelMovil.Text = loguedUser.telefonoMovil;
+                txtbTelFijo.Text = loguedUser.telefonoFijo;
+                txtbGenero.Text = loguedUser.genero;
+                txtbPais.Text = loguedUser.pais;
+                txtbRegion.Text = loguedUser.direccion.region;
+                txtbComuna.Text = loguedUser.direccion.comuna;
+                txtbCalle.Text = loguedUser.direccion.calle;
+                txtbNumero.Text = loguedUser.direccion.numero;
+                txtbNroDepto.Text = loguedUser.direccion.depto;
+                txtbNroCasa.Text = loguedUser.direccion.casa;
+            }
         }
 
         public void FillInputs(UsuarioDTO loguedUser)
         {
-            txtPrimerNombre.Text = loguedUser.primerNombre;
-            txtSegundoNombre.Text = loguedUser.segundoNombre;
-            txtPrimerApellido.Text = loguedUser.apellidoPaterno;
-            txtSegundoApellido.Text = loguedUser.apellidoMaterno;
-            dpFecNacimiento.SelectedDate = DateTime.Parse(loguedUser.fechaNacimiento.ToString("dd/MM/yyyy"));
-            txtCorreo.Text = loguedUser.correo;
-            txtMovil.Text = loguedUser.telefonoMovil;
-            txtFijo.Text = loguedUser.telefonoFijo;
-            cboxGenero.SelectedItem = loguedUser.genero;
-            cboxPais.SelectedItem = loguedUser.pais;
-            cboxRegion.SelectedItem = loguedUser.direccion.region;
-            cboxComuna.SelectedItem = loguedUser.direccion.comuna;
-            txtCalle.Text = loguedUser.direccion.calle;
-            txtNumero.Text = loguedUser.direccion.numero;
-            txtDepto.Text = loguedUser.direccion.depto;
-            txtCasa.Text = loguedUser.direccion.casa;
+            if (loguedUser != null)
+            {
+                txtPrimerNombre.Text = loguedUser.primerNombre;
+                txtSegundoNombre.Text = loguedUser.segundoNombre;
+                txtPrimerApellido.Text = loguedUser.apellidoPaterno;
+                txtSegundoApellido.Text = loguedUser.apellidoMaterno;
+                dpFecNacimiento.SelectedDate = DateTime.Parse(loguedUser.fechaNacimiento.ToString("dd/MM/yyyy"));
+                txtCorreo.Text = loguedUser.correo;
+                txtMovil.Text = loguedUser.telefonoMovil;
+                txtFijo.Text = loguedUser.telefonoFijo;
+                cboxGenero.SelectedItem = loguedUser.genero;
+                cboxPais.SelectedItem = loguedUser.pais;
+                cboxRegion.SelectedItem = loguedUser.direccion.region;
+                cboxComuna.SelectedItem = loguedUser.direccion.comuna;
+                txtCalle.Text = loguedUser.direccion.calle;
+                txtNumero.Text = loguedUser.direccion.numero;
+                txtDepto.Text = loguedUser.direccion.depto;
+                txtCasa.Text = loguedUser.direccion.casa;
+            }
         }
 
         public void FillComboBoxes()

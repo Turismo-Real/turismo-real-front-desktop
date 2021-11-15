@@ -12,5 +12,19 @@ namespace turismo_real_desktop.GridEntities
         public string comuna { get; set; }
         public string region { get; set; }
         public string estado { get; set; }
+
+        public DeptoGrid GetDefaultGrid()
+        {
+            DeptoGrid defaultGrid = new DeptoGrid();
+            defaultGrid.id = 0;
+            defaultGrid.rol = "000000";
+            defaultGrid.tipo = "Default";
+            defaultGrid.superficie = "0";
+            defaultGrid.valorDiario = "0";
+            defaultGrid.comuna = "Default";
+            defaultGrid.region = "Default";
+            defaultGrid.estado = "Default";
+            return defaultGrid;
+        }
     }
 }

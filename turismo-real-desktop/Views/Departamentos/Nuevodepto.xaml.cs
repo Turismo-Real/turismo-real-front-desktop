@@ -169,9 +169,12 @@ namespace turismo_real_desktop.Views.Departamentos
             utilController = new UtilController();
             List<string> instalaciones= utilController.ObtenerInstalaciones();
             
-            foreach(string instalacion in instalaciones)
+            if (instalaciones != null)
             {
-                instalacionesDisponibles.Items.Add(instalacion);
+                foreach (string instalacion in instalaciones)
+                {
+                    instalacionesDisponibles.Items.Add(instalacion);
+                }
             }
         }
 

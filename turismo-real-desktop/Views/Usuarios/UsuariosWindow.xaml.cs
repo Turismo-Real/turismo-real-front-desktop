@@ -34,34 +34,46 @@ namespace turismo_real_desktop.Views.Usuarios
             usuarioController = new UsuarioController();
             usuarios = usuarioController.ObtenerUsuarios(); // obtener usuarios
 
-            ObservableCollection<UsuarioGrid> usuariosGrid = new ObservableCollection<UsuarioGrid>();
-            List<UsuarioGrid> usuariosGridList = ConvertToUsuarioGrid(usuarios);
-
-            foreach (UsuarioGrid usuario in usuariosGridList)
+            if (usuarios != null)
             {
-                usuariosGrid.Add(usuario);
+                ObservableCollection<UsuarioGrid> usuariosGrid = new ObservableCollection<UsuarioGrid>();
+                List<UsuarioGrid> usuariosGridList = ConvertToUsuarioGrid(usuarios);
+
+                foreach (UsuarioGrid usuario in usuariosGridList)
+                {
+                    usuariosGrid.Add(usuario);
+                }
+                dataGridUsuarios.ItemsSource = usuariosGrid;
+                contadorUsuarios.Text = $"Total usuarios: {usuarios.Count}";
+                dataGridUsuarios.IsReadOnly = true;
             }
-            dataGridUsuarios.ItemsSource = usuariosGrid;
-            contadorUsuarios.Text = $"Total usuarios: {usuarios.Count}";
-            dataGridUsuarios.IsReadOnly = true;
         }
 
         public List<UsuarioGrid> ConvertToUsuarioGrid(List<UsuarioDTO> usuarios)
         {
             List<UsuarioGrid> usuariosGrid = new List<UsuarioGrid>();
-            foreach(UsuarioDTO usuario in usuarios)
+            if (usuarios != null)
             {
-                UsuarioGrid usuarioGrid = new UsuarioGrid();
-                usuarioGrid.id = usuario.idUsuario;
-                usuarioGrid.rut = usuario.rut.Equals(string.Empty) ? "0" : $"{usuario.rut}-{usuario.dv}";
-                usuarioGrid.pasaporte = usuario.pasaporte.Equals(string.Empty) ? "0" : usuario.pasaporte;
-                usuarioGrid.nombre = $"{usuario.primerNombre} {usuario.apellidoPaterno} {usuario.apellidoMaterno}";
-                usuarioGrid.email = usuario.correo;
-                usuarioGrid.pais = usuario.pais;
-                usuarioGrid.tipo = usuario.tipoUsuario;
-                usuariosGrid.Add(usuarioGrid);
+                foreach (UsuarioDTO usuario in usuarios)
+                {
+                    UsuarioGrid usuarioGrid = new UsuarioGrid();
+                    usuarioGrid.id = usuario.idUsuario;
+                    usuarioGrid.rut = usuario.rut.Equals(string.Empty) ? "0" : $"{usuario.rut}-{usuario.dv}";
+                    usuarioGrid.pasaporte = usuario.pasaporte.Equals(string.Empty) ? "0" : usuario.pasaporte;
+                    usuarioGrid.nombre = $"{usuario.primerNombre} {usuario.apellidoPaterno} {usuario.apellidoMaterno}";
+                    usuarioGrid.email = usuario.correo;
+                    usuarioGrid.pais = usuario.pais;
+                    usuarioGrid.tipo = usuario.tipoUsuario;
+                    usuariosGrid.Add(usuarioGrid);
+                }
+                return usuariosGrid;
             }
-            return usuariosGrid;
+            else
+            {
+                UsuarioGrid defaultGrid = new UsuarioGrid();
+                usuariosGrid.Add(defaultGrid.GetDefaultGrid());
+                return usuariosGrid;
+            }
         }
 
         private void OnHoverVolver(object sender, MouseEventArgs e)

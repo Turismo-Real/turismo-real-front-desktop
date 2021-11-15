@@ -20,5 +20,70 @@ namespace turismo_real_desktop.Views.Reservas
         {
             InitializeComponent();
         }
+
+        private void OpenNuevaReserva(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OnHoverNuevaReserva(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void OnLeaveNuevaReserva(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void OnHoverSeleccionar(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void OnLeaveSeleccionar(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void OpenReserva(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OnHoverCancelar(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void OnLeaveCancelar(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void CancelarReserva(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Volver(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OnHoverVolve(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void OnHoverVolver(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void OnLeaveVolver(object sender, MouseEventArgs e)
+        {
+
+        }
     }
 }

@@ -29,30 +29,37 @@ namespace turismo_real_desktop.Views.Servicios
             servicioController = new ServicioController();
             servicios = servicioController.ObtenerServicios();
 
-            ObservableCollection<ServicioGrid> serviciosGrid = new ObservableCollection<ServicioGrid>();
-            List<ServicioGrid> serviciosGridList = ConvertToServicioGrid(servicios);
-
-            foreach (ServicioGrid servicio in serviciosGridList)
+            if (servicios != null)
             {
-                serviciosGrid.Add(servicio);
+                ObservableCollection<ServicioGrid> serviciosGrid = new ObservableCollection<ServicioGrid>();
+                List<ServicioGrid> serviciosGridList = ConvertToServicioGrid(servicios);
+
+                foreach (ServicioGrid servicio in serviciosGridList)
+                {
+                    serviciosGrid.Add(servicio);
+                }
+                dataGridServicios.ItemsSource = serviciosGrid;
+                contadorservicios.Text = $"Total servicios: {servicios.Count}";
             }
-            dataGridServicios.ItemsSource = serviciosGrid;
-            contadorservicios.Text = $"Total servicios: {servicios.Count}";
         }
 
         private List<ServicioGrid> ConvertToServicioGrid(List<ServicioDTO> servicios)
         {
             List<ServicioGrid> serviciosGridList = new List<ServicioGrid>();
-
-            foreach (ServicioDTO servicio in servicios)
+            if (servicios != null)
             {
-                ServicioGrid servicioGrid = new ServicioGrid();
-                servicioGrid.idServicio = servicio.idServicio;
-                servicioGrid.nombre = servicio.nombre;
-                servicioGrid.valor = servicio.valor.ToString("C", CultureInfo.CurrentCulture);
-                servicioGrid.tipo = servicio.tipo;
-                serviciosGridList.Add(servicioGrid);
+                foreach (ServicioDTO servicio in servicios)
+                {
+                    ServicioGrid servicioGrid = new ServicioGrid();
+                    servicioGrid.idServicio = servicio.idServicio;
+                    servicioGrid.nombre = servicio.nombre;
+                    servicioGrid.valor = servicio.valor.ToString("C", CultureInfo.CurrentCulture);
+                    servicioGrid.tipo = servicio.tipo;
+                    serviciosGridList.Add(servicioGrid);
+                }
+                return serviciosGridList;
             }
+            serviciosGridList.Add(new ServicioGrid());
             return serviciosGridList;
         }
 

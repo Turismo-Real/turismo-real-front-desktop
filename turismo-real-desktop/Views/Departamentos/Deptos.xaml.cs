@@ -33,34 +33,46 @@ namespace turismo_real_desktop.Views.Administrador.Departamentos
             deptoController = new DepartamentoController();
             deptos = deptoController.ObtenerDepartamentos(); // obtener departamentos
             
-            ObservableCollection<DeptoGrid> deptosGrid = new ObservableCollection<DeptoGrid>();
-            List<DeptoGrid> deptosGridList = ConvertToDeptoGrid(deptos);
-
-            foreach(DeptoGrid depto in deptosGridList)
+            if (deptos != null)
             {
-                deptosGrid.Add(depto);
+                ObservableCollection<DeptoGrid> deptosGrid = new ObservableCollection<DeptoGrid>();
+                List<DeptoGrid> deptosGridList = ConvertToDeptoGrid(deptos);
+
+                foreach (DeptoGrid depto in deptosGridList)
+                {
+                    deptosGrid.Add(depto);
+                }
+                dataGridDeptos.ItemsSource = deptosGrid;
+                contadorDeptos.Content = $"Total departamentos: {deptos.Count}";
             }
-            dataGridDeptos.ItemsSource = deptosGrid;
-            contadorDeptos.Content = $"Total departamentos: {deptos.Count}";
         }
 
         public List<DeptoGrid> ConvertToDeptoGrid(List<DepartamentoDTO> deptos)
         {
             List<DeptoGrid> deptosGridList = new List<DeptoGrid>();
-            foreach(DepartamentoDTO depto in deptos)
+            if (deptos != null)
             {
-                DeptoGrid deptoGrid = new DeptoGrid();
-                deptoGrid.id = depto.id_departamento;
-                deptoGrid.rol = depto.rol;
-                deptoGrid.tipo = depto.tipo;
-                deptoGrid.superficie = depto.superficie.ToString() + " m2";
-                deptoGrid.valorDiario = depto.valorDiario.ToString("C", CultureInfo.CurrentCulture);
-                deptoGrid.comuna = depto.direccion.comuna;
-                deptoGrid.region = depto.direccion.region;
-                deptoGrid.estado = depto.estado;
-                deptosGridList.Add(deptoGrid);
+                foreach (DepartamentoDTO depto in deptos)
+                {
+                    DeptoGrid deptoGrid = new DeptoGrid();
+                    deptoGrid.id = depto.id_departamento;
+                    deptoGrid.rol = depto.rol;
+                    deptoGrid.tipo = depto.tipo;
+                    deptoGrid.superficie = depto.superficie.ToString() + " m2";
+                    deptoGrid.valorDiario = depto.valorDiario.ToString("C", CultureInfo.CurrentCulture);
+                    deptoGrid.comuna = depto.direccion.comuna;
+                    deptoGrid.region = depto.direccion.region;
+                    deptoGrid.estado = depto.estado;
+                    deptosGridList.Add(deptoGrid);
+                }
+                return deptosGridList;
             }
-            return deptosGridList;
+            else
+            {
+                DeptoGrid defaultGrid = new DeptoGrid();
+                deptosGridList.Add(defaultGrid.GetDefaultGrid());
+                return deptosGridList;
+            }
         }
 
         private void OnHoverNuevoDepto(object sender, MouseEventArgs e)

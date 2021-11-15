@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using turismo_real_services.REST.Util;
 
 namespace turismo_real_controller.Controllers.Util
@@ -9,19 +10,27 @@ namespace turismo_real_controller.Controllers.Util
 
         public List<string> ObtenerRegiones()
         {
+            string defaultValue = "-- Selecciona una Región --";
             utilService = new UtilService();
             List<string> regiones = utilService.GetRegionesREST();
-            regiones.Insert(0, "-- Selecciona una Región --");
-            regiones.RemoveAt(regiones.Count-1);
 
-            return regiones;
+            if (regiones != null)
+            {
+                regiones.Insert(0, defaultValue);
+                regiones.RemoveAt(regiones.Count - 1);
+            }
+            else
+            {
+                regiones = new List<string>() { defaultValue };
+            }
+            return regiones;     
         }
 
         public List<string> ObtenerComunasPorRegion(string region)
         {
             utilService = new UtilService();
             List<string> comunas = utilService.GetComunasREST(region);
-            comunas.Insert(0, "-- Selecciona una Región --");
+            comunas.Insert(0, "-- Selecciona una Comuna --");
 
             return comunas;
         }
@@ -35,18 +44,34 @@ namespace turismo_real_controller.Controllers.Util
 
         public List<string> ObtenerTiposDepto()
         {
+            string defaultValue = "-- Tipo Departamento --";
             utilService = new UtilService();
             List<string> tiposDepto = utilService.GetTiposDeptoREST();
-            tiposDepto.Insert(0, " -- Tipo Departamento --");
+
+            if (tiposDepto != null)
+            {
+                tiposDepto.Insert(0, defaultValue);
+                return tiposDepto;
+            }
+            tiposDepto = new List<string>() { defaultValue };
             return tiposDepto;
         }
 
         public List<string> ObtenerEstadosDepto()
         {
-            utilService = new UtilService();
-            List<string> estadosDepto = utilService.GetEstadosDeptoREST();
-            estadosDepto.Insert(0, "-- Estado --");
-            return estadosDepto;
+            string defaultValue = "-- Estado --";
+            try
+            {
+                utilService = new UtilService();
+                List<string> estadosDepto = utilService.GetEstadosDeptoREST();
+                estadosDepto.Insert(0, defaultValue);
+                return estadosDepto;
+            } catch(NullReferenceException ex)
+            {
+                List<string> defaultCombo = new List<string>();
+                defaultCombo.Insert(0, defaultValue);
+                return defaultCombo;
+            }
         }
 
         public List<string> ObtenerGeneros()
@@ -57,9 +82,14 @@ namespace turismo_real_controller.Controllers.Util
 
         public List<string> ObtenerPaises()
         {
+            string defaultValue = "-- Seleccionar País --";
             utilService = new UtilService();
             List<string> paises = utilService.GetPaisesREST();
-            paises.Insert(0, "-- Seleccionar País --");
+
+            if (paises != null)
+                paises.Insert(0, defaultValue);
+            else
+                paises = new List<string>() { defaultValue };
             return paises;
         }
 
@@ -71,9 +101,16 @@ namespace turismo_real_controller.Controllers.Util
 
         public List<string> ObtenerTiposServicios()
         {
+            string defaultValue = "-- Tipo Servicio --";
             utilService = new UtilService();
             List<string> tiposServicios = utilService.GetTiposServicioREST();
-            tiposServicios.Insert(0, "-- Tipo Servicio --");
+
+            if (tiposServicios != null)
+            {
+                tiposServicios.Insert(0, defaultValue);
+                return tiposServicios;
+            }
+            tiposServicios = new List<string>() { defaultValue };
             return tiposServicios;
         }
     }
