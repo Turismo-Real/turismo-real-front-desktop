@@ -1,5 +1,6 @@
 ﻿using MahApps.Metro.Controls;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using turismo_real_business.DTOs;
 using turismo_real_business.Messages;
@@ -20,25 +21,18 @@ namespace turismo_real_desktop.Views.Extra
             loginController = new LoginController();
         }
 
+        private void OnHoverIngresar(object sender, MouseEventArgs e) => ChangeHoverColor(btnLogin, loginText, "LOGIN");
+        private void OnLeaveIngresar(object sender, MouseEventArgs e) => ChangeLeaveColor(btnLogin, loginText, "LOGIN");
+        private void OnHoverRecuperar(object sender, MouseEventArgs e) => ChangeHoverColor(btnRecuperarPass, recuperarText, "RECOVER");
+        private void OnLeaveRecuperar(object sender, MouseEventArgs e) => ChangeLeaveColor(btnRecuperarPass, recuperarText, "RECOVER");
+        private void ActiveLabel(object sender, MouseEventArgs e) => lblForgotPasswd.Foreground = UIColors.NormalGreen;
+        private void DeactiveLabel(object sender, MouseEventArgs e) => lblForgotPasswd.Foreground = UIColors.NormalBlack;
+        private void OnHoverLogin(object sender, MouseEventArgs e) => btnLogin.Background = UIColors.HoverGreen;
+
         private void OpenRecoverPasswdWin(object sender, MouseButtonEventArgs e)
         {
             string message = "Para poder registrarte en el sistema ponte en contacto con un administrador que ingrese tus datos.";
             MessageBox.Show(message, "Contacta con un administrador" ,MessageBoxButton.OK, MessageBoxImage.Information);
-        }
-
-        private void ActiveLabel(object sender, MouseEventArgs e)
-        {
-            lblForgotPasswd.Foreground = UIColors.NormalGreen;
-        }
-
-        private void DeactiveLabel(object sender, MouseEventArgs e)
-        {
-            lblForgotPasswd.Foreground = UIColors.NormalBlack;
-        }
-
-        private void OnHoverLogin(object sender, MouseEventArgs e)
-        {
-            btnLogin.Background = UIColors.HoverGreen;
         }
 
         private void OpenRecoverPassWin(object sender, RoutedEventArgs e)
@@ -99,8 +93,40 @@ namespace turismo_real_desktop.Views.Extra
             Dashboard opendash = new Dashboard(loginObject);
             opendash.Show();
             Close();
+        }
 
+        // CHANGE COLORS METHODS
+        public void ChangeHoverColor(Tile tile, TextBlock text, string color)
+        {
+            if (color.Equals("LOGIN"))
+            {
+                tile.Background = UIColors.HoverGreen;
+                tile.BorderBrush = UIColors.HoverGreen;
+            }
 
+            if (color.Equals("RECOVER"))
+            {
+                tile.Background = UIColors.NormalGreen;
+                tile.BorderBrush = UIColors.NormalGreen;
+                text.Foreground = UIColors.White;
+            }
+        }
+
+        public void ChangeLeaveColor(Tile tile, TextBlock text, string color)
+        {
+            if (color.Equals("LOGIN"))
+            {
+                tile.Background = UIColors.NormalGreen;
+                tile.BorderBrush = UIColors.NormalGreen;
+                text.Foreground = UIColors.White;
+            }
+
+            if (color.Equals("RECOVER"))
+            {
+                tile.Background = UIColors.White;
+                tile.BorderBrush = UIColors.NormalGreen;
+                text.Foreground = UIColors.NormalGreen;
+            }
         }
     }
 }

@@ -40,9 +40,6 @@ namespace turismo_real_desktop.Views.Administrador
                 usuarioController = new UsuarioController();
                 string currentPass = loginController.HashPassword(currentPassword.Password.ToString());
                 string newPass = loginController.HashPassword(newPassword.Password.ToString());
-
-                Trace.WriteLine(currentPass);
-                Trace.WriteLine(newPass);
                 bool updated = usuarioController.ActualizarPassword(usuarioId, currentPass, newPass);
 
                 if (updated)
