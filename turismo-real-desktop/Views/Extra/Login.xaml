@@ -22,7 +22,6 @@
         <Image HorizontalAlignment="Left" Height="26" Margin="22,274,0,0" VerticalAlignment="Top" Width="24" Source="/Assets/key.png"/>
         <Button x:Name="btnoffline" Content="Offline" HorizontalAlignment="Left" Margin="265,29,0,0" VerticalAlignment="Top" Click="Button_Click"/>
 
-
         <mah:Tile x:Name="btnLogin" HorizontalAlignment="Left" VerticalContentAlignment="Center" Background="#CC60A917" BorderBrush="#CC60A917" BorderThickness="1" Margin="54,333,0,0" Cursor="Hand" VerticalAlignment="Top" Height="35" Width="234" MouseEnter="OnHoverIngresar" MouseLeave="OnLeaveIngresar" Click="LoginUser">
             <StackPanel Orientation="Vertical" VerticalAlignment="Center">
                 <TextBlock x:Name="loginText" Text="INGRESAR" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#FFFFFF" Margin="5"/>

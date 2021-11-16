@@ -9,7 +9,7 @@ namespace turismo_real_controller.Controllers.Util
         private UtilService utilService;
 
         public List<string> ObtenerRegiones()
-        {
+        {   
             string defaultValue = "-- Selecciona una Región --";
             utilService = new UtilService();
             List<string> regiones = utilService.GetRegionesREST();

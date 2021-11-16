@@ -1,12 +1,15 @@
 ﻿using MahApps.Metro.Controls;
+using MahApps.Metro.IconPacks;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using turismo_real_business.DTOs;
 using turismo_real_controller.Controllers.Usuario;
 using turismo_real_desktop.GridEntities;
+using turismo_real_desktop.UIElements;
 using turismo_real_desktop.Views.Administrador;
 
 namespace turismo_real_desktop.Views.Usuarios
@@ -21,6 +24,16 @@ namespace turismo_real_desktop.Views.Usuarios
             InitializeComponent();
             FillDataGridUsuarios();
         }
+
+        public string GetSource(FrameworkElement src) => src.Name;
+        private void OnHoverNuevoUsuario(object sender, MouseEventArgs e) => ChangeHoverColor(btnNuevoUsuario, nuevoUsuarioText, GetSource(e.OriginalSource as FrameworkElement), nuevoUsuarioIcon);
+        private void OnLeaveNuevoUsuario(object sender, MouseEventArgs e) => ChangeLeaveColor(btnNuevoUsuario, nuevoUsuarioText, GetSource(e.OriginalSource as FrameworkElement), nuevoUsuarioIcon);
+        private void OnHoverVolver(object sender, MouseEventArgs e) => ChangeHoverColor(btnVolver, volverText, GetSource(e.OriginalSource as FrameworkElement), volverIcon);
+        private void OnLeaveVolver(object sender, MouseEventArgs e) => ChangeLeaveColor(btnVolver, volverText, GetSource(e.OriginalSource as FrameworkElement), volverIcon);
+        private void OnHoverEliminar(object sender, MouseEventArgs e) => ChangeHoverColor(btnEliminar, eliminarText, GetSource(e.OriginalSource as FrameworkElement));
+        private void OnLeaverEliminar(object sender, MouseEventArgs e) => ChangeLeaveColor(btnEliminar, eliminarText, GetSource(e.OriginalSource as FrameworkElement));
+        private void OnHoverSeleccionar(object sender, MouseEventArgs e) => ChangeHoverColor(btnSeleccionar, seleccionarText, GetSource(e.OriginalSource as FrameworkElement));
+        private void OnLeaveSeleccionar(object sender, MouseEventArgs e) => ChangeLeaveColor(btnSeleccionar, seleccionarText, GetSource(e.OriginalSource as FrameworkElement));
 
         private void CloseWindow(object sender, RoutedEventArgs e)
         {
@@ -76,28 +89,9 @@ namespace turismo_real_desktop.Views.Usuarios
             }
         }
 
-        private void OnHoverVolver(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void OnLeaveVolver(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void OnHoverEliminar(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void OnLeaverEliminar(object sender, MouseEventArgs e)
-        {
-
-        }
-
         private void EliminarUsuario(object sender, RoutedEventArgs e)
         {
+            if (dataGridUsuarios.SelectedItem == null) return;
             if (MessageBox.Show("¿Esta seguro que desea eliminar a este usuario?", "¡Atención!", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
             {
                 usuarioController = new UsuarioController();
@@ -106,20 +100,6 @@ namespace turismo_real_desktop.Views.Usuarios
                 bool removed = usuarioController.EliminarUsuario(id);
                 if (removed) FillDataGridUsuarios();
             }
-            else
-            {
-                return;
-            }
-        }
-
-        private void OnLeaveSeleccionar(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void OnHoverSeleccionar(object sender, MouseEventArgs e)
-        {
-
         }
 
         private void SeleccionarUsuario(object sender, RoutedEventArgs e)
@@ -132,20 +112,44 @@ namespace turismo_real_desktop.Views.Usuarios
             }
         }
 
-        private void OnHoverNuevoDepto(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void OnLeaveNuevoDepto(object sender, MouseEventArgs e)
-        {
-
-        }
-
         private void OpenNuevoUsuario(object sender, RoutedEventArgs e)
         {
             NuevoUsuario nuevoUsuarioWin = new NuevoUsuario(this);
             nuevoUsuarioWin.Show();
         }
+
+        // CHANGE COLORS METHODS
+        public void ChangeHoverColor(Tile tile, TextBlock text, string source, PackIconFontAwesome icon = null)
+        {
+            if (source.Equals("btnSeleccionar"))
+            {
+                tile.Background = UIColors.Blue;
+                text.Foreground = UIColors.White;
+            }
+            else if (source.Equals("btnNuevoUsuario") || source.Equals("btnVolver"))
+            {
+                tile.Background = UIColors.NormalGreen;
+                text.Foreground = UIColors.White;
+                if (icon != null) icon.Foreground = UIColors.White;
+            }
+            else if (source.Equals("btnEliminar"))
+            {
+                tile.Background = UIColors.Red;
+                text.Foreground = UIColors.White;
+            }
+        }
+
+        public void ChangeLeaveColor(Tile tile, TextBlock text, string source, PackIconFontAwesome icon = null)
+        {
+            tile.Background = UIColors.White;
+            if (source.Equals("btnSeleccionar"))
+                text.Foreground = UIColors.Blue;
+            else if (source.Equals("btnNuevoUsuario") || source.Equals("btnVolver"))
+                text.Foreground = UIColors.NormalGreen;
+                if (icon != null) icon.Foreground = UIColors.NormalGreen;
+            else if (source.Equals("btnEliminar"))
+                text.Foreground = UIColors.Red;
+        }
+
     }
 }

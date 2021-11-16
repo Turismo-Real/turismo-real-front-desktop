@@ -1,13 +1,16 @@
 ﻿using MahApps.Metro.Controls;
+using MahApps.Metro.IconPacks;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using turismo_real_business.DTOs;
 using turismo_real_controller.Controllers.Servicio;
 using turismo_real_desktop.GridEntities;
+using turismo_real_desktop.UIElements;
 using turismo_real_desktop.Views.Administrador;
 
 namespace turismo_real_desktop.Views.Servicios
@@ -23,6 +26,16 @@ namespace turismo_real_desktop.Views.Servicios
             FillDataGridServicios();
             dataGridServicios.IsReadOnly = true;
         }
+
+        public string GetSource(FrameworkElement src) => src.Name;
+        private void OnHoverNuevoServicio(object sender, MouseEventArgs e) => ChangeHoverColor(btnNuevoServicio, nuevoServicioText, GetSource(e.OriginalSource as FrameworkElement), nuevoServicioIcon);
+        private void OnLeaveNuevoServicio(object sender, MouseEventArgs e) => ChangeLeaveColor(btnNuevoServicio, nuevoServicioText, GetSource(e.OriginalSource as FrameworkElement), nuevoServicioIcon);
+        private void OnHoverSeleccionar(object sender, MouseEventArgs e) => ChangeHoverColor(btnSeleccionar, seleccionarText, GetSource(e.OriginalSource as FrameworkElement));
+        private void OnLeaveSeleccionar(object sender, MouseEventArgs e) => ChangeLeaveColor(btnSeleccionar, seleccionarText, GetSource(e.OriginalSource as FrameworkElement));
+        private void OnHoverEliminar(object sender, MouseEventArgs e) => ChangeHoverColor(btnEliminar, eliminarText, GetSource(e.OriginalSource as FrameworkElement));
+        private void OnLeaverEliminar(object sender, MouseEventArgs e) => ChangeLeaveColor(btnEliminar, eliminarText, GetSource(e.OriginalSource as FrameworkElement));
+        private void OnHoverVolver(object sender, MouseEventArgs e) => ChangeHoverColor(btnVolver, volverText, GetSource(e.OriginalSource as FrameworkElement), volverIcon);
+        private void OnLeaveVolver(object sender, MouseEventArgs e) => ChangeLeaveColor(btnVolver, volverText, GetSource(e.OriginalSource as FrameworkElement), volverIcon);
 
         public void FillDataGridServicios()
         {
@@ -70,16 +83,6 @@ namespace turismo_real_desktop.Views.Servicios
             nuevoServicioWin.Show();
         }
 
-        private void OnHoverNuevoServicio(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void OnLeaveNuevoServicio(object sender, MouseEventArgs e)
-        {
-
-        }
-
         // Btn seleccionar servicio
         private void SeleccionarServicio(object sender, RoutedEventArgs e)
         {
@@ -89,16 +92,6 @@ namespace turismo_real_desktop.Views.Servicios
                 ServicioWindow servicioWindow = new ServicioWindow(this, selectedServicio.idServicio);
                 servicioWindow.Show();
             }
-        }
-
-        private void OnHoverSeleccionar(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void OnLeaveSeleccionar(object sender, MouseEventArgs e)
-        {
-
         }
 
         //Btn eliminar servicio
@@ -120,16 +113,6 @@ namespace turismo_real_desktop.Views.Servicios
             }
         }
 
-        private void OnHoverEliminar(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void OnLeaverEliminar(object sender, MouseEventArgs e)
-        {
-
-        }
-
         //btn Volver 
         private void CloseWindow(object sender, RoutedEventArgs e) {
             Dashboard dashWindow = new Dashboard();
@@ -137,14 +120,37 @@ namespace turismo_real_desktop.Views.Servicios
             Close();
         }
 
-        private void OnHoverVolver(object sender, MouseEventArgs e)
+        // CHANGE COLORS METHODS
+        public void ChangeHoverColor(Tile tile, TextBlock text, string source, PackIconFontAwesome icon = null)
         {
-
+            if (source.Equals("btnSeleccionar"))
+            {
+                tile.Background = UIColors.Blue;
+                text.Foreground = UIColors.White;
+            }
+            else if (source.Equals("btnNuevoServicio") || source.Equals("btnVolver"))
+            {
+                tile.Background = UIColors.NormalGreen;
+                text.Foreground = UIColors.White;
+                if (icon != null) icon.Foreground = UIColors.White;
+            }
+            else if (source.Equals("btnEliminar"))
+            {
+                tile.Background = UIColors.Red;
+                text.Foreground = UIColors.White;
+            }
         }
 
-        private void OnLeaveVolver(object sender, MouseEventArgs e)
+        public void ChangeLeaveColor(Tile tile, TextBlock text, string source, PackIconFontAwesome icon = null)
         {
-
+            tile.Background = UIColors.White;
+            if (source.Equals("btnSeleccionar"))
+                text.Foreground = UIColors.Blue;
+            else if (source.Equals("btnNuevoServicio") || source.Equals("btnVolver"))
+                text.Foreground = UIColors.NormalGreen;
+                if (icon != null) icon.Foreground = UIColors.NormalGreen;
+            else if (source.Equals("btnEliminar"))
+                text.Foreground = UIColors.Red;
         }
     }
 }

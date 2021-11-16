@@ -2,19 +2,15 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using turismo_real_business.DTOs;
 using turismo_real_business.Singleton;
 using turismo_real_controller.Controllers.Usuario;
 using turismo_real_controller.Controllers.Util;
+using turismo_real_desktop.UIElements;
 
 namespace turismo_real_desktop.Views.Administrador
 {
@@ -32,6 +28,21 @@ namespace turismo_real_desktop.Views.Administrador
             gridVerUsuario.Visibility = Visibility.Visible;
             gridEditarUsuario.Visibility = Visibility.Hidden;
         }
+
+        private void EditarUsuario(object sender, RoutedEventArgs e) => ChangeGridVisibility();
+        private void CancelarEdicion(object sender, RoutedEventArgs e) => ChangeGridVisibility();
+        public void FillComboRegion() => cboxRegion.ItemsSource = utilController.ObtenerRegiones();
+        public string GetSource(FrameworkElement src) => src.Name;
+        private void OnHoverGuardar(object sender, MouseEventArgs e) => ChangeHoverColor(btnGuardar, guardarText, GetSource(e.OriginalSource as FrameworkElement));
+        private void OnLeaveGuardar(object sender, MouseEventArgs e) => ChangeLeaveColor(btnGuardar, guardarText, GetSource(e.OriginalSource as FrameworkElement));
+        private void OnHoverCancelar(object sender, MouseEventArgs e) => ChangeHoverColor(btnCancelar, cancelarText, GetSource(e.OriginalSource as FrameworkElement));
+        private void OnLeaveCancelar(object sender, MouseEventArgs e) => ChangeLeaveColor(btnCancelar, cancelarText, GetSource(e.OriginalSource as FrameworkElement));
+        private void OnHoverVolver(object sender, MouseEventArgs e) => ChangeHoverColor(btnVolver, volverText, GetSource(e.OriginalSource as FrameworkElement));
+        private void OnLeaveVolver(object sender, MouseEventArgs e) => ChangeLeaveColor(btnVolver, volverText, GetSource(e.OriginalSource as FrameworkElement));
+        private void OnHoverCambioPass(object sender, MouseEventArgs e) => ChangeHoverColor(btnCambiarPass, cambiarPassText, GetSource(e.OriginalSource as FrameworkElement));
+        private void OnLeaveCambioPass(object sender, MouseEventArgs e) => ChangeLeaveColor(btnCambiarPass, cambiarPassText, GetSource(e.OriginalSource as FrameworkElement));
+        private void OnHoverEditar(object sender, MouseEventArgs e) => ChangeHoverColor(btnEditar, editarText, GetSource(e.OriginalSource as FrameworkElement));
+        private void OnLeaveEditar(object sender, MouseEventArgs e) => ChangeLeaveColor(btnEditar, editarText, GetSource(e.OriginalSource as FrameworkElement));
 
         public void FillDataForm()
         {
@@ -101,10 +112,6 @@ namespace turismo_real_desktop.Views.Administrador
             Close();
         }
 
-        private void EditarUsuario(object sender, RoutedEventArgs e) => ChangeGridVisibility();
-        private void CancelarEdicion(object sender, RoutedEventArgs e) => ChangeGridVisibility();
-        public void FillComboRegion() => cboxRegion.ItemsSource = utilController.ObtenerRegiones();
-
         public void ChangeGridVisibility()
         {
             if (gridVerUsuario.Visibility.Equals(Visibility.Hidden))
@@ -115,16 +122,6 @@ namespace turismo_real_desktop.Views.Administrador
             }
             gridEditarUsuario.Visibility = Visibility.Visible;
             gridVerUsuario.Visibility = Visibility.Hidden;
-        }
-
-        private void OnHoverCancelar(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void OnLeaveCancelar(object sender, MouseEventArgs e)
-        {
-
         }
 
         private void GuardarCambios(object sender, RoutedEventArgs e)
@@ -175,36 +172,6 @@ namespace turismo_real_desktop.Views.Administrador
             direccion.casa = txtCasa.Text;
             usuario.direccion = direccion;
             return usuario;
-        }
-
-        private void OnHoverGuardar(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void OnLeaveGuardar(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void OnHoverVolver(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void OnLeaveVolver(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void OnHoverEditar(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void OnLeaveEditar(object sender, MouseEventArgs e)
-        {
-
         }
 
         private void PaisChanged(object sender, SelectionChangedEventArgs e)
@@ -259,14 +226,32 @@ namespace turismo_real_desktop.Views.Administrador
             passWin.ShowDialog();
         }
 
-        private void OnHoverCambioPass(object sender, MouseEventArgs e)
+        // CHANGE COLORS METHODS
+        public void ChangeHoverColor(Tile tile, TextBlock text, string source)
         {
-
+            if (source.Equals("btnCambiarPass")){
+                tile.Background = UIColors.Blue;
+                text.Foreground = UIColors.White;
+            } else if(source.Equals("btnGuardar") || source.Equals("btnEditar"))
+            {
+                tile.Background = UIColors.NormalGreen;
+                text.Foreground = UIColors.White;
+            } else if (source.Equals("btnCancelar") || source.Equals("btnVolver"))
+            {
+                tile.Background = UIColors.Red;
+                text.Foreground = UIColors.White;
+            }
         }
 
-        private void OnLeaveCambioPass(object sender, MouseEventArgs e)
+        public void ChangeLeaveColor(Tile tile, TextBlock text, string source)
         {
-
+            tile.Background = UIColors.White;
+            if (source.Equals("btnCambiarPass"))
+                text.Foreground = UIColors.Blue;
+            else if (source.Equals("btnGuardar") || source.Equals("btnEditar"))
+                text.Foreground = UIColors.NormalGreen;
+            else if (source.Equals("btnCancelar") || source.Equals("btnVolver"))
+                text.Foreground = UIColors.Red;
         }
     }
 }

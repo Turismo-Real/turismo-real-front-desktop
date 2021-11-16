@@ -19,7 +19,7 @@
                     <!-- BOTON NUEVO SERVICIO -->
                     <mah:Tile x:Name="btnNuevoServicio" Margin="540,47,0,0" Cursor="Hand" Width="180" Height="110" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" MouseEnter="OnHoverNuevoServicio" MouseLeave="OnLeaveNuevoServicio" Click="OpenNuevoServicio" HorizontalAlignment="Left" VerticalAlignment="Top">
                         <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
-                            <iconPacks:PackIconFontAwesome x:Name="nuevoUsuarioIcon" Kind="PlusCircleSolid" Foreground="#CC60A917" Height="50" Width="100" FontWeight="Bold" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>
+                            <iconPacks:PackIconFontAwesome x:Name="nuevoServicioIcon" Kind="PlusCircleSolid" Foreground="#CC60A917" Height="50" Width="100" FontWeight="Bold" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>
                             <TextBlock x:Name="nuevoServicioText" Text="NUEVO SERVICIO" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#CC60A917" Margin="5"/>
                         </StackPanel>
                     </mah:Tile>
