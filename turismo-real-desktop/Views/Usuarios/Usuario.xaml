@@ -121,13 +121,13 @@
             <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left" Height="1" Margin="124,34,0,0" VerticalAlignment="Top" Width="111" RenderTransformOrigin="0.5,0.5"/>
             <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left" Height="1" Margin="504,34,0,0" VerticalAlignment="Top" Width="89" RenderTransformOrigin="0.5,0.5"/>
 
-            <mah:Tile x:Name="btnVolver" HorizontalAlignment="Left" VerticalContentAlignment="Center" Background="#FFFFFF" BorderBrush="#FFDC1F1F" BorderThickness="1" Margin="158,488,0,0" Cursor="Hand" VerticalAlignment="Top" Height="30" Width="210" MouseEnter="OnHoverCancelar" MouseLeave="OnLeaveCancelar" Click="Volver">
+            <mah:Tile x:Name="btnVolver" HorizontalAlignment="Left" VerticalContentAlignment="Center" Background="#FFFFFF" BorderBrush="#FFDC1F1F" BorderThickness="1" Margin="158,488,0,0" Cursor="Hand" VerticalAlignment="Top" Height="30" Width="210" MouseEnter="OnHoverVolver" MouseLeave="OnLeaveVolver" Click="Volver">
                 <StackPanel Orientation="Vertical" VerticalAlignment="Center">
                     <TextBlock x:Name="volverText" Text="VOLVER" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#FFDC1F1F" Margin="5"/>
                 </StackPanel>
             </mah:Tile>
 
-            <mah:Tile x:Name="btnEditar" HorizontalAlignment="Left" VerticalContentAlignment="Center" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" Cursor="Hand" Margin="445,488,0,0" VerticalAlignment="Top" Height="30" Width="210" MouseEnter="OnHoverGuardar" MouseLeave="OnLeaveGuardar" Click="EditarUsuario">
+            <mah:Tile x:Name="btnEditar" HorizontalAlignment="Left" VerticalContentAlignment="Center" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" Cursor="Hand" Margin="445,488,0,0" VerticalAlignment="Top" Height="30" Width="210" MouseEnter="OnHoverEditar" MouseLeave="OnLeaveEditar" Click="EditarUsuario">
                 <StackPanel Orientation="Vertical" VerticalAlignment="Center">
                     <TextBlock x:Name="editarText" Text="EDITAR" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#CC60A917" Margin="5"/>
                 </StackPanel>

@@ -10,7 +10,7 @@
         WindowStartupLocation="CenterScreen">
     <Grid>
         <!-- GRID EDITAR -->
-        <Grid x:Name="gridEditar" Visibility="Visible">
+        <Grid x:Name="gridEditar" Visibility="Hidden">
             <Grid.RowDefinitions>
                 <RowDefinition Height="113*"/>
                 <RowDefinition Height="535*"/>
@@ -62,7 +62,7 @@
                 </StackPanel>
             </mah:Tile>
 
-            <mah:Tile x:Name="btnGurardar" HorizontalAlignment="Left" VerticalContentAlignment="Center" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" Cursor="Hand" Margin="389,465,0,0" VerticalAlignment="Top" Height="30" Width="210" MouseEnter="OnHoverGuardar" MouseLeave="OnLeaveGuardar" Click="GuardarCambios" Grid.Row="1">
+            <mah:Tile x:Name="btnGuardar" HorizontalAlignment="Left" VerticalContentAlignment="Center" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" Cursor="Hand" Margin="389,465,0,0" VerticalAlignment="Top" Height="30" Width="210" MouseEnter="OnHoverGuardar" MouseLeave="OnLeaveGuardar" Click="GuardarCambios" Grid.Row="1">
                 <StackPanel Orientation="Vertical" VerticalAlignment="Center">
                     <TextBlock x:Name="guardarText" Text="GUARDAR" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#CC60A917" Margin="5"/>
                 </StackPanel>
@@ -72,7 +72,7 @@
 
 
         <!-- GRID VISTA DATOS -->
-        <Grid x:Name="gridVer" Visibility="Hidden">
+        <Grid x:Name="gridVer" Visibility="Visible">
             <Label x:Name="rolText" Content="111-111" HorizontalAlignment="Left" Margin="117,50,0,0" VerticalAlignment="Top"/>
             <Label x:Name="estadoText" Content="Cargado" HorizontalAlignment="Left" Margin="114,81,0,0" VerticalAlignment="Top"/>
             <Label x:Name="tipoText" Content="Normal" HorizontalAlignment="Left" Margin="115,113,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.836,1.311"/>
@@ -116,17 +116,17 @@
             <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left" Height="1" Margin="107,30,0,0" VerticalAlignment="Top" Width="161"/>
             <Rectangle HorizontalAlignment="Left" Height="170" Margin="309,50,0,0" Stroke="Black" VerticalAlignment="Top" Width="1"/>
 
-            <mah:Tile HorizontalAlignment="Left" VerticalContentAlignment="Center" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" Cursor="Hand" Margin="389,578,0,0" VerticalAlignment="Top" Height="30" Width="210" MouseEnter="OnHoverGuardar" MouseLeave="OnLeaveGuardar" Click="EditarDepto">
+            <mah:Tile x:Name="btnEditar" HorizontalAlignment="Left" VerticalContentAlignment="Center" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" Cursor="Hand" Margin="389,578,0,0" VerticalAlignment="Top" Height="30" Width="210" MouseEnter="OnHoverEditar" MouseLeave="OnLeaveEditar" Click="EditarDepto">
                 <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-                    <TextBlock TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#CC60A917" Margin="5"><Run Language="es-cl" Text="EDITAR"/></TextBlock>
+                    <TextBlock x:Name="editarText" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#CC60A917" Margin="5"><Run Language="es-cl" Text="EDITAR"/></TextBlock>
                 </StackPanel>
             </mah:Tile>
             <TextBlock HorizontalAlignment="Left" Margin="267,535,0,0" Text="Mensaje para el usuario." TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18"/>
 
             <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left" Height="1" Margin="115,376,0,0" VerticalAlignment="Top" Width="548"/>
-            <mah:Tile x:Name="btnVolver" HorizontalAlignment="Left" VerticalContentAlignment="Center" Background="#FFFFFF" BorderBrush="#FFDC1F1F" BorderThickness="1" Margin="102,578,0,0" Cursor="Hand" VerticalAlignment="Top" Height="30" Width="210" MouseEnter="OnHoverCancelar" MouseLeave="OnLeaveCancelar" Click="ClickVolver">
+            <mah:Tile x:Name="btnVolver" HorizontalAlignment="Left" VerticalContentAlignment="Center" Background="#FFFFFF" BorderBrush="#FFDC1F1F" BorderThickness="1" Margin="102,578,0,0" Cursor="Hand" VerticalAlignment="Top" Height="30" Width="210" MouseEnter="OnHoverVolver" MouseLeave="OnLeaveVolver" Click="ClickVolver">
                 <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-                    <TextBlock TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#FFDC1F1F" Margin="5"><Run Language="es-cl" Text="VOLVER"/></TextBlock>
+                    <TextBlock x:Name="volverText" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#FFDC1F1F" Margin="5"><Run Language="es-cl" Text="VOLVER"/></TextBlock>
                 </StackPanel>
             </mah:Tile>
         </Grid>

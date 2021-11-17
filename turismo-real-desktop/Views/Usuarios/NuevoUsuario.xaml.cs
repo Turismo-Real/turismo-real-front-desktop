@@ -9,11 +9,10 @@ using turismo_real_business.DTOs;
 using turismo_real_controller.Controllers.Usuario;
 using turismo_real_controller.Controllers.Util;
 using turismo_real_controller.Hasher;
+using turismo_real_desktop.UIElements;
 
 namespace turismo_real_desktop.Views.Usuarios
 {
-
-
     public partial class NuevoUsuario : MetroWindow
     {
         private UsuariosWindow usuariosWin;
@@ -27,6 +26,13 @@ namespace turismo_real_desktop.Views.Usuarios
             FillComboBoxes();
         }
 
+        public string GetSource(FrameworkElement src) => src.Name;
+        private void CancelarInsercion(object sender, RoutedEventArgs e) => Close();
+        private void OnHoverCancelar(object sender, MouseEventArgs e) => ChangeHoverColor(btnCancelar, cancelarText, GetSource(e.OriginalSource as FrameworkElement));
+        private void OnLeaveCancelar(object sender, MouseEventArgs e) => ChangeLeaveColor(btnCancelar, cancelarText, GetSource(e.OriginalSource as FrameworkElement));
+        private void OnHoverGuardar(object sender, MouseEventArgs e) => ChangeHoverColor(btnGuardar, guardarText, GetSource(e.OriginalSource as FrameworkElement));
+        private void OnLeaveGuardar(object sender, MouseEventArgs e) => ChangeLeaveColor(btnGuardar, guardarText, GetSource(e.OriginalSource as FrameworkElement));
+
         public void FillComboBoxes()
         {
             utilController = new UtilController();
@@ -37,32 +43,7 @@ namespace turismo_real_desktop.Views.Usuarios
             cboxPais.ItemsSource = utilController.ObtenerPaises();
             cboxPais.SelectedIndex = 0;
         }
-
-        private void CancelarInsercion(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-
-        private void OnHoverCancelar(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void OnLeaveCancelar(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void OnHoverGuardar(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void OnLeaveGuardar(object sender, MouseEventArgs e)
-        {
-
-        }
-
+        
         private void RegionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (cboxRegion.SelectedIndex != 0 && cboxRegion.SelectedItem != null)
@@ -468,6 +449,31 @@ namespace turismo_real_desktop.Views.Usuarios
             {
                 return;
             }
+        }
+
+        // CHANGE COLORS METHODS
+        public void ChangeHoverColor(Tile tile, TextBlock text, string source)
+        {
+            // btnCancelar - btnGuardar -btnVolver - btnEditar
+            if (source.Equals("btnGuardar") || source.Equals("btnEditar"))
+            {
+                tile.Background = UIColors.NormalGreen;
+                text.Foreground = UIColors.White;
+            }
+            else if (source.Equals("btnCancelar") || source.Equals("btnVolver"))
+            {
+                tile.Background = UIColors.Red;
+                text.Foreground = UIColors.White;
+            }
+        }
+
+        public void ChangeLeaveColor(Tile tile, TextBlock text, string source)
+        {
+            tile.Background = UIColors.White;
+            if (source.Equals("btnGuardar") || source.Equals("btnEditar"))
+                text.Foreground = UIColors.NormalGreen;
+            else if (source.Equals("btnCancelar") || source.Equals("btnVolver"))
+                text.Foreground = UIColors.Red;
         }
     }
 }

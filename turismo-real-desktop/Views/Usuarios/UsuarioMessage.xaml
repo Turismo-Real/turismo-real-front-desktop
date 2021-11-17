@@ -14,9 +14,9 @@
         <TextBlock HorizontalAlignment="Left" Margin="69,104,0,0" Text="El usuario ha sido creado exitosamente." TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="61,132,0,0" Text="Tu contraseña por defecto es:" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="75,160,0,0" Text="Inicia sesión y cambia tu contraseña" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <mah:Tile HorizontalAlignment="Left" Margin="100,189,0,0" VerticalAlignment="Top" Height="23" Background="White" BorderBrush="#CC60A917" BorderThickness="1" Cursor="Hand" MouseEnter="OnHoverAceptar" MouseLeave="OnLeaveAceptar" Click="ClickAceptar">
+        <mah:Tile x:Name="btnAceptar" HorizontalAlignment="Left" Margin="100,189,0,0" VerticalAlignment="Top" Height="23" Background="White" BorderBrush="#CC60A917" BorderThickness="1" Cursor="Hand" MouseEnter="OnHoverAceptar" MouseLeave="OnLeaveAceptar" Click="ClickAceptar">
             <StackPanel VerticalAlignment="Center">
-                <TextBlock Text="ACEPTAR" TextAlignment="Center" Foreground="#CC60A917" FontWeight="Medium"/>
+                <TextBlock x:Name="aceptarText" Text="ACEPTAR" TextAlignment="Center" Foreground="#CC60A917" FontWeight="Medium"/>
             </StackPanel>
         </mah:Tile>
         <TextBlock x:Name="lblPass" HorizontalAlignment="Left" FontWeight="Bold" Margin="222,132,0,0" Text="password" TextWrapping="Wrap" VerticalAlignment="Top"/>
