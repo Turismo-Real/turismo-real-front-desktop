@@ -37,12 +37,15 @@ namespace turismo_real_desktop.Views.Reservas
 
         private void OpenNuevaReserva(object sender, RoutedEventArgs e)
         {
-
+            NuevaReserva nuevaReservaWin = new NuevaReserva();
+            nuevaReservaWin.Show();
         }
 
         private void OpenReserva(object sender, RoutedEventArgs e)
         {
-
+            if (reservasGrid.SelectedItem == null) return;
+            Reserva reservaWin = new Reserva();
+            reservaWin.Show();
         }
 
         public void Volver()
@@ -54,7 +57,7 @@ namespace turismo_real_desktop.Views.Reservas
 
         private void EliminarReserva(object sender, RoutedEventArgs e)
         {
-
+            if (reservasGrid.SelectedItem == null) return;
         }
 
         // CHANGE COLORS METHODS

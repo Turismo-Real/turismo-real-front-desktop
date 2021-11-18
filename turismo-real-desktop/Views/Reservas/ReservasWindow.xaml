@@ -10,7 +10,7 @@
         Title="Turismo Real - Reservas" Height="615" Width="1088"
         WindowStartupLocation="CenterScreen">
     <Grid>
-        <DataGrid Margin="27,54,248,45" BorderThickness="1"/>
+        <DataGrid x:Name="reservasGrid" Margin="27,54,248,45" BorderThickness="1"/>
 
         <!-- BOTON NUEVA RESERVA -->
         <mah:Tile x:Name="btnNuevaReserva" Margin="869,54,0,0" Cursor="Hand" Width="180" Height="110" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" MouseEnter="OnHoverNuevaReserva" MouseLeave="OnLeaveNuevaReserva" Click="OpenNuevaReserva" HorizontalAlignment="Left" VerticalAlignment="Top">
