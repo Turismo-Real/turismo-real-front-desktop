@@ -37,7 +37,6 @@ namespace turismo_real_services.REST.Departamento
             }
         }
 
-
         public List<DepartamentoDTO> ParseDeptosResponse(dynamic obj)
         {
             List<DepartamentoDTO> deptos = new List<DepartamentoDTO>();

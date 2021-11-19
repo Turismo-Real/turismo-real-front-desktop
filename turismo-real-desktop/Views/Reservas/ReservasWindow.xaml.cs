@@ -2,6 +2,7 @@
 using MahApps.Metro.IconPacks;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,6 +12,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using turismo_real_business.DTOs;
+using turismo_real_controller.Controllers.Reserva;
+using turismo_real_desktop.GridEntities;
 using turismo_real_desktop.UIElements;
 using turismo_real_desktop.Views.Administrador;
 
@@ -19,9 +23,39 @@ namespace turismo_real_desktop.Views.Reservas
 
     public partial class ReservasWindow : MetroWindow
     {
+        private ReservaController reservaController;
+
         public ReservasWindow()
         {
             InitializeComponent();
+            FillDataGridReservas();
+        }
+
+        public void FillDataGridReservas()
+        {
+            reservaController = new ReservaController();
+            List<ReservaDTO> reservas = reservaController.ObtenerReservas();
+            reservasDataGrid.ItemsSource = ConvertToReservaGrid(reservas);
+            reservasCounter.Text = $"Total reservas: {reservas.Count}";
+        }
+
+        public List<ReservaGrid> ConvertToReservaGrid(List<ReservaDTO> reservas)
+        {
+            List<ReservaGrid> reservasGrid = new List<ReservaGrid>();
+            foreach (ReservaDTO reserva in reservas)
+            {
+                ReservaGrid reservaGrid = new ReservaGrid();
+                reservaGrid.id = reserva.idReserva;
+                reservaGrid.usuario = reserva.idUsuario;
+                reservaGrid.departamento = reserva.idDepartamento;
+                reservaGrid.desde = reserva.fecDesde.ToString("dd/MM/yyyy");
+                reservaGrid.hasta = reserva.fecHasta.ToString("dd/MM/yyyy"); ;
+                reservaGrid.estado = reserva.estadoReserva;
+                reservaGrid.servicios = reserva.servicios.Count;
+                reservaGrid.asistentes = reserva.asistentes.Count;
+                reservasGrid.Add(reservaGrid);
+            }
+            return reservasGrid;
         }
 
         public string GetSource(FrameworkElement src) => src.Name;
@@ -43,7 +77,7 @@ namespace turismo_real_desktop.Views.Reservas
 
         private void OpenReserva(object sender, RoutedEventArgs e)
         {
-            if (reservasGrid.SelectedItem == null) return;
+            if (reservasDataGrid.SelectedItem == null) return;
             Reserva reservaWin = new Reserva();
             reservaWin.Show();
         }
@@ -57,7 +91,7 @@ namespace turismo_real_desktop.Views.Reservas
 
         private void EliminarReserva(object sender, RoutedEventArgs e)
         {
-            if (reservasGrid.SelectedItem == null) return;
+            if (reservasDataGrid.SelectedItem == null) return;
         }
 
         // CHANGE COLORS METHODS
