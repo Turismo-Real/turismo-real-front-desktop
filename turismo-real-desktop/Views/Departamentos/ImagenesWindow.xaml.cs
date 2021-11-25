@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MahApps.Metro.Controls;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -13,7 +14,7 @@ using turismo_real_desktop.Views.Administrador.Departamentos;
 
 namespace turismo_real_desktop.Views.Departamentos
 {
-    public partial class ImagenesWindow : Window
+    public partial class ImagenesWindow : MetroWindow
     {
         private readonly Deptos activeWindow;
         private readonly int idDepartamento;

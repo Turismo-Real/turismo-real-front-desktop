@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MahApps.Metro.Controls;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -12,10 +13,7 @@ using System.Windows.Shapes;
 
 namespace turismo_real_desktop.Views.Reservas
 {
-    /// <summary>
-    /// Interaction logic for NuevaReserva.xaml
-    /// </summary>
-    public partial class NuevaReserva : Window
+    public partial class NuevaReserva : MetroWindow
     {
         public NuevaReserva()
         {
