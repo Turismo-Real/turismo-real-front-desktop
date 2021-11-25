@@ -24,9 +24,9 @@
         <TextBox x:Name="txtCalle" HorizontalAlignment="Left" Margin="393,142,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" PreviewTextInput="txtCalle_PreviewTextInput" LostFocus="txtCalle_LostFocus"/>
         <TextBox x:Name="txtNumero" HorizontalAlignment="Left" Margin="393,173,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" PreviewTextInput="txtNumero_PreviewTextInput" MaxLength="5" LostFocus="txtNumero_LostFocus"/>
         <TextBox x:Name="txtDescripcion" MaxLength="255" HorizontalAlignment="Left" Margin="115,238,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="548" Height="99" PreviewTextInput="txtDescripcion_PreviewTextInput" LostFocus="txtDescripcion_LostFocus"/>
-        <ListBox x:Name="instalacionesDisponibles" BorderBrush="#C1C1C1" Margin="115,343,385,120" BorderThickness="1"/>
+        <ListBox x:Name="instalacionesDisponibles" BorderBrush="#C1C1C1" Margin="115,343,0,120" BorderThickness="1" HorizontalAlignment="Left" Width="185"/>
         <TextBox x:Name="txtInstalacion" Foreground="Gray" HorizontalAlignment="Left" Margin="310,457,0,0" Text="Nueva Instalación" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" GotFocus="NuevaInstalacionFocus" LostFocus="NuevaInstalacionLostFocus"/>
-        <ListBox x:Name="InstalacionesAgregadas" BorderBrush="#067A08" Margin="478,343,22,120" BorderThickness="3"/>
+        <ListBox x:Name="InstalacionesAgregadas" BorderBrush="#067A08" Margin="478,343,0,120" BorderThickness="3" HorizontalAlignment="Left" Width="185"/>
         <mah:Tile x:Name="btnAgregarInstalacion" Content="Agregar" HorizontalAlignment="Left" Margin="310,345,0,0" VerticalAlignment="Top" Height="23" Background="#CC21631E" Width="158" Click="AgregarInstalacion"/>
         <mah:Tile x:Name="btnQuitarInstalacion" Content="Quitar" HorizontalAlignment="Left" Margin="310,373,0,0" VerticalAlignment="Top" Height="23" Background="#CC21631E" Width="158" Click="QuitarInstalacion"/>
         <mah:Tile x:Name="btnInvertirSeleccion" Content="Invertir Selección" HorizontalAlignment="Left" Margin="309,401,0,0" VerticalAlignment="Top" Height="23" Background="#CC21631E" Width="158" Click="InvertirInstalaciones"/>

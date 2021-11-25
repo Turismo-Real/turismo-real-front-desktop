@@ -27,6 +27,16 @@ namespace turismo_real_desktop.Views.Administrador.Departamentos
             dataGridDeptos.IsReadOnly = true;
         }
 
+        private void OnHoverNuevoDepto(object sender, MouseEventArgs e) => ChangeHoverColor(btnNuevoDepto, nuevoDeptoIcon, nuevoDeptoText, "GREEN");
+        private void OnLeaveNuevoDepto(object sender, MouseEventArgs e) => ChangeLeaveColor(btnNuevoDepto, nuevoDeptoIcon, nuevoDeptoText, "GREEN");
+        private void OnHoverSeleccionar(object sender, MouseEventArgs e) => ChangeHoverColor(btnSeleccionar, null, seleccionarText, "BLUE");
+        private void OnLeaveSeleccionar(object sender, MouseEventArgs e) => ChangeLeaveColor(btnSeleccionar, null, seleccionarText, "BLUE");
+        private void OnHoverEliminar(object sender, MouseEventArgs e) => ChangeHoverColor(btnEliminar, null, eliminarText, "RED");
+        private void OnLeaverEliminar(object sender, MouseEventArgs e) => ChangeLeaveColor(btnEliminar, null, eliminarText, "RED");
+        private void OnHoverVolver(object sender, MouseEventArgs e) => ChangeHoverColor(btnVolver, volverIcon, volverText, "GREEN");
+        private void OnLeaveVolver(object sender, MouseEventArgs e) => ChangeLeaveColor(btnVolver, volverIcon, volverText, "GREEN");
+        private void OnHoverImagenes(object sender, MouseEventArgs e) => ChangeHoverColor(btnImagenes, null, imagenesText, "BLUE");
+        private void OnLeaveImagenes(object sender, MouseEventArgs e) => ChangeLeaveColor(btnImagenes, null, imagenesText, "BLUE");
 
         public void FillDataGridDeptos()
         {
@@ -75,12 +85,6 @@ namespace turismo_real_desktop.Views.Administrador.Departamentos
             }
         }
 
-        private void OnHoverNuevoDepto(object sender, MouseEventArgs e)
-        {
-            ChangeHoverColor(btnNuevoDepto, nuevoDeptoIcon, nuevoDeptoText, "GREEN");
-        }
-
-
         // CHANGE COLORS METHODS
         public void ChangeHoverColor(Tile tile, PackIconFontAwesome icon, TextBlock text, string color)
         {
@@ -110,41 +114,6 @@ namespace turismo_real_desktop.Views.Administrador.Departamentos
                     break;
             }
             tile.Background = UIColors.White;
-        }
-
-        private void OnLeaveNuevoDepto(object sender, MouseEventArgs e)
-        {
-            ChangeLeaveColor(btnNuevoDepto, nuevoDeptoIcon, nuevoDeptoText, "GREEN");
-        }
-
-        private void OnHoverSeleccionar(object sender, MouseEventArgs e)
-        {
-            ChangeHoverColor(btnSeleccionar, null, seleccionarText, "BLUE");
-        }
-
-        private void OnLeaveSeleccionar(object sender, MouseEventArgs e)
-        {
-            ChangeLeaveColor(btnSeleccionar, null, seleccionarText, "BLUE");
-        }
-
-        private void OnHoverEliminar(object sender, MouseEventArgs e)
-        {
-            ChangeHoverColor(btnEliminar, null, eliminarText, "RED");
-        }
-
-        private void OnLeaverEliminar(object sender, MouseEventArgs e)
-        {
-            ChangeLeaveColor(btnEliminar, null, eliminarText, "RED");
-        }
-
-        private void OnHoverVolver(object sender, MouseEventArgs e)
-        {
-            ChangeHoverColor(btnVolver, volverIcon, volverText, "GREEN");
-        }
-
-        private void OnLeaveVolver(object sender, MouseEventArgs e)
-        {
-            ChangeLeaveColor(btnVolver, volverIcon, volverText, "GREEN");
         }
 
         private void OpenNuevoDeptoWin(object sender, RoutedEventArgs e)
@@ -183,5 +152,13 @@ namespace turismo_real_desktop.Views.Administrador.Departamentos
             }
         }
 
+        private void OpenImagenes(object sender, RoutedEventArgs e)
+        {
+            if (dataGridDeptos.SelectedItem != null)
+            {
+                DeptoGrid selectedDepto = dataGridDeptos.SelectedItem as DeptoGrid;
+                ImagenesWindow imgsWindow = new ImagenesWindow(this, selectedDepto.id);
+            }
+        }
     }
 }

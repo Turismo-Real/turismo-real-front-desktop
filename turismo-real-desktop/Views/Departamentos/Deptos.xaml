@@ -26,14 +26,21 @@
                     </mah:Tile>
 
                     <!-- BOTON SELECCIONAR -->
-                    <mah:Tile x:Name="btnSeleccionar" Cursor="Hand" HorizontalAlignment="Left" BorderBrush="#2778D3" BorderThickness="1" Background="#FFFFFF" Margin="729,181,0,0" VerticalAlignment="Top" Width="180" Height="65" MouseEnter="OnHoverSeleccionar" MouseLeave="OnLeaveSeleccionar" Click="SeleccionarDepto">
+                    <mah:Tile x:Name="btnSeleccionar" Cursor="Hand" HorizontalAlignment="Left" BorderBrush="#2778D3" BorderThickness="1" Background="#FFFFFF" Margin="729,169,0,0" VerticalAlignment="Top" Width="180" Height="65" MouseEnter="OnHoverSeleccionar" MouseLeave="OnLeaveSeleccionar" Click="SeleccionarDepto">
                         <StackPanel Orientation="Vertical" VerticalAlignment="Center">
                             <TextBlock x:Name="seleccionarText" Text="SELECCIONAR" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#2778D3" Margin="5"/>
                         </StackPanel>
                     </mah:Tile>
+                    
+                    <!-- BOTON IMAGENES -->
+                    <mah:Tile x:Name="btnImagenes" Cursor="Hand" HorizontalAlignment="Left" BorderBrush="#2778D3" BorderThickness="1" Background="#FFFFFF" Margin="729,250,0,0" VerticalAlignment="Top" Width="180" Height="36" MouseEnter="OnHoverImagenes" MouseLeave="OnLeaveImagenes" Click="OpenImagenes">
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                            <TextBlock x:Name="imagenesText" Text="IMÁGENES" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#2778D3" Margin="5"/>
+                        </StackPanel>
+                    </mah:Tile>
 
                     <!-- BOTON ELIMINAR -->
-                    <mah:Tile x:Name="btnEliminar" Cursor="Hand" HorizontalAlignment="Left" Margin="729,283,0,0" BorderBrush="#FFDC1F1F" BorderThickness="1" Background="#FFFFFF" VerticalAlignment="Top" Width="180" Height="37" MouseEnter="OnHoverEliminar" MouseLeave="OnLeaverEliminar" Click="EliminarDepto">
+                    <mah:Tile x:Name="btnEliminar" Cursor="Hand" HorizontalAlignment="Left" Margin="729,309,0,0" BorderBrush="#FFDC1F1F" BorderThickness="1" Background="#FFFFFF" VerticalAlignment="Top" Width="180" Height="37" MouseEnter="OnHoverEliminar" MouseLeave="OnLeaverEliminar" Click="EliminarDepto">
                         <StackPanel Orientation="Vertical" VerticalAlignment="Center">
                             <TextBlock x:Name="eliminarText" Text="ELIMINAR" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#FFDC1F1F" Margin="5"/>
                         </StackPanel>
