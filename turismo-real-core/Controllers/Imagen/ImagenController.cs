@@ -25,5 +25,12 @@ namespace turismo_real_controller.Controllers.Imagen
             bool saved = imagenService.AddImage(payload);
             return saved;
         }
+
+        public bool EliminarImagen(int id)
+        {
+            imagenService = new ImagenService();
+            bool removed = imagenService.DeleteImage(id);
+            return removed;
+        }
     }
 }

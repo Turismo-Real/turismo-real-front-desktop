@@ -20,10 +20,7 @@ namespace turismo_real_desktop.Views.Departamentos
         private ImagenesDeptoDTO imagenesDepto;
         private readonly int idDepartamento;
 
-        public ImagenesWindow()
-        {
-            InitializeComponent();
-        }
+        public ImagenesWindow() => InitializeComponent();
 
         public ImagenesWindow(int idDepartamento)
         {
@@ -73,7 +70,26 @@ namespace turismo_real_desktop.Views.Departamentos
 
         private void EliminarImagen(object sender, RoutedEventArgs e)
         {
+            if (imagenesDataGrid.SelectedItem != null)
+            {
+                ImagenGrid selectedImage = imagenesDataGrid.SelectedItem as ImagenGrid;
+                int selectedDeptoId = selectedImage.id;
+                imagenController = new ImagenController();
+                bool removed = imagenController.EliminarImagen(selectedDeptoId);
 
+                if (removed)
+                {
+                    FillDataGridImagenes();
+                    SetDefaultImage();
+                }
+                else
+                {
+                    string title = "Error al eliminar imagen";
+                    string message = "Ha ocurrido un error al intentar eliminar la imagen.";
+                    MessageBox.Show(message, title, MessageBoxButton.OK, MessageBoxImage.Error);
+
+                }
+            }
         }
 
         public void FillDataGridImagenes()
@@ -143,6 +159,13 @@ namespace turismo_real_desktop.Views.Departamentos
                     imgDepto.Source = bitmap;
                 }
             }
+        }
+
+        private void SetDefaultImage()
+        {
+            string errorImagePath = @"/Assets/defaultImage.jpg";
+            BitmapImage bitmap = new BitmapImage(new Uri(errorImagePath, UriKind.Relative));
+            imgDepto.Source = bitmap;
         }
 
     }
