@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace turismo_real_services.Utils
+﻿namespace turismo_real_services.Utils
 {
     public static class URLService
     {

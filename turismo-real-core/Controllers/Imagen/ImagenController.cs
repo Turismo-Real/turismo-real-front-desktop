@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using turismo_real_business.DTOs;
+﻿using turismo_real_business.DTOs;
 using turismo_real_business.Messages;
 using turismo_real_services.REST.Imagen;
 
