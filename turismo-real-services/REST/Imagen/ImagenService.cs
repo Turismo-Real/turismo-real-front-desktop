@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Net;
 using turismo_real_business.DTOs;
+using turismo_real_business.Messages;
 using turismo_real_services.Utils;
 
 namespace turismo_real_services.REST.Imagen
@@ -28,6 +29,33 @@ namespace turismo_real_services.REST.Imagen
             dynamic response = JsonConvert.DeserializeObject(result);
             ImagenesDeptoDTO imagenResponse = ConvertToImagenesDepto(response);
             return imagenResponse;
+        }
+
+        public bool AddImage(ImagenDeptoPayload imagen)
+        {
+            string json = JsonConvert.SerializeObject(imagen);
+            WebRequest request = WebRequest.Create(URLService.URL_IMAGENES);
+            request.Method = "POST";
+            request.PreAuthenticate = true;
+            request.ContentType = "Application/json; Charset=UTF-8";
+            request.Timeout = 8000;
+
+            using (StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
+            {
+                streamWriter.Write(json);
+                streamWriter.Flush();
+            }
+
+            string result = string.Empty;
+            HttpWebResponse httpResponse = (HttpWebResponse)request.GetResponse();
+            using (StreamReader streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                result = streamReader.ReadToEnd();
+            }
+            dynamic response = JsonConvert.DeserializeObject(result);
+            int createResponse = response["imagenId"];
+            bool saved = createResponse > 0 ? true : false;
+            return saved;
         }
 
         private ImagenesDeptoDTO ConvertToImagenesDepto(dynamic imagenesREST)

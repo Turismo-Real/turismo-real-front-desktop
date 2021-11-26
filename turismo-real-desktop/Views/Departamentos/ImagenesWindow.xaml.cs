@@ -1,18 +1,13 @@
 ﻿using MahApps.Metro.Controls;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Drawing;
 using turismo_real_business.DTOs;
 using turismo_real_controller.Controllers.Imagen;
 using turismo_real_desktop.GridEntities;
@@ -38,6 +33,7 @@ namespace turismo_real_desktop.Views.Departamentos
             InitializeComponent();
             this.activeWindow = activeWindow;
             this.idDepartamento = idDepartamento;
+            tituloText.Text = $"Departamento {idDepartamento}";
             FillDataGridImagenes();
         }
 
@@ -49,9 +45,36 @@ namespace turismo_real_desktop.Views.Departamentos
         private void OnLeaveVolver(object sender, MouseEventArgs e) => ChangeLeaveColor(btnVolver, volverText, "GREEN");
         private void Volver(object sender, RoutedEventArgs e) => Close();
 
-        private void AgregarImagen(object sender, TouchEventArgs e)
+        private void AgregarImagen(object sender, RoutedEventArgs e)
         {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Files (*.JPG;*.PNG)|*.JPG;*.PNG";
+            openFileDialog.Multiselect = false;
 
+            if (openFileDialog.ShowDialog() == true)
+            {
+                Uri imageUri = new Uri(openFileDialog.FileName);
+                string fileName = Path.GetFileNameWithoutExtension(openFileDialog.FileName);
+                string extension = Path.GetExtension(openFileDialog.FileName).Remove(0, 1);
+
+                byte[] imageArray = File.ReadAllBytes(openFileDialog.FileName);
+                string base64Image = Convert.ToBase64String(imageArray);
+
+                imagenController = new ImagenController();
+                bool saved = imagenController.AgregarImagen(idDepartamento, fileName, extension, base64Image);
+
+                if (saved)
+                {
+                    FillDataGridImagenes();
+                    imagenesDataGrid.SelectedIndex = imagenesDataGrid.Items.Count - 1;
+                }
+                else
+                {
+                    string title = "Error al cargar imagen";
+                    string message = "Ha ocurrido un error al intentar cargar la imagen.";
+                    MessageBox.Show(message, title, MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void EliminarImagen(object sender, RoutedEventArgs e)
@@ -121,5 +144,6 @@ namespace turismo_real_desktop.Views.Departamentos
                 imgDepto.Source = bitmap;
             }
         }
+
     }
 }
