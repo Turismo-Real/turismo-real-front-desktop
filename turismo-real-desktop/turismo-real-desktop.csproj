@@ -9,6 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\defaultImage.jpg" />
+    <None Remove="Assets\errorImage.jpg" />
     <None Remove="Assets\Normal\checked.png" />
     <None Remove="Assets\TurismoRealLogo256.png" />
     <None Remove="Views\Extra\door-key.png" />
@@ -37,6 +39,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Assets\defaultImage.jpg" />
+    <Resource Include="Assets\errorImage.jpg" />
     <Resource Include="Assets\key.png" />
     <Resource Include="Assets\email.png" />
     <Resource Include="Assets\Normal\checked.png" />

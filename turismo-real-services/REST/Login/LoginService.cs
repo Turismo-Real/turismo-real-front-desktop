@@ -28,7 +28,7 @@ namespace turismo_real_services.REST.Login
                     streamWriter.Flush();
                 }
 
-                string result = "";
+                string result = string.Empty;
                 HttpWebResponse httpResponse = (HttpWebResponse)request.GetResponse();
                 using (StreamReader streamReader = new StreamReader(httpResponse.GetResponseStream()))
                 {

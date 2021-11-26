@@ -13,29 +13,21 @@ namespace turismo_real_services.REST.Reserva
     {
         public List<ReservaDTO> GetReservas()
         {
-            //try
-            //{
-                WebRequest request = WebRequest.Create(URLService.URL_RESERVAS);
-                request.Method = "GET";
-                request.PreAuthenticate = true;
-                request.ContentType = "Application/json; Charset=UTF-8";
-                request.Timeout = 3000;
+            WebRequest request = WebRequest.Create(URLService.URL_IMAGENES);
+            request.Method = "GET";
+            request.PreAuthenticate = true;
+            request.ContentType = "Application/json; Charset=UTF-8";
+            request.Timeout = 3000;
 
-                string result = "";
-                HttpWebResponse httpResponse = (HttpWebResponse)request.GetResponse();
-                using (StreamReader streamReader = new StreamReader(httpResponse.GetResponseStream()))
-                {
-                    result = streamReader.ReadToEnd();
-                }
-                dynamic response = JsonConvert.DeserializeObject(result);
-                List<ReservaDTO> reservasResponse = ParseReservaResponse(response);
-                return reservasResponse;
-            //}
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine(ex.Message);
-            //    return null;
-            //}
+            string result = string.Empty;
+            HttpWebResponse httpResponse = (HttpWebResponse)request.GetResponse();
+            using (StreamReader streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                result = streamReader.ReadToEnd();
+            }
+            dynamic response = JsonConvert.DeserializeObject(result);
+            List<ReservaDTO> reservasResponse = ParseReservaResponse(response);
+            return reservasResponse;
         }
 
         public List<ReservaDTO> ParseReservaResponse(dynamic reservaREST)

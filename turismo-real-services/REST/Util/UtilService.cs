@@ -19,7 +19,7 @@ namespace turismo_real_services.REST.Util
                 request.ContentType = "Application/json; Charset=UTF-8";
                 request.Timeout = 8000;
 
-                string result = "";
+                string result = string.Empty;
                 HttpWebResponse httpResponse = (HttpWebResponse)request.GetResponse();
                 using (StreamReader streamReader = new StreamReader(httpResponse.GetResponseStream()))
                 {
@@ -66,7 +66,7 @@ namespace turismo_real_services.REST.Util
                     streamWriter.Flush();
                 }
 
-                string result = "";
+                string result = string.Empty;
                 HttpWebResponse httpResponse = (HttpWebResponse)request.GetResponse();
                 using (StreamReader streamReader = new StreamReader(httpResponse.GetResponseStream()))
                 {
@@ -95,7 +95,7 @@ namespace turismo_real_services.REST.Util
                 request.ContentType = "Application/json; Charset=UTF-8";
                 request.Timeout = 8000;
 
-                string result = "";
+                string result = string.Empty;
                 HttpWebResponse httpResponse = (HttpWebResponse)request.GetResponse();
                 using (StreamReader streamReader = new StreamReader(httpResponse.GetResponseStream()))
                 {
@@ -124,7 +124,7 @@ namespace turismo_real_services.REST.Util
                 request.ContentType = "Application/json; Charset=UTF-8";
                 request.Timeout = 8000;
 
-                string result = "";
+                string result = string.Empty;
                 HttpWebResponse httpResponse = (HttpWebResponse)request.GetResponse();
                 using (StreamReader streamReader = new StreamReader(httpResponse.GetResponseStream()))
                 {
@@ -153,7 +153,7 @@ namespace turismo_real_services.REST.Util
                 request.ContentType = "Application/json; Charset=UTF-8";
                 request.Timeout = 8000;
 
-                string result = "";
+                string result = string.Empty;
                 HttpWebResponse httpResponse = (HttpWebResponse)request.GetResponse();
                 using (StreamReader streamReader = new StreamReader(httpResponse.GetResponseStream()))
                 {
@@ -182,7 +182,7 @@ namespace turismo_real_services.REST.Util
                 request.ContentType = "Application/json; Charset=UTF-8";
                 request.Timeout = 8000;
 
-                string result = "";
+                string result = string.Empty;
                 HttpWebResponse httpResponse = (HttpWebResponse)request.GetResponse();
                 using (StreamReader streamReader = new StreamReader(httpResponse.GetResponseStream()))
                 {
@@ -211,7 +211,7 @@ namespace turismo_real_services.REST.Util
                 request.ContentType = "Application/json; Charset=UTF-8";
                 request.Timeout = 8000;
 
-                string result = "";
+                string result = string.Empty;
                 HttpWebResponse httpResponse = (HttpWebResponse)request.GetResponse();
                 using (StreamReader streamReader = new StreamReader(httpResponse.GetResponseStream()))
                 {

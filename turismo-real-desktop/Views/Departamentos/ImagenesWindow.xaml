@@ -9,7 +9,7 @@
         Title="Turismo Real - Imágenes" Height="377" Width="800">
     <Grid>
         <TextBlock x:Name="tituloText" HorizontalAlignment="Left" Margin="67,19,0,0" Text="Departamento {ID}" FontSize="18" FontWeight="Bold" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <DataGrid x:Name="imagenesDataGrid" Margin="29,59,534,0" BorderThickness="1" BorderBrush="#555555" Height="262" VerticalAlignment="Top"/>
+        <DataGrid x:Name="imagenesDataGrid" IsReadOnly="True" Margin="29,59,534,0" BorderThickness="1" BorderBrush="#555555" Height="262" VerticalAlignment="Top" SelectionChanged="ShowSelectedImage"/>
 
         <!-- BOTON AGREGAR IMAGEN -->
         <mah:Tile x:Name="btnAgregar" Cursor="Hand" HorizontalAlignment="Left" Margin="291,59,0,0" VerticalAlignment="Top" Height="38" Background="#FFFFFF" BorderThickness="1" BorderBrush="#2778D3" LostTouchCapture="AgregarImagen" MouseEnter="OnHoverAgregar" MouseLeave="OnLeaveAgregar">
@@ -19,9 +19,9 @@
         </mah:Tile>
 
         <!-- BOTON ELIMINAR -->
-        <mah:Tile x:Name="btnEliminar" Cursor="Hand" HorizontalAlignment="Left" Margin="291,142,0,0" VerticalAlignment="Top" Height="38" Background="#FFFFFF" BorderBrush="#FFDC1F1F" BorderThickness="1" Click="EliminarImagen" MouseEnter="OnHoverEliminar" MouseLeave="OnLeaveEliminar">
+        <mah:Tile x:Name="btnEliminar" Cursor="Hand" HorizontalAlignment="Left" Margin="291,142,0,0" VerticalAlignment="Top" Height="38" Background="#FFFFFF" BorderBrush="#DC1F1F" BorderThickness="1" Click="EliminarImagen" MouseEnter="OnHoverEliminar" MouseLeave="OnLeaveEliminar">
             <StackPanel VerticalAlignment="Center">
-                <TextBlock x:Name="eliminarText" Text="ELIMINAR" Foreground="#FFDC1F1F" FontWeight="Medium"/>
+                <TextBlock x:Name="eliminarText" Text="ELIMINAR" Foreground="#DC1F1F" FontWeight="Medium"/>
             </StackPanel>
         </mah:Tile>
 
@@ -32,8 +32,7 @@
             </StackPanel>
         </mah:Tile>
 
-        <Image Height="266" Margin="455,59,0,0" VerticalAlignment="Top" Source="https://pbs.twimg.com/media/FFEFIcIXIAI0-48?format=jpg" HorizontalAlignment="Left" Width="321"/>
-
+        <Image x:Name="imgDepto" Height="266" Margin="455,59,0,0" VerticalAlignment="Top" Source="/Assets/defaultImage.jpg" HorizontalAlignment="Left" Width="321"/>
 
     </Grid>
 </mah:MetroWindow>

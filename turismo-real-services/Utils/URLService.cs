@@ -12,5 +12,6 @@ namespace turismo_real_services.Utils
         public const string URL_DEPTOS = "http://localhost:5002/api/v1/departamento";
         public const string URL_SERVICIOS = "http://localhost:5003/api/v1/servicio";
         public const string URL_RESERVAS = "http://localhost:5004/api/v1/reserva";
+        public const string URL_IMAGENES = "http://localhost:5005/api/v1/imagen";
     }
 }
