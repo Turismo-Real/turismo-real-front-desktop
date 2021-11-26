@@ -6,37 +6,34 @@
         xmlns:local="clr-namespace:turismo_real_desktop.Views.Departamentos"
         mc:Ignorable="d"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
-        Title="Imágenes - Turismo Real" Height="450" Width="800">
+        Title="Turismo Real - Imágenes" Height="377" Width="800">
     <Grid>
-        <TextBlock x:Name="tituloText" HorizontalAlignment="Left" Margin="114,47,0,0" Text="Departamento {ID}" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <DataGrid x:Name="imagenesDataGrid" Margin="38,68,540,104" BorderThickness="1"/>
-        
+        <TextBlock x:Name="tituloText" HorizontalAlignment="Left" Margin="67,19,0,0" Text="Departamento {ID}" FontSize="18" FontWeight="Bold" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <DataGrid x:Name="imagenesDataGrid" Margin="29,59,534,0" BorderThickness="1" BorderBrush="#555555" Height="262" VerticalAlignment="Top"/>
+
         <!-- BOTON AGREGAR IMAGEN -->
-        <mah:Tile HorizontalAlignment="Left" Margin="291,55,0,0" VerticalAlignment="Top" Height="63">
-            <StackPanel>
-                <TextBlock Text="AGREGAR" />
+        <mah:Tile x:Name="btnAgregar" Cursor="Hand" HorizontalAlignment="Left" Margin="291,59,0,0" VerticalAlignment="Top" Height="38" Background="#FFFFFF" BorderThickness="1" BorderBrush="#2778D3" LostTouchCapture="AgregarImagen" MouseEnter="OnHoverAgregar" MouseLeave="OnLeaveAgregar">
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock x:Name="agregarText" Text="AGREGAR" Foreground="#2778D3" FontWeight="Medium"/>
             </StackPanel>
         </mah:Tile>
 
-        <!-- BOTON VER IMAGEN -->
-        <mah:Tile HorizontalAlignment="Left" Margin="291,145,0,0" VerticalAlignment="Top" Height="63">
-            <StackPanel>
-                <TextBlock Text="VISUALIZAR" />
-            </StackPanel>
-        </mah:Tile>
-
-        <mah:Tile HorizontalAlignment="Left" Margin="291,240,0,0" VerticalAlignment="Top" Height="63">
-            <StackPanel>
-                <TextBlock Text="ELIMINAR" />
+        <!-- BOTON ELIMINAR -->
+        <mah:Tile x:Name="btnEliminar" Cursor="Hand" HorizontalAlignment="Left" Margin="291,142,0,0" VerticalAlignment="Top" Height="38" Background="#FFFFFF" BorderBrush="#FFDC1F1F" BorderThickness="1" Click="EliminarImagen" MouseEnter="OnHoverEliminar" MouseLeave="OnLeaveEliminar">
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock x:Name="eliminarText" Text="ELIMINAR" Foreground="#FFDC1F1F" FontWeight="Medium"/>
             </StackPanel>
         </mah:Tile>
 
         <!-- BOTON VOLVER -->
-        <mah:Tile HorizontalAlignment="Left" Margin="291,317,0,0" VerticalAlignment="Top" Height="63">
-            <StackPanel>
-                <TextBlock Text="VOLVER"  TextAlignment="Center"/>
+        <mah:Tile x:Name="btnVolver" Cursor="Hand" HorizontalAlignment="Left" Margin="291,235,0,0" VerticalAlignment="Top" Height="38" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" Click="Volver" MouseEnter="OnHoverVolver" MouseLeave="OnLeaveVolver">
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock x:Name="volverText" Text="VOLVER"  Foreground="#CC60A917" FontWeight="Medium"/>
             </StackPanel>
         </mah:Tile>
+
+        <Image Height="266" Margin="455,59,0,0" VerticalAlignment="Top" Source="https://pbs.twimg.com/media/FFEFIcIXIAI0-48?format=jpg" HorizontalAlignment="Left" Width="321"/>
+
 
     </Grid>
 </mah:MetroWindow>

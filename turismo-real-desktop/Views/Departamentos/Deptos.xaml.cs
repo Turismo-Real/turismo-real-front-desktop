@@ -158,6 +158,7 @@ namespace turismo_real_desktop.Views.Administrador.Departamentos
             {
                 DeptoGrid selectedDepto = dataGridDeptos.SelectedItem as DeptoGrid;
                 ImagenesWindow imgsWindow = new ImagenesWindow(this, selectedDepto.id);
+                imgsWindow.Show();
             }
         }
     }
