@@ -2,7 +2,6 @@
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,7 +11,6 @@ using turismo_real_business.DTOs;
 using turismo_real_controller.Controllers.Imagen;
 using turismo_real_desktop.GridEntities;
 using turismo_real_desktop.UIElements;
-using turismo_real_desktop.Views.Administrador.Departamentos;
 
 namespace turismo_real_desktop.Views.Departamentos
 {
@@ -20,7 +18,6 @@ namespace turismo_real_desktop.Views.Departamentos
     {
         private ImagenController imagenController;
         private ImagenesDeptoDTO imagenesDepto;
-        private readonly Deptos activeWindow;
         private readonly int idDepartamento;
 
         public ImagenesWindow()
@@ -28,10 +25,9 @@ namespace turismo_real_desktop.Views.Departamentos
             InitializeComponent();
         }
 
-        public ImagenesWindow(Deptos activeWindow, int idDepartamento)
+        public ImagenesWindow(int idDepartamento)
         {
             InitializeComponent();
-            this.activeWindow = activeWindow;
             this.idDepartamento = idDepartamento;
             tituloText.Text = $"Departamento {idDepartamento}";
             FillDataGridImagenes();
@@ -53,10 +49,8 @@ namespace turismo_real_desktop.Views.Departamentos
 
             if (openFileDialog.ShowDialog() == true)
             {
-                Uri imageUri = new Uri(openFileDialog.FileName);
                 string fileName = Path.GetFileNameWithoutExtension(openFileDialog.FileName);
                 string extension = Path.GetExtension(openFileDialog.FileName).Remove(0, 1);
-
                 byte[] imageArray = File.ReadAllBytes(openFileDialog.FileName);
                 string base64Image = Convert.ToBase64String(imageArray);
 
@@ -127,21 +121,27 @@ namespace turismo_real_desktop.Views.Departamentos
 
         private void ShowSelectedImage(object sender, SelectionChangedEventArgs e)
         {
-            BitmapImage bitmap = new BitmapImage();
-            try
+            if(imagenesDataGrid.SelectedItem != null)
             {
-                ImagenGrid selectedImage = imagenesDataGrid.SelectedItem as ImagenGrid;
-                string b64Image = imagenesDepto.imagenes.Find(x => x.idImagen == selectedImage.id).imagen;
-                byte[] binaryImage = Convert.FromBase64String(b64Image);
-                bitmap.BeginInit();
-                bitmap.StreamSource = new MemoryStream(binaryImage);
-                bitmap.EndInit();
-                imgDepto.Source = bitmap;
-            } catch(Exception ex)
-            {
-                string errorImagePath = @"/Assets/errorImage.jpg";
-                bitmap = new BitmapImage(new Uri(errorImagePath, UriKind.Relative));
-                imgDepto.Source = bitmap;
+                BitmapImage bitmap = new BitmapImage();
+                try
+                {
+                    ImagenGrid selectedImage = imagenesDataGrid.SelectedItem as ImagenGrid;
+                    ImagenDTO imagenDepto = imagenesDepto.imagenes.Find(x => x.idImagen == selectedImage.id);
+
+                    string b64Image = imagenDepto.imagen;
+                    byte[] binaryImage = Convert.FromBase64String(b64Image);
+                    bitmap.BeginInit();
+                    bitmap.StreamSource = new MemoryStream(binaryImage);
+                    bitmap.EndInit();
+                    imgDepto.Source = bitmap;
+                }
+                catch (Exception ex)
+                {
+                    string errorImagePath = @"/Assets/errorImage.jpg";
+                    bitmap = new BitmapImage(new Uri(errorImagePath, UriKind.Relative));
+                    imgDepto.Source = bitmap;
+                }
             }
         }
 
