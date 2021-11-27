@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using turismo_real_business.DTOs;
 using turismo_real_services.REST.Usuario;
 
@@ -57,6 +58,23 @@ namespace turismo_real_controller.Controllers.Usuario
             usuarioService = new UsuarioService();
             bool updated = usuarioService.UpdatePassword(id, currentPass, newPass);
             return updated;
+        }
+
+        public UsuarioDTO ExisteUsuario(string rutPasaporte)
+        {
+            if (rutPasaporte.Equals(string.Empty)) return null;
+
+            usuarioService = new UsuarioService();
+            List<UsuarioDTO> usuarios = usuarioService.GetUsuarios();
+            // obtener usuarios cliente
+            List<UsuarioDTO> clientes = usuarios.FindAll(x => x.tipoUsuario.ToUpper().Equals("CLIENTE"));
+            // Obtener clientes por rut/pasaporte
+            UsuarioDTO foundClient = clientes.Find((x) => (
+                $"{x.rut}-{x.dv}".Equals(rutPasaporte) || x.pasaporte.Equals(rutPasaporte)
+            ));
+
+            if (foundClient == null) return null;
+            return foundClient;
         }
     }
 }

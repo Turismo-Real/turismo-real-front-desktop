@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:turismo_real_desktop.Views.Reservas"
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
-        Title="Turismo Real - Nueva Reserva | Cliente" Height="731" Width="909" WindowStartupLocation="CenterScreen">
+        Title="Turismo Real - Nueva Reserva | Cliente" Height="525" Width="839" WindowStartupLocation="CenterScreen">
     <Grid>
         <!-- GRID PROGRESS BAR -->
-        <Grid x:Name="progressBarGrid" Margin="40,10,41,0" Height="143" VerticalAlignment="Top">
-            <Rectangle HorizontalAlignment="Left" Height="22" Margin="115,50,0,0" Stroke="#FFD4D4D4" VerticalAlignment="Top" Width="605" Fill="#FFD4D4D4"/>
+        <Grid x:Name="progressBarGrid" Margin="3,9,78,0" Height="143" VerticalAlignment="Top">
+            <Rectangle HorizontalAlignment="Left" Height="22" Margin="115,47,0,0" Stroke="#FFD4D4D4" VerticalAlignment="Top" Width="605" Fill="#FFD4D4D4"/>
 
             <Rectangle HorizontalAlignment="Left" Height="72" Margin="96,19,0,0" Stroke="#FF60A917" VerticalAlignment="Top" Width="72" RadiusX="50" RadiusY="50" Fill="#FF60A917"/>
             <TextBlock HorizontalAlignment="Left" Margin="127,42,0,0" Text="1" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Foreground="White"/>
@@ -28,9 +28,30 @@
             <TextBlock HorizontalAlignment="Left" Margin="700,41,0,0" Text="4" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20"/>
             <TextBlock HorizontalAlignment="Left" Margin="669,97,0,0" Text="Asistentes" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="#FF606060"/>
         </Grid>
+        <TextBlock HorizontalAlignment="Center" Margin="0,188,0,0" Text="BUSCAR CLIENTE" FontSize="22" FontWeight="Medium" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,222,0,0" Text="Ingresa un RUT o Pasaporte" FontSize="16" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtRutPasaporte" HorizontalAlignment="Center" Margin="0,249,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="195"/>
 
-        <Button Content="CONTINUAR" HorizontalAlignment="Left" Margin="501,630,0,0" VerticalAlignment="Top" Click="StepDepto"/>
-        <Button Content="CANCELAR" HorizontalAlignment="Left" Margin="312,630,0,0" VerticalAlignment="Top" Click="Salir"/>
+        <!-- MENSAJE USUARIO NO ENCONTRAOD -->
+        <TextBlock x:Name="tbTituloAlerta" Visibility="Hidden" HorizontalAlignment="Left" Margin="387,291,0,0" Text="Lo Sentimos" FontSize="14" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock x:Name="tbMensajeAlerta" Visibility="Hidden" Margin="236,312,0,0" Text="No se encontró un usuario con el RUT o Pasaporte ingresado" FontSize="14" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="422"/>
+        <Grid x:Name="AlertGrid" Visibility="Hidden" Margin="326,327,316,124" MouseEnter="ActiveLabel" MouseLeave="DeactiveLabel">
+            <Label x:Name="lblNuevoCliente" FontSize="14" Content="AGREGAR NUEVO CLIENTE" Cursor="Hand" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewMouseUp="OpenNuevoCliente" Height="34" RenderTransformOrigin="0.5,0.5" HorizontalContentAlignment="Center" Width="196"/>
+        </Grid>
+
+
+
+        <mah:Tile HorizontalAlignment="Left" Margin="178,401,0,0" VerticalAlignment="Top" Height="38" Width="204" Click="Salir">
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Text="CANCELAR" FontWeight="Medium" />
+            </StackPanel>
+        </mah:Tile>
+
+        <mah:Tile HorizontalAlignment="Left" Margin="453,401,0,0" VerticalAlignment="Top" Height="38" Width="205" Click="StepDepto">
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Text="BUSCAR" FontWeight="Medium"/>
+            </StackPanel>
+        </mah:Tile>
 
     </Grid>
 </mah:MetroWindow>

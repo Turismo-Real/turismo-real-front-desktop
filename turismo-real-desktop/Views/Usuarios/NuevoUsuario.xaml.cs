@@ -10,12 +10,14 @@ using turismo_real_controller.Controllers.Usuario;
 using turismo_real_controller.Controllers.Util;
 using turismo_real_controller.Hasher;
 using turismo_real_desktop.UIElements;
+using turismo_real_desktop.Views.Reservas;
 
 namespace turismo_real_desktop.Views.Usuarios
 {
     public partial class NuevoUsuario : MetroWindow
     {
         private UsuariosWindow usuariosWin;
+        private NuevaReservaCliente reservaWin;
         private UsuarioController usuarioController;
         private UtilController utilController;
 
@@ -24,6 +26,15 @@ namespace turismo_real_desktop.Views.Usuarios
             InitializeComponent();
             this.usuariosWin = usuariosWin;
             FillComboBoxes();
+        }
+
+        public NuevoUsuario(NuevaReservaCliente reservaWin)
+        {
+            InitializeComponent();
+            this.reservaWin = reservaWin;
+            FillComboBoxes();
+            cboxTipo.SelectedIndex = 3; // Tipo cliente
+            cboxTipo.IsEnabled = false;
         }
 
         public string GetSource(FrameworkElement src) => src.Name;
@@ -69,12 +80,30 @@ namespace turismo_real_desktop.Views.Usuarios
             if (nuevoUsuarioInsertado)
             {
                 ClearForm();
-                usuariosWin.FillDataGridUsuarios();
                 ShowSuccessMessage(nuevoUsuario.tipoUsuario);
+
+                if (reservaWin != null)
+                {
+                    reservaWin.BuscarUsuario(GetRutOrPasaporte(nuevoUsuario));
+                    reservaWin.PrintNuevoUsuario();
+                    Close();
+                    return;
+                }
+                usuariosWin.FillDataGridUsuarios();
                 return;
             }
             mensajeUsuario.Text = "Error al crear departamento.";
             mensajeUsuario.Foreground = Brushes.Red;
+        }
+
+        public string GetRutOrPasaporte(UsuarioDTO usuario)
+        {
+            string rutPasaporte = !usuario.rut.Equals(string.Empty) && !usuario.dv.Equals(string.Empty)
+                ? $"{usuario.rut}-{usuario.dv}"
+                : !usuario.pasaporte.Equals(string.Empty)
+                    ? usuario.pasaporte
+                    : "0";
+            return rutPasaporte;
         }
 
         public void ClearForm()

@@ -10,7 +10,7 @@
     <Grid>
         <!-- GRID PROGRESS BAR -->
         <Grid x:Name="progressBarGrid" Margin="40,10,41,0" Height="143" VerticalAlignment="Top">
-            <Rectangle HorizontalAlignment="Left" Height="22" Margin="324,50,0,0" Stroke="#FFD4D4D4" VerticalAlignment="Top" Width="396" Fill="#FFD4D4D4"/>
+            <Rectangle HorizontalAlignment="Left" Height="22" Margin="324,44,0,0" Stroke="#FFD4D4D4" VerticalAlignment="Top" Width="396" Fill="#FFD4D4D4"/>
             <Rectangle HorizontalAlignment="Left" Height="22" Margin="133,50,0,0" Stroke="#FF60A917" VerticalAlignment="Top" Width="186" Fill="#FF60A917"/>
 
             <Rectangle HorizontalAlignment="Left" Height="72" Margin="96,19,0,0" Stroke="#FF60A917" VerticalAlignment="Top" Width="72" RadiusX="50" RadiusY="50" Fill="#FF60A917"/>
