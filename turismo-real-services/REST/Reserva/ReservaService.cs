@@ -13,7 +13,7 @@ namespace turismo_real_services.REST.Reserva
     {
         public List<ReservaDTO> GetReservas()
         {
-            WebRequest request = WebRequest.Create(URLService.URL_IMAGENES);
+            WebRequest request = WebRequest.Create(URLService.URL_RESERVAS);
             request.Method = "GET";
             request.PreAuthenticate = true;
             request.ContentType = "Application/json; Charset=UTF-8";

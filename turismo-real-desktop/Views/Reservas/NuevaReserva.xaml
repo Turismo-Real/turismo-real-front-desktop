@@ -8,6 +8,9 @@
         mc:Ignorable="d"
         Title="Turismo Real - Nueva Reserva" Height="450" Width="800">
     <Grid>
-        
+        <ScrollViewer>
+            <Rectangle Width="500" Fill="Aquamarine" Height="759" />
+        </ScrollViewer>
+
     </Grid>
 </mah:MetroWindow>
