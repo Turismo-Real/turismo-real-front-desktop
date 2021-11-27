@@ -28,7 +28,16 @@
     <Compile Update="Views\Extra\RecoverPassword.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Reservas\NuevaReserva.xaml.cs">
+    <Compile Update="Views\Reservas\NuevaReservaAsistente.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Reservas\NuevaReservaCliente.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Reservas\NuevaReservaDepto.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Reservas\NuevaReservaServicios.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Reservas\Reserva.xaml.cs">
@@ -78,7 +87,16 @@
     <Page Update="Views\Extra\RecoverPassword.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Reservas\NuevaReserva.xaml">
+    <Page Update="Views\Reservas\NuevaReservaAsistente.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Reservas\NuevaReservaCliente.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Reservas\NuevaReservaDepto.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Reservas\NuevaReservaServicios.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Reservas\Reserva.xaml">

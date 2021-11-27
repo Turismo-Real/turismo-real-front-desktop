@@ -1,0 +1,36 @@
+﻿<mah:MetroWindow x:Class="turismo_real_desktop.Views.Reservas.NuevaReservaDepto"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:turismo_real_desktop.Views.Reservas"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        mc:Ignorable="d"
+        Title="NuevaReservaDepto" Height="711" Width="998" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <!-- GRID PROGRESS BAR -->
+        <Grid x:Name="progressBarGrid" Margin="40,10,41,0" Height="143" VerticalAlignment="Top">
+            <Rectangle HorizontalAlignment="Left" Height="22" Margin="324,50,0,0" Stroke="#FFD4D4D4" VerticalAlignment="Top" Width="396" Fill="#FFD4D4D4"/>
+            <Rectangle HorizontalAlignment="Left" Height="22" Margin="133,50,0,0" Stroke="#FF60A917" VerticalAlignment="Top" Width="186" Fill="#FF60A917"/>
+
+            <Rectangle HorizontalAlignment="Left" Height="72" Margin="96,19,0,0" Stroke="#FF60A917" VerticalAlignment="Top" Width="72" RadiusX="50" RadiusY="50" Fill="#FF60A917"/>
+            <TextBlock HorizontalAlignment="Left" Margin="127,42,0,0" Text="1" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Foreground="White"/>
+            <TextBlock HorizontalAlignment="Left" Margin="104,95,0,0" Text="Cliente" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="#FF60A917"/>
+
+            <Rectangle HorizontalAlignment="Left" Height="72" Margin="283,19,0,0" Stroke="#FF60A917" VerticalAlignment="Top" Width="72" RadiusX="50" RadiusY="50" Fill="#FF60A917"/>
+            <TextBlock HorizontalAlignment="Left" Margin="314,42,0,0" Text="2" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Foreground="White"/>
+            <TextBlock HorizontalAlignment="Left" Margin="253,97,0,0" Text="DEPARTAMENTO" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="#FF60A917" FontWeight="Normal"/>
+
+            <Rectangle HorizontalAlignment="Left" Height="72" Margin="472,19,0,0" Stroke="#FFD4D4D4" VerticalAlignment="Top" Width="72" RadiusX="50" RadiusY="50" Fill="#FFD4D4D4"/>
+            <TextBlock HorizontalAlignment="Left" Margin="503,44,0,0" Text="3" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20"/>
+            <TextBlock HorizontalAlignment="Left" Margin="474,97,0,0" Text="Servicios" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="#FF606060"/>
+
+            <Rectangle HorizontalAlignment="Left" Height="72" Margin="669,19,0,0" Stroke="#FFD4D4D4" VerticalAlignment="Top" Width="72" RadiusX="50" RadiusY="50" Fill="#FFD4D4D4"/>
+            <TextBlock HorizontalAlignment="Left" Margin="700,41,0,0" Text="4" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20"/>
+            <TextBlock HorizontalAlignment="Left" Margin="669,97,0,0" Text="Asistentes" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="#FF606060"/>
+        </Grid>
+
+        <Button Content="CONTINUAR" HorizontalAlignment="Left" Margin="531,348,0,0" VerticalAlignment="Top" Click="StepServicios"/>
+        <Button Content="VOLVER" HorizontalAlignment="Left" Margin="342,348,0,0" VerticalAlignment="Top" Click="BackToCliente"/>
+    </Grid>
+</mah:MetroWindow>

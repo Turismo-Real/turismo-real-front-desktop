@@ -10,13 +10,13 @@
         Title="Turismo Real - Reservas" Height="615" Width="1088"
         WindowStartupLocation="CenterScreen">
     <Grid>
-        <DataGrid x:Name="reservasDataGrid" Margin="27,89,248,63" BorderThickness="1"/>
+        <DataGrid x:Name="reservasDataGrid" IsReadOnly="True" Margin="27,89,248,63" BorderThickness="1"/>
 
         <!-- BOTON NUEVA RESERVA -->
-        <mah:Tile x:Name="btnNuevaReserva" Margin="869,89,0,0" Cursor="Hand" Width="180" Height="110" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" MouseEnter="OnHoverNuevaReserva" MouseLeave="OnLeaveNuevaReserva" Click="OpenNuevaReserva" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <mah:Tile x:Name="btnNuevaReserva" Margin="869,89,0,0" Cursor="Hand" Width="180" Height="110" Background="#FFFFFF" BorderBrush="#60A917" BorderThickness="1" MouseEnter="OnHoverNuevaReserva" MouseLeave="OnLeaveNuevaReserva" Click="OpenNuevaReserva" HorizontalAlignment="Left" VerticalAlignment="Top">
             <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
-                <iconPacks:PackIconFontAwesome x:Name="nuevaReservaIcon" Kind="PlusCircleSolid" Foreground="#CC60A917" Height="50" Width="100" FontWeight="Bold" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>
-                <TextBlock x:Name="nuevaReservaText" Text="NUEVA RESERVA" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#CC60A917" Margin="5"/>
+                <iconPacks:PackIconFontAwesome x:Name="nuevaReservaIcon" Kind="PlusCircleSolid" Foreground="#60A917" Height="50" Width="100" FontWeight="Bold" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="nuevaReservaText" Text="NUEVA RESERVA" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#60A917" Margin="5"/>
             </StackPanel>
         </mah:Tile>
 
@@ -35,10 +35,10 @@
         </mah:Tile>
 
         <!-- BOTON VOLVER -->
-        <mah:Tile x:Name="btnVolver" Margin="869,436,0,0" Cursor="Hand" Width="180" Height="84" Background="#FFFFFF" BorderBrush="#CC60A917" BorderThickness="1" MouseEnter="OnHoverVolver" MouseLeave="OnLeaveVolver" Click="Volver" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <mah:Tile x:Name="btnVolver" Margin="869,436,0,0" Cursor="Hand" Width="180" Height="84" Background="#FFFFFF" BorderBrush="#60A917" BorderThickness="1" MouseEnter="OnHoverVolver" MouseLeave="OnLeaveVolver" Click="Volver" HorizontalAlignment="Left" VerticalAlignment="Top">
             <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
-                <iconPacks:PackIconFontAwesome x:Name="volverIcon" Kind="BackwardSolid" Foreground="#CC60A917" Height="20" Width="100" FontWeight="Bold" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>
-                <TextBlock x:Name="volverText" Text="VOLVER" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#CC60A917" Margin="5"/>
+                <iconPacks:PackIconFontAwesome x:Name="volverIcon" Kind="BackwardSolid" Foreground="#60A917" Height="20" Width="100" FontWeight="Bold" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="volverText" Text="VOLVER" TextAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="#60A917" Margin="5"/>
             </StackPanel>
         </mah:Tile>
         <TextBlock x:Name="reservasCounter" HorizontalAlignment="Left" FontSize="16" Margin="27,63,0,0" Text="Total Reservas: X" TextWrapping="Wrap" VerticalAlignment="Top"/>

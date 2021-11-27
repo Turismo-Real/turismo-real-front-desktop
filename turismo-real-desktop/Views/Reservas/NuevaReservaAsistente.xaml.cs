@@ -13,11 +13,21 @@ using System.Windows.Shapes;
 
 namespace turismo_real_desktop.Views.Reservas
 {
-    public partial class NuevaReserva : MetroWindow
+    public partial class NuevaReservaAsistente : MetroWindow
     {
-        public NuevaReserva()
+        private readonly NuevaReservaServicios previousWindow;
+
+        public NuevaReservaAsistente(NuevaReservaServicios previousWindow)
         {
+            this.previousWindow = previousWindow;
             InitializeComponent();
+        }
+
+        private void BackToServicios(object sender, RoutedEventArgs e)
+        {
+            previousWindow.SetNextWindow(this);
+            previousWindow.Show();
+            Hide();
         }
     }
 }
