@@ -64,7 +64,7 @@ namespace turismo_real_desktop.Views.Reservas
 
             if (nextWindow == null)
             {
-                NuevaReservaDepto reservaDeptoWin = new NuevaReservaDepto(this);
+                NuevaReservaDepto reservaDeptoWin = new NuevaReservaDepto(this, reservationOwner);
                 reservaDeptoWin.Show();
             }
             Hide();

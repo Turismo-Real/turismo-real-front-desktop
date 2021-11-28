@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using turismo_real_business.DTOs;
 
 namespace turismo_real_desktop.Views.Reservas
 {
@@ -17,10 +18,12 @@ namespace turismo_real_desktop.Views.Reservas
     {
         private NuevaReservaCliente previousWindow;
         private NuevaReservaServicios nextWindow;
+        private readonly UsuarioDTO reservationOwner;
 
-        public NuevaReservaDepto(NuevaReservaCliente previousWindow)
+        public NuevaReservaDepto(NuevaReservaCliente previousWindow, UsuarioDTO reservationOwner)
         {
             this.previousWindow = previousWindow;
+            this.reservationOwner = reservationOwner;
             InitializeComponent();
         }
 

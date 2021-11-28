@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:turismo_real_desktop.Views.Reservas"
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
-        Title="NuevaReservaDepto" Height="711" Width="998" WindowStartupLocation="CenterScreen">
+        Title="NuevaReservaDepto" Height="723" Width="1353" WindowStartupLocation="CenterScreen">
     <Grid>
         <!-- GRID PROGRESS BAR -->
-        <Grid x:Name="progressBarGrid" Margin="40,10,41,0" Height="143" VerticalAlignment="Top">
+        <Grid x:Name="progressBarGrid" Margin="265,4,293,0" Height="143" VerticalAlignment="Top">
             <Rectangle HorizontalAlignment="Left" Height="22" Margin="324,44,0,0" Stroke="#FFD4D4D4" VerticalAlignment="Top" Width="396" Fill="#FFD4D4D4"/>
             <Rectangle HorizontalAlignment="Left" Height="22" Margin="133,50,0,0" Stroke="#FF60A917" VerticalAlignment="Top" Width="186" Fill="#FF60A917"/>
 
@@ -30,7 +30,43 @@
             <TextBlock HorizontalAlignment="Left" Margin="669,97,0,0" Text="Asistentes" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="#FF606060"/>
         </Grid>
 
-        <Button Content="CONTINUAR" HorizontalAlignment="Left" Margin="531,348,0,0" VerticalAlignment="Top" Click="StepServicios"/>
-        <Button Content="VOLVER" HorizontalAlignment="Left" Margin="342,348,0,0" VerticalAlignment="Top" Click="BackToCliente"/>
+        <Button Content="CONTINUAR" HorizontalAlignment="Center" Margin="0,636,0,0" VerticalAlignment="Top" Click="StepServicios"/>
+        <Button Content="VOLVER" HorizontalAlignment="Left" Margin="508,636,0,0" VerticalAlignment="Top" Click="BackToCliente"/>
+
+
+
+        <ScrollViewer Margin="0,158,0,0" HorizontalAlignment="Center" Width="1353" VerticalContentAlignment="Top" VerticalAlignment="Top" Height="451">
+            <Grid Height="679" Margin="0,0,0,136" Background="Salmon">
+                
+                <!-- DEPARTAMENTO INFO -->
+                <Grid x:Name="departamento1" Background="Beige" Margin="20,20,20,0" Height="283" VerticalAlignment="Top">
+                    <Image x:Name="imgDepto1" Source="https://inmobiliare.com/himalaya/wp-content/uploads/2020/05/deptos-compra-de-departamentos-propiedades.com-inmobiliare.jpg" Width="350" Height="250" Margin="19,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+                    <TextBlock x:Name="tipoText1" HorizontalAlignment="Left" Margin="397,20,0,0" Text="Normal" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16"/>
+                    <TextBlock x:Name="datosText1" HorizontalAlignment="Left" Margin="397,51,0,0" Text="150m2 | 3 dormitorios | 2 baños" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="comunaRegionText1" HorizontalAlignment="Left" Margin="397,77,0,0" Text="Putre, Región Arica y Parinacota" TextWrapping="Wrap" VerticalAlignment="Top" Width="638"/>
+                    <TextBlock x:Name="descripcionText1" HorizontalAlignment="Left" Margin="397,103,0,0" Text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." TextWrapping="Wrap" VerticalAlignment="Top" Width="474"/>
+                    <TextBlock x:Name="valorText1" HorizontalAlignment="Left" Margin="397,247,0,0" Text="Valor Diario: $60.000" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <TextBlock x:Name="instalacionesText1" HorizontalAlignment="Left" Margin="933,43,0,0" Text="Instalaciones" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                    <ListBox x:Name="listbox1" Margin="879,64,244,28"/>
+                    <TextBlock x:Name="desdeText1" HorizontalAlignment="Left" Margin="1077,80,0,0" Text="Desde" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="hastaText1" HorizontalAlignment="Left" Margin="1080,126,0,0" Text="Hasta" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                    <DatePicker x:Name="dpDesde1" HorizontalAlignment="Left" Margin="1122,77,0,0" VerticalAlignment="Top"/>
+                    <DatePicker x:Name="dpHasta1" HorizontalAlignment="Left" Margin="1122,126,0,0" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="totalArriendo1" HorizontalAlignment="Left" Margin="1080,176,0,0" Text="TOTAL ARRIENDO: $120.000" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
+                    
+                    <mah:Tile x:Name="btnSeleccionar1" HorizontalAlignment="Left" Margin="1113,223,0,0" VerticalAlignment="Top" Height="32">
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock Text="SELECCIONAR" FontWeight="Medium" />
+                        </StackPanel>
+                    </mah:Tile>
+
+                </Grid>
+                <Grid Background="Beige" Margin="20,339,20,0" Height="203" VerticalAlignment="Top">
+                    <TextBlock HorizontalAlignment="Left" Margin="308,42,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                </Grid>
+            </Grid>
+        </ScrollViewer>
+
     </Grid>
 </mah:MetroWindow>

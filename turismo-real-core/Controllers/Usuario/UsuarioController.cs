@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics;
 using turismo_real_business.DTOs;
 using turismo_real_services.REST.Usuario;
 
