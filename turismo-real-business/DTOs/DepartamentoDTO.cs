@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace turismo_real_business.DTOs
 {
@@ -17,5 +15,6 @@ namespace turismo_real_business.DTOs
         public string estado { get; set; }
         public DireccionDTO direccion { get; set; }
         public List<string> instalaciones { get; set; }
+        public List<FechaReservadaDTO> fechasReservadas { get; set; }
     }
 }

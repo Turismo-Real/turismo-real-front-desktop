@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
 using turismo_real_business.DTOs;
@@ -132,7 +133,7 @@ namespace turismo_real_services.REST.Departamento
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Trace.WriteLine(ex.Message);
                 return null;
             }
         }
@@ -191,7 +192,21 @@ namespace turismo_real_services.REST.Departamento
             direccion.depto = deptoJSON["direccion"]["depto"];
             depto.direccion = direccion;
             depto.instalaciones = ParseStrObjectsToList(deptoJSON["instalaciones"]);
+            depto.fechasReservadas = GetFechasReservadas(deptoJSON["fechasReservadas"]);
             return depto;
+        }
+
+        public List<FechaReservadaDTO> GetFechasReservadas(dynamic obj)
+        {
+            List<FechaReservadaDTO> fechasReservadas = new List<FechaReservadaDTO>();
+            foreach (dynamic fechaReservada in obj)
+            {
+                FechaReservadaDTO _fechaReservada = new FechaReservadaDTO();
+                _fechaReservada.desde = fechaReservada["desde"];
+                _fechaReservada.hasta = fechaReservada["hasta"];
+                fechasReservadas.Add(_fechaReservada);
+            }
+            return fechasReservadas;
         }
 
         public List<string> ParseStrObjectsToList(dynamic objResponse)

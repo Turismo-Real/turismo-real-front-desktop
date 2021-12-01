@@ -87,11 +87,5 @@ namespace turismo_real_desktop.Views.Reservas
         }
 
         public void SetReservationOwner(UsuarioDTO owner) => reservationOwner = owner;
-
-        public void PrintNuevoUsuario()
-        {
-            Trace.WriteLine(reservationOwner.idUsuario);
-            Trace.WriteLine(reservationOwner.primerNombre);
-        }
     }
 }

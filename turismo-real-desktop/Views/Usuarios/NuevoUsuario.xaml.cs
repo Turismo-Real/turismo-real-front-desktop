@@ -85,7 +85,6 @@ namespace turismo_real_desktop.Views.Usuarios
                 if (reservaWin != null)
                 {
                     reservaWin.BuscarUsuario(GetRutOrPasaporte(nuevoUsuario));
-                    reservaWin.PrintNuevoUsuario();
                     Close();
                     return;
                 }
