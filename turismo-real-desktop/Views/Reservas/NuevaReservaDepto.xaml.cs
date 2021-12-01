@@ -160,12 +160,14 @@ namespace turismo_real_desktop.Views.Reservas
             txtHasta.Margin = new Thickness(1080, 126, 0, 0);
 
             DatePicker datePickerDesde = new DatePicker();
+            datePickerDesde.Name = $"dpDesde{depto.id_departamento}";
             datePickerDesde.HorizontalAlignment = HorizontalAlignment.Left;
             datePickerDesde.VerticalAlignment = VerticalAlignment.Top;
             datePickerDesde.Margin = new Thickness(1122, 77, 0, 0);
             datePickerDesde.SelectedDateChanged += new EventHandler<SelectionChangedEventArgs>(ChangeDesde);
 
             DatePicker datePickerHasta = new DatePicker();
+            datePickerHasta.Name = $"dpHasta{depto.id_departamento}";
             datePickerHasta.HorizontalAlignment = HorizontalAlignment.Left;
             datePickerHasta.VerticalAlignment = VerticalAlignment.Top;
             datePickerHasta.Margin = new Thickness(1122, 126, 0, 0);
@@ -184,8 +186,12 @@ namespace turismo_real_desktop.Views.Reservas
         {
             Trace.WriteLine("---------------------------------------");
             DatePicker datepicker = e.Source as DatePicker;
-            Trace.WriteLine(datepicker.SelectedDate.ToString());
-            Trace.WriteLine(datepicker.Name);
+            Grid parent = datepicker.Parent as Grid;
+            int depto = Convert.ToInt32(datepicker.Name.Substring(datepicker.Name.Length - 1, 1));
+            Trace.WriteLine("ID: "+depto);
+
+
+            int deptoId = Convert.ToInt32(parent.Name.Substring(parent.Name.Length - 1, 1));
             Trace.WriteLine("---------------------------------------");
         }
 

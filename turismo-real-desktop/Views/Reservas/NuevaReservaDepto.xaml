@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:turismo_real_desktop.Views.Reservas"
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
-        Title="NuevaReservaDepto" Height="723" Width="1353" WindowStartupLocation="CenterScreen">
+        Title="NuevaReservaDepto" Height="723" Width="1358" WindowStartupLocation="CenterScreen">
     <Grid>
         <!-- GRID PROGRESS BAR -->
         <Grid x:Name="progressBarGrid" Margin="265,4,293,0" Height="143" VerticalAlignment="Top">
