@@ -30,17 +30,17 @@
             <TextBlock HorizontalAlignment="Left" Margin="669,97,0,0" Text="Asistentes" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="#FF606060"/>
         </Grid>
 
-        <Button Content="CONTINUAR" HorizontalAlignment="Center" Margin="0,636,0,0" VerticalAlignment="Top" Click="StepServicios"/>
+        <Button Content="CONTINUAR" HorizontalAlignment="Center" Margin="0,636,0,0" VerticalAlignment="Top"/>
         <Button Content="VOLVER" HorizontalAlignment="Left" Margin="508,636,0,0" VerticalAlignment="Top" Click="BackToCliente"/>
 
 
 
         <ScrollViewer Margin="0,158,0,0" HorizontalAlignment="Center" Width="1353" VerticalContentAlignment="Top" VerticalAlignment="Top" Height="451">
-            <Grid x:Name="deptosGrid" Height="451" Margin="0,0,0,136" Background="Salmon">
+            <Grid x:Name="deptosGrid" Height="451" Margin="0,0,0,136" Background="White">
 
                 <!-- DEPARTAMENTO INFO -->
                 <Grid x:Name="departamento1" Background="Beige" Margin="20,20,20,0" Height="283" VerticalAlignment="Top">
-                    <Image x:Name="imgDepto1" Source="https://inmobiliare.com/himalaya/wp-content/uploads/2020/05/deptos-compra-de-departamentos-propiedades.com-inmobiliare.jpg" Width="350" Height="250" Margin="19,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                    <Image x:Name="imgDepto1" Source="https://inmobiliare.com/himalaya/wp-content/uploads/2020/05/deptos-compra-de-departamentos-propiedades.com-inmobiliare.jpg" Width="350" Height="250" Margin="10,14,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Stretch="Uniform"/>
 
                     <TextBlock x:Name="tipoText1" HorizontalAlignment="Left" Margin="397,20,0,0" Text="Normal" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16"/>
                     <TextBlock x:Name="datosText1" HorizontalAlignment="Left" Margin="397,51,0,0" Text="150m2 | 3 dormitorios | 2 baños" TextWrapping="Wrap" VerticalAlignment="Top"/>
@@ -51,7 +51,7 @@
                     <ListBox x:Name="listbox1" Margin="879,64,244,28"/>
                     <TextBlock x:Name="desdeText1" HorizontalAlignment="Left" Margin="1077,80,0,0" Text="Desde" TextWrapping="Wrap" VerticalAlignment="Top"/>
                     <TextBlock x:Name="hastaText1" HorizontalAlignment="Left" Margin="1080,126,0,0" Text="Hasta" TextWrapping="Wrap" VerticalAlignment="Top"/>
-                    <DatePicker x:Name="dpDesde1" HorizontalAlignment="Left" Margin="1122,77,0,0" VerticalAlignment="Top" SelectedDateChanged="dpDesde1_SelectedDateChanged"/>
+                    <DatePicker x:Name="dpDesde1" HorizontalAlignment="Left" Margin="1122,77,0,0" VerticalAlignment="Top"/>
                     <DatePicker x:Name="dpHasta1" HorizontalAlignment="Left" Margin="1122,126,0,0" VerticalAlignment="Top"/>
                     <TextBlock x:Name="totalArriendo1" HorizontalAlignment="Left" Margin="1080,176,0,0" Text="TOTAL ARRIENDO: $120.000" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
 
