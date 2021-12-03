@@ -19,5 +19,7 @@ namespace turismo_real_business.DTOs
         public int idDepartamento { get; set; }
         public List<ServicioReservaDTO> servicios { get; set; }
         public List<AsistenteDTO> asistentes { get; set; }
+
+        public double GetDiassArriendo() => (fecHasta - fecDesde).TotalDays;
     }
 }

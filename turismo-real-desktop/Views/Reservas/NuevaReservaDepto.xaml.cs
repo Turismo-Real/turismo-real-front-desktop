@@ -4,15 +4,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using turismo_real_business.DTOs;
 using turismo_real_controller.Controllers.Departamento;
 using turismo_real_controller.Controllers.Imagen;
@@ -84,7 +79,7 @@ namespace turismo_real_desktop.Views.Reservas
                 marginTopDeptoContainer += 300;
 
                 deptosGrid.Height = deptosGridHeight;
-                deptosGridHeight += 323;
+                deptosGridHeight += 300;
                 deptosGrid.Children.Add(deptoContainer);
 
                 imagenController = new ImagenController();
@@ -206,6 +201,7 @@ namespace turismo_real_desktop.Views.Reservas
             ListBox instalacionesList = new ListBox();
             instalacionesList.Name = $"listbox{depto.id_departamento}";
             instalacionesList.Margin = new Thickness(879, 64, 244, 28);
+            instalacionesList.Background = Brushes.Beige;
             instalacionesList.ItemsSource = depto.instalaciones;
 
             parentGrid.Children.Add(instalacionesTitle);
@@ -281,7 +277,6 @@ namespace turismo_real_desktop.Views.Reservas
 
         private void SeleccionarDepto(object sender, RoutedEventArgs e)
         {
-            Trace.WriteLine($"SOURCE: {(e.Source as Button).Name}");
             Button source = e.Source as Button;
             int depto_id = Convert.ToInt32(source.Name.Substring(source.Name.Length - 1, 1));
             DepartamentoDTO selectedDepto = departamentos.Find(x => x.id_departamento == depto_id);
@@ -294,6 +289,7 @@ namespace turismo_real_desktop.Views.Reservas
             DatePicker hasta = parent.Children[11] as DatePicker;
             reserva.fecDesde = Convert.ToDateTime(desde.SelectedDate);
             reserva.fecHasta = Convert.ToDateTime(hasta.SelectedDate);
+            reserva.valorArriendo = selectedDepto.valorDiario * reserva.GetDiassArriendo();
 
             if (nextWindow != null) nextWindow.Show();
 

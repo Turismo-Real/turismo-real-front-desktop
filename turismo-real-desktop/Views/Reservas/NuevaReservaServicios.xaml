@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:turismo_real_desktop.Views.Reservas"
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
-        Title="NuevaReservaServicios" Height="721" Width="966" WindowStartupLocation="CenterScreen">
+        Title="NuevaReservaServicios" Height="751" Width="890" WindowStartupLocation="CenterScreen">
     <Grid>
         <!-- GRID PROGRESS BAR -->
         <Grid x:Name="progressBarGrid" Margin="40,10,41,0" Height="143" VerticalAlignment="Top">
@@ -30,7 +30,47 @@
             <TextBlock HorizontalAlignment="Left" Margin="669,97,0,0" Text="Asistentes" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="#FF606060"/>
         </Grid>
 
-        <Button Content="CONTINUAR" HorizontalAlignment="Left" Margin="531,348,0,0" VerticalAlignment="Top" Click="StepAsistentes"/>
-        <Button Content="Volver" HorizontalAlignment="Left" Margin="342,348,0,0" VerticalAlignment="Top" Click="BackToDepto"/>
+
+        <TextBlock HorizontalAlignment="Center" FontSize="20" FontWeight="Bold" Margin="0,158,0,0" Text="AGREGAR SERVICIOS" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
+        <ScrollViewer Margin="100,190,0,0" HorizontalAlignment="Left" Width="717" Height="359" VerticalAlignment="Top">
+            <Grid x:Name="serviciosGrid" Margin="0,0,0,0" Height="800" Background="White">
+                <!-- CONTENEDOR SERVICIO -->
+                <Grid x:Name="gridServicio" Margin="20,20,20,0" Height="250" VerticalAlignment="Top" Background="Beige" HorizontalAlignment="Left" Width="650">
+                    <TextBlock x:Name="tbTipo" FontSize="18" FontWeight="Bold" HorizontalAlignment="Left" Margin="60,17,0,0" Text="TOUR" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="tbNombre" FontSize="14" HorizontalAlignment="Left" Margin="60,50,0,0" Text="Tour por las playas cercanas al departamento" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="tbDescripcion" HorizontalAlignment="Left" TextAlignment="Justify" Margin="60,0,0,55" Text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa del servicio" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="502" Height="119"/>
+                    <TextBlock x:Name="tbValor" FontSize="18" FontWeight="Bold" HorizontalAlignment="Left" Margin="60,206,0,0" Text="Valor: $30.000" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                    <Button x:Name="btnAgregarQuitar" Content="AGREGAR" HorizontalAlignment="Left" Margin="434,200,0,0" VerticalAlignment="Top" Width="128" Height="38"/>
+
+                </Grid>
+                <Grid Margin="20,297,0,0" Height="250" VerticalAlignment="Top" Background="Beige" HorizontalAlignment="Left" Width="650">
+                    <TextBlock x:Name="tbTipo1" FontSize="18" FontWeight="Bold" HorizontalAlignment="Left" Margin="60,17,0,0" Text="TOUR" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="tbNombre1" FontSize="14" HorizontalAlignment="Left" Margin="60,50,0,0" Text="Tour por las playas cercanas al departamento" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="tbDescripcion1" HorizontalAlignment="Left" Margin="60,0,0,55" Text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa del servicio" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="502" Height="119"/>
+                    <TextBlock x:Name="tbValor1" FontSize="18" FontWeight="Bold" HorizontalAlignment="Left" Margin="60,206,0,0" Text="Valor: $30.000" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                    <Button x:Name="btnAgregarQuitar1" Content="AGREGAR" HorizontalAlignment="Left" Margin="434,200,0,0" VerticalAlignment="Top" Width="128" Height="38"/>
+
+                </Grid>
+            </Grid>
+        </ScrollViewer>
+        <TextBlock x:Name="tbCantidadServicios" FontSize="14" FontWeight="Medium" HorizontalAlignment="Left" Margin="115,557,0,0" Text="Servicios seleccionados: 3" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock x:Name="tbTotalArriendo" FontSize="14" FontWeight="Medium" HorizontalAlignment="Left" Margin="658,557,0,0" Text="Arriendo: $300.000" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock x:Name="tbTotalServicios" FontSize="14" FontWeight="Medium" HorizontalAlignment="Left" Margin="658,578,0,0" Text="Servicios: $65.000" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock x:Name="tbTotalReserva" FontSize="14" FontWeight="Medium" HorizontalAlignment="Left" Margin="683,601,0,0" Text="Total: $365.000" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Separator Height="3" Width="700" HorizontalAlignment="Left" Margin="86,548,0,0" VerticalAlignment="Top"/>
+
+        <mah:Tile HorizontalAlignment="Left" Margin="528,641,0,0" VerticalAlignment="Top" Height="45">
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Text="CONTINUAR" FontSize="14" FontWeight="Medium"/>
+            </StackPanel>
+        </mah:Tile>
+
+        <mah:Tile HorizontalAlignment="Left" Margin="262,641,0,0" VerticalAlignment="Top" Height="45" Click="BackToDepto">
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Text="VOLVER" FontSize="14" FontWeight="Medium"/>
+            </StackPanel>
+        </mah:Tile>
+
     </Grid>
 </mah:MetroWindow>

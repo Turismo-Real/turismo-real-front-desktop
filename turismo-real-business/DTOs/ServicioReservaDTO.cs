@@ -8,5 +8,14 @@
         public string tipo { get; set; }
         public double valor { get; set; }
         public int conductor { get; set; }
+
+        public ServicioReservaDTO SetFromServicioDTO(ServicioDTO servicio)
+        {
+            idServicio = servicio.idServicio;
+            this.servicio = servicio.nombre;
+            tipo = servicio.tipo;
+            valor = servicio.valor;
+            return this;
+        }
     }
 }
