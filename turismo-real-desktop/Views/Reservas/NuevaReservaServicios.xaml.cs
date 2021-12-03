@@ -3,15 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using turismo_real_business.DTOs;
 using turismo_real_controller.Controllers.Servicio;
 
@@ -24,11 +18,13 @@ namespace turismo_real_desktop.Views.Reservas
         private ReservaDTO _reserva;
         private ServicioController servicioController;
         private List<ServicioDTO> _servicios;
+        protected int seleccionados;
 
         public NuevaReservaServicios(NuevaReservaDepto previousWindow, ReservaDTO reserva)
         {
             this.previousWindow = previousWindow;
             _reserva = reserva;
+            seleccionados = 0;
             InitializeComponent();
             CargarServicios();
             SetDefaultValues(_reserva);
@@ -169,22 +165,29 @@ namespace turismo_real_desktop.Views.Reservas
             if (source.Content.Equals("AGREGAR"))
             {
                 ServicioDTO selectedServicio = _servicios.Find(x => x.idServicio == servicio_id);
-                ServicioReservaDTO servicioReserva = new ServicioReservaDTO().SetFromServicioDTO(selectedServicio);
+                Trace.WriteLine(selectedServicio);
+                ServicioReservaDTO servicioReserva = new ServicioReservaDTO(selectedServicio);
+                if (_reserva.servicios == null) _reserva.servicios = new List<ServicioReservaDTO>();
                 _reserva.servicios.Add(servicioReserva);
                 source.Content = "QUITAR";
-
-                Grid parent = source.Parent as Grid;
-                parent.Background = Brushes.Gray;
+                _reserva.valorArriendo += selectedServicio.valor;
+                ChangeParentBg(source.Parent as Grid, Brushes.Gray);
+                seleccionados++;
             }
             else if (source.Content.Equals("QUITAR"))
             {
                 ServicioReservaDTO selectedServicio = _reserva.servicios.Find(x => x.idServicio == servicio_id);
                 _reserva.servicios.Remove(selectedServicio);
                 source.Content = "AGREGAR";
-                Grid parent = source.Parent as Grid;
-                parent.Background = Brushes.Beige;
+                _reserva.valorArriendo -= selectedServicio.valor;
+                ChangeParentBg(source.Parent as Grid, Brushes.Beige);
+                seleccionados--;
             }
-            
+            SetTotalServicios(_reserva.GetTotalServicios());
+            SetTotalReserva(_reserva.valorArriendo);
+            SetCantidadServicios(seleccionados);
         }
+
+        private void ChangeParentBg(Grid parent, Brush color) => parent.Background = color;
     }
 }

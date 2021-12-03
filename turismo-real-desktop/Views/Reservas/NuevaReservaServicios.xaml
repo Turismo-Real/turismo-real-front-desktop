@@ -60,7 +60,7 @@
         <TextBlock x:Name="tbTotalReserva" FontSize="14" FontWeight="Medium" HorizontalAlignment="Left" Margin="683,601,0,0" Text="Total: $365.000" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <Separator Height="3" Width="700" HorizontalAlignment="Left" Margin="86,548,0,0" VerticalAlignment="Top"/>
 
-        <mah:Tile HorizontalAlignment="Left" Margin="528,641,0,0" VerticalAlignment="Top" Height="45">
+        <mah:Tile HorizontalAlignment="Left" Margin="528,641,0,0" VerticalAlignment="Top" Height="45" Click="StepAsistentes">
             <StackPanel VerticalAlignment="Center">
                 <TextBlock Text="CONTINUAR" FontSize="14" FontWeight="Medium"/>
             </StackPanel>

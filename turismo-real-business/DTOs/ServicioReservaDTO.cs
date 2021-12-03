@@ -2,20 +2,22 @@
 {
     public class ServicioReservaDTO
     { 
-        public int id { get; set; }
-        public int idServicio { get; set; }
-        public string servicio { get; set; }
-        public string tipo { get; set; }
-        public double valor { get; set; }
-        public int conductor { get; set; }
-
-        public ServicioReservaDTO SetFromServicioDTO(ServicioDTO servicio)
+        public ServicioReservaDTO() { }
+        public ServicioReservaDTO(ServicioDTO servicio)
         {
+            id = null;
             idServicio = servicio.idServicio;
             this.servicio = servicio.nombre;
             tipo = servicio.tipo;
             valor = servicio.valor;
-            return this;
+            conductor = null;
         }
+
+        public int? id { get; set; }
+        public int idServicio { get; set; }
+        public string servicio { get; set; }
+        public string tipo { get; set; }
+        public double valor { get; set; }
+        public int? conductor { get; set; }
     }
 }
