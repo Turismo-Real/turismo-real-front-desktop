@@ -1,7 +1,6 @@
 ﻿using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
@@ -149,7 +148,7 @@ namespace turismo_real_desktop.Views.Reservas
 
             if (nextWindow == null)
             {
-                NuevaReservaAsistente reservaAsistentesWin = new NuevaReservaAsistente(this);
+                NuevaReservaAsistente reservaAsistentesWin = new NuevaReservaAsistente(_reserva, this);
                 reservaAsistentesWin.Show();
             }
             Hide();
@@ -165,9 +164,10 @@ namespace turismo_real_desktop.Views.Reservas
             if (source.Content.Equals("AGREGAR"))
             {
                 ServicioDTO selectedServicio = _servicios.Find(x => x.idServicio == servicio_id);
-                Trace.WriteLine(selectedServicio);
                 ServicioReservaDTO servicioReserva = new ServicioReservaDTO(selectedServicio);
                 if (_reserva.servicios == null) _reserva.servicios = new List<ServicioReservaDTO>();
+                servicioReserva.id = 0;
+                servicioReserva.conductor = 0;
                 _reserva.servicios.Add(servicioReserva);
                 source.Content = "QUITAR";
                 _reserva.valorArriendo += selectedServicio.valor;

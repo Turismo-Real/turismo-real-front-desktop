@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:turismo_real_desktop.Views.Reservas"
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
-        Title="NuevaReservaAsistente" Height="497" Width="953" WindowStartupLocation="CenterScreen">
+        Title="Turismo Real - Nueva Reserva | Asistentes" Height="650" Width="886" WindowStartupLocation="CenterScreen">
     <Grid>
         <!-- GRID PROGRESS BAR -->
-        <Grid x:Name="progressBarGrid" Margin="40,10,41,0" Height="143" VerticalAlignment="Top">
+        <Grid x:Name="progressBarGrid" Margin="4,10,77,0" Height="143" VerticalAlignment="Top">
             <Rectangle HorizontalAlignment="Left" Height="22" Margin="115,47,0,0" Stroke="#FF60A917" VerticalAlignment="Top" Width="605" Fill="#FF60A917"/>
 
             <Rectangle HorizontalAlignment="Left" Height="72" Margin="96,19,0,0" Stroke="#FF60A917" VerticalAlignment="Top" Width="72" RadiusX="50" RadiusY="50" Fill="#FF60A917"/>
@@ -28,8 +28,25 @@
             <TextBlock HorizontalAlignment="Left" Margin="700,41,0,0" Text="4" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="White" FontWeight="Bold"/>
             <TextBlock HorizontalAlignment="Left" Margin="657,100,0,0" Text="ASISTENTES" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="#FF60A917"/>
         </Grid>
+        <TextBlock HorizontalAlignment="Left" FontSize="18" FontWeight="Bold" Margin="338,189,0,0" Text="REGISTRAR ASISTENTES" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" FontSize="14" Margin="126,218,0,0" Text="Los asistentes pueden ser agregados posteriormente hasta 1 día antes del arriendo del departamento." TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <DataGrid x:Name="asistentesGrid" BorderThickness="1" BorderBrush="Black" Margin="126,317,0,123" HorizontalAlignment="Left" Width="652"/>
+        <Button x:Name="btnAgregar" Content="AGREGAR" HorizontalAlignment="Left" Margin="422,280,0,0" VerticalAlignment="Top" Width="106" Click="OpenAgregarAsistente"/>
+        <Button x:Name="btnModificar" Content="MODIFICAR" HorizontalAlignment="Left" Margin="548,280,0,0" VerticalAlignment="Top" Width="106"/>
+        <Button x:Name="btnQuitar" Content="QUITAR" HorizontalAlignment="Left" Margin="672,280,0,0" VerticalAlignment="Top" Width="106" Click="QuitarAsistente"/>
+        <TextBlock x:Name="contadorAsistentes" HorizontalAlignment="Left" FontSize="14" FontWeight="Medium" Margin="126,284,0,0" Text="Total Asistentes: 3" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
-        <Button Content="FINALIZAR" HorizontalAlignment="Left" Margin="531,348,0,0" VerticalAlignment="Top"/>
-        <Button Content="VOLVER" HorizontalAlignment="Left" Margin="342,348,0,0" VerticalAlignment="Top" Click="BackToServicios"/>
+        <mah:Tile x:Name="btnVolver" Cursor="Hand" HorizontalAlignment="Left" Margin="270,540,0,0" VerticalAlignment="Top" Height="45" Click="BackToServicios">
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Text="VOLVER" FontSize="14" FontWeight="Medium"/>
+            </StackPanel>
+        </mah:Tile>
+
+        <mah:Tile x:Name="btnFinalizar" Cursor="Hand" HorizontalAlignment="Left" Margin="509,540,0,0" VerticalAlignment="Top" Height="45" Click="FinalizarReserva">
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Text="FINALIZAR" FontSize="14" FontWeight="Medium"/>
+            </StackPanel>
+        </mah:Tile>
+
     </Grid>
 </mah:MetroWindow>

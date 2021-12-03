@@ -28,6 +28,9 @@
     <Compile Update="Views\Extra\RecoverPassword.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Reservas\AgregarAsistenteReserva.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Reservas\NuevaReservaAsistente.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -41,6 +44,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Reservas\Reserva.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Reservas\ReservaFinalizada.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Reservas\ReservasWindow.xaml.cs">
@@ -87,6 +93,9 @@
     <Page Update="Views\Extra\RecoverPassword.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\Reservas\AgregarAsistenteReserva.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\Reservas\NuevaReservaAsistente.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -100,6 +109,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Reservas\Reserva.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Reservas\ReservaFinalizada.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Reservas\ReservasWindow.xaml">

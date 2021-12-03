@@ -1,9 +1,8 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
-using System.Text;
 using turismo_real_business.DTOs;
 using turismo_real_services.Utils;
 
@@ -30,7 +29,37 @@ namespace turismo_real_services.REST.Reserva
             return reservasResponse;
         }
 
-        public List<ReservaDTO> ParseReservaResponse(dynamic reservaREST)
+        public ReservaDTO CreateReserva(ReservaDTO reserva)
+        {
+            string json = JsonConvert.SerializeObject(reserva);
+            WebRequest request = WebRequest.Create(URLService.URL_RESERVAS);
+            request.Method = "POST";
+            request.PreAuthenticate = true;
+            request.ContentType = "Application/json; Charset=UTF-8";
+            request.Timeout = 3000;
+            Trace.WriteLine(URLService.URL_RESERVAS);
+            Trace.WriteLine(json);
+
+            using (StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
+            {
+                streamWriter.Write(json);
+                streamWriter.Flush();
+            }
+
+            string result = string.Empty;
+            HttpWebResponse httpResponse = (HttpWebResponse)request.GetResponse();
+            using (StreamReader streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                result = streamReader.ReadToEnd();
+            }
+            dynamic response = JsonConvert.DeserializeObject(result);
+            bool createResponse = response["saved"];
+
+            if (createResponse) return DynamicToReserva(response["reserva"]);
+            return null;
+        }
+
+        private List<ReservaDTO> ParseReservaResponse(dynamic reservaREST)
         {
             List<ReservaDTO> reservas = new List<ReservaDTO>();
             foreach (dynamic reservaJSON in reservaREST)
@@ -41,7 +70,7 @@ namespace turismo_real_services.REST.Reserva
             return reservas;
         }
 
-        public ReservaDTO DynamicToReserva(dynamic reservaJSON)
+        private ReservaDTO DynamicToReserva(dynamic reservaJSON)
         {
             ReservaDTO reserva = new ReservaDTO();
             reserva.idReserva = reservaJSON["idReserva"];
@@ -61,7 +90,7 @@ namespace turismo_real_services.REST.Reserva
             return reserva;
         }
 
-        public List<AsistenteDTO> GetAsistentesReserva(dynamic asistentes)
+        private List<AsistenteDTO> GetAsistentesReserva(dynamic asistentes)
         {
             List<AsistenteDTO> asistentesList = new List<AsistenteDTO>();
             foreach (dynamic asistente in asistentes)
