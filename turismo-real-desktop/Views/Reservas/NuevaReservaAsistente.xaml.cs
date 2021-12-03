@@ -39,7 +39,6 @@ namespace turismo_real_desktop.Views.Reservas
 
             if (saved != null)
             {
-                Trace.WriteLine("VENTANA FINALIZACION");
                 ReservaFinalizada finalizadaWin = new ReservaFinalizada(saved);
                 finalizadaWin.Show();
                 Close();

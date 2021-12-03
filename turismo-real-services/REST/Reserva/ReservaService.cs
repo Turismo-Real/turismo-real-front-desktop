@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Net;
 using turismo_real_business.DTOs;
@@ -37,8 +36,6 @@ namespace turismo_real_services.REST.Reserva
             request.PreAuthenticate = true;
             request.ContentType = "Application/json; Charset=UTF-8";
             request.Timeout = 3000;
-            Trace.WriteLine(URLService.URL_RESERVAS);
-            Trace.WriteLine(json);
 
             using (StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
             {
