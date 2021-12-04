@@ -1,5 +1,6 @@
 ﻿using MahApps.Metro.Controls;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows;
 using turismo_real_business.DTOs;
 using turismo_real_controller.Controllers.Reserva;
@@ -34,6 +35,7 @@ namespace turismo_real_desktop.Views.Reservas
         {
             if (_reserva.asistentes == null) _reserva.asistentes = new List<AsistenteDTO>();
             reservaController = new ReservaController();
+            Trace.WriteLine($"CANTIDAD ASISTENTES: {_reserva.asistentes.Count}");
             ReservaDTO saved = reservaController.NuevaReserva(_reserva);
 
             if (saved != null)

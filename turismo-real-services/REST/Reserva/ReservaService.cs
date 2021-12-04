@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
 using turismo_real_business.DTOs;
@@ -31,6 +32,7 @@ namespace turismo_real_services.REST.Reserva
         public ReservaDTO CreateReserva(ReservaDTO reserva)
         {
             string json = JsonConvert.SerializeObject(reserva);
+            Trace.WriteLine(json);
             WebRequest request = WebRequest.Create(URLService.URL_RESERVAS);
             request.Method = "POST";
             request.PreAuthenticate = true;
@@ -96,11 +98,11 @@ namespace turismo_real_services.REST.Reserva
                 asistenteReserva.pasaporte = asistente["pasaporte"];
                 asistenteReserva.numRut = asistente["numRut"];
                 asistenteReserva.dvRut = asistente["dvRut"];
-                asistenteReserva.primerNombre = asistente["pNombre"];
-                asistenteReserva.segundoNombre = asistente["sNombre"];
-                asistenteReserva.primerApellido = asistente["pApellido"];
-                asistenteReserva.primerApellido = asistente["sApellido"];
-                asistenteReserva.correo = asistente["email"];
+                asistenteReserva.primerNombre = asistente["primerNombre"];
+                asistenteReserva.segundoNombre = asistente["segundoNombre"];
+                asistenteReserva.primerApellido = asistente["primerApellido"];
+                asistenteReserva.primerApellido = asistente["segundoApellido"];
+                asistenteReserva.correo = asistente["correo"];
                 asistentesList.Add(asistenteReserva);
             }
             return asistentesList;
