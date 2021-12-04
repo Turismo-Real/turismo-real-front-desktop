@@ -1,10 +1,14 @@
 ﻿using MahApps.Metro.Controls;
+using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Windows;
 using turismo_real_business.DTOs;
 using turismo_real_controller.Controllers.Reserva;
 using turismo_real_desktop.GridEntities;
+using IronPdf;
 
 namespace turismo_real_desktop.Views.Reservas
 {
@@ -39,6 +43,7 @@ namespace turismo_real_desktop.Views.Reservas
 
             if (saved != null)
             {
+                GenerarPDF(saved);
                 ReservaFinalizada finalizadaWin = new ReservaFinalizada(saved);
                 finalizadaWin.Show();
                 Close();
@@ -47,6 +52,35 @@ namespace turismo_real_desktop.Views.Reservas
             string title = "";
             string message = "";
             MessageBox.Show(title, message, MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        public async void GenerarPDF(ReservaDTO reserva)
+        {
+            SaveFileDialog saveFile = new SaveFileDialog();
+            saveFile.FileName = $"turismoreal_reserva_{reserva.idReserva}_{DateTime.Now.ToString("ddMMyyyyHHmmss")}.pdf";
+
+            string pdf_template = Properties.Resources.nuevaReservaPDF.ToString();
+            pdf_template = SetVariables(pdf_template);
+            Trace.WriteLine(pdf_template);
+
+            if (saveFile.ShowDialog() == true)
+            {
+                HtmlToPdf htmltopdf = new HtmlToPdf();
+                PdfDocument pdfdoc = await htmltopdf.RenderHtmlAsPdfAsync(pdf_template);
+                using (FileStream stream = new FileStream(saveFile.FileName, FileMode.Create))
+                {
+                    stream.Write(pdfdoc.Stream.ToArray());
+                    stream.Close();
+                }
+            }
+        }
+
+        private string SetVariables(string html)
+        {
+            html = html.Replace("@IDRESERVA", "20");
+            html = html.Replace("@PASAPORTE", "11111111111");
+            html = html.Replace("@NUMRUT", "19406080-7");
+            return html;
         }
 
         private void OpenAgregarAsistente(object sender, RoutedEventArgs e)
