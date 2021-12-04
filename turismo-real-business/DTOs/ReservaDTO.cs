@@ -20,13 +20,19 @@ namespace turismo_real_business.DTOs
         public List<ServicioReservaDTO> servicios { get; set; }
         public List<AsistenteDTO> asistentes { get; set; }
 
-        public double GetDiassArriendo() => (fecHasta - fecDesde).TotalDays;
+        public double GetDiasArriendo() => (fecHasta - fecDesde).TotalDays;
 
         public double GetTotalServicios()
         {
             double totalServicios = 0;
             foreach (ServicioReservaDTO servicio in servicios) totalServicios += servicio.valor;
             return totalServicios;
+        }
+
+        public double GetTotalArriendo(double valorArriendoDiario)
+        {
+            valorArriendo = (valorArriendoDiario * GetDiasArriendo()) + GetTotalServicios();
+            return valorArriendo;
         }
     }
 }

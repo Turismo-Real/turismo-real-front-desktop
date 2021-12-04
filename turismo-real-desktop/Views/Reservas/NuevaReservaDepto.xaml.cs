@@ -289,7 +289,7 @@ namespace turismo_real_desktop.Views.Reservas
             DatePicker hasta = parent.Children[11] as DatePicker;
             reserva.fecDesde = Convert.ToDateTime(desde.SelectedDate);
             reserva.fecHasta = Convert.ToDateTime(hasta.SelectedDate);
-            reserva.valorArriendo = selectedDepto.valorDiario * reserva.GetDiassArriendo();
+            reserva.valorArriendo = selectedDepto.valorDiario * reserva.GetDiasArriendo();
 
             if (nextWindow != null) nextWindow.Show();
 

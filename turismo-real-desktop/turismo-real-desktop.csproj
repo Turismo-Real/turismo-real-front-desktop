@@ -12,6 +12,7 @@
     <None Remove="Assets\defaultImage.jpg" />
     <None Remove="Assets\errorImage.jpg" />
     <None Remove="Assets\TurismoRealLogo256.png" />
+    <None Remove="Resources\nuevaReservaPDF.html" />
     <None Remove="Views\Extra\door-key.png" />
     <None Remove="Views\Extra\email.png" />
     <None Remove="Views\Extra\TurismoRealLogo256.png" />
@@ -43,6 +44,7 @@
     <Resource Include="Assets\errorImage.jpg" />
     <Resource Include="Assets\TurismoRealLogo256.png" />
     <Resource Include="Assets\TurismoRealLogo512.png" />
+    <Resource Include="Resources\nuevaReservaPDF.html" />
   </ItemGroup>
 
   <ItemGroup>

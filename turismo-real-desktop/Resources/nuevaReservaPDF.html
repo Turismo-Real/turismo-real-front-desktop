@@ -3,18 +3,44 @@
 <head>
     <meta charset="UTF-8"/>
     <style>
-*{
-    font-family: Helvetica;
+*{ font-family: Helvetica; }
+table{ width: 100%; }
+.reserva-title{ text-align: center; }
+.reserva-title tr td { padding: 5px; }
+.line{ background: #000; }
+.subtitle{ font-size: 18px; }
+.cliente-table{ border: 1px solid #000; }
+.cliente-table tr{ border: 1px solid #000; }
+.cliente-table tr td{ border: 1px solid #000; }
+
+.servicios-table{
+    width: 100%;
+    border-collapse: collapse;;
 }
-.reservaTitle{
-    text-align: center;
+.servicios-table tr th{
+    background: #444;
+    color: #fff;
 }
+
+.servicios-table tr td,
+.servicios-table tr th{ padding: 5px; }
+
+.total-servicios{ text-align: right; }
+.total-servicios, .total{
+    border: none;
+    font-weight: bold;
+}
+.table-header,
+.table-data{ border: 1px solid #000; }
+.txt-total{ text-align: right; }
+
+
     </style>
 </head>
 <body>
-    <h1 class="reservaTitle">RESERVA @IDRESERVA</h1>
+    <h1 class="reserva-title">RESERVA @IDRESERVA</h1>
 
-    <table>
+    <table class="reserva-table">
         <tr>
             <td><b>Fecha:</b> @FECHARESERVA</td>
             <td><b>Desde:</b> @FECHADESDE</td>
@@ -22,9 +48,11 @@
         </tr>
     </table>
 
-    <hr>
+    <hr class="line">
 
-    <table>
+    <h2 class="subtitle">CLIENTE</h2>
+
+    <table class="cliente-table">
         <tr>
             <td><b>RUT:</b> @NUMRUT</td>
             <td><b>Pasaporte:</b> @PASAPORTE</td>
@@ -47,11 +75,11 @@
         </tr>
     </table>
 
-    <hr>
+    <hr class="line">
 
-    <h2>DEPARTAMENTO</h2>
+    <h2 class="subtitle">DEPARTAMENTO</h2>
 
-    <table>
+    <table class="depto-table">
         <tr>
             <td><b>ID:</b> @IDDEPTO</td>
             <td><b>Tipo:</b> @TIPODEPTO</td>
@@ -72,12 +100,30 @@
             <td><b>N° Depto:</b> @NUMDEPTO</td>
         </tr>
         <tr>
-            <td><b>Descripción:</b> @DESCRIPCIONDEPTO</td>
+            <td class="depto-desc" colspan="3"><b>Descripción:</b> @DESCRIPCIONDEPTO</td>
         </tr>
         <tr>
-            <td><b>Instalaciones:</b> @INSTALACIONES</td>
+            <td class="depto-instalaciones" colspan="3"><b>Instalaciones:</b> @INSTALACIONES</td>
         </tr>
     </table>
+
+    <hr class="line">
+
+    <h2 class="subtitle">SERVICIOS (@CANTIDADSERVICIOS)</h2>
+    <p>Recuerda que puedes agregar más servicios incluso durante tu estancia.</p>
+
+    @SERVICIOS
+    <hr class="line">
+
+    <h2 class="subtitle">ASISTENTES (@CANTIDADASISTENTES)</h2>
+    <p>Recuerda que puedes agregar nuevos asistentes hasta 24 horas antes del check in.</p>
+
+    @ASISTENTES
+    <hr class="line">
+
+    <p class="txt-total">Total Arriendo: @TOTALARRIENDO</p>
+    <p class="txt-total">Total Servicios: @TOTALSERVICIOS</p>
+    <p class="txt-total"><b>TOTAL RESERVA: @TOTALRESERVA</b></p>
 
 </body>
 </html>

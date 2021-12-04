@@ -8,6 +8,7 @@
         mc:Ignorable="d"
         Title="ReservaFinalizada" Height="450" Width="800">
     <Grid>
-        
+        <Button Content="GUARDAR COMO PDF" HorizontalAlignment="Left" Margin="364,346,0,0" VerticalAlignment="Top" Click="GuardarPDF"/>
+
     </Grid>
 </mah:MetroWindow>
