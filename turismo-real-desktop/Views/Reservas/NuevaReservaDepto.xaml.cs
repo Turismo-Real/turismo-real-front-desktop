@@ -16,22 +16,32 @@ namespace turismo_real_desktop.Views.Reservas
 {
     public partial class NuevaReservaDepto : MetroWindow
     {
-        private NuevaReservaCliente previousWindow;
-        private NuevaReservaServicios nextWindow;
-        private readonly UsuarioDTO reservationOwner;
+        private NuevaReservaCliente _prevWindow;
+        private NuevaReservaServicios _nextWindow;
+        private UsuarioDTO _cliente;
+        private DepartamentoDTO _depto;
+        private ReservaDTO _reserva;
+        private List<DepartamentoDTO> _deptos;
+        private ReservasWindow _targetWindow;
         private DepartamentoController deptoController;
         private ImagenController imagenController;
-        private List<DepartamentoDTO> departamentos;
 
-        public NuevaReservaDepto(NuevaReservaCliente previousWindow, UsuarioDTO reservationOwner)
+        public NuevaReservaDepto(NuevaReservaCliente previousWindow, UsuarioDTO cliente)
         {
-            this.previousWindow = previousWindow;
-            this.reservationOwner = reservationOwner;
+            SetPreviousWindow(previousWindow, cliente);
             InitializeComponent();
 
             deptoController = new DepartamentoController();
-            departamentos = deptoController.ObtenerDepartamentos();
-            CargarDepartamentos(departamentos);
+            _deptos = deptoController.ObtenerDepartamentos();
+            CargarDepartamentos(_deptos);
+        }
+
+        public void SetTargetWindow(ReservasWindow targetWindow) => _targetWindow = targetWindow;
+
+        public void SetPreviousWindow(NuevaReservaCliente previousWindow, UsuarioDTO cliente)
+        {
+            _prevWindow = previousWindow;
+            _cliente = cliente;
         }
 
         public void SetDeptoImage(DepartamentoDTO depto, string imageData, Grid parentContainer)
@@ -169,7 +179,7 @@ namespace turismo_real_desktop.Views.Reservas
             if (source.SelectedDate != null && siblingDatePicker.SelectedDate != null)
             {
                 // OBTENER DEPARTAMENTO
-                DepartamentoDTO selectedDepto = departamentos.Find(x => x.id_departamento == depto_id);
+                DepartamentoDTO selectedDepto = _deptos.Find(x => x.id_departamento == depto_id);
                 // OBTENER FECHAS DE ARRIENDO
                 DateTime fechaDesde = Convert.ToDateTime(source.SelectedDate);
                 DateTime fechaHasta = Convert.ToDateTime(siblingDatePicker.SelectedDate);
@@ -268,35 +278,40 @@ namespace turismo_real_desktop.Views.Reservas
 
         private void BackToCliente(object sender, RoutedEventArgs e)
         {
-            previousWindow.SetNextWindow(this);
-            previousWindow.Show();
+            _prevWindow.SetNextWindow(this);
+            _prevWindow.Show();
             Hide();
         }
 
-        public void SetNextWindow(NuevaReservaServicios nextWindow) => this.nextWindow = nextWindow;
+        public void SetNextWindow(NuevaReservaServicios nextWindow) => this._nextWindow = nextWindow;
 
         private void SeleccionarDepto(object sender, RoutedEventArgs e)
         {
             Button source = e.Source as Button;
             int depto_id = Convert.ToInt32(source.Name.Substring(source.Name.Length - 1, 1));
-            DepartamentoDTO selectedDepto = departamentos.Find(x => x.id_departamento == depto_id);
-            ReservaDTO reserva = new ReservaDTO();
-            reserva.idUsuario = reservationOwner.idUsuario;
-            reserva.idDepartamento = selectedDepto.id_departamento;
+            _depto = _deptos.Find(x => x.id_departamento == depto_id);
+            _reserva = new ReservaDTO();
+            _reserva.idUsuario = _cliente.idUsuario;
+            _reserva.idDepartamento = _depto.id_departamento;
 
             Grid parent = source.Parent as Grid;
             DatePicker desde = parent.Children[10] as DatePicker;
             DatePicker hasta = parent.Children[11] as DatePicker;
-            reserva.fecDesde = Convert.ToDateTime(desde.SelectedDate);
-            reserva.fecHasta = Convert.ToDateTime(hasta.SelectedDate);
-            reserva.valorArriendo = selectedDepto.valorDiario * reserva.GetDiasArriendo();
+            _reserva.fecDesde = Convert.ToDateTime(desde.SelectedDate);
+            _reserva.fecHasta = Convert.ToDateTime(hasta.SelectedDate);
+            _reserva.valorArriendo = _depto.valorDiario * _reserva.GetDiasArriendo();
 
-            if (nextWindow != null) nextWindow.Show();
-
-            if (nextWindow == null)
+            if (_nextWindow != null)
             {
-                NuevaReservaServicios reservaServiciosWin = new NuevaReservaServicios(this, reserva);
-                nextWindow = reservaServiciosWin;
+                _nextWindow.SetPreviousWindow(this, _reserva, _cliente, _depto);
+                _nextWindow.Show();
+            }
+
+            if (_nextWindow == null)
+            {
+                NuevaReservaServicios reservaServiciosWin = new NuevaReservaServicios(this, _reserva, _cliente, _depto);
+                _nextWindow = reservaServiciosWin;
+                reservaServiciosWin.SetTargetWindow(_targetWindow);
                 reservaServiciosWin.Show();
             }
             Hide();

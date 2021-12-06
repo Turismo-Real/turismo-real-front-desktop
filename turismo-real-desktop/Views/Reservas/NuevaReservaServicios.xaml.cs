@@ -12,21 +12,33 @@ namespace turismo_real_desktop.Views.Reservas
 {
     public partial class NuevaReservaServicios : MetroWindow
     {
-        private readonly NuevaReservaDepto previousWindow;
-        private NuevaReservaAsistente nextWindow;
+        private NuevaReservaDepto _prevWindow;
+        private NuevaReservaAsistente _nextWindow;
+        private UsuarioDTO _cliente;
+        private DepartamentoDTO _depto;
         private ReservaDTO _reserva;
-        private ServicioController servicioController;
         private List<ServicioDTO> _servicios;
+        private ReservasWindow _targetWindow;
+        private ServicioController servicioController;
         protected int seleccionados;
 
-        public NuevaReservaServicios(NuevaReservaDepto previousWindow, ReservaDTO reserva)
+        public NuevaReservaServicios(NuevaReservaDepto previousWindow, ReservaDTO reserva, UsuarioDTO cliente, DepartamentoDTO depto)
         {
-            this.previousWindow = previousWindow;
-            _reserva = reserva;
+            SetPreviousWindow(previousWindow, reserva, cliente, depto);
             seleccionados = 0;
             InitializeComponent();
             CargarServicios();
             SetDefaultValues(_reserva);
+        }
+
+        public void SetTargetWindow(ReservasWindow taregetWindow) => _targetWindow = taregetWindow;
+
+        public void SetPreviousWindow(NuevaReservaDepto previousWindow, ReservaDTO reserva, UsuarioDTO cliente, DepartamentoDTO depto)
+        {
+            _prevWindow = previousWindow;
+            _reserva = reserva;
+            _cliente = cliente;
+            _depto = depto;
         }
 
         private void SetDefaultValues(ReservaDTO reserva)
@@ -135,26 +147,33 @@ namespace turismo_real_desktop.Views.Reservas
             return container;
         }
 
+        public void SetTaragetWindow(ReservasWindow targetWindow) => _targetWindow = targetWindow;
+
         private void BackToDepto(object sender, RoutedEventArgs e)
         {
-            previousWindow.SetNextWindow(this);
-            previousWindow.Show();
+            _prevWindow.SetNextWindow(this);
+            _prevWindow.Show();
             Hide();
         }
 
         private void StepAsistentes(object sender, RoutedEventArgs e)
         {
-            if (nextWindow != null) nextWindow.Show();
-
-            if (nextWindow == null)
+            if (_nextWindow != null)
             {
-                NuevaReservaAsistente reservaAsistentesWin = new NuevaReservaAsistente(_reserva, this);
+                _nextWindow.SetPreviousWindow(this, _reserva, _cliente, _depto);
+                _nextWindow.Show();
+            }
+
+            if (_nextWindow == null)
+            {
+                NuevaReservaAsistente reservaAsistentesWin = new NuevaReservaAsistente(this, _reserva, _cliente, _depto);
+                reservaAsistentesWin.SetTargetWindow(_targetWindow);
                 reservaAsistentesWin.Show();
             }
             Hide();
         }
 
-        public void SetNextWindow(NuevaReservaAsistente nextWindow) => this.nextWindow = nextWindow;
+        public void SetNextWindow(NuevaReservaAsistente nextWindow) => this._nextWindow = nextWindow;
         private void AgregarQuitarServicio(object sender, RoutedEventArgs e) => AgregarQuitar(e.Source as Button);
 
         private void AgregarQuitar(Button source)

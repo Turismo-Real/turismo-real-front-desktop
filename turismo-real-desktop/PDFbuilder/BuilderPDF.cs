@@ -11,6 +11,7 @@ namespace turismo_real_desktop.PDFbuilder
 
         public BuilderPDF(string pdfTemplate) => this.pdfTemplate = pdfTemplate;
 
+        public BuilderPDF() { }
         public HtmlToPdf GetInstanceHTMLtoPDF(double margins)
         {
             HtmlToPdf htmlToPDF = new HtmlToPdf();
@@ -103,7 +104,7 @@ namespace turismo_real_desktop.PDFbuilder
             return name;
         }
 
-        private string ConvertInstalaciones(List<string> instalaciones)
+        public string ConvertInstalaciones(List<string> instalaciones)
         {
             string contactInstalaciones = string.Empty;
             bool first = true;

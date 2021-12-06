@@ -21,13 +21,14 @@ namespace turismo_real_desktop.Views.Reservas
 {
     public partial class NuevaReservaCliente : MetroWindow
     {
-        private ReservaController reservaController;
+        private ReservasWindow _targetWindow;
         private UsuarioController usuarioController;
-        private NuevaReservaDepto nextWindow;
-        private UsuarioDTO reservationOwner;
+        private NuevaReservaDepto _nextWindow;
+        private UsuarioDTO _cliente;
 
-        public NuevaReservaCliente()
+        public NuevaReservaCliente(ReservasWindow targetWindow)
         {
+            _targetWindow = targetWindow;
             InitializeComponent();
         }
 
@@ -38,9 +39,9 @@ namespace turismo_real_desktop.Views.Reservas
         public void BuscarUsuario(string rutPasaporte)
         {
             usuarioController = new UsuarioController();
-            reservationOwner = usuarioController.ExisteUsuario(rutPasaporte); ;
+            _cliente = usuarioController.ExisteUsuario(rutPasaporte); ;
 
-            if (reservationOwner != null)
+            if (_cliente != null)
             {
                 ShowReservaDeptoWindow();
                 ChangeVisibilityNotFoundUserAlert(Visibility.Hidden);
@@ -60,11 +61,16 @@ namespace turismo_real_desktop.Views.Reservas
 
         private void ShowReservaDeptoWindow()
         {
-            if (nextWindow != null) nextWindow.Show();
-
-            if (nextWindow == null)
+            if (_nextWindow != null)
             {
-                NuevaReservaDepto reservaDeptoWin = new NuevaReservaDepto(this, reservationOwner);
+                _nextWindow.SetPreviousWindow(this, _cliente);
+                _nextWindow.Show();
+            }
+
+            if (_nextWindow == null)
+            {
+                NuevaReservaDepto reservaDeptoWin = new NuevaReservaDepto(this, _cliente);
+                reservaDeptoWin.SetTargetWindow(_targetWindow);
                 reservaDeptoWin.Show();
             }
             Hide();
@@ -72,7 +78,7 @@ namespace turismo_real_desktop.Views.Reservas
 
         public void SetNextWindow(NuevaReservaDepto nextWindow)
         {
-            this.nextWindow = nextWindow;
+            this._nextWindow = nextWindow;
         }
 
         private void ActiveLabel(object sender, MouseEventArgs e) => lblNuevoCliente.Foreground = UIColors.NormalGreen;
@@ -86,6 +92,6 @@ namespace turismo_real_desktop.Views.Reservas
             nuevoUsuarioWin.ShowDialog();
         }
 
-        public void SetReservationOwner(UsuarioDTO owner) => reservationOwner = owner;
+        public void SetReservationOwner(UsuarioDTO owner) => _cliente = owner;
     }
 }

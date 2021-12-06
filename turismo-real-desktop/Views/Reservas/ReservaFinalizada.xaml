@@ -6,9 +6,114 @@
         xmlns:local="clr-namespace:turismo_real_desktop.Views.Reservas"
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
-        Title="ReservaFinalizada" Height="450" Width="800">
+        Title="ReservaFinalizada" Height="530" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button Content="GUARDAR COMO PDF" HorizontalAlignment="Left" Margin="364,346,0,0" VerticalAlignment="Top" Click="GuardarPDF"/>
+        <ScrollViewer>
+            <Grid Height="1109" Margin="0,0,0,0" VerticalAlignment="Top">
+                <TextBlock x:Name="reservaTitle" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="292,24,0,0" Text="RESERVA N° 2031" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="51,69,0,0" Text="Fecha:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="328,69,0,0" Text="Desde:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="557,69,0,0" Text="Hasta:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
+                <Separator Height="3" Background="Black" Margin="51,95,42,0" VerticalAlignment="Top" />
+
+                <TextBlock FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" Margin="51,114,0,0" Text="CLIENTE" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="51,144,0,0" Text="RUT:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="327,144,0,0" Text="Pasaporte:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="557,144,0,0" Text="Correo:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="51,168,0,0" Text="Nombres:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="327,168,0,0" Text="Apellidos:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="557,168,0,0" Text="País:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="51,192,0,0" Text="Región:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="326,192,0,0" Text="Comuna:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="557,192,0,0" Text="Calle:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="51,216,0,0" Text="Número:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="326,216,0,0" Text="N° Depto:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="557,216,0,0" Text="N° Casa:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
+                <Separator Height="3" Background="Black" Margin="51,245,42,0" VerticalAlignment="Top" />
+
+                <TextBlock FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" Margin="51,264,0,0" Text="DEPARTAMENTO" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="51,294,0,0" Text="ID:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="326,294,0,0" Text="Tipo:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="557,294,0,0" Text="Valor Diario:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="51,317,0,0" Text="Dormitorios:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="327,318,0,0" Text="Baños:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="557,318,0,0" Text="Superficie:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="51,341,0,0" Text="Región:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="326,342,0,0" Text="Comuna:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="557,342,0,0" Text="Calle:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="52,366,0,0" Text="Número:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="326,366,0,0" Text="N° Depto:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="51,391,0,0" Text="Instalaciones:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="51,415,0,0" Text="Descripción:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
+                <Separator Height="3" Background="Black" Margin="51,494,42,0" VerticalAlignment="Top" />
+
+                <TextBlock x:Name="serviciosCounter" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" Margin="52,514,0,0" Text="SERVICIOS (3)" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock FontSize="14" HorizontalAlignment="Left" Margin="52,540,0,0" Text="Recuerda que puedes agregar servicios durante tu estadía." TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock x:Name="serviciosMsg" Visibility="Hidden" FontSize="14" HorizontalAlignment="Left" Margin="52,564,0,0" Text="No se han agregado servicios." TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <DataGrid x:Name="serviciosGrid" Margin="52,569,43,0" BorderThickness="1" Height="118" VerticalAlignment="Top"/>
+
+                <Separator Height="3" Background="Black" Margin="52,716,41,0" VerticalAlignment="Top" />
+
+                <TextBlock x:Name="asistentesCounter" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" Margin="53,737,0,0" Text="ASISTENTES (3)" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock FontSize="14" HorizontalAlignment="Left" Margin="53,763,0,0" Text="Recuerda que puedes agregar nuevos asistentes hasta un día antes de la reseerva." TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock x:Name="asistentesMsg" Visibility="Hidden" FontSize="14" HorizontalAlignment="Left" Margin="52,787,0,0" Text="No se han agregado asistentes." TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <DataGrid x:Name="asistentesGrid" Margin="52,792,41,0" BorderThickness="1" Height="100" VerticalAlignment="Top"/>
+
+                <TextBlock x:Name="totalArriendo" TextAlignment="Right" FontSize="14" HorizontalAlignment="Left" Margin="550,914,0,0" Text="Total Arriendo: $99.999.999" TextWrapping="Wrap" VerticalAlignment="Top" Width="194"/>
+                <TextBlock x:Name="totalServicios" TextAlignment="Right" FontSize="14" HorizontalAlignment="Left" Margin="550,938,0,0" Text="Total Servicios: $99.999.999" TextWrapping="Wrap" VerticalAlignment="Top" Width="194"/>
+                <TextBlock x:Name="totalReserva" TextAlignment="Right" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="529,962,0,0" Text="TOTAL RESERVA: $99.9999.999" TextWrapping="Wrap" VerticalAlignment="Top" Width="216"/>
+
+                <!-- RESERVA -->
+                <TextBlock x:Name="fechaReserva" FontSize="14" HorizontalAlignment="Left" Margin="101,69,0,0" Text="05-12-2021 | 15:17:20" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock x:Name="desde" FontSize="14" HorizontalAlignment="Left" Margin="377,69,0,0" Text="21-12-2021" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock x:Name="hasta" FontSize="14" HorizontalAlignment="Left" Margin="602,69,0,0" Text="23-12-2021" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
+                <!-- CLIENTE -->
+                <TextBlock x:Name="rut" FontSize="14" HorizontalAlignment="Left" Margin="91,144,0,0" Text="19406080-7" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock x:Name="nombres" FontSize="14" HorizontalAlignment="Left" Margin="120,168,0,0" Text="Enzo Giovanni" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock x:Name="regionCliente" FontSize="14" HorizontalAlignment="Left" Margin="106,192,0,0" Text="Región Metropolitana" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock x:Name="numDireccionCliente" FontSize="14" HorizontalAlignment="Left" Margin="114,216,0,0" Text="1230" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock x:Name="pasaporte" FontSize="14" HorizontalAlignment="Left" Margin="404,144,0,0" Text="A30000001" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock x:Name="apellidos" FontSize="14" HorizontalAlignment="Left" Margin="398,168,0,0" Text="Norese Rivera" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock x:Name="comunaCliente" FontSize="14" HorizontalAlignment="Left" Margin="388,192,0,0" Text="Santiago" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock x:Name="numDeptoCliente" FontSize="14" HorizontalAlignment="Left" Margin="396,216,0,0" Text="45" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock x:Name="correo" FontSize="14" HorizontalAlignment="Left" Margin="609,144,0,0" Text="enzo@correo.com" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock x:Name="pais" FontSize="14" HorizontalAlignment="Left" Margin="591,168,0,0" Text="Chile" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock x:Name="calleCliente" FontSize="14" HorizontalAlignment="Left" Margin="597,192,0,0" Text="Santa Ana" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock x:Name="numCasaCliente" FontSize="14" HorizontalAlignment="Left" Margin="616,216,0,0" Text="33" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
+                <!-- DEPARTAMENTO -->
+                <TextBlock x:Name="idDepto" FontSize="14" HorizontalAlignment="Left" Margin="74,293,0,0" Text="324" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock x:Name="dormitorios" FontSize="14" HorizontalAlignment="Left" Margin="140,318,0,0" Text="3" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock x:Name="regionDepto" FontSize="14" HorizontalAlignment="Left" Margin="105,342,0,0" Text="Valparaiso" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock x:Name="numeroDireccionDepto" FontSize="14" HorizontalAlignment="Left" Margin="114,367,0,0" Text="3412" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock x:Name="instalaciones" FontSize="14" HorizontalAlignment="Left" Margin="145,391,0,0" Text="Calefacción, Internet, Cable." TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock x:Name="descripcion" TextAlignment="Justify" FontSize="14" HorizontalAlignment="Left" Margin="137,415,0,0" Text="Los alojamientos disponen de cocina con microondas y nevera, caja fuerte, TV de pantalla plana por cable, utensilios de planchado, armario y zona de estar con sofá. Todos los alojamientos incluyen baño privado con ducha, secador de pelo y artículos de aseo gratuitos." TextWrapping="Wrap" VerticalAlignment="Top" Width="598"/>
+                <TextBlock x:Name="tipoDepto" FontSize="14" HorizontalAlignment="Left" Margin="363,294,0,0" Text="Normal" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock x:Name="banios" FontSize="14" HorizontalAlignment="Left" Margin="377,318,0,0" Text="2" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock x:Name="comunaDepto" FontSize="14" HorizontalAlignment="Left" Margin="388,341,0,0" Text="Puchuncaví" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock x:Name="numDepto" FontSize="14" HorizontalAlignment="Left" Margin="396,366,0,0" Text="33" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock x:Name="valorDiario" FontSize="14" HorizontalAlignment="Left" Margin="644,294,0,0" Text="$30.000" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock x:Name="superficie" FontSize="14" HorizontalAlignment="Left" Margin="633,318,0,0" Text="200 m2" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock x:Name="calleDepto" FontSize="14" HorizontalAlignment="Left" Margin="598,342,0,0" Text="San Francisco" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
+                <mah:Tile x:Name="btnSalir" Background="#FFFFFF" BorderThickness="1" BorderBrush="#CC60A917" Cursor="Hand" Width="200" Margin="146,1014,0,0" Height="46" VerticalAlignment="Top" Click="Salir" MouseEnter="OnHoverSalir" MouseLeave="OnLeaveSalir" HorizontalAlignment="Left">
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock x:Name="salirText" Text="SALIR" Foreground="#CC60A917" FontSize="16" FontWeight="Medium"/>
+                    </StackPanel>
+                </mah:Tile>
+
+                <mah:Tile x:Name="btnGuardarPDF" Background="#FFFFFF" BorderBrush="#2778D3" BorderThickness="1" Width="200" Margin="456,1014,0,0" Height="46" VerticalAlignment="Top" Cursor="Hand" Click="GuardarPDF" MouseEnter="OnHoverGuardar" MouseLeave="OnLeaveGuardar" HorizontalAlignment="Left">
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock x:Name="guardarText" Text="GUARDAR PDF" Foreground="#2778D3" FontSize="16" FontWeight="Medium"/>
+                    </StackPanel>
+                </mah:Tile>
+                <Separator Height="3" Background="Black" Margin="52,903,41,0" VerticalAlignment="Top" />
+            </Grid>
+        </ScrollViewer>
 
     </Grid>
 </mah:MetroWindow>

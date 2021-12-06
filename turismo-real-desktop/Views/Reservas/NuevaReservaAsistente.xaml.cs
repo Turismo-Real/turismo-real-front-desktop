@@ -1,6 +1,5 @@
 ﻿using MahApps.Metro.Controls;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Windows;
 using turismo_real_business.DTOs;
 using turismo_real_controller.Controllers.Reserva;
@@ -10,24 +9,36 @@ namespace turismo_real_desktop.Views.Reservas
 {
     public partial class NuevaReservaAsistente : MetroWindow
     {
-        private readonly NuevaReservaServicios _previousWindow;
+        private NuevaReservaServicios _prevWindow;
         private ReservaDTO _reserva;
+        private UsuarioDTO _cliente;
+        private DepartamentoDTO _depto;
+        private ReservasWindow _targetWindow;
         private ReservaController reservaController;
 
-        public NuevaReservaAsistente(ReservaDTO reserva, NuevaReservaServicios previousWindow)
+        public NuevaReservaAsistente(NuevaReservaServicios previousWindow, ReservaDTO reserva, UsuarioDTO cliente, DepartamentoDTO depto)
         {
-            _reserva = reserva;
-            _previousWindow = previousWindow;
+            SetPreviousWindow(previousWindow, reserva, cliente, depto);
             InitializeComponent();
             SetContadorAsistentes(0);
+        }
+
+        public void SetTargetWindow(ReservasWindow targetWindow) => _targetWindow = targetWindow;
+
+        public void SetPreviousWindow(NuevaReservaServicios previousWindow, ReservaDTO reserva, UsuarioDTO cliente, DepartamentoDTO depto)
+        {
+            _prevWindow = previousWindow;
+            _reserva = reserva;
+            _cliente = cliente;
+            _depto = depto;
         }
 
         public void SetContadorAsistentes(int asistentes) => contadorAsistentes.Text = $"Total Asistentes: {asistentes}";
 
         private void BackToServicios(object sender, RoutedEventArgs e)
         {
-            _previousWindow.SetNextWindow(this);
-            _previousWindow.Show();
+            _prevWindow.SetNextWindow(this);
+            _prevWindow.Show();
             Hide();
         }
 
@@ -35,13 +46,13 @@ namespace turismo_real_desktop.Views.Reservas
         {
             if (_reserva.asistentes == null) _reserva.asistentes = new List<AsistenteDTO>();
             reservaController = new ReservaController();
-            Trace.WriteLine($"CANTIDAD ASISTENTES: {_reserva.asistentes.Count}");
-            ReservaDTO saved = reservaController.NuevaReserva(_reserva);
+            ReservaDTO savedReserva = reservaController.NuevaReserva(_reserva);
 
-            if (saved != null)
+            if (savedReserva != null)
             {
-                ReservaFinalizada finalizadaWin = new ReservaFinalizada(saved);
+                ReservaFinalizada finalizadaWin = new ReservaFinalizada(savedReserva, _cliente, _depto);
                 finalizadaWin.Show();
+                _targetWindow.FillDataGridReservas();
                 Close();
                 return;
             }

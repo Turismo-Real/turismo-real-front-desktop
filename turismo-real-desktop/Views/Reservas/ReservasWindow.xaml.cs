@@ -63,7 +63,7 @@ namespace turismo_real_desktop.Views.Reservas
 
         private void OpenNuevaReserva(object sender, RoutedEventArgs e)
         {
-            NuevaReservaCliente nuevaReservaWin = new NuevaReservaCliente();
+            NuevaReservaCliente nuevaReservaWin = new NuevaReservaCliente(this);
             nuevaReservaWin.Show();
         }
 
